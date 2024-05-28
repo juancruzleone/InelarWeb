@@ -14,6 +14,14 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(""); // Reset error message
+
+    // Validación del lado del cliente
+    if (!usuario || !contraseña) {
+      setError("Ingrese ambos campos para logear");
+      return;
+    }
+
     try {
       const response = await fetch("http://localhost:2023/api/cuenta/login", {
         method: "POST",
@@ -30,6 +38,8 @@ const Login = () => {
         if (errorData.error.message === "Validation error") {
           const validationErrors = errorData.error.details.map((detail) => detail.message);
           setError(validationErrors.join(', '));
+        } else if (errorData.error.message === "Invalid username or password") {
+          setError("Nombre de usuario o contraseña incorrectos.");
         } else {
           setError(`Error en la solicitud: ${errorData.error.message}`);
         }
