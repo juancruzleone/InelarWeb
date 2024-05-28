@@ -73,7 +73,9 @@ const Home = () => {
         <h2 className={styles.subtituloServicios}>Servicios</h2>
         <div className={styles.posicionServicios}>
           <div className={styles.cajaServicios}>
-            <h3 className={styles.nombreServicios}>Instalaciones</h3>
+            <Link href='/instalaciones'>
+              <h3 className={styles.nombreServicios}>Instalaciones</h3>
+            </Link>
             <a href="/instalaciones">
               <Image
                 src="/instalaciones.webp"
@@ -85,7 +87,9 @@ const Home = () => {
             </a>
           </div>
           <div className={styles.cajaServicios}>
-            <h3 className={styles.nombreServicios}>Mantenimientos</h3>
+            <Link href='/mantenimientos'>
+              <h3 className={styles.nombreServicios}>Mantenimientos</h3>
+            </Link>
             <a href="/mantenimientos">
               <Image
                 src="/mantenimiento.webp"
@@ -97,7 +101,9 @@ const Home = () => {
             </a>
           </div>
           <div className={styles.cajaServicios}>
-            <h3 className={styles.nombreServicios}>Servicio técnico</h3>
+            <Link href='/serviciotecnico'>
+              <h3 className={styles.nombreServicios}>Servicio técnico</h3>
+            </Link>
             <a href="/serviciotecnico">
               <Image
                 src="/servicio-tecnico.webp"
@@ -109,7 +115,9 @@ const Home = () => {
             </a>
           </div>
           <div className={styles.cajaServicios}>
-            <h3 className={styles.nombreServicios}>Provisiones</h3>
+            <Link href='/provisiones'>
+              <h3 className={styles.nombreServicios}>Provisiones</h3>
+            </Link>
             <a href="/provisiones">
               <Image
                 src="/provisiones.webp"
