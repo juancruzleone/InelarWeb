@@ -797,6 +797,8 @@
 #titulosPreguntas{
   font-family: "montserrat", sans-serif;
   font-size: 20px;
+  padding-left: 6px;
+  padding-top: 6px;
 }
 
 #respuestasPreguntas{
