@@ -103,3 +103,50 @@ a {
 main{
   background-color: #080808;
 }
+
+.contenedor404{
+  height: 600px;
+  padding-top: 120px;
+}
+
+.contenedor404, .titulo404{
+  font-size: 50px;
+  font-family: "montserrat", sans-serif;
+  justify-content: center;
+  text-align: center;
+}
+
+.contenedor404, .texto404{
+  font-size: 18px;
+  font-family: "montserrat", sans-serif;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+
+.boton-404{
+  background-color: #C75F00;
+  text-align: center;
+  padding: 5px;
+  font-family: "montserrat", sans-serif;
+  border-radius: 4px;
+}
+
+.boton-404:hover{
+  background-color: #f57600;
+}
+
+
+.contenedorImg404{
+  display: block;
+  justify-content: center;
+  text-align: center;
+}
+
+.contenedorImg404 img{
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 60px;
+}
+
