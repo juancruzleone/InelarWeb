@@ -28,35 +28,40 @@ const Carrito = () => {
   return (
     <Layout className={styles.app}>
       <h1 className={styles.tituloPaginas}>Carrito</h1>
-      <div className={styles.contenedorSeccionCarrito}>
-        <div className={styles.contenedorCarrito}>
+      <div className={`${styles.contenedorSeccionCarrito} ${carrito.length === 0 ? styles.contenedorSeccionCarritoVacio : ''}`}>
+        <div className={`${styles.contenedorCarrito} ${carrito.length === 0 ? styles.contenedorCarritoVacio : ''}`}>
           <h3>Productos en el carrito</h3>
-          {carrito.map((producto, index) => (
-            <div key={index} className={styles.tarjetaProductoCarrito}>
-              <div className={styles.imagenProductoDetalleCarrito}>
-                <Image
-                  src={producto.imagen}
-                  alt={producto.nombre}
-                  width={150}
-                  height={180}
-                />
+          {carrito.length === 0 ? (
+            <p className={styles.mensajeCarritoVacio}>No hay productos en el carrito.</p>
+          ) : (
+            carrito.map((producto, index) => (
+              <div key={index} className={styles.tarjetaProductoCarrito}>
+                <div className={styles.imagenProductoDetalleCarrito}>
+                  <Image
+                    src={producto.imagen}
+                    alt={producto.nombre}
+                    width={150}
+                    height={180}
+                  />
+                </div>
+                <div className={styles.detalleProductoCarrito}>
+                  <p className={styles.nombreProductoCarrito}>{producto.nombre}</p>
+                  <p className={styles.categoriaProductoCarrito}>{producto.categoria}</p>
+                  <p>{producto.precio}</p>
+                </div>
+                <button
+                  className={styles.botonEliminar}
+                  onClick={() => handleEliminarProducto(index)}
+                >
+                  <Image src="/eliminar.png" alt="Eliminar" width={20} height={20} />
+                </button>
               </div>
-              <div className={styles.detalleProductoCarrito}>
-                <p className={styles.nombreProductoCarrito}>{producto.nombre}</p>
-                <p className={styles.categoriaProductoCarrito}>{producto.categoria}</p>
-                <p>{producto.precio}</p>
-              </div>
-              <button
-                className={styles.botonEliminar}
-                onClick={() => handleEliminarProducto(index)}
-              >
-                <Image src="/eliminar.png" alt="Eliminar" width={20} height={20} />
-              </button>
-            </div>
-          ))}
-          
+            ))
+          )}
         </div>
-        <Link href="/#" className={styles.botonIrCheckout}>Proceder al checkout</Link>
+        {carrito.length > 0 && (
+          <Link href="/#" className={styles.botonIrCheckout}>Proceder al checkout</Link>
+        )}
       </div>
       <Footer></Footer>
     </Layout>
