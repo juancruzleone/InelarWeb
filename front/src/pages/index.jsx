@@ -118,7 +118,7 @@ const Home = () => {
             <Link href='/provisiones'>
               <h3 className={styles.nombreServicios}>Provisiones</h3>
             </Link>
-            <a href="/provisiones">
+            <Link href="/provisiones">
               <Image
                 src="/provisiones.webp"
                 alt="icono provisiones"
@@ -126,7 +126,7 @@ const Home = () => {
                 width={140}
                 height={140}
               />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

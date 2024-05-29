@@ -534,12 +534,12 @@
 
 .cardServicios:hover{
   background-color: #C75F00;
+  cursor: pointer;
 }
 
 .cardServicios:hover .botonCardServicio{
-  background-color: white;
-  color: #f57600;
-  font-weight: bold;
+  background-color: #121212;
+  color: white;
 }
 
 .tituloCardServicio{
@@ -565,9 +565,7 @@
   margin-top: 20px;
 }
 
-.botonCardServicio:hover{
-  background-color: #C75F00;
-}
+
 
 .nombreServicios{
   font-family: "montserrat", sans-serif;
@@ -580,6 +578,15 @@
   text-align: left;
 }
 
+.iconoServiciosCard:hover {
+  transform: scale(1.1); /* Agrandar ligeramente el ícono en hover */
+}
+
+.cardServicios:hover {
+  background-color: #C75F00;
+  cursor: pointer;
+  transform: scale(1.05); /* Agrandar ligeramente la tarjeta */
+}
 
 .posicionSeccionProductos{
   display: flex;
