@@ -1,5 +1,5 @@
-// register.jsx
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 import Modal from "react-modal";
 import Link from "next/link";
 import Layout from "@/components/layout";
@@ -14,13 +14,14 @@ const Register = () => {
   const [contraseña, setContraseña] = useState("");
   const [error, setError] = useState("");
   const [showModal, setShowModal] = useState(false);
+  const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Verificar que el usuario haya ingresado un nombre de usuario y una contraseña
     if (!usuario && !contraseña) {
-      setError("Por favor, ingresa un nombre de usuario y una contraseña.");
+      setError("Ingrese ambos campos para registrarse.");
       return;
     }
 
@@ -31,6 +32,16 @@ const Register = () => {
 
     if (!contraseña) {
       setError("Por favor, ingresa una contraseña.");
+      return;
+    }
+
+    if (usuario.length < 6) {
+      setError("El nombre de usuario debe tener al menos 6 caracteres.");
+      return;
+    }
+
+    if (contraseña.length < 6) {
+      setError("La contraseña debe tener al menos 6 caracteres.");
       return;
     }
 
@@ -48,19 +59,26 @@ const Register = () => {
         // Mensajes de error personalizados en español
         if (errorData.error.message === "cuenta ya existe") {
           setError("La cuenta ya existe. Por favor, inicia sesión.");
-        } else if (errorData.error.message === "Nombre de usuario y contraseña deben tener al menos 6 caracteres") {
-          setError("Nombre de usuario y contraseña deben tener al menos 6 caracteres.");
+        } else if (errorData.error.details) {
+          setError(errorData.error.details.join(', '));
         } else {
           setError(`Error en la solicitud: ${errorData.error.message}`);
         }
         return;
       }
 
-      // Solicitud exitosa, mostrar el modal
-      setShowModal(true);
-
+      // Solicitud exitosa
       const data = await response.json();
       console.log(data);
+
+      // Suponiendo que el backend devuelve un token de sesión o información relevante
+      const { token } = data;
+
+      // Guardar el token en localStorage
+      localStorage.setItem("token", token);
+
+      // Redirigir al usuario al home
+      router.push("/");
     } catch (error) {
       setError("Error de red");
     }
