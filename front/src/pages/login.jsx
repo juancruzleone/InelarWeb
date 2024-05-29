@@ -1,4 +1,3 @@
-// login.jsx
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -18,7 +17,7 @@ const Login = () => {
 
     // Validación del lado del cliente
     if (!usuario || !contraseña) {
-      setError("Ingrese ambos campos para logear");
+      setError("Ingrese ambos campos para iniciar sesión.");
       return;
     }
 
@@ -33,24 +32,28 @@ const Login = () => {
 
       if (!response.ok) {
         const errorData = await response.json();
-        
+
         // Manejar errores de validación específicos
         if (errorData.error.message === "Validation error") {
-          const validationErrors = errorData.error.details.map((detail) => detail.message);
-          setError(validationErrors.join(', '));
-        } else if (errorData.error.message === "Invalid username or password") {
-          setError("Nombre de usuario o contraseña incorrectos.");
+          setError("Usuario o contraseña incorrectos.");
         } else {
           setError(`Error en la solicitud: ${errorData.error.message}`);
         }
         return;
       }
 
-      // Inicio de sesión exitoso, redirigir al home
-      router.push("/");
-
+      // Inicio de sesión exitoso
       const data = await response.json();
       console.log(data);
+
+      // Suponiendo que el backend devuelve un token de sesión o información relevante
+      const { token } = data;
+
+      // Guardar el token en localStorage
+      localStorage.setItem("token", token);
+
+      // Redirigir al usuario al home
+      router.push("/");
     } catch (error) {
       setError("Error de red");
     }
