@@ -92,7 +92,7 @@ const Contacto = () => {
               onChange={handleInputChange}
             />
             <span className="error">{formErrors.message}</span>
-            <button type="submit">Enviar</button>
+            <button type="submit" id="boton-contacto">Enviar</button>
           </form>
         </div>
       </div>

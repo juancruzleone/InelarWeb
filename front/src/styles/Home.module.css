@@ -1182,7 +1182,9 @@
 }
 
 .formularioContacto label {
+  color: white;
   margin-bottom: 0.5rem;
+  margin-top: 1rem;
   font-weight: bold;
   font-family: "montserrat", sans-serif;
 }
@@ -1190,7 +1192,6 @@
 .formularioContacto input,
 .formularioContacto textarea {
   padding: 0.7rem;
-  margin-bottom: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
   background-color: #121212;
@@ -1838,6 +1839,11 @@
   height: 30px;
 }
 
+.contenedorFormulario, .error {
+  font-family: "montserrat", sans-serif;
+  color: red;
+  font-size: 16px;
+}
 
 
 
