@@ -1677,6 +1677,7 @@
 }
 
 .tarjetaProductoPanel{
+  display: flex;
   background-color: #1d1d1d;
   border-radius: 7px;
   padding: 20px;
@@ -1684,6 +1685,7 @@
   width: 600px;
   font-family: "montserrat", sans-serif;
 }
+
 
 .tarjetaProductoPanelListado{
   background-color: #1d1d1d;
@@ -1886,8 +1888,28 @@
   margin-top: 15px;
 }
 
+.contenedorPagina button{
+  border: 0px;
+  padding: 3px;
+  font-family: "montserrat", sans-serif;
+  border-radius: 4px;
+  margin-right: 10px;
+}
 
 
+#botonCrearProducto{
+  padding: 6px;
+  margin-left: 50px;
+  cursor: pointer;
+}
+
+
+.tituloPaginasPanel{
+  margin-left: 50px;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  color: #C75F00;
+}
 
 
 
