@@ -15,18 +15,18 @@ const ListaProductos = () => {
   const [nuevoProducto, setNuevoProducto] = useState({ name: "", description: "", price: "", categoria: "", imagen: "" });
 
   useEffect(() => {
-    const obtenerProductos = async () => {
-      try {
-        const response = await fetch("http://localhost:2023/api/productos");
-        const data = await response.json();
-        setProductos(data);
-      } catch (error) {
-        console.error("Error al obtener productos:", error);
-      }
-    };
-
     obtenerProductos();
   }, []);
+
+  const obtenerProductos = async () => {
+    try {
+      const response = await fetch("http://localhost:2023/api/productos");
+      const data = await response.json();
+      setProductos(data);
+    } catch (error) {
+      console.error("Error al obtener productos:", error);
+    }
+  };
 
   const handleEditarProducto = (producto) => {
     setProductoSeleccionado(producto);
@@ -60,9 +60,24 @@ const ListaProductos = () => {
 
   const handleSubmitEditar = async (e) => {
     e.preventDefault();
-    // Implementa la lógica para editar el producto
-    console.log("Producto editado:", productoSeleccionado);
-    handleCerrarModal();
+    try {
+      const response = await fetch(`http://localhost:2023/api/productos/${productoSeleccionado._id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(productoSeleccionado),
+      });
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error);
+      }
+      console.log("Producto editado:", productoSeleccionado);
+      handleCerrarModal();
+      obtenerProductos(); // Actualizar lista de productos después de la edición
+    } catch (error) {
+      console.error("Error al editar producto:", error);
+    }
   };
 
   const handleSubmitEliminar = async () => {
@@ -76,6 +91,7 @@ const ListaProductos = () => {
       }
       console.log("Producto eliminado:", productoSeleccionado);
       handleCerrarModal();
+      obtenerProductos(); // Actualizar lista de productos después de la eliminación
     } catch (error) {
       console.error("Error al eliminar producto:", error);
     }
@@ -192,61 +208,63 @@ const ListaProductos = () => {
         <button onClick={handleSubmitEliminar}>Eliminar</button>
         <button onClick={handleCerrarModal}>Cancelar</button>
       </Modal>
-
       {/* Modal Crear */}
-      <Modal
-        isOpen={modalCrear}
-        onRequestClose={handleCerrarModal}
-        contentLabel="Crear Producto"
-        className={styles.Modal}
-      >
-        <h2>Crear Producto</h2>
-        <form onSubmit={handleSubmitCrear}>
-          <label htmlFor="name">Nombre:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={nuevoProducto.name}
-            onChange={handleChange}
-          />
-          <label htmlFor="description">Descripción:</label>
-          <input
-            type="text"
-            id="description"
-            name="description"
-            value={nuevoProducto.description}
-            onChange={handleChange}
-          />
-          <label htmlFor="price">Precio:</label>
-          <input
-            type="number"
-            id="price"
-            name="price"
-            value={nuevoProducto.price}
-            onChange={handleChange}
-          />
-          <label htmlFor="categoria">Categoría:</label>
-          <input
-            type="text"
-            id="categoria"
-            name="categoria"
-            value={nuevoProducto.categoria}
-            onChange={handleChange}
-          />
-          <label htmlFor="imagen">Imagen:</label>
-          <input
-            type="text"
-            id="imagen"
-            name="imagen"
-            value={nuevoProducto.imagen}
-            onChange={handleChange}
-          />
-          <button type="submit">Crear</button>
-        </form>
-      </Modal>
-    </div>
-  );
+<Modal
+  isOpen={modalCrear}
+  onRequestClose={handleCerrarModal}
+  contentLabel="Crear Producto"
+  className={styles.Modal}
+>
+  <h2>Crear Producto</h2>
+  <form onSubmit={handleSubmitCrear}>
+    <label htmlFor="name">Nombre:</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      value={nuevoProducto.name}
+      onChange={handleChange}
+    />
+    <label htmlFor="description">Descripción:</label>
+    <input
+      type="text"
+      id="description"
+      name="description"
+      value={nuevoProducto.description}
+      onChange={handleChange}
+    />
+    <label htmlFor="price">Precio:</label>
+    <input
+      type="number"
+      id="price"
+      name="price"
+      value={nuevoProducto.price}
+      onChange={handleChange}
+    />
+    <label htmlFor="categoria">Categoría:</label>
+    <input
+      type="text"
+      id="categoria"
+      name="categoria"
+      value={nuevoProducto.categoria}
+      onChange={handleChange}
+    />
+    <label htmlFor="imagen">Imagen:</label>
+    <input
+      type="text"
+      id="imagen"
+      name="imagen"
+      value={nuevoProducto.imagen}
+      onChange={handleChange}
+    />
+    <button type="submit">Crear</button>
+  </form>
+</Modal>
+</div>
+);
 };
 
 export default ListaProductos;
+
+
+     
