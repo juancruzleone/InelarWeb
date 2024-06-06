@@ -442,8 +442,8 @@
 }
 
 .contenedorMapa iframe{
-  width: 500px;
-  height: 500px;
+  width: 400px;
+  height: 400px;
   border-radius: 6px;
   margin-right: 40px;
 }
@@ -1201,10 +1201,12 @@
 
 .formularioContacto input,
 .formularioContacto textarea {
-  padding: 0.7rem;
+  padding: 0.9rem;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 10px;
   background-color: #121212;
+  color: white;
+  font-family: "montserrat", sans-serif;
 }
 
 .formularioContacto button {
@@ -1222,7 +1224,6 @@
 .formularioContacto button:hover {
   background-color: #C75F00;
 }
-
 
 .formularioLogin {
   display: flex;
