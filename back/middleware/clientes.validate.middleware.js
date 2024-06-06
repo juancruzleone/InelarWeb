@@ -15,7 +15,7 @@ function validateClientePatch(req, res, next) {
             req.body = cliente;
             next();
         })
-        .catch((error) => res.status(500).json(error));
+        .catch((error) => res.status(500).json(error))
 }
 
 export {

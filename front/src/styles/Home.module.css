@@ -1676,8 +1676,17 @@
   margin-top: 40px;
 }
 
-.tarjetaProductoPanel{
+.tarjetaProductoPanelProductos{
   display: flex;
+  background-color: #1d1d1d;
+  border-radius: 7px;
+  padding: 20px;
+  margin: 30px;
+  width: 600px;
+  font-family: "montserrat", sans-serif;
+}
+
+.tarjetaProductoPanel{
   background-color: #1d1d1d;
   border-radius: 7px;
   padding: 20px;
@@ -1714,8 +1723,9 @@
 }
 
 .contenedorCategoria:hover{
-  background-color: #f57600;
+
   border-radius: 4px;
+  cursor: pointer;
 }
 
 /* ... (otras reglas de estilo) */
@@ -1745,7 +1755,6 @@
 
 .categoriaSeleccionada {
   /* Estilos para la categoría seleccionada */
-  background-color: #f57600; /* Puedes ajustar el color según tus preferencias */
   color: #fff; /* Cambia el color del texto para que sea legible sobre el fondo seleccionado */
 }
 
@@ -1897,7 +1906,7 @@
 }
 
 
-#botonCrearProducto{
+.botonCrearProducto{
   padding: 6px;
   margin-left: 50px;
   cursor: pointer;

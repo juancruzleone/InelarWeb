@@ -123,11 +123,11 @@ const ListaProductos = () => {
     <div>
       <div className={styles.contenedorPagina}>
         <h1 className={styles.tituloPaginasPanel}>Productos</h1>
-        <button onClick={handleAbrirModalCrear} id={styles.botonCrearProducto}>Crear Producto</button>
+        <button onClick={handleAbrirModalCrear} className={styles.botonCrearProducto}>Crear Producto</button>
         <div className={styles.posicionSeccionProductos}>
           <div className={styles.contenedorProductosPanel}>
             {productos.map((producto, index) => (
-              <div key={index} className={styles.tarjetaProductoPanel}>
+              <div key={index} className={styles.tarjetaProductoPanelProductos}>
                 <h3>{producto.name}</h3>
                 <div>
                   <button onClick={() => handleEditarProducto(producto)}>Editar</button>
