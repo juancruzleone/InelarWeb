@@ -154,3 +154,32 @@ main{
   margin-top: 20px;
 }
 
+/* Asegúrate de incluir esto en tu archivo CSS */
+input[type="date"] {
+  font-family: "Montserrat", sans-serif;
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #121212;
+  appearance: none; /* Esto desactiva el estilo nativo */
+  -webkit-appearance: none;
+  position: relative;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  width: 2em; /* Ajusta el tamaño según tus necesidades */
+  height: 2em; /* Ajusta el tamaño según tus necesidades */
+  transform: translateY(-50%);
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-clear-button {
+  display: none;
+}
+
+
