@@ -12,7 +12,7 @@ const ListaProductos = () => {
   const [modalEliminar, setModalEliminar] = useState(false);
   const [modalCrear, setModalCrear] = useState(false);
   const [productoSeleccionado, setProductoSeleccionado] = useState(null);
-  const [nuevoProducto, setNuevoProducto] = useState({ name: "", description: "" });
+  const [nuevoProducto, setNuevoProducto] = useState({ name: "", description: "", price: "", categoria: "", imagen: "" });
 
   useEffect(() => {
     const obtenerProductos = async () => {
@@ -39,7 +39,7 @@ const ListaProductos = () => {
   };
 
   const handleAbrirModalCrear = () => {
-    setNuevoProducto({ name: "", description: "" });
+    setNuevoProducto({ name: "", description: "", price: "", categoria: "", imagen: "" });
     setModalCrear(true);
   };
 
@@ -66,16 +66,41 @@ const ListaProductos = () => {
   };
 
   const handleSubmitEliminar = async () => {
-    // Implementa la lógica para eliminar el producto
-    console.log("Producto eliminado:", productoSeleccionado);
-    handleCerrarModal();
+    try {
+      const response = await fetch(`http://localhost:2023/api/productos/${productoSeleccionado._id}`, {
+        method: "DELETE",
+      });
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error);
+      }
+      console.log("Producto eliminado:", productoSeleccionado);
+      handleCerrarModal();
+    } catch (error) {
+      console.error("Error al eliminar producto:", error);
+    }
   };
 
   const handleSubmitCrear = async (e) => {
     e.preventDefault();
-    // Implementa la lógica para crear el producto
-    console.log("Producto creado:", nuevoProducto);
-    handleCerrarModal();
+    try {
+      const response = await fetch("http://localhost:2023/api/productos", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(nuevoProducto),
+      });
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error);
+      }
+      const createdProducto = await response.json();
+      setProductos([...productos, createdProducto]);
+      handleCerrarModal();
+    } catch (error) {
+      console.error("Error al crear producto:", error);
+    }
   };
 
   return (
@@ -126,6 +151,30 @@ const ListaProductos = () => {
               value={productoSeleccionado.description}
               onChange={handleChange}
             />
+            <label htmlFor="price">Precio:</label>
+            <input
+              type="number"
+              id="price"
+              name="price"
+              value={productoSeleccionado.price}
+              onChange={handleChange}
+            />
+            <label htmlFor="categoria">Categoría:</label>
+            <input
+              type="text"
+              id="categoria"
+              name="categoria"
+              value={productoSeleccionado.categoria}
+              onChange={handleChange}
+            />
+            <label htmlFor="imagen">Imagen:</label>
+            <input
+              type="text"
+              id="imagen"
+              name="imagen"
+              value={productoSeleccionado.imagen}
+              onChange={handleChange}
+            />
             <button type="submit">Guardar</button>
           </form>
         )}
@@ -167,6 +216,30 @@ const ListaProductos = () => {
             id="description"
             name="description"
             value={nuevoProducto.description}
+            onChange={handleChange}
+          />
+          <label htmlFor="price">Precio:</label>
+          <input
+            type="number"
+            id="price"
+            name="price"
+            value={nuevoProducto.price}
+            onChange={handleChange}
+          />
+          <label htmlFor="categoria">Categoría:</label>
+          <input
+            type="text"
+            id="categoria"
+            name="categoria"
+            value={nuevoProducto.categoria}
+            onChange={handleChange}
+          />
+          <label htmlFor="imagen">Imagen:</label>
+          <input
+            type="text"
+            id="imagen"
+            name="imagen"
+            value={nuevoProducto.imagen}
             onChange={handleChange}
           />
           <button type="submit">Crear</button>
