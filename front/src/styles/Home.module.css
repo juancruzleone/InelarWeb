@@ -1855,6 +1855,29 @@
   font-size: 16px;
 }
 
+#quienesSomos{
+  margin-bottom: 80px;
+}
+
+.seccion{
+  background-color: #121212;
+  border-radius: 10px;
+  width: 90%;
+  height: 140px;
+  padding: 20px;
+  justify-content: center;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.subtitulo{
+  font-family: "montserrat", sans-serif;
+}
+
+.seccion p{
+  font-family: "montserrat", sans-serif;
+  margin-top: 15px;
+}
 
 
 
