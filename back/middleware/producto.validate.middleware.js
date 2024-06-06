@@ -1,7 +1,7 @@
-import { cafeSchemaCreate, cafeSchemaPatch } from '../schemas/producto.schema.js'
+import { productoSchemaCreate, productoSchemaPatch } from '../schemas/producto.schema.js'
 
 function validateProducto(req, res, next){
-    cafeSchemaCreate.validate(req.body,{ abortEarly: false })
+    productoSchemaCreate.validate(req.body,{ abortEarly: false })
         .then( (producto) => {
             req.body = producto
             next()
@@ -10,7 +10,7 @@ function validateProducto(req, res, next){
 }
 
 function validateProductoPatch(req, res, next){
-    cafeSchemaPatch.validate(req.body,{ abortEarly: false, stripUnknown: true })
+    productoSchemaPatch.validate(req.body,{ abortEarly: false, stripUnknown: true })
         .then( (producto) => {
             req.body = producto
             next()

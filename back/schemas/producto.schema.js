@@ -1,21 +1,22 @@
-import yup from 'yup'
+import yup from 'yup';
 
-const cafeSchemaCreate = yup.object({
-    name: yup.string().required(),
-    price: yup.number().required(),
-    description: yup.string().required(),
-    tags: yup.array().of(yup.string()).required(),
-  });
+const productoSchemaCreate = yup.object({
+  name: yup.string().required(),
+  description: yup.string().required(),
+  price: yup.number().required(),
+  categoria: yup.string().required(),
+  imagen: yup.string().required(),
+});
 
-  const cafeSchemaPatch = yup.object({
-    name: yup.string(),
-    price: yup.number(),
-    description: yup.string(),
-    tags: yup.array().of(yup.string()),
-  });
-  
+const productoSchemaPatch = yup.object({
+  name: yup.string(),
+  description: yup.string(),
+  price: yup.number(),
+  categoria: yup.string(),
+  imagen: yup.string(),
+});
 
-  export {
-    cafeSchemaCreate,
-    cafeSchemaPatch
-  }
+export {
+  productoSchemaCreate,
+  productoSchemaPatch
+};

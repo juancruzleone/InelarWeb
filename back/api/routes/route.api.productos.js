@@ -1,6 +1,5 @@
 import { Router } from 'express'
 import * as controllers from '../controllers/controller.api.productos.js'
-import routeOpinion from './route.api.producto_opinion.js'
 import { validateProducto, validateProductoPatch } from '../../middleware/producto.validate.middleware.js'
 
 const route = Router()
@@ -29,6 +28,6 @@ route.patch('/productos/:id',[validateProductoPatch], controllers.actualizarProd
 //eliminar un producto
 route.delete("/productos/:id", controllers.eliminarProducto)
 
-route.use(routeOpinion)
+
 
 export default route
