@@ -187,10 +187,10 @@ const ListaClientes = () => {
         isOpen={modalCrear}
         onRequestClose={handleCerrarModal}
         contentLabel="Crear Cliente"
-        className={styles.Modal}
+        className={styles.ModalPanel}
       >
         <h2>Crear Cliente</h2>
-        <form onSubmit={handleSubmitCrear}>
+        <form onSubmit={handleSubmitCrear} className={styles.formularioPanel}>
           <label htmlFor="name">Nombre:</label>
           <input
             type="text"
@@ -207,30 +207,6 @@ const ListaClientes = () => {
             value={nuevoCliente.category}
             onChange={handleChange}
           />
-          <label htmlFor="description">Descripción:</label>
-          <input
-            type="text"
-            id="description"
-            name="description"
-            value={nuevoCliente.description}
-            onChange={handleChange}
-          />
-          <label htmlFor="price">Precio:</label>
-          <input
-            type="number"
-            id="price"
-            name="price"
-            value={nuevoCliente.price}
-            onChange={handleChange}
-          />
-          <label htmlFor="imagen">Imagen:</label>
-          <input
-            type="text"
-            id="imagen"
-            name="imagen"
-            value={nuevoCliente.imagen}
-            onChange={handleChange}
-          />
           <button type="submit">Crear</button>
         </form>
       </Modal>
@@ -244,7 +220,7 @@ const ListaClientes = () => {
       >
         <h2>Editar Cliente</h2>
         {clienteSeleccionado && (
-          <form onSubmit={handleSubmitEditar}>
+          <form onSubmit={handleSubmitEditar} className={styles.formularioPanel}>
             <label htmlFor="name">Nombre:</label>
             <input
               type="text"

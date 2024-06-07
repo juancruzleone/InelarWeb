@@ -213,10 +213,10 @@ const ListaProductos = () => {
   isOpen={modalCrear}
   onRequestClose={handleCerrarModal}
   contentLabel="Crear Producto"
-  className={styles.Modal}
+  className={styles.ModalPanel}
 >
   <h2>Crear Producto</h2>
-  <form onSubmit={handleSubmitCrear}>
+  <form onSubmit={handleSubmitCrear} className={styles.formularioPanel}>
     <label htmlFor="name">Nombre:</label>
     <input
       type="text"
