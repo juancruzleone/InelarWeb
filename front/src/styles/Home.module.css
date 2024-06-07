@@ -1960,6 +1960,26 @@
   margin-top: 20px;
 }
 
+.contenedorEliminar{
+  display: flex;
+  margin: auto;
+}
+
+.contenedorEliminar .botonEliminarModal{
+  background-color: red;
+  padding: 6px;
+  border-radius: 4px;
+  font-family: "montserrat", sans-serif;
+  margin-right: 15px;
+}
+
+.contenedorEliminar .botonCancelarModal{
+  background-color: #005bb5;
+  padding: 6px;
+  border-radius: 4px;
+  font-family: "montserrat",sans-serif;
+}
+
 
 
 

@@ -275,8 +275,11 @@ const ListaClientes = () => {
       >
         <h2>Eliminar Cliente</h2>
         <p>¿Estás seguro de eliminar el cliente {clienteSeleccionado?.name}?</p>
-        <button onClick={handleSubmitEliminar}>Eliminar</button>
-        <button onClick={handleCerrarModal}>Cancelar</button>
+        <div className={styles.contenedorEliminar}>
+          <button onClick={handleSubmitEliminar} className={styles.botonEliminarModal}>Eliminar</button>
+          <button onClick={handleCerrarModal} className={styles.botonCancelarModal}>Cancelar</button>
+        </div>
+
       </Modal>
     </div>
   );

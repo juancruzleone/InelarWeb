@@ -146,7 +146,7 @@ const ListaProductos = () => {
         isOpen={modalEditar}
         onRequestClose={handleCerrarModal}
         contentLabel="Editar Producto"
-        className={styles.Modal}
+        className={styles.ModalPanel}
       >
         <h2>Editar Producto</h2>
         {productoSeleccionado && (
