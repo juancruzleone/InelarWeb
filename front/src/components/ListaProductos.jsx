@@ -31,6 +31,9 @@ const ListaProductos = () => {
           new Set(data.map((producto) => producto.categoria))
         ).filter(categoria => categoria !== undefined && categoria !== "");
         setCategorias(categoriasUnicas);
+        
+        // Inicializar productosFiltrados con la lista completa de productos
+        setProductosFiltrados(data);
       } catch (error) {
         console.error("Error al obtener productos:", error);
       }
@@ -230,13 +233,16 @@ const ListaProductos = () => {
             onChange={handleChange}
           />
           <label htmlFor="categoria">Categoría:</label>
-          <input
-            type="text"
+          <select
             id="categoria"
             name="categoria"
             value={nuevoProducto.categoria}
             onChange={handleChange}
-          />
+          >
+            {categorias.map((categoria, index) => (
+              <option key={index} value={categoria}>{categoria}</option>
+            ))}
+          </select>
           <label htmlFor="description">Descripción:</label>
           <input
             type="text"
@@ -284,13 +290,16 @@ const ListaProductos = () => {
               onChange={handleChange}
             />
             <label htmlFor="categoria">Categoría:</label>
-            <input
-              type="text"
+            <select
               id="categoria"
               name="categoria"
               value={productoSeleccionado.categoria}
               onChange={handleChange}
-            />
+            >
+              {categorias.map((categoria, index) => (
+                <option key={index} value={categoria}>{categoria}</option>
+              ))}
+            </select>
             <label htmlFor="description">Descripción:</label>
             <input
               type="text"
