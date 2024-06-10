@@ -270,7 +270,7 @@ const ListaProductos = () => {
         isOpen={modalEditar}
         onRequestClose={handleCerrarModal}
         contentLabel="Editar Producto"
-        className={styles.Modal}
+        className={styles.ModalPanel}
       >
         <h2>Editar Producto</h2>
         {productoSeleccionado && (
@@ -325,14 +325,16 @@ const ListaProductos = () => {
         isOpen={modalEliminar}
         onRequestClose={handleCerrarModal}
         contentLabel="Eliminar Producto"
-        className={styles.Modal}
+        className={styles.ModalPanelEditar}
       >
         <h2>Eliminar Producto</h2>
         {productoSeleccionado && (
-          <div>
-            <p>¿Estás seguro de que deseas eliminar el producto {productoSeleccionado.name}?</p>
-            <button onClick={handleSubmitEliminar}>Eliminar</button>
-            <button onClick={handleCerrarModal}>Cancelar</button>
+          <div className={styles.contenidoPanelEditar}>
+            <p>¿Estás seguro de que deseas eliminar el producto <span>{productoSeleccionado.name}?</span></p>
+            <div className={styles.contenedorBotonesEditar}>
+              <button onClick={handleSubmitEliminar} className={styles.botonEliminarProducto}>Eliminar</button>
+              <button onClick={handleCerrarModal} className={styles.botonCancelarModal}>Cancelar</button>
+            </div>
           </div>
         )}
       </Modal>

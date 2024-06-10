@@ -2061,9 +2061,51 @@
   margin-top: 8px;
 }
 
+.ModalPanelEditar {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #121212;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  height: 165px
+}
 
+.ModalPanelEditar .botonEliminarProducto{
+  background-color: red;
+  padding: 6px;
+  border-radius: 4px;
+  margin-right: 10px;
+  font-family: "montserrat", sans-serif;
+  border: 0px;
+  cursor: pointer;
+}
 
+.ModalPanelEditar .botonCancelarModal{
+  background-color: #005bb5;
+  padding: 6px;
+  border-radius: 4px;
+  font-family: "montserrat",sans-serif;
+  border: 0px;
+  cursor: pointer;
+}
 
+.contenedorBotonesEditar{
+  margin-top: 30px;
+}
+
+.contenidoPanelEditar{
+  margin-top: 20px;
+}
+
+.contenidoPanelEditar span{
+  font-weight: bold;
+}
   
 
 
