@@ -39,7 +39,7 @@ const Productos = () => {
       <div className={styles.contenedorPagina}>
         <h1 className={styles.tituloPaginas}>Productos</h1>
         <div className={styles.posicionSeccionProductos}>
-          <div className={styles.contenedorCategorias} id={styles.contenedorCategoriaProductos}>
+          <div className={styles.contenedorCategoriasProductos} id={styles.contenedorCategoriaProductos}>
             {/* Aplica la clase condicional aquí */}
             <a
               href="#"
