@@ -49,7 +49,7 @@ const ListaServicios = () => {
 
   return (
     <>
-      <h1 className={styles.tituloPaginas}>Servicios</h1>
+      <h1 className={styles.tituloPaginasPanel}>Servicios</h1>
       <div className={styles.posicionSeccionProductos}>
         <div className={styles.contenedorCategorias}>
           {/* Lista de todas las categorías como contenedores */}
@@ -72,14 +72,16 @@ const ListaServicios = () => {
         <div className={styles.contenedorServicios}>
           {serviciosFiltrados.map((servicio, index) => (
             <div key={index} className={styles.tarjetaProductoPanel}>
-              <h3>Cliente: {servicio.nombre}</h3>
-              <p>Email: {servicio.email}</p>
-              <p>Teléfono: {servicio.telefono}</p>
-              <p>Dirección: {servicio.direccion}</p>
-              <p>Dispositivo: {servicio.dispositivo}</p>
-              <p>Cantidad: {servicio.cantidad}</p>
-              <p>Fecha: {servicio.fecha}</p>
-              <p>Categoría: {servicio.category}</p>
+                <h3>Cliente: {servicio.nombre}</h3>
+                <div className={styles.contenidoTarjetaProductoPanel}>
+                  <p><span>Email:</span>{servicio.email}</p>
+                  <p><span>Teléfono:</span>{servicio.telefono}</p>
+                  <p><span>Dirección:</span>{servicio.direccion}</p>
+                  <p><span>Dispositivo:</span>{servicio.dispositivo}</p>
+                  <p><span>Cantidad:</span>{servicio.cantidad}</p>
+                  <p><span>Fecha:</span>{servicio.fecha}</p>
+                  <p><span>Categoría:</span>{servicio.category}</p>
+                </div>
             </div>
           ))}
         </div>

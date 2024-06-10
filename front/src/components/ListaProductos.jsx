@@ -123,7 +123,7 @@ const ListaProductos = () => {
     <div>
       <div className={styles.contenedorPagina}>
         <h1 className={styles.tituloPaginasPanel}>Productos</h1>
-        <button onClick={handleAbrirModalCrear} className={styles.botonCrearProducto}>Crear Producto</button>
+        <button onClick={handleAbrirModalCrear} className={styles.botonCrearModal}>Crear Producto</button>
         <div className={styles.posicionSeccionProductos}>
           <div className={styles.contenedorProductosPanel}>
             {productos.map((producto, index) => (

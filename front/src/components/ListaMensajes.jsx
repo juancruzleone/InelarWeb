@@ -24,7 +24,7 @@ const ListaMensajes = () => {
   return (
     <div className={styles.app}>
       <div className={styles.contenedorPagina}>
-        <h1 className={styles.tituloPaginas}>Mensajes</h1>
+        <h1 className={styles.tituloPaginasPanel}>Mensajes</h1>
         <div className={styles.posicionSeccionProductos}>
           <div className={styles.contenedorProductosPanel}>
             {mensajes.map((mensaje, index) => (

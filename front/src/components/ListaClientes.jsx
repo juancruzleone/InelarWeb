@@ -148,7 +148,7 @@ const ListaClientes = () => {
     <div>
       <div className={styles.contenedorPagina}>
         <h1 className={styles.tituloPaginasPanel}>Clientes</h1>
-        <button onClick={() => handleCrearCliente()} className={styles.botonCrearProducto}>Crear</button>
+        <button onClick={() => handleCrearCliente()} className={styles.botonCrearModal}>Crear cliente</button>
         <div className={styles.posicionSeccionProductos}>
           <div className={styles.contenedorCategorias}>
             {/* Lista de categorías como contenedores */}

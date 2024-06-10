@@ -1625,7 +1625,7 @@
 }
 
 .posicionMenuPanel{
-  margin-left: 100px;
+  margin-left: 10px;
 }
 
 .seccionesNavPanel{
@@ -1695,6 +1695,9 @@
   font-family: "montserrat", sans-serif;
 }
 
+.tarjetaProductoPanel h3{
+  margin-top: 10px;
+}
 
 .tarjetaProductoPanelListado{
   background-color: #1d1d1d;
@@ -1713,6 +1716,10 @@
   margin-top: 20px;
 }
 
+.contenedorCategoria{
+  margin-top:20px;
+}
+
 .contenedorCategoria p{
   font-family: "montserrat", sans-serif;
   background-color: #C75F00;
@@ -1723,7 +1730,6 @@
 }
 
 .contenedorCategoria:hover{
-
   border-radius: 4px;
   cursor: pointer;
 }
@@ -1745,8 +1751,8 @@
   background-color: #121212;
   border-radius: 4px;
   margin-top: 50px; /* Ajusta el margen según sea necesario */
-  margin-left: 20px;
- 
+  margin-left: 40px;
+  height: 100%;
 }
 
 #contenedorCategoriaProductos{
@@ -1906,16 +1912,20 @@
 }
 
 
-.botonCrearProducto{
-  padding: 6px;
+.botonCrearModal{
+  height: 32px;
   margin-left: 50px;
   cursor: pointer;
+  background-color: #d9d9d9;
+  color: black;
+  font-family: "montserrat", sans-serif;
+  font-weight: 500;
 }
 
 
 .tituloPaginasPanel{
   margin-left: 50px;
-  margin-top: 40px;
+  margin-top: 50px;
   margin-bottom: 15px;
   color: #C75F00;
 }
@@ -1980,8 +1990,27 @@
   font-family: "montserrat",sans-serif;
 }
 
+.tituloPanel{
+  font-family: "montserrat", sans-serif;
+  font-size: 42px;
+  margin-left: 25px;
+  margin-top: 80px;
+  font-weight: 600;
+  color: #C75F00;
+}
 
+.contenidoTarjetaProductoPanel{
+  margin-top: 20px;
+}
 
+.contenidoTarjetaProductoPanel p{
+  margin-top: 8px;
+}
+
+.contenidoTarjetaProductoPanel span{
+  font-weight: 600;
+  margin-right: 8px;
+}
 
 
 

@@ -20,7 +20,7 @@ const PanelAdmin = () => {
 
   return (
     <Layout className={styles.app}>
-      <h1 className={styles.tituloPaginas}>Panel admin</h1>
+      <h1 className={styles.tituloPanel}>Panel admin</h1>
       <div className={styles.contenedorPanelAdmin}>
         <div className={styles.posicionMenuPanel}>
           <PanelNav onSolapaClick={handleSolapaClick} solapaActiva={solapaActiva} />
