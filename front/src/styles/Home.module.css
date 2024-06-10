@@ -1678,6 +1678,8 @@
 
 .tarjetaProductoPanelProductos{
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: #1d1d1d;
   border-radius: 7px;
   padding: 20px;
@@ -2010,6 +2012,25 @@
 .contenidoTarjetaProductoPanel span{
   font-weight: 600;
   margin-right: 8px;
+}
+
+.tarjetaProductoPanelClientes{
+  display: flex;
+  justify-content: space-between;
+  background-color: #1d1d1d;
+  border-radius: 7px;
+  padding: 20px;
+  margin: 30px;
+  width: 500px;
+  font-family: "montserrat", sans-serif;
+}
+
+.buscadorPanel{
+  border-radius: 10px;
+  width: 90%;
+  padding: 15px;
+  margin-top: 40px;
+  margin-left: 50px;
 }
 
 
