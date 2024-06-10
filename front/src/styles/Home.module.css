@@ -1873,7 +1873,23 @@
 .botonEliminar img{
   width: 30px;
   height: 30px;
+  padding: 4px;
 }
+
+.botonEditar{
+  background-color: rgb(43, 43, 43);
+  border: 0px;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.botonEditar img{
+  width: 30px;
+  height: 30px;
+  padding: 4px;
+}
+
 
 .contenedorFormulario, .error {
   font-family: "montserrat", sans-serif;

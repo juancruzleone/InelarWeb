@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Image from 'next/image';
+import Image from 'next/image'
 import Modal from "react-modal";
 import styles from "@/styles/Home.module.css";
 
@@ -16,21 +16,40 @@ const ListaClientes = () => {
   const [modalEliminar, setModalEliminar] = useState(false);
   const [clienteSeleccionado, setClienteSeleccionado] = useState(null);
   const [nuevoCliente, setNuevoCliente] = useState({ name: "", category: "", description: "", price: "" });
-  const [busqueda, setBusqueda] = useState("");
+  const [buscar, setBuscar] = useState('');
+
+  const filtrarPorCategoria = (clientes) => {
+    return clientes.filter((cliente) => {
+      const categoria = cliente.category;
+      return categoria === categoriaSeleccionada;
+    });
+  };
+
+  const filtrarPorNombre = (clientes) => {
+    return clientes.filter((cliente) => {
+      const nombre = cliente.name.toLowerCase();
+      return nombre.includes(buscar.toLowerCase());
+    });
+  };
 
   useEffect(() => {
     const obtenerClientes = async () => {
       try {
         const response = await fetch("http://localhost:2023/api/clientes");
         const data = await response.json();
+
         setClientes(data);
+
         // Obtener las categorías únicas de los clientes, excluyendo "Sin Categoría"
-        const categoriasUnicas = Array.from(new Set(data.map((cliente) => cliente.category))).filter((categoria) => categoria !== undefined && categoria !== "");
-        setCategorias(categoriasUnicas.map((categoria) => categoria.charAt(0).toUpperCase() + categoria.slice(1)));
+        const categoriasUnicas = Array.from(
+          new Set(data.map((cliente) => cliente.category))
+        ).filter(categoria => categoria !== undefined && categoria !== "");
+        setCategorias(categoriasUnicas);
       } catch (error) {
         console.error("Error al obtener clientes:", error);
       }
     };
+
     obtenerClientes();
   }, []);
 
@@ -39,24 +58,16 @@ const ListaClientes = () => {
     if (categoriaSeleccionada === null) {
       setClientesFiltrados(clientes);
     } else {
-      const clientesFiltrados = clientes.filter((cliente) => cliente.category === categoriaSeleccionada);
-      setClientesFiltrados(clientesFiltrados);
+      const filtrarPorCategoriaActualizados = filtrarPorCategoria(clientes);
+      setClientesFiltrados(filtrarPorNombre(filtrarPorCategoriaActualizados));
     }
   }, [categoriaSeleccionada, clientes]);
 
   useEffect(() => {
     // Filtrar los clientes según la búsqueda
-    if (busqueda) {
-      const clientesFiltrados = clientes.filter((cliente) => cliente.name.toLowerCase().includes(busqueda.toLowerCase()));
-      setClientesFiltrados(clientesFiltrados);
-    } else {
-      setClientesFiltrados(clientes);
-    }
-  }, [busqueda, clientes]);
-
-  const handleClickCategoria = (categoria) => {
-    setCategoriaSeleccionada(categoria);
-  };
+    const filtrarPorBuscarActualizados = filtrarPorNombre(clientes);
+    setClientesFiltrados(filtrarPorBuscarActualizados);
+  }, [buscar, clientes]);
 
   const handleCrearCliente = () => {
     setModalCrear(true);
@@ -92,7 +103,9 @@ const ListaClientes = () => {
     try {
       const response = await fetch("http://localhost:2023/api/clientes", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(nuevoCliente),
       });
       if (!response.ok) {
@@ -112,7 +125,9 @@ const ListaClientes = () => {
     try {
       const response = await fetch(`http://localhost:2023/api/clientes/${clienteSeleccionado._id}`, {
         method: "PUT",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(clienteSeleccionado),
       });
       if (!response.ok) {
@@ -144,23 +159,17 @@ const ListaClientes = () => {
     }
   };
 
-  const handleBusqueda = (e) => {
-    setBusqueda(e.target.value);
-  };
-
   return (
     <div>
       <div className={styles.contenedorPagina}>
         <h1 className={styles.tituloPaginasPanel}>Clientes</h1>
-        <button onClick={handleCrearCliente} className={styles.botonCrearModal}>
-          Crear cliente
-        </button>
+        <button onClick={handleCrearCliente} className={styles.botonCrearModal}>Crear cliente</button>
         <input
           type="text"
+          value={buscar}
+          onChange={(e) => setBuscar(e.target.value)}
           className={styles.buscadorPanel}
-          placeholder="Busca el nombre del cliente"
-          value={busqueda}
-          onChange={handleBusqueda}
+          placeholder='Busca el nombre del cliente'
         />
         <div className={styles.posicionSeccionProductos}>
           <div className={styles.contenedorCategorias}>
@@ -168,21 +177,26 @@ const ListaClientes = () => {
             {categorias.map((categoria, index) => (
               <div
                 key={index}
-                className={`${styles.contenedorCategoria} ${categoria === categoriaSeleccionada ? styles.categoriaSeleccionada : ""}`}
-                onClick={() => handleClickCategoria(categoria)}
+                className={`${styles.contenedorCategoria} ${
+                  categoria === categoriaSeleccionada
+                    ? styles.categoriaSeleccionada
+                    : ""
+                }`}
+                onClick={() => setCategoriaSeleccionada(categoria)}
               >
-                <p>{categoria}</p>
+                <p>{categoria.charAt(0).toUpperCase() + categoria.slice(1)}</p>
               </div>
             ))}
           </div>
-          {/* Lista de clientes filtrada por categoría */}
+
+          {/* Lista de clientes filtrada por categoría y búsqueda */}
           <div className={styles.contenedorClientes}>
-            {clientesFiltrados.map((cliente, index) => (
+            {filtrarPorNombre(filtrarPorCategoria(clientesFiltrados)).map((cliente, index) => (
               <div key={index} className={styles.tarjetaProductoPanelClientes}>
                 <h3>{cliente.name}</h3>
                 <div>
-                  <button onClick={() => handleEditarCliente(cliente)} className={styles.botonEliminar}>
-                    <Image src="/eliminar.png" alt="Editar" width={10} height={10} />
+                  <button onClick={() => handleEditarCliente(cliente)} className={styles.botonEditar}>
+                    <Image src="/editar.png" alt="Editar" width={10} height={10} />
                   </button>
                   <button onClick={() => handleEliminarCliente(cliente)} className={styles.botonEliminar}>
                     <Image src="/eliminar.png" alt="Eliminar" width={10} height={10} />
@@ -193,48 +207,130 @@ const ListaClientes = () => {
           </div>
         </div>
       </div>
+
       {/* Modal Crear */}
-      <Modal isOpen={modalCrear} onRequestClose={handleCerrarModal} contentLabel="Crear Cliente" className={styles.ModalPanel}>
+      <Modal
+        isOpen={modalCrear}
+        onRequestClose={handleCerrarModal}
+        contentLabel="Crear Cliente"
+        className={styles.ModalPanel}
+      >
         <h2>Crear Cliente</h2>
         <form onSubmit={handleSubmitCrear} className={styles.formularioPanel}>
           <label htmlFor="name">Nombre:</label>
-          <input type="text" id="name" name="name" value={nuevoCliente.name} onChange={handleChange} />
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={nuevoCliente.name}
+            onChange={handleChange}
+          />
           <label htmlFor="category">Categoría:</label>
-          <input type="text" id="category" name="category" value={nuevoCliente.category} onChange={handleChange} />
+          <input
+            type="text"
+            id="category"
+            name="category"
+            value={nuevoCliente.category}
+            onChange={handleChange}
+          />
           <label htmlFor="description">Descripción:</label>
-          <input type="text" id="description" name="description" value={nuevoCliente.description} onChange={handleChange} />
+          <input
+            type="text"
+            id="description"
+            name="description"
+            value={nuevoCliente.description}
+            onChange={handleChange}
+          />
           <label htmlFor="price">Precio:</label>
-          <input type="number" id="price" name="price" value={nuevoCliente.price} onChange={handleChange} />
+          <input
+            type="number"
+            id="price"
+            name="price"
+            value={nuevoCliente.price}
+            onChange={handleChange}
+          />
+          <label htmlFor="imagen">Imagen:</label>
+          <input
+            type="text"
+            id="imagen"
+            name="imagen"
+            value={nuevoCliente.imagen}
+            onChange={handleChange}
+          />
           <button type="submit">Crear</button>
         </form>
       </Modal>
+
       {/* Modal Editar */}
-      <Modal isOpen={modalEditar} onRequestClose={handleCerrarModal} contentLabel="Editar Cliente" className={styles.Modal}>
+      <Modal
+        isOpen={modalEditar}
+        onRequestClose={handleCerrarModal}
+        contentLabel="Editar Cliente"
+        className={styles.ModalPanel}
+      >
         <h2>Editar Cliente</h2>
         {clienteSeleccionado && (
           <form onSubmit={handleSubmitEditar} className={styles.formularioPanel}>
             <label htmlFor="name">Nombre:</label>
-            <input type="text" id="name" name="name" value={clienteSeleccionado.name} onChange={handleChange} />
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={clienteSeleccionado.name}
+              onChange={handleChange}
+            />
             <label htmlFor="category">Categoría:</label>
-            <input type="text" id="category" name="category" value={clienteSeleccionado.category} onChange={handleChange} />
+            <input
+              type="text"
+              id="category"
+              name="category"
+              value={clienteSeleccionado.category}
+              onChange={handleChange}
+            />
             <label htmlFor="description">Descripción:</label>
-            <input type="text" id="description" name="description" value={clienteSeleccionado.description} onChange={handleChange} />
+            <input
+              type="text"
+              id="description"
+              name="description"
+              value={clienteSeleccionado.description}
+              onChange={handleChange}
+            />
             <label htmlFor="price">Precio:</label>
-            <input type="number" id="price" name="price" value={clienteSeleccionado.price} onChange={handleChange} />
+            <input
+              type="number"
+              id="price"
+              name="price"
+              value={clienteSeleccionado.price}
+              onChange={handleChange}
+            />
+            <label htmlFor="imagen">Imagen:</label>
+            <input
+              type="text"
+              id="imagen"
+              name="imagen"
+              value={clienteSeleccionado.imagen}
+              onChange={handleChange}
+            />
             <button type="submit">Guardar</button>
           </form>
         )}
       </Modal>
+
       {/* Modal Eliminar */}
-      <Modal isOpen={modalEliminar} onRequestClose={handleCerrarModal} contentLabel="Eliminar Cliente" className={styles.Modal}>
+      <Modal
+        isOpen={modalEliminar}
+        onRequestClose={handleCerrarModal}
+        contentLabel="Eliminar Cliente"
+        className={styles.ModalPanel}
+      >
         <h2>Eliminar Cliente</h2>
-        {clienteSeleccionado && (
-          <div>
-            <p>¿Estás seguro de que deseas eliminar el cliente {clienteSeleccionado.name}?</p>
-            <button onClick={handleSubmitEliminar}>Eliminar</button>
-            <button onClick={handleCerrarModal}>Cancelar</button>
-          </div>
+        { clienteSeleccionado && (
+          <p>¿Estás seguro de eliminar el cliente {clienteSeleccionado.name}?</p>
         )}
+        <div className={styles.contenedorEliminar}>
+          <button onClick={handleSubmitEliminar} className={styles.botonEliminarModal}>Eliminar</button>
+          <button onClick={handleCerrarModal} className={styles.botonCancelarModal}>Cancelar</button>
+        </div>
       </Modal>
     </div>
   );

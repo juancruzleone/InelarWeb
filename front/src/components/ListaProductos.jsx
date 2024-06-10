@@ -23,14 +23,19 @@ const ListaProductos = () => {
       try {
         const response = await fetch("http://localhost:2023/api/productos");
         const data = await response.json();
+
         setProductos(data);
+
         // Obtener las categorías únicas de los productos, excluyendo los productos sin categoría
-        const categoriasUnicas = Array.from(new Set(data.map((producto) => producto.categoria))).filter((categoria) => categoria !== undefined && categoria !== "");
-        setCategorias(categoriasUnicas.map((categoria) => categoria.charAt(0).toUpperCase() + categoria.slice(1)));
+        const categoriasUnicas = Array.from(
+          new Set(data.map((producto) => producto.categoria))
+        ).filter(categoria => categoria !== undefined && categoria !== "");
+        setCategorias(categoriasUnicas);
       } catch (error) {
         console.error("Error al obtener productos:", error);
       }
     };
+
     obtenerProductos();
   }, []);
 
@@ -40,12 +45,19 @@ const ListaProductos = () => {
 
   const filtrarProductos = () => {
     let productosFiltrados = productos;
+
     if (categoriaSeleccionada) {
-      productosFiltrados = productosFiltrados.filter((producto) => producto.categoria === categoriaSeleccionada);
+      productosFiltrados = productosFiltrados.filter(
+        (producto) => producto.categoria === categoriaSeleccionada
+      );
     }
+
     if (busqueda) {
-      productosFiltrados = productosFiltrados.filter((producto) => producto.name.toLowerCase().includes(busqueda.toLowerCase()));
+      productosFiltrados = productosFiltrados.filter((producto) =>
+        producto.name.toLowerCase().includes(busqueda.toLowerCase())
+      );
     }
+
     setProductosFiltrados(productosFiltrados);
   };
 
@@ -87,7 +99,9 @@ const ListaProductos = () => {
     try {
       const response = await fetch("http://localhost:2023/api/productos", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(nuevoProducto),
       });
       if (!response.ok) {
@@ -107,7 +121,9 @@ const ListaProductos = () => {
     try {
       const response = await fetch(`http://localhost:2023/api/productos/${productoSeleccionado._id}`, {
         method: "PUT",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(productoSeleccionado),
       });
       if (!response.ok) {
@@ -147,9 +163,7 @@ const ListaProductos = () => {
     <div>
       <div className={styles.contenedorPagina}>
         <h1 className={styles.tituloPaginasPanel}>Productos</h1>
-        <button onClick={handleCrearProducto} className={styles.botonCrearModal}>
-          Crear Producto
-        </button>
+        <button onClick={handleCrearProducto} className={styles.botonCrearModal}>Crear Producto</button>
         <input
           type="text"
           className={styles.buscadorPanel}
@@ -163,21 +177,26 @@ const ListaProductos = () => {
             {categorias.map((categoria, index) => (
               <div
                 key={index}
-                className={`${styles.contenedorCategoria} ${categoria === categoriaSeleccionada ? styles.categoriaSeleccionada : ""}`}
+                className={`${styles.contenedorCategoria} ${
+                  categoria === categoriaSeleccionada
+                    ? styles.categoriaSeleccionada
+                    : ""
+                }`}
                 onClick={() => handleClickCategoria(categoria)}
               >
                 <p>{categoria}</p>
               </div>
             ))}
           </div>
+
           {/* Lista de productos filtrada por categoría */}
           <div className={styles.contenedorClientes}>
             {productosFiltrados.map((producto, index) => (
               <div key={index} className={styles.tarjetaProductoPanelProductos}>
                 <h3>{producto.name}</h3>
                 <div>
-                  <button onClick={() => handleEditarProducto(producto)} className={styles.botonEliminar}>
-                    <Image src="/eliminar.png" alt="Editar" width={10} height={10} />
+                  <button onClick={() => handleEditarProducto(producto)} className={styles.botonEditar}>
+                    <Image src="/editar.png" alt="Editar" width={10} height={10} />
                   </button>
                   <button onClick={() => handleEliminarProducto(producto)} className={styles.botonEliminar}>
                     <Image src="/eliminar.png" alt="Eliminar" width={10} height={10} />
@@ -188,44 +207,122 @@ const ListaProductos = () => {
           </div>
         </div>
       </div>
+
       {/* Modal Crear */}
-      <Modal isOpen={modalCrear} onRequestClose={handleCerrarModal} contentLabel="Crear Producto" className={styles.ModalPanel}>
+      <Modal
+        isOpen={modalCrear}
+        onRequestClose={handleCerrarModal}
+        contentLabel="Crear Producto"
+        className={styles.ModalPanel}
+      >
         <h2>Crear Producto</h2>
         <form onSubmit={handleSubmitCrear} className={styles.formularioPanel}>
           <label htmlFor="name">Nombre:</label>
-          <input type="text" id="name" name="name" value={nuevoProducto.name} onChange={handleChange} />
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={nuevoProducto.name}
+            onChange={handleChange}
+          />
           <label htmlFor="categoria">Categoría:</label>
-          <input type="text" id="categoria" name="categoria" value={nuevoProducto.categoria} onChange={handleChange} />
+          <input
+            type="text"
+            id="categoria"
+            name="categoria"
+            value={nuevoProducto.categoria}
+            onChange={handleChange}
+          />
           <label htmlFor="description">Descripción:</label>
-          <input type="text" id="description" name="description" value={nuevoProducto.description} onChange={handleChange} />
+          <input
+            type="text"
+            id="description"
+            name="description"
+            value={nuevoProducto.description}
+            onChange={handleChange}
+          />
           <label htmlFor="price">Precio:</label>
-          <input type="number" id="price" name="price" value={nuevoProducto.price} onChange={handleChange} />
+          <input
+            type="number"
+            id="price"
+            name="price"
+            value={nuevoProducto.price}
+            onChange={handleChange}
+          />
           <label htmlFor="imagen">Imagen:</label>
-          <input type="text" id="imagen" name="imagen" value={nuevoProducto.imagen} onChange={handleChange} />
+          <input
+            type="text"
+            id="imagen"
+            name="imagen"
+            value={nuevoProducto.imagen}
+            onChange={handleChange}
+          />
           <button type="submit">Crear</button>
         </form>
       </Modal>
+
       {/* Modal Editar */}
-      <Modal isOpen={modalEditar} onRequestClose={handleCerrarModal} contentLabel="Editar Producto" className={styles.Modal}>
+      <Modal
+        isOpen={modalEditar}
+        onRequestClose={handleCerrarModal}
+        contentLabel="Editar Producto"
+        className={styles.Modal}
+      >
         <h2>Editar Producto</h2>
         {productoSeleccionado && (
           <form onSubmit={handleSubmitEditar} className={styles.formularioPanel}>
             <label htmlFor="name">Nombre:</label>
-            <input type="text" id="name" name="name" value={productoSeleccionado.name} onChange={handleChange} />
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={productoSeleccionado.name}
+              onChange={handleChange}
+            />
             <label htmlFor="categoria">Categoría:</label>
-            <input type="text" id="categoria" name="categoria" value={productoSeleccionado.categoria} onChange={handleChange} />
+            <input
+              type="text"
+              id="categoria"
+              name="categoria"
+              value={productoSeleccionado.categoria}
+              onChange={handleChange}
+            />
             <label htmlFor="description">Descripción:</label>
-            <input type="text" id="description" name="description" value={productoSeleccionado.description} onChange={handleChange} />
+            <input
+              type="text"
+              id="description"
+              name="description"
+              value={productoSeleccionado.description}
+              onChange={handleChange}
+            />
             <label htmlFor="price">Precio:</label>
-            <input type="number" id="price" name="price" value={productoSeleccionado.price} onChange={handleChange} />
+            <input
+              type="number"
+              id="price"
+              name="price"
+              value={productoSeleccionado.price}
+              onChange={handleChange}
+            />
             <label htmlFor="imagen">Imagen:</label>
-            <input type="text" id="imagen" name="imagen" value={productoSeleccionado.imagen} onChange={handleChange} />
+            <input
+              type="text"
+              id="imagen"
+              name="imagen"
+              value={productoSeleccionado.imagen}
+              onChange={handleChange}
+            />
             <button type="submit">Guardar</button>
           </form>
         )}
       </Modal>
+
       {/* Modal Eliminar */}
-      <Modal isOpen={modalEliminar} onRequestClose={handleCerrarModal} contentLabel="Eliminar Producto" className={styles.Modal}>
+      <Modal
+        isOpen={modalEliminar}
+        onRequestClose={handleCerrarModal}
+        contentLabel="Eliminar Producto"
+        className={styles.Modal}
+      >
         <h2>Eliminar Producto</h2>
         {productoSeleccionado && (
           <div>
