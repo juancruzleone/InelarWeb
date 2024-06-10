@@ -314,14 +314,16 @@ const ListaClientes = () => {
         isOpen={modalEliminar}
         onRequestClose={handleCerrarModal}
         contentLabel="Eliminar Cliente"
-        className={styles.ModalPanel}
+        className={styles.ModalPanelEditar}
       >
         <h2>Eliminar Cliente</h2>
         {clienteSeleccionado && (
-          <div>
-            <p>¿Estás seguro de que deseas eliminar a {clienteSeleccionado.name}?</p>
-            <button onClick={handleSubmitEliminar}>Eliminar</button>
-            <button onClick={handleCerrarModal}>Cancelar</button>
+          <div className={styles.contenidoPanelEditar}>
+            <p>¿Estás seguro de que deseas eliminar a <span>{clienteSeleccionado.name}?</span></p>
+            <div className={styles.contenedorBotonesEditar}>
+              <button onClick={handleSubmitEliminar} className={styles.botonEliminarProducto}>Eliminar</button>
+              <button onClick={handleCerrarModal} className={styles.botonCancelarModal}>Cancelar</button>
+            </div>
           </div>
         )}
       </Modal>
