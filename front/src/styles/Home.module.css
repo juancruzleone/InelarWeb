@@ -2049,7 +2049,17 @@
   margin-left: 50px;
 }
 
+.contenidoTarjetaProductoPanelContacto{
+  margin-top: 20px;
+}
 
+.contenidoTarjetaProductoPanelContacto span{
+  font-weight: bold;
+}
+
+.contenidoTarjetaProductoPanelContacto p{
+  margin-top: 8px;
+}
 
 
 

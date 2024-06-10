@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Image from 'next/image'
+import Image from 'next/image';
 import Modal from "react-modal";
 import styles from "@/styles/Home.module.css";
 
@@ -18,20 +18,6 @@ const ListaClientes = () => {
   const [nuevoCliente, setNuevoCliente] = useState({ name: "", category: "", description: "", price: "" });
   const [buscar, setBuscar] = useState('');
 
-  const filtrarPorCategoria = (clientes) => {
-    return clientes.filter((cliente) => {
-      const categoria = cliente.category;
-      return categoria === categoriaSeleccionada;
-    });
-  };
-
-  const filtrarPorNombre = (clientes) => {
-    return clientes.filter((cliente) => {
-      const nombre = cliente.name.toLowerCase();
-      return nombre.includes(buscar.toLowerCase());
-    });
-  };
-
   useEffect(() => {
     const obtenerClientes = async () => {
       try {
@@ -45,6 +31,9 @@ const ListaClientes = () => {
           new Set(data.map((cliente) => cliente.category))
         ).filter(categoria => categoria !== undefined && categoria !== "");
         setCategorias(categoriasUnicas);
+        
+        // Inicializar clientesFiltrados con la lista completa de clientes
+        setClientesFiltrados(data);
       } catch (error) {
         console.error("Error al obtener clientes:", error);
       }
@@ -54,20 +43,24 @@ const ListaClientes = () => {
   }, []);
 
   useEffect(() => {
-    // Filtrar los clientes según la categoría seleccionada
-    if (categoriaSeleccionada === null) {
-      setClientesFiltrados(clientes);
-    } else {
-      const filtrarPorCategoriaActualizados = filtrarPorCategoria(clientes);
-      setClientesFiltrados(filtrarPorNombre(filtrarPorCategoriaActualizados));
-    }
-  }, [categoriaSeleccionada, clientes]);
+    filtrarClientes();
+  }, [categoriaSeleccionada, buscar, clientes]);
 
-  useEffect(() => {
-    // Filtrar los clientes según la búsqueda
-    const filtrarPorBuscarActualizados = filtrarPorNombre(clientes);
-    setClientesFiltrados(filtrarPorBuscarActualizados);
-  }, [buscar, clientes]);
+  const filtrarClientes = () => {
+    let clientesFiltrados = clientes;
+
+    if (categoriaSeleccionada) {
+      clientesFiltrados = clientesFiltrados.filter(cliente => cliente.category === categoriaSeleccionada);
+    }
+
+    if (buscar) {
+      clientesFiltrados = clientesFiltrados.filter(cliente =>
+        cliente.name.toLowerCase().includes(buscar.toLowerCase())
+      );
+    }
+
+    setClientesFiltrados(clientesFiltrados);
+  };
 
   const handleCrearCliente = () => {
     setModalCrear(true);
@@ -191,7 +184,7 @@ const ListaClientes = () => {
 
           {/* Lista de clientes filtrada por categoría y búsqueda */}
           <div className={styles.contenedorClientes}>
-            {filtrarPorNombre(filtrarPorCategoria(clientesFiltrados)).map((cliente, index) => (
+            {clientesFiltrados.map((cliente, index) => (
               <div key={index} className={styles.tarjetaProductoPanelClientes}>
                 <h3>{cliente.name}</h3>
                 <div>
@@ -324,13 +317,13 @@ const ListaClientes = () => {
         className={styles.ModalPanel}
       >
         <h2>Eliminar Cliente</h2>
-        { clienteSeleccionado && (
-          <p>¿Estás seguro de eliminar el cliente {clienteSeleccionado.name}?</p>
+        {clienteSeleccionado && (
+          <div>
+            <p>¿Estás seguro de que deseas eliminar a {clienteSeleccionado.name}?</p>
+            <button onClick={handleSubmitEliminar}>Eliminar</button>
+            <button onClick={handleCerrarModal}>Cancelar</button>
+          </div>
         )}
-        <div className={styles.contenedorEliminar}>
-          <button onClick={handleSubmitEliminar} className={styles.botonEliminarModal}>Eliminar</button>
-          <button onClick={handleCerrarModal} className={styles.botonCancelarModal}>Cancelar</button>
-        </div>
       </Modal>
     </div>
   );

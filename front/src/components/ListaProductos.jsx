@@ -159,6 +159,10 @@ const ListaProductos = () => {
     setBusqueda(e.target.value);
   };
 
+  const capitalizarPrimeraLetra = (cadena) => {
+    return cadena.charAt(0).toUpperCase() + cadena.slice(1);
+  };
+
   return (
     <div>
       <div className={styles.contenedorPagina}>
@@ -184,7 +188,7 @@ const ListaProductos = () => {
                 }`}
                 onClick={() => handleClickCategoria(categoria)}
               >
-                <p>{categoria}</p>
+                <p>{capitalizarPrimeraLetra(categoria)}</p>
               </div>
             ))}
           </div>

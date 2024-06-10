@@ -47,6 +47,10 @@ const ListaServicios = () => {
     setCategoriaSeleccionada(categoria);
   };
 
+  const capitalizarPrimeraLetra = (cadena) => {
+    return cadena.charAt(0).toUpperCase() + cadena.slice(1);
+  };
+
   return (
     <>
       <h1 className={styles.tituloPaginasPanel}>Servicios</h1>
@@ -63,7 +67,7 @@ const ListaServicios = () => {
               }`}
               onClick={() => handleClickCategoria(categoria)}
             >
-              <p>{categoria}</p>
+              <p>{capitalizarPrimeraLetra(categoria)}</p>
             </div>
           ))}
         </div>
@@ -72,16 +76,16 @@ const ListaServicios = () => {
         <div className={styles.contenedorServicios}>
           {serviciosFiltrados.map((servicio, index) => (
             <div key={index} className={styles.tarjetaProductoPanel}>
-                <h3>Cliente: {servicio.nombre}</h3>
-                <div className={styles.contenidoTarjetaProductoPanel}>
-                  <p><span>Email:</span>{servicio.email}</p>
-                  <p><span>Teléfono:</span>{servicio.telefono}</p>
-                  <p><span>Dirección:</span>{servicio.direccion}</p>
-                  <p><span>Dispositivo:</span>{servicio.dispositivo}</p>
-                  <p><span>Cantidad:</span>{servicio.cantidad}</p>
-                  <p><span>Fecha:</span>{servicio.fecha}</p>
-                  <p><span>Categoría:</span>{servicio.category}</p>
-                </div>
+              <h3>Cliente: {servicio.nombre}</h3>
+              <div className={styles.contenidoTarjetaProductoPanel}>
+                <p><span>Email:</span>{servicio.email}</p>
+                <p><span>Teléfono:</span>{servicio.telefono}</p>
+                <p><span>Dirección:</span>{servicio.direccion}</p>
+                <p><span>Dispositivo:</span>{servicio.dispositivo}</p>
+                <p><span>Cantidad:</span>{servicio.cantidad}</p>
+                <p><span>Fecha:</span>{servicio.fecha}</p>
+                <p><span>Categoría:</span>{servicio.category}</p>
+              </div>
             </div>
           ))}
         </div>

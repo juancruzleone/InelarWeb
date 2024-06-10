@@ -30,8 +30,10 @@ const ListaMensajes = () => {
             {mensajes.map((mensaje, index) => (
               <div key={index} className={styles.tarjetaProductoPanel}>
                 <h3>{mensaje.name}</h3>
-                <p>Email: {mensaje.email}</p>
-                <p>Mensaje: {mensaje.message}</p>
+                <div className={styles.contenidoTarjetaProductoPanelContacto}>
+                  <p><span>Email:</span> {mensaje.email}</p>
+                  <p><span>Mensaje:</span> {mensaje.message}</p>
+                </div>
               </div>
             ))}
           </div>
