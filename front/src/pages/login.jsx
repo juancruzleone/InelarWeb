@@ -52,7 +52,7 @@ const Login = () => {
 
       // Redirigir al panel de administración si el usuario es admin
       if (data.cuenta.role === "admin") {
-        router.push("/panel");
+        router.push("/");
       } else {
         // Redirigir a la página de inicio si no es admin
         router.push("/");

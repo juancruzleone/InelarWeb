@@ -11,20 +11,25 @@ import styles from "@/styles/Home.module.css";
 
 const PanelAdmin = () => {
   const [solapaActiva, setSolapaActiva] = useState("productos"); // Inicializa con la solapa de productos activa
+  const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
 
   useEffect(() => {
     // Verificar si el usuario tiene el rol de administrador en localStorage
     const userData = typeof window !== "undefined" ? JSON.parse(localStorage.getItem("userData")) : null;
 
-    if (!userData) {
-      // Si no hay datos de usuario en localStorage, redirigir al login
+    if (!userData || !userData.cuenta || userData.cuenta.role !== "admin") {
+      // Si no hay datos de usuario o el usuario no es admin, redirigir al login
       router.push("/login");
-    } else if (!userData.cuenta || userData.cuenta.role !== "admin") {
-      // Si el usuario tiene datos pero no es admin, redirigir al login
-      router.push("/login");
+    } else {
+      // Si el usuario es admin, permitir la carga del panel
+      setIsLoading(false);
     }
   }, [router]);
+
+  if (isLoading) {
+    return null; // O puedes devolver un componente de cargando
+  }
 
   const handleSolapaClick = (solapa) => {
     setSolapaActiva(solapa);
