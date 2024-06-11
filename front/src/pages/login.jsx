@@ -39,21 +39,24 @@ const Login = () => {
         } else {
           setError(`Error en la solicitud: ${errorData.error.message}`);
         }
+
         return;
       }
 
       // Inicio de sesión exitoso
       const data = await response.json();
-      console.log(data);
+      console.log("Login response data:", data);
 
-      // Suponiendo que el backend devuelve un token de sesión o información relevante
-      const { token } = data;
+      // Guardar datos del usuario en localStorage
+      localStorage.setItem("userData", JSON.stringify(data));
 
-      // Guardar el token en localStorage
-      localStorage.setItem("token", token);
-
-      // Redirigir al usuario al home
-      router.push("/");
+      // Redirigir al panel de administración si el usuario es admin
+      if (data.cuenta.role === "admin") {
+        router.push("/panel");
+      } else {
+        // Redirigir a la página de inicio si no es admin
+        router.push("/");
+      }
     } catch (error) {
       setError("Error de red");
     }
@@ -87,7 +90,7 @@ const Login = () => {
               value={contraseña}
               onChange={(e) => setContraseña(e.target.value)}
             />
-            <button type="submit">Inicia sesión</button>
+            <button type="submit">Iniciar sesión</button>
             {error && <p className={styles.error}>{error}</p>}
             <p>
               Si no tienes una cuenta,{" "}
