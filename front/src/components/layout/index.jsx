@@ -6,6 +6,7 @@ import styles from "@/styles/Home.module.css";
 const Layout = ({ children }) => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userId, setUserId] = useState(null);
 
   useEffect(() => {
     // Verificar si el usuario tiene el rol de administrador en localStorage
@@ -13,6 +14,7 @@ const Layout = ({ children }) => {
 
     if (userData) {
       setIsLoggedIn(true);
+      setUserId(userData.cuenta._id); // Set the userId
       if (userData.cuenta && userData.cuenta.role === "admin") {
         setIsAdmin(true);
       }
@@ -58,7 +60,7 @@ const Layout = ({ children }) => {
         )}
         {isLoggedIn ? (
           <>
-            <Link href="/perfil" className={styles.sesion} id={styles.sesion}>
+            <Link href={`/perfil/${userId}`} className={styles.sesion} id={styles.sesion}>
               <Image
                 src="/prelogin.png"
                 alt="Perfil de usuario"
