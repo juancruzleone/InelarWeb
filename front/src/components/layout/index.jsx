@@ -5,15 +5,27 @@ import styles from "@/styles/Home.module.css";
 
 const Layout = ({ children }) => {
   const [isAdmin, setIsAdmin] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     // Verificar si el usuario tiene el rol de administrador en localStorage
     const userData = typeof window !== "undefined" ? JSON.parse(localStorage.getItem("userData")) : null;
 
-    if (userData && userData.cuenta && userData.cuenta.role === "admin") {
-      setIsAdmin(true);
+    if (userData) {
+      setIsLoggedIn(true);
+      if (userData.cuenta && userData.cuenta.role === "admin") {
+        setIsAdmin(true);
+      }
     }
   }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("userData");
+    setIsLoggedIn(false);
+    setIsAdmin(false);
+    // Redirigir a la página de inicio o a la página de login
+    window.location.href = "/login";
+  };
 
   return (
     <main>
@@ -44,16 +56,22 @@ const Layout = ({ children }) => {
             Panel admin
           </Link>
         )}
-        <a href="/login" className={styles.sesion}>
-          <Image
-            src="/prelogin.png"
-            id="xd"
-            alt="Carrito"
-            className={styles.carrito}
-            width={40}
-            height={40}
-          />
-        </a>
+        {isLoggedIn ? (
+          <button onClick={handleLogout} className={styles.sesion}>
+            Cerrar sesión
+          </button>
+        ) : (
+          <a href="/login" className={styles.sesion}>
+            <Image
+              src="/prelogin.png"
+              id="xd"
+              alt="Iniciar sesión"
+              className={styles.carrito}
+              width={40}
+              height={40}
+            />
+          </a>
+        )}
         <a href="/carrito" className={styles.carrito}>
           <Image
             src="/carrito.png"
