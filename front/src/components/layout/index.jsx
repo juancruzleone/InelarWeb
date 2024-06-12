@@ -57,31 +57,59 @@ const Layout = ({ children }) => {
           </Link>
         )}
         {isLoggedIn ? (
-          <button onClick={handleLogout} className={styles.sesion}>
-            Cerrar sesión
-          </button>
+          <>
+            <Link href="/perfil" className={styles.sesion} id={styles.sesion}>
+              <Image
+                src="/prelogin.png"
+                alt="Perfil de usuario"
+                className={styles.carrito}
+                width={40}
+                height={40}
+              />
+            </Link>
+            <a href="/carrito" className={styles.carrito}>
+              <Image
+                src="/carrito.png"
+                alt="Carrito"
+                className={styles.carrito}
+                id={styles.iconoCarrito}
+                width={40}
+                height={40}
+              />
+            </a>
+            <button onClick={handleLogout} className={`${styles.sesion} ${styles.logoutButton}`} id={styles.cerrarSesion}>
+              <Image
+                src="/cerrar-sesion.png"
+                alt="Cerrar sesión"
+                className={styles.logoutIcon}
+                width={40}
+                height={40}
+              />
+            </button>
+          </>
         ) : (
-          <a href="/login" className={styles.sesion}>
-            <Image
-              src="/prelogin.png"
-              id="xd"
-              alt="Iniciar sesión"
-              className={styles.carrito}
-              width={40}
-              height={40}
-            />
-          </a>
+          <>
+            <a href="/login" className={styles.sesion} id={styles.sesion}>
+              <Image
+                src="/prelogin.png"
+                alt="Iniciar sesión"
+                className={styles.carrito}
+                width={40}
+                height={40}
+              />
+            </a>
+            <a href="/carrito" className={styles.carrito}>
+              <Image
+                src="/carrito.png"
+                alt="Carrito"
+                className={styles.carrito}
+                id={styles.iconoCarrito}
+                width={40}
+                height={40}
+              />
+            </a>
+          </>
         )}
-        <a href="/carrito" className={styles.carrito}>
-          <Image
-            src="/carrito.png"
-            alt="Carrito"
-            className={styles.carrito}
-            id={styles.iconoCarrito}
-            width={40}
-            height={40}
-          />
-        </a>
       </nav>
       {children}
     </main>

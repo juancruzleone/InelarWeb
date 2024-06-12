@@ -264,15 +264,20 @@
 }
 
 /* Alinea al extremo derecho */
-.sesion {
+#sesion {
   margin-left: auto;
-  margin-right: 10px; /* Ajusta según sea necesario */
 }
 
 .carrito {
-  margin-right: 60px; /* Ajusta según sea necesario */
-  margin-left: 20px;
+  margin-right: 40px; /* Ajusta según sea necesario */
+  margin-left: 5px;
 }
+
+#cerrarSesion{
+  margin-right: 20px;
+}
+
+
 
 
 
@@ -2131,8 +2136,28 @@
   font-weight: bold;
 }
   
-.sesion{
-  cursor: pointer;
+
+.sesion {
+  /* tus estilos actuales */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0; /* Asegúrate de que no haya relleno adicional */
+  border: none; /* Elimina cualquier borde por defecto */
+  background: none; /* Elimina cualquier fondo por defecto */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
 }
+
+
+.logoutButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoutIcon {
+  display: block;
+}
+
 
 
