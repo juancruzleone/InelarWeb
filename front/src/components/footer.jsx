@@ -18,7 +18,7 @@ const Footer = () => {
       <div className={styles.footerMain}>
         <div className={styles.footerContainer}>
           <div className={styles.footerColumn}>
-            <h3 className={styles.footerHeading}>¿Quienes somos?</h3>
+            <h3 className={styles.footerHeading}>¿Quiénes somos?</h3>
             <p className={styles.footerText}>
               Somos una empresa especializada en seguridad contra incendios.
             </p>

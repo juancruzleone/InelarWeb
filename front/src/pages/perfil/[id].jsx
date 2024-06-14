@@ -37,8 +37,15 @@ const Perfil = () => {
 
   return (
     <Layout>
-        <h1>Perfil de {user.userName}</h1>
-        <p>{user._id}</p>
+      <div className={styles.contenedorPerfilUsuario}>
+        <div className={styles.contenidoPerfilUsuario}>
+          <h1>Perfil de {user.userName}</h1>
+          <p className={styles.idUsuario}>{user._id}</p>
+        </div>
+      </div>
+      <div className={styles.contenedorPedidoUsuario}>
+          <h2>Listado de pedidos realizados</h2>
+        </div>
     </Layout>
   );
 };
