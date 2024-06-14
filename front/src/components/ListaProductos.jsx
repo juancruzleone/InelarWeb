@@ -231,6 +231,7 @@ const ListaProductos = () => {
             name="name"
             value={nuevoProducto.name}
             onChange={handleChange}
+            required
           />
           <label htmlFor="categoria">Categoría:</label>
           <select
@@ -238,7 +239,9 @@ const ListaProductos = () => {
             name="categoria"
             value={nuevoProducto.categoria}
             onChange={handleChange}
+            required
           >
+            <option value="">Seleccione una categoría</option>
             {categorias.map((categoria, index) => (
               <option key={index} value={categoria}>{categoria}</option>
             ))}
@@ -250,6 +253,7 @@ const ListaProductos = () => {
             name="description"
             value={nuevoProducto.description}
             onChange={handleChange}
+            required
           />
           <label htmlFor="price">Precio:</label>
           <input
@@ -258,6 +262,7 @@ const ListaProductos = () => {
             name="price"
             value={nuevoProducto.price}
             onChange={handleChange}
+            required
           />
           <label htmlFor="imagen">Imagen:</label>
           <input
@@ -266,6 +271,7 @@ const ListaProductos = () => {
             name="imagen"
             value={nuevoProducto.imagen}
             onChange={handleChange}
+            required
           />
           <button type="submit">Crear</button>
         </form>
@@ -288,6 +294,7 @@ const ListaProductos = () => {
               name="name"
               value={productoSeleccionado.name}
               onChange={handleChange}
+              required
             />
             <label htmlFor="categoria">Categoría:</label>
             <select
@@ -295,7 +302,9 @@ const ListaProductos = () => {
               name="categoria"
               value={productoSeleccionado.categoria}
               onChange={handleChange}
+              required
             >
+              <option value="">Seleccione una categoría</option>
               {categorias.map((categoria, index) => (
                 <option key={index} value={categoria}>{categoria}</option>
               ))}
@@ -307,6 +316,7 @@ const ListaProductos = () => {
               name="description"
               value={productoSeleccionado.description}
               onChange={handleChange}
+              required
             />
             <label htmlFor="price">Precio:</label>
             <input
@@ -315,6 +325,7 @@ const ListaProductos = () => {
               name="price"
               value={productoSeleccionado.price}
               onChange={handleChange}
+              required
             />
             <label htmlFor="imagen">Imagen:</label>
             <input
@@ -323,6 +334,7 @@ const ListaProductos = () => {
               name="imagen"
               value={productoSeleccionado.imagen}
               onChange={handleChange}
+              required
             />
             <button type="submit">Guardar</button>
           </form>
