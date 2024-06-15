@@ -5,7 +5,6 @@ const productoSchemaCreate = yup.object({
   description: yup.string().required(),
   price: yup.number().required(),
   categoria: yup.string().required(),
-  imagen: yup.string().required(),
 });
 
 const productoSchemaPatch = yup.object({
@@ -13,7 +12,6 @@ const productoSchemaPatch = yup.object({
   description: yup.string(),
   price: yup.number(),
   categoria: yup.string(),
-  imagen: yup.string(),
 });
 
 export {

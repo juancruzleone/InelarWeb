@@ -7,6 +7,7 @@ const getProductos = (req, res) => {
     res.status(200).json(productos);
   });
 };
+
 const getProductoById = (req, res) => {
   const id = req.params.id;
   service.getProductobyId(id).then((producto) => {
@@ -20,58 +21,57 @@ const getProductoById = (req, res) => {
 
 const agregarProducto = async (req, res) => {
   try {
-    service
-      .createProducto(req.body)
-      .then((productoNuevo) => {
-        res.status(201).json(productoNuevo);
-      })
+    const producto = { ...req.body, imagen: `/${req.file.filename}` };
+    const productoNuevo = await service.createProducto(producto);
+    res.status(201).json(productoNuevo);
   } catch (error) {
-    console.log(error)
-    res.status(500).json(error)
+    console.error('Error al agregar producto:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
   }
-
 };
-//PUT -> REEMPLAZA
-const remplazarProducto = (req, res) => {
-  const id = req.params.id;
 
-  const producto = {
-    name: req.body.name,
-    price: req.body.price,
-    description: req.body.description,
-    tags: req.body.tags,
-  };
-
-  service.remplazarProducto(id, producto).then((productoEditado) => {
+const remplazarProducto = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const producto = { ...req.body, imagen: `/${req.file.filename}` };
+    const productoEditado = await service.remplazarProducto(id, producto);
     if (productoEditado) {
       res.status(200).json(productoEditado);
     } else {
       res.status(404).json();
     }
-  });
+  } catch (error) {
+    console.error('Error al reemplazar producto:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
 };
-//PATCH -> Actualiza
 
-
-const actualizarProducto = async(req, res) => {
-  const id = req.params.id;
-  service.editProducto(id, req.body).then((productoEditado) => {
+const actualizarProducto = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const producto = { ...req.body, imagen: `/${req.file.filename}` };
+    const productoEditado = await service.editProducto(id, producto);
     if (productoEditado) {
       res.status(200).json(productoEditado);
     } else {
       res.status(404).json();
     }
-  });
+  } catch (error) {
+    console.error('Error al actualizar producto:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
 };
-//DELETE -> Eliminar
+
 const eliminarProducto = (req, res) => {
   const id = req.params.id;
-  service
-    .eliminarProducto(id)
+  service.eliminarProducto(id)
     .then(() => {
       res.status(204).json();
     })
-    .catch((error) => res.status(500).json());
+    .catch((error) => {
+      console.error('Error al eliminar producto:', error);
+      res.status(500).json({ error: 'Error interno del servidor' });
+    });
 };
 
 export {
