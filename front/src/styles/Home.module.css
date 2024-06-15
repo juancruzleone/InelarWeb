@@ -2017,6 +2017,10 @@
   margin-top: 20px;
 }
 
+.formularioPanel button{
+  cursor: pointer;
+}
+
 .contenedorEliminar{
   display: flex;
   margin: auto;
@@ -2188,5 +2192,28 @@
   border-bottom: 1px solid white;
 }
 
+.contenedorBotonesPanelEliminar{
+  margin-top: 30px;
+}
 
+.botonModalEliminar{
+  padding: 8px;
+  border-radius: 4px;
+  background-color: red;
+  border: 0px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.botonModalCancelar{
+  padding: 8px;
+  border-radius: 4px;
+  background-color: blue;
+  border: 0px;
+  cursor: pointer;
+}
+
+.textoPanelModalEliminar{
+  margin-top: 15px;
+}
 

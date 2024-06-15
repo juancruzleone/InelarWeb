@@ -352,14 +352,17 @@ const ListaProductos = () => {
         isOpen={modalEliminar}
         onRequestClose={handleCerrarModal}
         contentLabel="Eliminar Producto"
-        className={styles.ModalPanel}
+        className={styles.ModalPanelEditar}
       >
         <h2>Eliminar Producto</h2>
         {productoSeleccionado && (
           <>
-            <p>¿Estás seguro de que deseas eliminar el producto {productoSeleccionado.name}?</p>
-            <button onClick={handleSubmitEliminar}>Eliminar</button>
-            <button onClick={handleCerrarModal}>Cancelar</button>
+            <p className={styles.textoPanelModalEliminar}>¿Estás seguro de que deseas eliminar el producto {productoSeleccionado.name}?</p>
+            <div className={styles.contenedorBotonesPanelEliminar}>
+              <button onClick={handleSubmitEliminar} className={styles.botonModalEliminar}>Eliminar</button>
+              <button onClick={handleCerrarModal} className={styles.botonModalCancelar}>Cancelar</button>
+            </div>
+
           </>
         )}
       </Modal>

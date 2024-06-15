@@ -189,3 +189,24 @@ input[type="date"]::-webkit-clear-button {
 }
 
 
+
+
+/* Target the button inside the file input */
+input[type="file"]::file-selector-button {
+  background-color: #c76205; /* Set the background color */
+  color: white; /* Set the text color */
+  padding: 7px; /* Add some padding */
+  border: none; /* Remove the default border */
+  border-radius: 4px; /* Add some rounded corners */
+  cursor: pointer; /* Change the cursor to a pointer on hover */
+}
+
+/* Add a hover effect to the button */
+input[type="file"]::file-selector-button:hover {
+  background-color: #ff7b00; /* Slightly darker background color on hover */
+}
+
+#imagen{
+  padding-left: 0px;
+  padding-right: 0px;
+}
