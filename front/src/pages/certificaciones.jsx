@@ -30,7 +30,7 @@ const certificaciones = () => {
         </div>
         <div className={styles.contenedorCertificaciones}>
           <Image
-            src="/logo-3.webp"
+            src="/logo 3.svg"
             alt="Logo certificación cemera"
             className={styles.celularImagen}
             width={120}
