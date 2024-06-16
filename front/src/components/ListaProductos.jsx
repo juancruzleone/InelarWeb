@@ -212,10 +212,10 @@ const ListaProductos = () => {
                 <h3>{producto.name}</h3>
                 <div>
                   <button onClick={() => handleEditarProducto(producto)} className={styles.botonEditar}>
-                    <Image src="/editar.png" alt="Editar" width={10} height={10} />
+                    <Image src="/editar.svg" alt="Editar" width={10} height={10} />
                   </button>
                   <button onClick={() => handleEliminarProducto(producto)} className={styles.botonEliminar}>
-                    <Image src="/eliminar.png" alt="Eliminar" width={10} height={10} />
+                    <Image src="/eliminar.svg" alt="Eliminar" width={10} height={10} />
                   </button>
                 </div>
               </div>

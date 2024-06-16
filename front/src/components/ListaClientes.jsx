@@ -189,10 +189,10 @@ const ListaClientes = () => {
                 <h3>{cliente.name}</h3>
                 <div>
                   <button onClick={() => handleEditarCliente(cliente)} className={styles.botonEditar}>
-                    <Image src="/editar.png" alt="Editar" width={10} height={10} />
+                    <Image src="/editar.svg" alt="Editar" width={10} height={10} />
                   </button>
                   <button onClick={() => handleEliminarCliente(cliente)} className={styles.botonEliminar}>
-                    <Image src="/eliminar.png" alt="Eliminar" width={10} height={10} />
+                    <Image src="/eliminar.svg" alt="Eliminar" width={10} height={10} />
                   </button>
                 </div>
               </div>

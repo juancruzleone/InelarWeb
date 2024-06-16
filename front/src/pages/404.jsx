@@ -11,7 +11,7 @@ const Custom404 = () => {
                 <h1 className='titulo404'>Código 404</h1>
                 <p className='texto404'>Página no encontrada</p>
                 <div className='contenedorImg404'>
-                    <Image src='/manguera.png' alt="Icono de manguera" width={100} height={100}/>
+                    <Image src='/manguera.svg' alt="Icono de manguera" width={100} height={100}/>
                 </div> 
                 <Link href="/" className='boton-404'>Ir al inicio</Link>
             </section>

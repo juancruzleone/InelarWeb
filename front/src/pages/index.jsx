@@ -26,7 +26,7 @@ const Home = () => {
           <div className={styles.contenedorFlecha}> 
             <a href="#nuestraApp">
               <Image
-                src="/flecha-abajo.webp"
+                src="/flecha-abajo.svg"
                 alt="flecha hacia abajo"
                 className={styles.flechaAbajo}
                 width={70}
@@ -43,7 +43,7 @@ const Home = () => {
         <div className={styles.circulo}>
           <div className={styles.celularApp}>
             <Image
-              src="/pantallacarga.png"
+              src="/pantallacarga.svg"
               alt="mockup app mobile inelar"
               className={styles.celularImagen}
               width={400}
@@ -78,7 +78,7 @@ const Home = () => {
             </Link>
             <a href="/instalaciones">
               <Image
-                src="/instalaciones.webp"
+                src="/instalaciones.svg"
                 alt="icono detector"
                 className={styles.iconoServicios}
                 width={140}
@@ -92,7 +92,7 @@ const Home = () => {
             </Link>
             <a href="/mantenimientos">
               <Image
-                src="/mantenimiento.webp"
+                src="/mantenimiento.svg"
                 alt="icono mantenimientos"
                 className={styles.iconoServicios}
                 width={140}
@@ -106,7 +106,7 @@ const Home = () => {
             </Link>
             <a href="/serviciotecnico">
               <Image
-                src="/servicio-tecnico.webp"
+                src="/servicio-tecnico.svg"
                 alt="icono servicio técnico"
                 className={styles.iconoServicios}
                 width={140}
@@ -120,7 +120,7 @@ const Home = () => {
             </Link>
             <Link href="/provisiones">
               <Image
-                src="/provisiones.webp"
+                src="/provisiones.svg"
                 alt="icono provisiones"
                 className={styles.iconoServicios}
                 width={140}

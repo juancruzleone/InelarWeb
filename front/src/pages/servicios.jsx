@@ -17,7 +17,7 @@ const Servicios = () => {
         <div className={styles.cardServicios}>
           <Link href="/instalaciones">
             <Image
-              src="/instalaciones.webp"
+              src="/instalaciones.svg"
               alt="icono instalaciones"
               className={styles.iconoServiciosCard}
               width={140}
@@ -33,7 +33,7 @@ const Servicios = () => {
         <div className={styles.cardServicios}>
           <Link href='/mantenimientos'>
             <Image
-              src="/mantenimiento.webp"
+              src="/mantenimiento.svg"
               alt="icono mantenimiento"
               className={styles.iconoServiciosCard}
               width={140}
@@ -49,7 +49,7 @@ const Servicios = () => {
         <div className={styles.cardServicios}>
           <Link href="/serviciotecnico">
             <Image
-              src="/servicio-tecnico.webp"
+              src="/servicio-tecnico.svg"
               alt="icono servicio tecnico"
               className={styles.iconoServiciosCard}
               width={140}
@@ -65,7 +65,7 @@ const Servicios = () => {
         <div className={styles.cardServicios}>
           <Link href="/provisiones">
             <Image
-              src="/provisiones.webp"
+              src="/provisiones.svg"
               alt="icono provisiones"
               className={styles.iconoServiciosCard}
               width={140}

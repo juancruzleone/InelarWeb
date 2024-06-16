@@ -62,7 +62,7 @@ const Layout = ({ children }) => {
           <>
             <Link href={`/perfil/${userId}`} className={styles.sesion} id={styles.sesion}>
               <Image
-                src="/prelogin.png"
+                src="/prelogin.svg"
                 alt="Perfil de usuario"
                 className={styles.carrito}
                 width={40}
@@ -71,7 +71,7 @@ const Layout = ({ children }) => {
             </Link>
             <a href="/carrito" className={styles.carrito}>
               <Image
-                src="/carrito.png"
+                src="/carrito.svg"
                 alt="Carrito"
                 className={styles.carrito}
                 id={styles.iconoCarrito}
@@ -81,7 +81,7 @@ const Layout = ({ children }) => {
             </a>
             <button onClick={handleLogout} className={`${styles.sesion} ${styles.logoutButton}`} id={styles.cerrarSesion}>
               <Image
-                src="/cerrar-sesion.png"
+                src="/cerrar-sesion.svg"
                 alt="Cerrar sesión"
                 className={styles.logoutIcon}
                 width={40}
@@ -93,7 +93,7 @@ const Layout = ({ children }) => {
           <>
             <a href="/login" className={styles.sesion} id={styles.sesion}>
               <Image
-                src="/prelogin.png"
+                src="/prelogin.svg"
                 alt="Iniciar sesión"
                 className={styles.carrito}
                 width={40}
@@ -102,7 +102,7 @@ const Layout = ({ children }) => {
             </a>
             <a href="/carrito" className={styles.carrito}>
               <Image
-                src="/carrito.png"
+                src="/carrito.svg"
                 alt="Carrito"
                 className={styles.carrito}
                 id={styles.iconoCarrito}

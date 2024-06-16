@@ -769,13 +769,13 @@
 .contenedorPreguntaRespuesta {
   width: 600px;
   height: 60px;
-  background-color: #C75F00;
+  background-color: #f57600;
   margin-top: 20px;
   border-radius: 10px;
 }
 
 .contenedorPreguntaRespuesta:hover{
-  background-color: #f57600;
+  background-color: #ff8c20;
 }
 
 .toggleButton {
@@ -790,7 +790,7 @@
 }
 
 .toggleButton:hover {
-  color: red;
+  color: gray;
 }
 
 #pregunta {
@@ -1967,7 +1967,7 @@
   margin-left: 50px;
   margin-top: 50px;
   margin-bottom: 15px;
-  color: #C75F00;
+  color: #f57600;
 }
 
 .ModalPanel{
