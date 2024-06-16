@@ -14,18 +14,18 @@ const certificaciones = () => {
       <div className={styles.posicionContenedorCertificaciones}>
         <div className={styles.contenedorCertificaciones}>
           <Image
-            src="/logo-iram.webp"
+            src="/logo-iram.svg"
             alt="Logo certificación iram"
-            width={150}
-            height={150}
+            width={120}
+            height={120}
           />
         </div>
         <div className={styles.contenedorCertificaciones}>
           <Image
-            src="/logo-nfpa.webp"
+            src="/logo-nfpa.svg"
             alt="Logo certificación nfpa"
-            width={150}
-            height={150}
+            width={120}
+            height={120}
           />
         </div>
         <div className={styles.contenedorCertificaciones}>
@@ -33,8 +33,8 @@ const certificaciones = () => {
             src="/logo-3.webp"
             alt="Logo certificación cemera"
             className={styles.celularImagen}
-            width={150}
-            height={150}
+            width={120}
+            height={120}
           />
         </div>
       </div>
