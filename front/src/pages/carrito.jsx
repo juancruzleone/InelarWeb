@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 import Image from 'next/image';
 import Layout from '@/components/layout';
 import Footer from '@/components/Footer';
@@ -18,9 +17,25 @@ const Carrito = () => {
 
   const handleEliminarProducto = (index) => {
     const nuevoCarrito = [...carrito];
-    nuevoCarrito.splice(index, 1);
+    if (nuevoCarrito[index].unidades > 1) {
+      nuevoCarrito[index].unidades -= 1;
+    } else {
+      nuevoCarrito.splice(index, 1);
+    }
     setCarrito(nuevoCarrito);
     Cookies.set('carrito', JSON.stringify(nuevoCarrito));
+  };
+
+  const handleIncrementarUnidades = (index) => {
+    const nuevoCarrito = [...carrito];
+    nuevoCarrito[index].unidades += 1;
+    setCarrito(nuevoCarrito);
+    Cookies.set('carrito', JSON.stringify(nuevoCarrito));
+  };
+
+  const handleVaciarCarrito = () => {
+    setCarrito([]);
+    Cookies.set('carrito', JSON.stringify([]));
   };
 
   const handleCheckout = async () => {
@@ -30,7 +45,7 @@ const Carrito = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ carrito }),
+        body: JSON.stringify({ carrito, estado: 'nuevo' }),
       });
 
       const data = await response.json();
@@ -65,19 +80,41 @@ const Carrito = () => {
                   <p className={styles.nombreProductoCarrito}>{producto.nombre}</p>
                   <p className={styles.categoriaProductoCarrito}>{producto.categoria}</p>
                   <p>{producto.precio}</p>
+                  <div className={styles.unidadesProductoCarrito}>
+                    <span>{producto.unidades}</span>
+          
+                  </div>
                 </div>
                 <button
-                  className={styles.botonEliminar}
-                  onClick={() => handleEliminarProducto(index)}
-                >
-                  <Image src="/eliminar.png" alt="Eliminar" width={20} height={20} />
-                </button>
+                      className={styles.botonSumar}
+                      onClick={() => handleIncrementarUnidades(index)}
+                    >
+                      +
+                    </button>
+                <button
+                      className={styles.botonEliminar}
+                      onClick={() => handleEliminarProducto(index)}
+                    >
+                      <Image src="/eliminar.svg" alt="Eliminar" width={20} height={20} />
+                    </button>
+          
               </div>
             ))
           )}
         </div>
+        <button
+          className={styles.botonVaciar}
+          onClick={handleVaciarCarrito}
+        >
+          Vaciar carrito
+        </button>
         {carrito.length > 0 && (
-          <button className={styles.botonIrCheckout} onClick={handleCheckout}>Proceder al checkout</button>
+          <button
+            className={styles.botonIrCheckout}
+            onClick={handleCheckout}
+          >
+            Proceder al checkout
+          </button>
         )}
       </div>
       <Footer></Footer>

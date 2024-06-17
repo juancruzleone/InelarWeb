@@ -15,9 +15,23 @@ const DetalleProducto = ({ producto }) => {
 
   const handleAgregarAlCarrito = () => {
     const carrito = Cookies.get('carrito') ? JSON.parse(Cookies.get('carrito')) : [];
-    const nuevoProducto = { id, nombre: producto.name, categoria: producto.categoria, precio: producto.price, imagen: producto.imagen };
-    const nuevoCarrito = [...carrito, nuevoProducto];
-    Cookies.set('carrito', JSON.stringify(nuevoCarrito));
+    const productoExistente = carrito.find(item => item.id === id);
+
+    if (productoExistente) {
+      productoExistente.unidades += 1;
+    } else {
+      const nuevoProducto = {
+        id,
+        nombre: producto.name,
+        categoria: producto.categoria,
+        precio: producto.price,
+        imagen: producto.imagen,
+        unidades: 1
+      };
+      carrito.push(nuevoProducto);
+    }
+
+    Cookies.set('carrito', JSON.stringify(carrito));
     setModalIsOpen(true);
     setTimeout(() => {
       setModalIsOpen(false);
