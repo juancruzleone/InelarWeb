@@ -68,7 +68,7 @@ const Productos = () => {
                   className={styles.imagenProducto}
                 />
                 <h3>{producto.name}</h3>
-                <p>{producto.price}</p>
+                <p>${producto.price}</p>
                 <Link href={`/detalle/${producto._id}`} className={styles.botonVerMas}>
                   Ver más
                 </Link>
