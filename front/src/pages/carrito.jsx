@@ -1,5 +1,3 @@
-// Carrito.jsx
-
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -23,6 +21,25 @@ const Carrito = () => {
     nuevoCarrito.splice(index, 1);
     setCarrito(nuevoCarrito);
     Cookies.set('carrito', JSON.stringify(nuevoCarrito));
+  };
+
+  const handleCheckout = async () => {
+    try {
+      const response = await fetch('http://localhost:2023/api/create-order', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ carrito }),
+      });
+
+      const data = await response.json();
+      if (data && data.init_point) {
+        window.location.href = data.init_point;
+      }
+    } catch (error) {
+      console.error('Error during checkout:', error);
+    }
   };
 
   return (
@@ -60,7 +77,7 @@ const Carrito = () => {
           )}
         </div>
         {carrito.length > 0 && (
-          <Link href="/#" className={styles.botonIrCheckout}>Proceder al checkout</Link>
+          <button className={styles.botonIrCheckout} onClick={handleCheckout}>Proceder al checkout</button>
         )}
       </div>
       <Footer></Footer>

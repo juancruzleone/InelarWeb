@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mercadopago/sdk-react": "^0.0.19",
     "bootstrap": "^5.3.3",
     "eslint": "8.48.0",
     "eslint-config-next": "13.4.19",
