@@ -2277,9 +2277,22 @@
 
 .unidadesProductoCarrito span{
   margin-right: 10px;
-
 }
 
+.ModalCheckout {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #121212;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  height: 140px;
+}
 
 
 

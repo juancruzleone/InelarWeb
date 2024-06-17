@@ -5,14 +5,22 @@ import Footer from '@/components/Footer';
 import styles from '@/styles/Home.module.css';
 import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
+import Modal from 'react-modal';
 
 const Carrito = () => {
   const router = useRouter();
   const [carrito, setCarrito] = useState([]);
+  const [userData, setUserData] = useState(null);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   useEffect(() => {
     const carrito = Cookies.get('carrito') ? JSON.parse(Cookies.get('carrito')) : [];
     setCarrito(carrito);
+
+    const userData = localStorage.getItem('userData');
+    if (userData) {
+      setUserData(JSON.parse(userData));
+    }
   }, []);
 
   const handleEliminarProducto = (index) => {
@@ -39,6 +47,11 @@ const Carrito = () => {
   };
 
   const handleCheckout = async () => {
+    if (!userData) {
+      setModalIsOpen(true);
+      return;
+    }
+
     try {
       const response = await fetch('http://localhost:2023/api/create-order', {
         method: 'POST',
@@ -98,8 +111,7 @@ const Carrito = () => {
                     >
                       <Image src="/eliminar.svg" alt="Eliminar unidades" width={20} height={20} />
                     </button>
-          
-              </div>
+                </div>
             ))
           )}
         </div>
@@ -109,16 +121,32 @@ const Carrito = () => {
         >
           Vaciar carrito
         </button>
-        {carrito.length > 0 && (
+        {carrito.length > 0 && userData ? (
           <button
             className={styles.botonIrCheckout}
             onClick={handleCheckout}
           >
             Proceder al checkout
           </button>
+        ) : (
+          <button
+            className={styles.botonIrCheckout}
+            onClick={() => setModalIsOpen(true)}
+            disabled={carrito.length === 0}
+          >
+            Proceder al checkout
+          </button>
         )}
       </div>
       <Footer></Footer>
+      <Modal
+        isOpen={modalIsOpen}
+        className={styles.ModalCheckout}
+        onRequestClose={() => setModalIsOpen(false)}
+        contentLabel="Debes logearte para proceder al checkout"
+      >
+        <h2 className={styles.tituloModalCheckout}>Tenés que logearte para ir al checkout</h2>
+      </Modal>
     </Layout>
   );
 };
