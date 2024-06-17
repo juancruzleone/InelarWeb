@@ -115,12 +115,16 @@ const Carrito = () => {
             ))
           )}
         </div>
-        <button
-          className={styles.botonVaciar}
-          onClick={handleVaciarCarrito}
-        >
-          Vaciar carrito
-        </button>
+        {carrito.length > 0 ? (
+          <button
+            className={styles.botonVaciar}
+            onClick={handleVaciarCarrito}
+          >
+            Vaciar carrito
+          </button>
+        ) : (
+          <></>
+        )}
         {carrito.length > 0 && userData ? (
           <button
             className={styles.botonIrCheckout}
@@ -129,13 +133,7 @@ const Carrito = () => {
             Proceder al checkout
           </button>
         ) : (
-          <button
-            className={styles.botonIrCheckout}
-            onClick={() => setModalIsOpen(true)}
-            disabled={carrito.length === 0}
-          >
-            Proceder al checkout
-          </button>
+          <></>
         )}
       </div>
       <Footer></Footer>
