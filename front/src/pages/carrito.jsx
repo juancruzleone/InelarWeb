@@ -77,25 +77,26 @@ const Carrito = () => {
                   />
                 </div>
                 <div className={styles.detalleProductoCarrito}>
-                  <p className={styles.nombreProductoCarrito}>{producto.nombre}</p>
-                  <p className={styles.categoriaProductoCarrito}>{producto.categoria}</p>
-                  <p>{producto.precio}</p>
+                  <div>
+                    <p className={styles.nombreProductoCarrito}>{producto.nombre}</p>
+                    <p className={styles.categoriaProductoCarrito}>{producto.categoria}</p>
+                    <p>{producto.precio}</p>
+                  </div>
                   <div className={styles.unidadesProductoCarrito}>
-                    <span>{producto.unidades}</span>
-          
+                    <p><span>Unidades:</span>{producto.unidades}</p>
                   </div>
                 </div>
                 <button
                       className={styles.botonSumar}
                       onClick={() => handleIncrementarUnidades(index)}
                     >
-                      +
+                      <Image src="/suma.svg" alt="Sumar unidades" width={20} height={20} />
                     </button>
                 <button
                       className={styles.botonEliminar}
                       onClick={() => handleEliminarProducto(index)}
                     >
-                      <Image src="/eliminar.svg" alt="Eliminar" width={20} height={20} />
+                      <Image src="/eliminar.svg" alt="Eliminar unidades" width={20} height={20} />
                     </button>
           
               </div>
