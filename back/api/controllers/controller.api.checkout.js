@@ -1,21 +1,27 @@
 import { MercadoPagoConfig, Preference } from 'mercadopago';
+import { MongoClient } from 'mongodb';
+
+const client = new MongoClient('mongodb+srv://juan:juan123@proyectoinelar.2eadspu.mongodb.net/');
+await client.connect();  // Asegúrate de conectar el cliente
+const db = client.db("inelar");
 
 const createOrder = async (req, res) => {
     try {
-        const { carrito, estado } = req.body;
+        const { carrito, estado, userId } = req.body;
+        console.log("Received userId:", userId);  // Verificar que el userId se está recibiendo
 
         if (estado === 'procesando') {
             return res.status(400).json({ error: 'Ya se está procesando una orden.' });
         }
 
-        const client = new MercadoPagoConfig({ accessToken: "APP_USR-4052031476279541-061615-b619da07aaa484257152a2fe9b485ce3-1861901310" });
-        const preference = new Preference(client);
+        const mercadoPago = new MercadoPagoConfig({ accessToken: "APP_USR-4052031476279541-061615-b619da07aaa484257152a2fe9b485ce3-1861901310" });
+        const preference = new Preference(mercadoPago);
 
         const items = carrito.map(producto => ({
             title: producto.nombre,
             unit_price: parseFloat(producto.precio),
             currency_id: "ARS",
-            quantity: producto.unidades  // Ajustado para incluir la cantidad correcta
+            quantity: producto.unidades
         }));
 
         const preferenceBody = {
@@ -29,6 +35,19 @@ const createOrder = async (req, res) => {
         };
 
         const result = await preference.create({ body: preferenceBody });
+
+        // Insertar la orden en la base de datos
+        const orden = {
+            userId: userId,  // Asegurarse de asignar el userId recibido
+            items: carrito,
+            total: carrito.reduce((acc, producto) => acc + producto.precio * producto.unidades, 0),
+            estado: 'procesando',
+            createdAt: new Date()
+        };
+
+        const ordersCollection = db.collection('ordenes');
+        await ordersCollection.insertOne(orden);
+
         res.status(200).json({ ...result, estado: 'procesando' });
     } catch (error) {
         console.error('Error creating preference:', error);
