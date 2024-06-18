@@ -1,5 +1,4 @@
-// [id].jsx
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Layout from '@/components/layout';
@@ -8,7 +7,7 @@ import styles from '@/styles/Home.module.css';
 import Modal from 'react-modal';
 import Cookies from 'js-cookie';
 
-const DetalleProducto = ({ producto }) => {
+const DetalleProducto = ({ producto, productosRelacionados }) => {
   const router = useRouter();
   const { id } = router.query;
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -63,7 +62,24 @@ const DetalleProducto = ({ producto }) => {
         <h4>Descripción</h4>
         <p>{producto.description}</p>
       </div>
-      <Footer></Footer>
+      <div className={styles.contenedorProductosRelacionados}>
+        <h4 className={styles.tituloSeccionProductoRelacionado}>Productos relacionados</h4>
+        <div className={styles.productosRelacionados}>
+          {productosRelacionados.map((relacionado) => (
+            <div key={relacionado.id} className={styles.productoRelacionado}>
+              <Image
+                src={relacionado.imagen}
+                alt={relacionado.nombre}
+                width={100}
+                height={120}
+                className={styles.imagenProductoRelacionado}
+              />
+              <p>{relacionado.name}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <Footer />
       <Modal
         isOpen={modalIsOpen}
         className={styles.Modal}
@@ -81,8 +97,8 @@ export async function getServerSideProps(context) {
   const { id } = params;
 
   try {
-    const response = await fetch(`http://localhost:2023/api/productos/${id}`);
-    const producto = await response.json();
+    const responseProducto = await fetch(`http://localhost:2023/api/productos/${id}`);
+    const producto = await responseProducto.json();
 
     if (!producto) {
       return {
@@ -90,9 +106,17 @@ export async function getServerSideProps(context) {
       };
     }
 
+    const responseProductos = await fetch(`http://localhost:2023/api/productos`);
+    const productos = await responseProductos.json();
+
+    const productosRelacionados = productos
+      .filter(p => p.categoria === producto.categoria && p.id !== id)
+      .slice(0, 3); // Mostramos solo 3 productos relacionados
+
     return {
       props: {
         producto,
+        productosRelacionados,
       },
     };
   } catch (error) {

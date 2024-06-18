@@ -5,6 +5,7 @@ import Link from "next/link";
 import Layout from "@/components/layout";
 import Footer from "@/components/Footer";
 import styles from "@/styles/Home.module.css";
+import { FiEye, FiEyeOff } from 'react-icons/fi'; // Importamos los íconos de ojo y ojo cerrado
 
 // Configurar react-modal
 Modal.setAppElement("#__next");
@@ -14,6 +15,7 @@ const Register = () => {
   const [contraseña, setContraseña] = useState("");
   const [error, setError] = useState("");
   const [showModal, setShowModal] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
 
   const handleSubmit = async (e) => {
@@ -84,6 +86,10 @@ const Register = () => {
     }
   };
 
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <Layout className={styles.app}>
       <div className={styles.contenedorPrelogin}>
@@ -100,19 +106,30 @@ const Register = () => {
               placeholder="Crea un usuario nuevo"
               value={usuario}
               onChange={(e) => setUsuario(e.target.value)}
+              className={styles.inputField}
             />
             <label htmlFor="contraseña" className={styles.formLabel}>
               Contraseña
             </label>
-            <input
-              type="password"
-              id="contraseña"
-              name="contraseña"
-              placeholder="Crea la contraseña"
-              value={contraseña}
-              onChange={(e) => setContraseña(e.target.value)}
-            />
-            <button type="submit">Regístrate</button>
+            <div className={styles.passwordContainer}>
+              <input
+                type={showPassword ? 'text' : 'password'}
+                id="contraseña"
+                name="contraseña"
+                placeholder="Crea la contraseña"
+                value={contraseña}
+                onChange={(e) => setContraseña(e.target.value)}
+                className={styles.inputField}
+              />
+              <button
+                type="button"
+                className={styles.botonOjito}
+                onClick={togglePasswordVisibility}
+              >
+                {showPassword ? <FiEyeOff /> : <FiEye />}
+              </button>
+            </div>
+            <button type="submit" className={styles.submitButton}>Regístrate</button>
             {error && <p className={styles.error}>{error}</p>}
           </form>
         </div>

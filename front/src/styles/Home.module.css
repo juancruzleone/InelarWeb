@@ -2332,3 +2332,91 @@
 .ordenes{
   margin-top: 20px;
 }
+
+.contenedorFormContraseñaRegistro{
+  position: relative;
+
+}
+
+
+.contenedorPrelogin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+
+
+
+.formularioLogin label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  font-family: "montserrat", sans-serif;
+}
+
+.formularioLogin input,
+.formularioLogin textarea {
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #121212;
+  color: white; /* Para que el texto sea visible en fondo oscuro */
+}
+
+.formularioLogin button {
+  font-family: "montserrat", sans-serif;
+  font-weight: lighter;
+  font-size: 16px;
+  padding: 0.6rem 1rem;
+  background-color: #f57600;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.formularioLogin button:hover {
+  background-color: #C75F00;
+}
+
+.formularioLogin p {
+  text-align: center;
+  font-family: "montserrat", sans-serif;
+  margin-top: 30px;
+}
+
+.formularioLogin input {
+  padding: 0.9rem;
+  border-radius: 10px;
+}
+
+.passwordContainer {
+  position: relative;
+}
+
+
+
+.contenedorProductosRelacionados{
+  text-align: center;
+  margin-top: 20px;
+}
+
+.contenedorProductosRelacionados .tituloSeccionProductoRelacionado{
+  margin-top: 60px;
+}
+
+.productosRelacionados{
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.productoRelacionado{
+  background-color: #121212;
+  margin: 10px;
+  border-radius: 5px;
+  padding: 10px;
+}
