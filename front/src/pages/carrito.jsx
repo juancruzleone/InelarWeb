@@ -58,7 +58,11 @@ const Carrito = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ carrito, estado: 'nuevo' }),
+        body: JSON.stringify({
+          carrito,
+          estado: 'nuevo',
+          userId: userData.cuenta._id, // Utilizas el ID del usuario desde el userData
+        }),
       });
 
       const data = await response.json();
@@ -100,18 +104,18 @@ const Carrito = () => {
                   </div>
                 </div>
                 <button
-                      className={styles.botonSumar}
-                      onClick={() => handleIncrementarUnidades(index)}
-                    >
-                      <Image src="/suma.svg" alt="Sumar unidades" width={20} height={20} />
-                    </button>
+                  className={styles.botonSumar}
+                  onClick={() => handleIncrementarUnidades(index)}
+                >
+                  <Image src="/suma.svg" alt="Sumar unidades" width={20} height={20} />
+                </button>
                 <button
-                      className={styles.botonEliminar}
-                      onClick={() => handleEliminarProducto(index)}
-                    >
-                      <Image src="/eliminar.svg" alt="Eliminar unidades" width={20} height={20} />
-                    </button>
-                </div>
+                  className={styles.botonEliminar}
+                  onClick={() => handleEliminarProducto(index)}
+                >
+                  <Image src="/eliminar.svg" alt="Eliminar unidades" width={20} height={20} />
+                </button>
+              </div>
             ))
           )}
         </div>

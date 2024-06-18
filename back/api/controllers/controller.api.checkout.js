@@ -8,7 +8,6 @@ const db = client.db("inelar");
 const createOrder = async (req, res) => {
     try {
         const { carrito, estado, userId } = req.body;
-        console.log("Received userId:", userId);  // Verificar que el userId se está recibiendo
 
         if (estado === 'procesando') {
             return res.status(400).json({ error: 'Ya se está procesando una orden.' });
@@ -38,7 +37,7 @@ const createOrder = async (req, res) => {
 
         // Insertar la orden en la base de datos
         const orden = {
-            userId: userId,  // Asegurarse de asignar el userId recibido
+            userId,  // Asegurarse de asignar el userId recibido
             items: carrito,
             total: carrito.reduce((acc, producto) => acc + producto.precio * producto.unidades, 0),
             estado: 'procesando',
