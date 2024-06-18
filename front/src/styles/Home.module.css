@@ -229,6 +229,11 @@
   }
 }
 
+/* Otros estilos ... */
+
+/* Otros estilos ... */
+
+
 
 .nav {
   display: flex;
@@ -258,12 +263,13 @@
   height: 40px;
 }
 
+/* Alinea al extremo derecho */
 #sesion {
   margin-left: auto;
 }
 
 .carrito {
-  margin-right: 40px; 
+  margin-right: 40px; /* Ajusta según sea necesario */
   margin-left: 5px;
 }
 
@@ -365,9 +371,9 @@
 .contenedorTextoNuestraApp {
   font-family: "montserrat", sans-serif;
   margin: 140px;
-  margin-top: 0; 
-  justify-content: center; 
-  align-items: center; 
+  margin-top: 0; /* Elimina el margen superior negativo */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
 
 }
 
@@ -430,6 +436,10 @@
   align-items: center;
   margin-top: 80px;
 }
+
+/*.posicionContacto .contenedorFormulario{
+  margin-top: 100px;
+}*/
 
 
 .contenedorMapa{
@@ -584,13 +594,13 @@
 }
 
 .iconoServiciosCard:hover {
-  transform: scale(1.1); 
+  transform: scale(1.1); /* Agrandar ligeramente el ícono en hover */
 }
 
 .cardServicios:hover {
   background-color: #C75F00;
   cursor: pointer;
-  transform: scale(1.05);
+  transform: scale(1.05); /* Agrandar ligeramente la tarjeta */
 }
 
 .posicionSeccionProductos{
@@ -616,6 +626,14 @@
   border: 3px solid transparent;
 }
 
+
+
+
+
+
+
+
+/* Ajuste para reducir el espacio entre prelogin y carrito */
 
 .iconoServicios{
   width: 140px;
@@ -732,7 +750,7 @@
 }
 
 .respuestaVisible {
-  max-height: 1000px; 
+  max-height: 1000px; /* Ajusta la altura máxima deseada */
 }
 
 
@@ -801,7 +819,7 @@
   font-family: "montserrat", sans-serif;
   font-size: 20px;
   padding-left: 6px;
-  padding-top: 6px;
+  padding-top: 10px;
 }
 
 #respuestasPreguntas{
@@ -809,6 +827,10 @@
   font-size: 16px;
   color: black;
 }
+
+
+
+/* Custom styles for Carrousel component */
 
 .swiper-container {
   width: 100%;
@@ -866,14 +888,14 @@
   padding-bottom: 0px;
 }
 
-
+/* Footer Container */
 .footer {
   background-color: #121212;
   color: white;
   padding: 40px 0;
 }
 
-
+/* Footer Container Styles */
 .footerContainer {
   display: flex;
   flex-wrap: wrap;
@@ -883,26 +905,26 @@
   padding: 0 20px;
 }
 
-
+/* Footer Column Styles */
 .footerColumn {
   flex: 1;
   margin-right: 20px;
 }
 
-
+/* Footer Heading Styles */
 .footerHeading {
   font-size: 1.5rem;
   margin-bottom: 15px;
-  color: #C75F00; 
+  color: #C75F00; /* Color naranja */
 }
 
-
+/* Footer Text Styles */
 .footerText {
   font-size: 1rem;
   line-height: 1.6;
 }
 
-
+/* Footer Links Styles */
 .footerList {
   list-style: none;
   padding: 0;
@@ -919,16 +941,16 @@
 }
 
 .footerListItem a:hover {
-  color: #ffa24a; 
+  color: #ffa24a; /* Cambiar a color naranja al pasar el ratón */
 }
 
-
+/* Footer Bottom Styles */
 .footerBottom {
   text-align: center;
   padding-top: 20px;
 }
 
-
+/* Responsive Footer Styles */
 @media (max-width: 768px) {
   .footerColumn {
     flex: 1 1 100%;
@@ -937,7 +959,7 @@
   }
 }
 
-
+/* Footer.module.css */
 
 .footer {
   background-color: #121212;
@@ -951,11 +973,11 @@
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; 
+  justify-content: space-between; /* Espaciado uniforme entre las columnas */
 }
 
 .footerColumn {
-  width: calc(33.33% - 20px);
+  width: calc(33.33% - 20px); /* Calculamos el ancho de cada columna */
   padding: 0 10px;
 }
 
@@ -990,10 +1012,11 @@
   font-size: 0.8rem;
 }
 
+/* Media query para hacerlo responsive en pantallas más pequeñas */
 @media (max-width: 768px) {
   .footerColumn {
-    width: 100%; 
-    margin-bottom: 20px; 
+    width: 100%; /* Ocupa todo el ancho en pantallas pequeñas */
+    margin-bottom: 20px; /* Agregamos espacio entre las columnas */
   }
 }
 
@@ -1409,6 +1432,8 @@
   margin-top: 10px;
 }
 
+/* styles/Home.module.css */
+
 .contenedorCarrito {
   margin: auto;
   background-color: #121212;
@@ -1416,11 +1441,11 @@
   height: 600px;
   margin-top: 80px;
   border-radius: 10px;
-  overflow-y: auto; 
+  overflow-y: auto; /* Agrega un scroll vertical si es necesario */
 }
 
 .contenedorCarritoVacio {
-  height: 180px; 
+  height: 180px; /* Ajusta el tamaño del contenedor cuando está vacío */
   justify-content: center;
   align-items: center;
 }
@@ -1466,7 +1491,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #1f1f1f; 
+  background-color: #1f1f1f; /* Fondo oscuro */
   padding: 10px;
   margin: 10px 0;
   border-radius: 8px;
@@ -1475,8 +1500,8 @@
 }
 
 .tarjetaProductoCarrito .imagenProductoDetalleCarrito {
-  width: 80px; 
-  height: 80px; 
+  width: 80px; /* Ajusta el ancho según tu preferencia */
+  height: 80px; /* Ajusta la altura según tu preferencia */
   margin-right: 10px;
   display: flex;
   justify-content: center;
@@ -1720,22 +1745,23 @@
   cursor: pointer;
 }
 
+/* ... (otras reglas de estilo) */
 .contenedorServicios{
-  max-height: 600px; 
-  overflow-y: auto; 
+  max-height: 600px; /* Ajusta la altura máxima deseada */
+  overflow-y: auto; /* Agrega un scroll vertical cuando sea necesario */
   margin-top: 60px;
 }
 
 .contenedorClientes {
-  max-height: 600px; 
-  overflow-y: auto; 
+  max-height: 600px; /* Ajusta la altura máxima deseada */
+  overflow-y: auto; /* Agrega un scroll vertical cuando sea necesario */
   margin-top: 60px;
 }
 
 .contenedorCategorias {
   background-color: #121212;
   border-radius: 4px;
-  margin-top: 50px; 
+  margin-top: 50px; /* Ajusta el margen según sea necesario */
   margin-left: 40px;
   height: 100%;
 }
@@ -1743,7 +1769,7 @@
 .contenedorCategoriasProductos{
   background-color: #121212;
   border-radius: 4px;
-  margin-top: 50px; 
+  margin-top: 50px; /* Ajusta el margen según sea necesario */
   height: 100%;
   margin-right: 60px;
 }
@@ -1761,12 +1787,14 @@
 }
 
 .categoriaSeleccionada {
-  color: #fff;
+  /* Estilos para la categoría seleccionada */
+  color: #fff; /* Cambia el color del texto para que sea legible sobre el fondo seleccionado */
 }
 
 .categoriaSeleccionadaProducto {
-  background-color: #f57600; 
-  color: #fff; 
+  /* Estilos para la categoría seleccionada */
+  background-color: #f57600; /* Puedes ajustar el color según tus preferencias */
+  color: #fff; /* Cambia el color del texto para que sea legible sobre el fondo seleccionado */
   padding: 4px;
   border-radius: 2px;
 }
@@ -1932,15 +1960,16 @@
   background-color: #121212;
   border-radius: 10px;
   width: 90%;
-  height: 140px;
+  height: 100%;
   padding: 20px;
   justify-content: center;
   margin: auto;
   margin-top: 30px;
 }
 
-.subtitulo{
+.seccion .subtitulo{
   font-family: "montserrat", sans-serif;
+  margin-top: 0px;
 }
 
 .seccion p{
@@ -2147,13 +2176,14 @@
   
 
 .sesion {
+  /* tus estilos actuales */
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0; 
-  border: none;
-  background: none; 
-  cursor: pointer; 
+  padding: 0; /* Asegúrate de que no haya relleno adicional */
+  border: none; /* Elimina cualquier borde por defecto */
+  background: none; /* Elimina cualquier fondo por defecto */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
 }
 
 
@@ -2351,5 +2381,3 @@
 .ordenes{
   margin-top: 20px;
 }
-
-

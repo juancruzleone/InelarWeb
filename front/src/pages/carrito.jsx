@@ -129,7 +129,7 @@ const Carrito = () => {
         ) : (
           <></>
         )}
-        {carrito.length > 0 && userData ? (
+        {userData ? (
           <button
             className={styles.botonIrCheckout}
             onClick={handleCheckout}
@@ -137,7 +137,12 @@ const Carrito = () => {
             Proceder al checkout
           </button>
         ) : (
-          <></>
+          <button
+            className={styles.botonIrCheckout}
+            onClick={() => setModalIsOpen(true)}
+          >
+            Proceder al checkout
+          </button>
         )}
       </div>
       <Footer></Footer>
