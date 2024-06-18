@@ -6,8 +6,8 @@
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
   --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 30, 30, 30; /* Gris oscuro */
-  --background-end-rgb: 30, 30, 30; /* Gris oscuro */
+  --background-start-rgb: 30, 30, 30; 
+  --background-end-rgb: 30, 30, 30; 
 
   --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
   --secondary-glow: linear-gradient(
@@ -38,8 +38,8 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 10, 10, 10; /* Gris oscuro más oscuro en modo oscuro */
-    --background-end-rgb: 10, 10, 10; /* Gris oscuro más oscuro en modo oscuro */
+    --background-start-rgb: 10, 10, 10; 
+    --background-end-rgb: 10, 10, 10; 
 
     --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
     --secondary-glow: linear-gradient(
@@ -160,7 +160,7 @@ main{
   margin-top: 20px;
 }
 
-/* Asegúrate de incluir esto en tu archivo CSS */
+
 input[type="date"] {
   font-family: "Montserrat", sans-serif;
   padding: 0.7rem;
@@ -168,7 +168,7 @@ input[type="date"] {
   border: 1px solid #ccc;
   border-radius: 4px;
   background-color: #121212;
-  appearance: none; /* Esto desactiva el estilo nativo */
+  appearance: none; 
   -webkit-appearance: none;
   position: relative;
 }
@@ -178,8 +178,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   position: absolute;
   right: 10px;
   top: 50%;
-  width: 2em; /* Ajusta el tamaño según tus necesidades */
-  height: 2em; /* Ajusta el tamaño según tus necesidades */
+  width: 2em; 
+  height: 2em; 
   transform: translateY(-50%);
 }
 
@@ -191,19 +191,19 @@ input[type="date"]::-webkit-clear-button {
 
 
 
-/* Target the button inside the file input */
+
 input[type="file"]::file-selector-button {
-  background-color: #c76205; /* Set the background color */
-  color: white; /* Set the text color */
-  padding: 7px; /* Add some padding */
-  border: none; /* Remove the default border */
-  border-radius: 4px; /* Add some rounded corners */
-  cursor: pointer; /* Change the cursor to a pointer on hover */
+  background-color: #c76205; 
+  color: white; 
+  padding: 7px; 
+  border: none; 
+  border-radius: 4px; 
+  cursor: pointer; 
 }
 
-/* Add a hover effect to the button */
+
 input[type="file"]::file-selector-button:hover {
-  background-color: #ff7b00; /* Slightly darker background color on hover */
+  background-color: #ff7b00; 
 }
 
 #imagen{

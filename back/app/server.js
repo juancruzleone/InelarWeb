@@ -1,5 +1,4 @@
 import express from "express";
-import ProductoRoutes from '../routes/productos.routes.js';
 import ApiProductoRoutes from '../api/routes/route.api.productos.js';
 import ApiClientesRoutes from '../api/routes/route.api.clientes.js';
 import ApiContactRoutes from '../api/routes/route.api.contactos.js';
@@ -17,7 +16,7 @@ app.use("/", express.static("public"));
 app.use(express.json());                         //middleware
 app.use(cors());
 
-app.use(ProductoRoutes);
+
 app.use('/api', ApiProductoRoutes);
 app.use('/api', ApiClientesRoutes);
 app.use("/api", ApiContactRoutes);

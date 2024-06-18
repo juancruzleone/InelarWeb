@@ -1,0 +1,10 @@
+Carrera: Diseño y programación web
+Materia: Clientes Web Mobile
+Cuatrimestre: Cuarto
+Año: 2024
+Turno: Mañana
+Comisión: DWM4AH
+Apellido: Leone
+Nombre: Juan cruz
+Docente: Santiago Gallino
+Entrega: Segundo parcial
