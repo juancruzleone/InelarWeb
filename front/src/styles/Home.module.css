@@ -229,11 +229,6 @@
   }
 }
 
-/* Otros estilos ... */
-
-/* Otros estilos ... */
-
-
 
 .nav {
   display: flex;
@@ -263,13 +258,12 @@
   height: 40px;
 }
 
-/* Alinea al extremo derecho */
 #sesion {
   margin-left: auto;
 }
 
 .carrito {
-  margin-right: 40px; /* Ajusta según sea necesario */
+  margin-right: 40px; 
   margin-left: 5px;
 }
 
@@ -371,9 +365,9 @@
 .contenedorTextoNuestraApp {
   font-family: "montserrat", sans-serif;
   margin: 140px;
-  margin-top: 0; /* Elimina el margen superior negativo */
-  justify-content: center; /* Centra horizontalmente */
-  align-items: center; /* Centra verticalmente */
+  margin-top: 0; 
+  justify-content: center; 
+  align-items: center; 
 
 }
 
@@ -436,10 +430,6 @@
   align-items: center;
   margin-top: 80px;
 }
-
-/*.posicionContacto .contenedorFormulario{
-  margin-top: 100px;
-}*/
 
 
 .contenedorMapa{
@@ -594,13 +584,13 @@
 }
 
 .iconoServiciosCard:hover {
-  transform: scale(1.1); /* Agrandar ligeramente el ícono en hover */
+  transform: scale(1.1); 
 }
 
 .cardServicios:hover {
   background-color: #C75F00;
   cursor: pointer;
-  transform: scale(1.05); /* Agrandar ligeramente la tarjeta */
+  transform: scale(1.05);
 }
 
 .posicionSeccionProductos{
@@ -626,14 +616,6 @@
   border: 3px solid transparent;
 }
 
-
-
-
-
-
-
-
-/* Ajuste para reducir el espacio entre prelogin y carrito */
 
 .iconoServicios{
   width: 140px;
@@ -750,7 +732,7 @@
 }
 
 .respuestaVisible {
-  max-height: 1000px; /* Ajusta la altura máxima deseada */
+  max-height: 1000px; 
 }
 
 
@@ -828,10 +810,6 @@
   color: black;
 }
 
-
-
-/* Custom styles for Carrousel component */
-
 .swiper-container {
   width: 100%;
   height: 300px;
@@ -888,14 +866,14 @@
   padding-bottom: 0px;
 }
 
-/* Footer Container */
+
 .footer {
   background-color: #121212;
   color: white;
   padding: 40px 0;
 }
 
-/* Footer Container Styles */
+
 .footerContainer {
   display: flex;
   flex-wrap: wrap;
@@ -905,26 +883,26 @@
   padding: 0 20px;
 }
 
-/* Footer Column Styles */
+
 .footerColumn {
   flex: 1;
   margin-right: 20px;
 }
 
-/* Footer Heading Styles */
+
 .footerHeading {
   font-size: 1.5rem;
   margin-bottom: 15px;
-  color: #C75F00; /* Color naranja */
+  color: #C75F00; 
 }
 
-/* Footer Text Styles */
+
 .footerText {
   font-size: 1rem;
   line-height: 1.6;
 }
 
-/* Footer Links Styles */
+
 .footerList {
   list-style: none;
   padding: 0;
@@ -941,16 +919,16 @@
 }
 
 .footerListItem a:hover {
-  color: #ffa24a; /* Cambiar a color naranja al pasar el ratón */
+  color: #ffa24a; 
 }
 
-/* Footer Bottom Styles */
+
 .footerBottom {
   text-align: center;
   padding-top: 20px;
 }
 
-/* Responsive Footer Styles */
+
 @media (max-width: 768px) {
   .footerColumn {
     flex: 1 1 100%;
@@ -959,7 +937,7 @@
   }
 }
 
-/* Footer.module.css */
+
 
 .footer {
   background-color: #121212;
@@ -973,11 +951,11 @@
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; /* Espaciado uniforme entre las columnas */
+  justify-content: space-between; 
 }
 
 .footerColumn {
-  width: calc(33.33% - 20px); /* Calculamos el ancho de cada columna */
+  width: calc(33.33% - 20px);
   padding: 0 10px;
 }
 
@@ -1012,11 +990,10 @@
   font-size: 0.8rem;
 }
 
-/* Media query para hacerlo responsive en pantallas más pequeñas */
 @media (max-width: 768px) {
   .footerColumn {
-    width: 100%; /* Ocupa todo el ancho en pantallas pequeñas */
-    margin-bottom: 20px; /* Agregamos espacio entre las columnas */
+    width: 100%; 
+    margin-bottom: 20px; 
   }
 }
 
@@ -1432,8 +1409,6 @@
   margin-top: 10px;
 }
 
-/* styles/Home.module.css */
-
 .contenedorCarrito {
   margin: auto;
   background-color: #121212;
@@ -1441,11 +1416,11 @@
   height: 600px;
   margin-top: 80px;
   border-radius: 10px;
-  overflow-y: auto; /* Agrega un scroll vertical si es necesario */
+  overflow-y: auto; 
 }
 
 .contenedorCarritoVacio {
-  height: 180px; /* Ajusta el tamaño del contenedor cuando está vacío */
+  height: 180px; 
   justify-content: center;
   align-items: center;
 }
@@ -1491,7 +1466,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #1f1f1f; /* Fondo oscuro */
+  background-color: #1f1f1f; 
   padding: 10px;
   margin: 10px 0;
   border-radius: 8px;
@@ -1500,8 +1475,8 @@
 }
 
 .tarjetaProductoCarrito .imagenProductoDetalleCarrito {
-  width: 80px; /* Ajusta el ancho según tu preferencia */
-  height: 80px; /* Ajusta la altura según tu preferencia */
+  width: 80px; 
+  height: 80px; 
   margin-right: 10px;
   display: flex;
   justify-content: center;
@@ -1745,23 +1720,22 @@
   cursor: pointer;
 }
 
-/* ... (otras reglas de estilo) */
 .contenedorServicios{
-  max-height: 600px; /* Ajusta la altura máxima deseada */
-  overflow-y: auto; /* Agrega un scroll vertical cuando sea necesario */
+  max-height: 600px; 
+  overflow-y: auto; 
   margin-top: 60px;
 }
 
 .contenedorClientes {
-  max-height: 600px; /* Ajusta la altura máxima deseada */
-  overflow-y: auto; /* Agrega un scroll vertical cuando sea necesario */
+  max-height: 600px; 
+  overflow-y: auto; 
   margin-top: 60px;
 }
 
 .contenedorCategorias {
   background-color: #121212;
   border-radius: 4px;
-  margin-top: 50px; /* Ajusta el margen según sea necesario */
+  margin-top: 50px; 
   margin-left: 40px;
   height: 100%;
 }
@@ -1769,7 +1743,7 @@
 .contenedorCategoriasProductos{
   background-color: #121212;
   border-radius: 4px;
-  margin-top: 50px; /* Ajusta el margen según sea necesario */
+  margin-top: 50px; 
   height: 100%;
   margin-right: 60px;
 }
@@ -1787,14 +1761,12 @@
 }
 
 .categoriaSeleccionada {
-  /* Estilos para la categoría seleccionada */
-  color: #fff; /* Cambia el color del texto para que sea legible sobre el fondo seleccionado */
+  color: #fff;
 }
 
 .categoriaSeleccionadaProducto {
-  /* Estilos para la categoría seleccionada */
-  background-color: #f57600; /* Puedes ajustar el color según tus preferencias */
-  color: #fff; /* Cambia el color del texto para que sea legible sobre el fondo seleccionado */
+  background-color: #f57600; 
+  color: #fff; 
   padding: 4px;
   border-radius: 2px;
 }
@@ -2175,14 +2147,13 @@
   
 
 .sesion {
-  /* tus estilos actuales */
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0; /* Asegúrate de que no haya relleno adicional */
-  border: none; /* Elimina cualquier borde por defecto */
-  background: none; /* Elimina cualquier fondo por defecto */
-  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  padding: 0; 
+  border: none;
+  background: none; 
+  cursor: pointer; 
 }
 
 
@@ -2380,3 +2351,5 @@
 .ordenes{
   margin-top: 20px;
 }
+
+

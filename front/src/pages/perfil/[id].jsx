@@ -62,14 +62,17 @@ const Perfil = () => {
               {orders.map(order => (
                 <li key={order._id} className={styles.ordenes}>
                   <h3>Orden # {order._id}</h3>
-                  <p>Total: ${order.total}</p>
-                  <p>Estado: {order.estado}</p>
-                  <p>Fecha: {new Date(order.createdAt).toLocaleDateString()}</p>
+                  <p><span>Total:</span> ${order.total}</p>
+                  <p><span>Estado:</span> {order.estado}</p>
+                  <p><span>Fecha:</span> {new Date(order.createdAt).toLocaleDateString()}</p>
                   <ul>
                     {order.items.map(item => (
                       <li key={item.nombre}>
-                        <p>{item.nombre} - ${item.precio}</p>
-                        <p>Cantidad: {item.unidades}</p>
+                        <div>
+                          <p>{item.nombre} - ${item.precio}</p>
+                          <p><span>Cantidad:</span> {item.unidades}</p>
+                        </div>
+             
                       </li>
                     ))}
                   </ul>
