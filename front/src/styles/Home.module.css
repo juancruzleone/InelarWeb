@@ -478,7 +478,7 @@
 }
 
 
-.formulario button {
+.formulario .botonSolicitudServicio {
   font-family: "montserrat", sans-serif;
   font-weight: lighter;
   font-size: 16px;
@@ -490,7 +490,7 @@
   cursor: pointer;
 }
 
-.formulario button:hover {
+.formulario .botonSolicitudServicio:hover {
   background-color: #C75F00;
 }
 
@@ -1174,7 +1174,7 @@
   font-family: "montserrat", sans-serif;
 }
 
-.formularioContacto button {
+.formularioContacto .botonContacto {
   font-family: "montserrat", sans-serif;
   font-weight: lighter;
   font-size: 16px;
@@ -1186,7 +1186,7 @@
   cursor: pointer;
 }
 
-.formularioContacto button:hover {
+.formularioContacto .botonContacto:hover {
   background-color: #C75F00;
 }
 
@@ -1213,22 +1213,6 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   background-color: #121212;
-}
-
-.formularioLogin button {
-  font-family: "montserrat", sans-serif;
-  font-weight: lighter;
-  font-size: 16px;
-  padding: 0.6rem 1rem;
-  background-color: #f57600;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.formularioLogin button:hover {
-  background-color: #C75F00;
 }
 
 .formularioLogin p{
@@ -2365,7 +2349,7 @@
   color: white; /* Para que el texto sea visible en fondo oscuro */
 }
 
-.formularioLogin button {
+/*.formularioLogin button {
   font-family: "montserrat", sans-serif;
   font-weight: lighter;
   font-size: 16px;
@@ -2379,7 +2363,7 @@
 
 .formularioLogin button:hover {
   background-color: #C75F00;
-}
+}*/
 
 .formularioLogin p {
   text-align: center;
@@ -2419,4 +2403,82 @@
   margin: 10px;
   border-radius: 5px;
   padding: 10px;
+}
+
+.formularioLogin {
+  display: flex;
+  flex-direction: column;
+  width: 3000px;
+  max-width: 400px;
+  margin: auto;
+  margin-bottom: 140px;
+  margin-top: 30px;
+}
+
+.formularioLogin label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  font-family: "montserrat", sans-serif;
+}
+
+.formularioLogin input,
+.formularioLogin textarea {
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #121212;
+}
+
+.formularioLogin .submitButton {
+  font-family: "montserrat", sans-serif;
+  font-weight: lighter;
+  font-size: 16px;
+  padding: 0.6rem 1rem;
+  background-color: #f57600;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.formularioLogin .submitButton:hover {
+  background-color: #C75F00;
+}
+
+.formularioLogin p {
+  text-align: center;
+  font-family: "montserrat", sans-serif;
+  margin-top: 30px;
+}
+
+.formularioLogin input {
+  padding: 0.9rem;
+  border-radius: 10px;
+}
+
+.passwordContainer {
+  position: relative;
+}
+
+.inputField {
+  width: 100%;
+  padding-right: 2.5rem; /* Espacio para el botón */
+}
+
+.botonOjito {
+  position: absolute;
+  right: 0.5rem;
+  top: 45%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: white;
+  font-size: 1.5rem; /* Tamaño del icono */
+}
+
+.botonOjito:hover {
+  color: #C75F00;
 }

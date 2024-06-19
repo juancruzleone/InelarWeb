@@ -90,7 +90,7 @@ const Login = () => {
               value={contraseña}
               onChange={(e) => setContraseña(e.target.value)}
             />
-            <button type="submit">Iniciar sesión</button>
+            <button type="submit" className={styles.submitButton}>Iniciar sesión</button>
             {error && <p className={styles.error}>{error}</p>}
             <p>
               Si no tienes una cuenta,{" "}

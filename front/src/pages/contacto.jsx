@@ -93,7 +93,7 @@ const Contacto = () => {
               placeholder='Escribe un mensaje'
             />
             <span className="error">{formErrors.message}</span>
-            <button type="submit" id="boton-contacto">Enviar</button>
+            <button type="submit" id="boton-contacto" className={styles.botonContacto}>Enviar</button>
           </form>
         </div>
       </div>

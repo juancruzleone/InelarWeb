@@ -5,7 +5,7 @@ import Link from "next/link";
 import Layout from "@/components/layout";
 import Footer from "@/components/Footer";
 import styles from "@/styles/Home.module.css";
-import { FiEye, FiEyeOff } from 'react-icons/fi'; // Importamos los íconos de ojo y ojo cerrado
+import { FiEye, FiEyeOff } from 'react-icons/fi';
 
 // Configurar react-modal
 Modal.setAppElement("#__next");
@@ -21,7 +21,6 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Verificar que el usuario haya ingresado un nombre de usuario y una contraseña
     if (!usuario && !contraseña) {
       setError("Ingrese ambos campos para registrarse.");
       return;
@@ -58,7 +57,6 @@ const Register = () => {
 
       if (!response.ok) {
         const errorData = await response.json();
-        // Mensajes de error personalizados en español
         if (errorData.error.message === "cuenta ya existe") {
           setError("La cuenta ya existe. Por favor, inicia sesión.");
         } else if (errorData.error.details) {
@@ -69,17 +67,12 @@ const Register = () => {
         return;
       }
 
-      // Solicitud exitosa
       const data = await response.json();
       console.log(data);
 
-      // Suponiendo que el backend devuelve un token de sesión o información relevante
       const { token } = data;
-
-      // Guardar el token en localStorage
       localStorage.setItem("token", token);
 
-      // Redirigir al usuario al home
       router.push("/");
     } catch (error) {
       setError("Error de red");
