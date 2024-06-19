@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Layout from '@/components/layout';
@@ -37,6 +37,10 @@ const DetalleProducto = ({ producto, productosRelacionados }) => {
     }, 1000);
   };
 
+  const handleVerMas = (productoId) => {
+    router.push(`/detalle/${productoId}`);
+  };
+
   return (
     <Layout className={styles.app}>
       <div className={styles.contenedorDetalleProducto}>
@@ -66,7 +70,7 @@ const DetalleProducto = ({ producto, productosRelacionados }) => {
         <h4 className={styles.tituloSeccionProductoRelacionado}>Productos relacionados</h4>
         <div className={styles.productosRelacionados}>
           {productosRelacionados.map((relacionado) => (
-            <div key={relacionado.id} className={styles.productoRelacionado}>
+            <div key={relacionado._id} className={styles.productoRelacionado}>
               <Image
                 src={relacionado.imagen}
                 alt={relacionado.nombre}
@@ -75,6 +79,7 @@ const DetalleProducto = ({ producto, productosRelacionados }) => {
                 className={styles.imagenProductoRelacionado}
               />
               <p>{relacionado.name}</p>
+              <button onClick={() => handleVerMas(relacionado._id)} className={styles.botonDetalleRelacionado}>Ver más</button>
             </div>
           ))}
         </div>
@@ -110,7 +115,7 @@ export async function getServerSideProps(context) {
     const productos = await responseProductos.json();
 
     const productosRelacionados = productos
-      .filter(p => p.categoria === producto.categoria && p.id !== id)
+      .filter(p => p.categoria === producto.categoria && p._id !== id)
       .slice(0, 3); // Mostramos solo 3 productos relacionados
 
     return {

@@ -2401,8 +2401,23 @@
 .productoRelacionado{
   background-color: #121212;
   margin: 10px;
-  border-radius: 5px;
-  padding: 10px;
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.productoRelacionado .botonDetalleRelacionado{
+  background-color: #C75F00;
+  padding: 4px;
+  margin-top: 10px;
+  border-radius: 4px;
+  font-family: "montserrat", sans-serif;
+  border: 0px;
+  font-weight: lighter;
+  cursor: pointer;
+}
+
+.productoRelacionado .botonDetalleRelacionado:hover{
+  background-color: #f57600;
 }
 
 .formularioLogin {
