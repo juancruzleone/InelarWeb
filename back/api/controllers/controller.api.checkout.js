@@ -9,8 +9,8 @@ const createOrder = async (req, res) => {
     try {
         const { carrito, estado, userId } = req.body;
 
-        if (estado === 'procesando') {
-            return res.status(400).json({ error: 'Ya se está procesando una orden.' });
+        if (estado === 'aprobado') {
+            return res.status(400).json({ error: 'Ya se ha aprobado una orden.' });
         }
 
         const mercadoPago = new MercadoPagoConfig({ accessToken: "APP_USR-4052031476279541-061615-b619da07aaa484257152a2fe9b485ce3-1861901310" });
@@ -36,18 +36,22 @@ const createOrder = async (req, res) => {
         const result = await preference.create({ body: preferenceBody });
 
         // Insertar la orden en la base de datos
-        const orden = {
-            userId,  // Asegurarse de asignar el userId recibido
-            items: carrito,
-            total: carrito.reduce((acc, producto) => acc + producto.precio * producto.unidades, 0),
-            estado: 'procesando',
-            createdAt: new Date()
-        };
+        if (result.status === 'approved') {
+            const orden = {
+                userId,  // Asegurarse de asignar el userId recibido
+                items: carrito,
+                total: carrito.reduce((acc, producto) => acc + producto.precio * producto.unidades, 0),
+                estado: 'aprobado',
+                createdAt: new Date()
+            };
 
-        const ordersCollection = db.collection('ordenes');
-        await ordersCollection.insertOne(orden);
+            const ordersCollection = db.collection('ordenes');
+            await ordersCollection.insertOne(orden);
 
-        res.status(200).json({ ...result, estado: 'procesando' });
+            res.status(200).json({ ...result, estado: 'aprobado' });
+        } else {
+            res.status(200).json({ ...result, estado: 'procesando' });
+        }
     } catch (error) {
         console.error('Error creating preference:', error);
         res.status(500).json({ error: error.message });
