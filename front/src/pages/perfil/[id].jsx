@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import Modal from 'react-modal';
 import styles from "@/styles/Home.module.css";
-import Layout from "@/components/Layout"; // Asegúrate de importar el Layout correctamente
+import Layout from "@/components/Layout";
 
 const Perfil = () => {
   const [user, setUser] = useState(null);
   const [orders, setOrders] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [newUserName, setNewUserName] = useState("");
+  const [error, setError] = useState(null); // Estado para manejar errores
   const router = useRouter();
   const { id } = router.query;
 
@@ -33,7 +37,7 @@ const Perfil = () => {
         setOrders(userOrders);
       } catch (error) {
         console.error("Error fetching user data:", error);
-        router.push("/login");
+        setError("Error al cargar los datos del usuario");
       }
     };
 
@@ -41,6 +45,37 @@ const Perfil = () => {
       fetchUserData();
     }
   }, [id]);
+
+  // Función para manejar la actualización del perfil
+  const handleUpdateProfile = async () => {
+    try {
+      const response = await fetch(`http://localhost:2023/api/cuenta/profile`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Auth-Token': localStorage.getItem('authToken')
+        },
+        body: JSON.stringify({ userName: newUserName })
+      });
+
+      if (response.ok) {
+        // Actualizar el nombre de usuario en el estado local
+        setUser(prevUser => ({
+          ...prevUser,
+          userName: newUserName
+        }));
+
+        // Cerrar el modal
+        setShowModal(false);
+      } else {
+        const errorData = await response.json();
+        throw new Error(errorData.error.message);
+      }
+    } catch (error) {
+      console.error("Error updating profile:", error);
+      setError("Error al actualizar el perfil");
+    }
+  };
 
   if (!user) return <p>Cargando...</p>;
 
@@ -50,6 +85,8 @@ const Perfil = () => {
         <div className={styles.contenidoPerfilUsuario}>
           <h1>Perfil de {user.userName}</h1>
           <p className={styles.idUsuario}>{user._id}</p>
+          {/* Botón para abrir el modal */}
+          <button onClick={() => setShowModal(true)} className={styles.botonEditarPerfil}>Editar Perfil</button>
         </div>
       </div>
       <div className={styles.contenedorPedidoUsuario}>
@@ -72,7 +109,6 @@ const Perfil = () => {
                           <p>{item.nombre} - ${item.precio}</p>
                           <p><span>Cantidad:</span> {item.unidades}</p>
                         </div>
-             
                       </li>
                     ))}
                   </ul>
@@ -82,6 +118,28 @@ const Perfil = () => {
           )}
         </div>
       </div>
+
+      {/* Modal para editar perfil */}
+      <Modal
+        isOpen={showModal}
+        onRequestClose={() => setShowModal(false)}
+        contentLabel="Editar Perfil"
+        className={styles.ModalEditarPerfil}
+      >
+        <h2>Editar Perfil</h2>
+        {error && <p className={styles.error}>{error}</p>}
+        <input
+          type="text"
+          value={newUserName}
+          onChange={(e) => setNewUserName(e.target.value)}
+          placeholder="Escribe nuevo nombre de usuario"
+        />
+        <div className={styles.contenedorBotonModalEditarPerfil}>
+          <button onClick={handleUpdateProfile} className={styles.botonGuardarCambiosPerfil}>Guardar Cambios</button>
+          <button onClick={() => setShowModal(false)} className={styles.botonCancelarCambiosPerfil}>Cancelar</button>
+        </div>
+        
+      </Modal>
     </Layout>
   );
 };
