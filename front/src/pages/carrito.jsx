@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-import Layout from '@/components/layout';
+import Layout from '@/components/Layout';
 import Footer from '@/components/Footer';
 import styles from '@/styles/Home.module.css';
 import Cookies from 'js-cookie';

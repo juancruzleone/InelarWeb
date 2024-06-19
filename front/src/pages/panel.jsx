@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import Layout from "@/components/layout";
+import Layout from "@/components/Layout";
 import Footer from "@/components/Footer";
 import PanelNav from "@/components/navpanel";
 import ListaProductos from "@/components/ListaProductos.jsx";

@@ -4,8 +4,10 @@ import ApiClientesRoutes from '../api/routes/route.api.clientes.js';
 import ApiContactRoutes from '../api/routes/route.api.contactos.js';
 import ApiServicesRoutes from '../api/routes/route.api.servicios.js';
 import ApiCheckoutRoutes from '../api/routes/route.api.checkout.js';
-import ApiAuthRoutes from '../api/routes/route.api.auth.js';
 import ApiOrdersRoutes from '../api/routes/route.api.order.js';
+import ApiProfileRoutes from '../api/routes/route.api.profile.js'
+import ApiAuthRoutes from '../api/routes/route.api.auth.js';
+
 
 import cors from 'cors';
 
@@ -22,7 +24,8 @@ app.use('/api', ApiClientesRoutes);
 app.use("/api", ApiContactRoutes);
 app.use("/api", ApiServicesRoutes);
 app.use("/api", ApiCheckoutRoutes);
-app.use('/api', ApiAuthRoutes);
 app.use('/api', ApiOrdersRoutes);
+app.use('/api', ApiProfileRoutes);
+app.use('/api', ApiAuthRoutes);
 
 app.listen(2023);

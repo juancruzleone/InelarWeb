@@ -12,4 +12,6 @@ async function validarCuenta(req, res, next) {
     }
 }
 
+
+
 export { validarCuenta };

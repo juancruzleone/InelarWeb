@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import Layout from "@/components/Layout";
+import Footer from "@/components/Footer";
 import Modal from 'react-modal';
 import styles from "@/styles/Home.module.css";
-import Layout from "@/components/Layout";
 
 const Perfil = () => {
   const [user, setUser] = useState(null);
   const [orders, setOrders] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [newUserName, setNewUserName] = useState("");
-  const [error, setError] = useState(null); // Estado para manejar errores
+  const [error, setError] = useState(null);
   const router = useRouter();
   const { id } = router.query;
 
@@ -46,26 +47,31 @@ const Perfil = () => {
     }
   }, [id]);
 
-  // Función para manejar la actualización del perfil
   const handleUpdateProfile = async () => {
+    if (!newUserName || newUserName.trim().length < 3) {
+      setError("El nombre de usuario debe tener al menos 3 caracteres");
+      return;
+    }
+
     try {
+      const userData = JSON.parse(localStorage.getItem("userData"));
+      const token = userData.token;
+
       const response = await fetch(`http://localhost:2023/api/cuenta/profile`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
-          'Auth-Token': localStorage.getItem('authToken')
+          'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({ userName: newUserName })
       });
 
       if (response.ok) {
-        // Actualizar el nombre de usuario en el estado local
         setUser(prevUser => ({
           ...prevUser,
           userName: newUserName
         }));
 
-        // Cerrar el modal
         setShowModal(false);
       } else {
         const errorData = await response.json();
@@ -73,7 +79,7 @@ const Perfil = () => {
       }
     } catch (error) {
       console.error("Error updating profile:", error);
-      setError("Error al actualizar el perfil");
+      setError(error.message);
     }
   };
 
@@ -85,7 +91,6 @@ const Perfil = () => {
         <div className={styles.contenidoPerfilUsuario}>
           <h1>Perfil de {user.userName}</h1>
           <p className={styles.idUsuario}>{user._id}</p>
-          {/* Botón para abrir el modal */}
           <button onClick={() => setShowModal(true)} className={styles.botonEditarPerfil}>Editar Perfil</button>
         </div>
       </div>
@@ -119,7 +124,6 @@ const Perfil = () => {
         </div>
       </div>
 
-      {/* Modal para editar perfil */}
       <Modal
         isOpen={showModal}
         onRequestClose={() => setShowModal(false)}
@@ -138,8 +142,8 @@ const Perfil = () => {
           <button onClick={handleUpdateProfile} className={styles.botonGuardarCambiosPerfil}>Guardar Cambios</button>
           <button onClick={() => setShowModal(false)} className={styles.botonCancelarCambiosPerfil}>Cancelar</button>
         </div>
-        
       </Modal>
+      <Footer />
     </Layout>
   );
 };
