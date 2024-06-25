@@ -1,7 +1,7 @@
 Proyecto:
 -- Es un rediseño de web para la empresa Inelar, una empresa que dedica a la prevención contra incendios en Argentina. Se ubica en CABA, provincia de Buenos Aires pero brinda su servicio en todo el pais. 
 
-La página que tienen esta desactualizada, fue realizada con adoble flash y el rediseño se realizo con React con Next y Node con Express y Mongodb en el back. El proyecto tiene una presentación de la empresa y de su app, una sección de quienes somos, una sección de servicios donde el usuario puede hacer la solicitud del serivicio que necesita, una sección de productos con filtrados por categoria, una sección preguntas frecuentes, una secció con las certificaciones de la empresa, una sección para enviar un mensaje de contacto y un panel admin con administración de productos, clientes, servicios y mensajes de contacto
+La página que tienen esta desactualizada, fue realizada con adoble flash. El rediseño se realizo con React con Next y Node con Express y Mongodb en el back. El proyecto tiene una presentación de la empresa y de su app, una sección de quienes somos, una sección de servicios donde el usuario puede hacer la solicitud del serivicio que necesita, una sección de productos con filtrados por categoria, una sección preguntas frecuentes, una secció con las certificaciones de la empresa, una sección para enviar un mensaje de contacto y un panel admin con administración de productos, clientes, servicios y mensajes de contacto
 
 
 Tecnologias: 
