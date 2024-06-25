@@ -8,10 +8,12 @@ const ListaServicios = () => {
   const [categorias, setCategorias] = useState([]);
   const [serviciosFiltrados, setServiciosFiltrados] = useState([]);
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     // Realiza la solicitud al backend cuando el componente se monta
     const obtenerServicios = async () => {
+      setLoading(true);
       try {
         const response = await fetch("http://localhost:2023/api/servicios");
         const data = await response.json();
@@ -25,6 +27,8 @@ const ListaServicios = () => {
         setCategorias(categoriasUnicas);
       } catch (error) {
         console.error("Error al obtener servicios:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -74,20 +78,24 @@ const ListaServicios = () => {
 
         {/* Lista de servicios filtrada por categoría */}
         <div className={styles.contenedorServicios}>
-          {serviciosFiltrados.map((servicio, index) => (
-            <div key={index} className={styles.tarjetaProductoPanel}>
-              <h3>Cliente: {servicio.nombre}</h3>
-              <div className={styles.contenidoTarjetaProductoPanel}>
-                <p><span>Email:</span>{servicio.email}</p>
-                <p><span>Teléfono:</span>{servicio.telefono}</p>
-                <p><span>Dirección:</span>{servicio.direccion}</p>
-                <p><span>Dispositivo:</span>{servicio.dispositivo}</p>
-                <p><span>Cantidad:</span>{servicio.cantidad}</p>
-                <p><span>Fecha:</span>{servicio.fecha}</p>
-                <p><span>Categoría:</span>{servicio.category}</p>
+          {loading ? (
+            <p>Cargando servicios...</p>
+          ) : (
+            serviciosFiltrados.map((servicio, index) => (
+              <div key={index} className={styles.tarjetaProductoPanel}>
+                <h3>Cliente: {servicio.nombre}</h3>
+                <div className={styles.contenidoTarjetaProductoPanel}>
+                  <p><span>Email:</span>{servicio.email}</p>
+                  <p><span>Teléfono:</span>{servicio.telefono}</p>
+                  <p><span>Dirección:</span>{servicio.direccion}</p>
+                  <p><span>Dispositivo:</span>{servicio.dispositivo}</p>
+                  <p><span>Cantidad:</span>{servicio.cantidad}</p>
+                  <p><span>Fecha:</span>{servicio.fecha}</p>
+                  <p><span>Categoría:</span>{servicio.category}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+          )}
         </div>
       </div>
     </>

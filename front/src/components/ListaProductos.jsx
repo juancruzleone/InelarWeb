@@ -19,28 +19,9 @@ const ListaProductos = () => {
   const [productoSeleccionado, setProductoSeleccionado] = useState(null);
   const [nuevoProducto, setNuevoProducto] = useState({ name: "", categoria: "", description: "", price: "", imagen: null });
   const [busqueda, setBusqueda] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const obtenerProductos = async () => {
-      try {
-        const response = await fetch("http://localhost:2023/api/productos");
-        const data = await response.json();
-
-        setProductos(data);
-
-        // Obtener las categorías únicas de los productos, excluyendo los productos sin categoría
-        const categoriasUnicas = Array.from(
-          new Set(data.map((producto) => producto.categoria))
-        ).filter(categoria => categoria !== undefined && categoria !== "");
-        setCategorias(categoriasUnicas);
-        
-        // Inicializar productosFiltrados con la lista completa de productos
-        setProductosFiltrados(data);
-      } catch (error) {
-        console.error("Error al obtener productos:", error);
-      }
-    };
-
     obtenerProductos();
   }, []);
 
@@ -56,6 +37,29 @@ const ListaProductos = () => {
       return () => clearTimeout(timer);
     }
   }, [modalNotificacion]);
+
+  const obtenerProductos = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch("http://localhost:2023/api/productos");
+      const data = await response.json();
+
+      setProductos(data);
+
+      // Obtener las categorías únicas de los productos, excluyendo los productos sin categoría
+      const categoriasUnicas = Array.from(
+        new Set(data.map((producto) => producto.categoria))
+      ).filter(categoria => categoria !== undefined && categoria !== "");
+      setCategorias(categoriasUnicas);
+      
+      // Inicializar productosFiltrados con la lista completa de productos
+      setProductosFiltrados(data);
+    } catch (error) {
+      console.error("Error al obtener productos:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const filtrarProductos = () => {
     let productosFiltrados = productos;
@@ -244,19 +248,23 @@ const ListaProductos = () => {
 
           {/* Lista de productos filtrada por categoría */}
           <div className={styles.contenedorClientes}>
-            {productosFiltrados.map((producto, index) => (
-              <div key={index} className={styles.tarjetaProductoPanelProductos}>
-                <h3>{producto.name}</h3>
-                <div>
-                  <button onClick={() => handleEditarProducto(producto)} className={styles.botonEditar}>
-                    <Image src="/editar.svg" alt="Editar" width={10} height={10} />
-                  </button>
-                  <button onClick={() => handleEliminarProducto(producto)} className={styles.botonEliminar}>
-                    <Image src="/eliminar.svg" alt="Eliminar" width={10} height={10} />
-                  </button>
+            {loading ? (
+              <p>Cargando productos...</p>
+            ) : (
+              productosFiltrados.map((producto, index) => (
+                <div key={index} className={styles.tarjetaProductoPanelProductos}>
+                  <h3>{producto.name}</h3>
+                  <div>
+                    <button onClick={() => handleEditarProducto(producto)} className={styles.botonEditar}>
+                      <Image src="/editar.svg" alt="Editar" width={10} height={10} />
+                    </button>
+                    <button onClick={() => handleEliminarProducto(producto)} className={styles.botonEliminar}>
+                      <Image src="/eliminar.svg" alt="Eliminar" width={10} height={10} />
+                    </button>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))
+            )}
           </div>
         </div>
       </div>

@@ -19,6 +19,7 @@ const ListaClientes = () => {
   const [clienteSeleccionado, setClienteSeleccionado] = useState(null);
   const [nuevoCliente, setNuevoCliente] = useState({ name: "", category: "" });
   const [buscar, setBuscar] = useState('');
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     obtenerClientes();
@@ -29,6 +30,7 @@ const ListaClientes = () => {
   }, [categoriaSeleccionada, buscar, clientes]);
 
   const obtenerClientes = async () => {
+    setLoading(true);
     try {
       const response = await fetch("http://localhost:2023/api/clientes");
       const data = await response.json();
@@ -45,6 +47,8 @@ const ListaClientes = () => {
       setClientesFiltrados(data);
     } catch (error) {
       console.error("Error al obtener clientes:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -196,19 +200,23 @@ const ListaClientes = () => {
 
           {/* Lista de clientes filtrada por categoría y búsqueda */}
           <div className={styles.contenedorClientes}>
-            {clientesFiltrados.map((cliente, index) => (
-              <div key={index} className={styles.tarjetaProductoPanelClientes}>
-                <h3>{cliente.name}</h3>
-                <div>
-                  <button onClick={() => handleEditarCliente(cliente)} className={styles.botonEditar}>
-                    <Image src="/editar.svg" alt="Editar" width={10} height={10} />
-                  </button>
-                  <button onClick={() => handleEliminarCliente(cliente)} className={styles.botonEliminar}>
-                    <Image src="/eliminar.svg" alt="Eliminar" width={10} height={10} />
-                  </button>
+            {loading ? (
+              <p>Cargando clientes...</p>
+            ) : (
+              clientesFiltrados.map((cliente, index) => (
+                <div key={index} className={styles.tarjetaProductoPanelClientes}>
+                  <h3>{cliente.name}</h3>
+                  <div>
+                    <button onClick={() => handleEditarCliente(cliente)} className={styles.botonEditar}>
+                      <Image src="/editar.svg" alt="Editar" width={10} height={10} />
+                    </button>
+                    <button onClick={() => handleEliminarCliente(cliente)} className={styles.botonEliminar}>
+                      <Image src="/eliminar.svg" alt="Eliminar" width={10} height={10} />
+                    </button>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))
+            )}
           </div>
         </div>
       </div>
