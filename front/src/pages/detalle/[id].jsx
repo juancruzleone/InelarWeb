@@ -69,7 +69,9 @@ const DetalleProducto = ({ initialProducto, initialProductosRelacionados }) => {
   };
 
   const handleVerMas = (productoId) => {
-    router.push(`/detalle/${productoId}`);
+    router.push(`/detalle/${productoId}`).then(() => {
+      window.location.reload();
+    });
   };
 
   if (loading) {
