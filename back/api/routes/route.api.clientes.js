@@ -14,7 +14,7 @@ route.get('/clientes/:id', controllers.obtenerClienteById);
 route.post('/clientes', [validateCliente], controllers.agregarCliente);
 
 // Remplazar un cliente -> PUT
-route.put('/clientes/:id', controllers.reemplazarCliente);
+route.put('/clientes/:id', [validateCliente], controllers.reemplazarCliente);
 
 // Actualizar un cliente -> PATCH
 route.patch('/clientes/:id', [validateClientePatch], controllers.actualizarCliente);

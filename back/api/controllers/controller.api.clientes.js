@@ -1,5 +1,3 @@
-// controllers/controller.api.clientes.js
-
 import * as service from "../../services/clientes.services.js";
 
 const obtenerClientes = (req, res) => {
@@ -8,7 +6,6 @@ const obtenerClientes = (req, res) => {
     res.status(200).json(clientes);
   });
 };
-
 
 const obtenerClienteById = (req, res) => {
   const id = req.params.id;
@@ -41,7 +38,7 @@ const reemplazarCliente = async (req, res) => {
 
   try {
     const clienteEditado = await service.reemplazarCliente(id, cliente);
-    if (clienteEditado.value) {
+    if (clienteEditado.modifiedCount > 0) {
       res.status(200).json(clienteEditado.value);
     } else {
       res.status(404).json();
@@ -56,7 +53,7 @@ const actualizarCliente = async (req, res) => {
   const id = req.params.id;
   try {
     const clienteEditado = await service.editarCliente(id, req.body);
-    if (clienteEditado.value) {
+    if (clienteEditado.modifiedCount > 0) {
       res.status(200).json(clienteEditado.value);
     } else {
       res.status(404).json();

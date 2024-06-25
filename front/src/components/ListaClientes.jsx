@@ -14,37 +14,39 @@ const ListaClientes = () => {
   const [modalCrear, setModalCrear] = useState(false);
   const [modalEditar, setModalEditar] = useState(false);
   const [modalEliminar, setModalEliminar] = useState(false);
+  const [modalConfirmacion, setModalConfirmacion] = useState(false);
+  const [mensajeConfirmacion, setMensajeConfirmacion] = useState("");
   const [clienteSeleccionado, setClienteSeleccionado] = useState(null);
-  const [nuevoCliente, setNuevoCliente] = useState({ name: "", category: "", description: "", price: "" });
+  const [nuevoCliente, setNuevoCliente] = useState({ name: "", category: "" });
   const [buscar, setBuscar] = useState('');
 
   useEffect(() => {
-    const obtenerClientes = async () => {
-      try {
-        const response = await fetch("http://localhost:2023/api/clientes");
-        const data = await response.json();
-
-        setClientes(data);
-
-        // Obtener las categorías únicas de los clientes, excluyendo "Sin Categoría"
-        const categoriasUnicas = Array.from(
-          new Set(data.map((cliente) => cliente.category))
-        ).filter(categoria => categoria !== undefined && categoria !== "");
-        setCategorias(categoriasUnicas);
-        
-        // Inicializar clientesFiltrados con la lista completa de clientes
-        setClientesFiltrados(data);
-      } catch (error) {
-        console.error("Error al obtener clientes:", error);
-      }
-    };
-
     obtenerClientes();
   }, []);
 
   useEffect(() => {
     filtrarClientes();
   }, [categoriaSeleccionada, buscar, clientes]);
+
+  const obtenerClientes = async () => {
+    try {
+      const response = await fetch("http://localhost:2023/api/clientes");
+      const data = await response.json();
+
+      setClientes(data);
+
+      // Obtener las categorías únicas de los clientes, excluyendo "Sin Categoría"
+      const categoriasUnicas = Array.from(
+        new Set(data.map((cliente) => cliente.category))
+      ).filter(categoria => categoria !== undefined && categoria !== "");
+      setCategorias(categoriasUnicas);
+      
+      // Inicializar clientesFiltrados con la lista completa de clientes
+      setClientesFiltrados(data);
+    } catch (error) {
+      console.error("Error al obtener clientes:", error);
+    }
+  };
 
   const filtrarClientes = () => {
     let clientesFiltrados = clientes;
@@ -108,6 +110,8 @@ const ListaClientes = () => {
       const createdCliente = await response.json();
       setClientes([...clientes, createdCliente]);
       handleCerrarModal();
+      mostrarConfirmacion("Cliente creado exitosamente");
+      obtenerClientes(); // Actualizar lista de clientes después de la creación
     } catch (error) {
       console.error("Error al crear cliente:", error);
     }
@@ -127,8 +131,8 @@ const ListaClientes = () => {
         const errorData = await response.json();
         throw new Error(errorData.error);
       }
-      console.log("Cliente editado:", clienteSeleccionado);
       handleCerrarModal();
+      mostrarConfirmacion("Cliente editado exitosamente");
       obtenerClientes(); // Actualizar lista de clientes después de la edición
     } catch (error) {
       console.error("Error al editar cliente:", error);
@@ -144,12 +148,20 @@ const ListaClientes = () => {
         const errorData = await response.json();
         throw new Error(errorData.error);
       }
-      console.log("Cliente eliminado:", clienteSeleccionado);
       handleCerrarModal();
+      mostrarConfirmacion("Cliente eliminado exitosamente");
       obtenerClientes(); // Actualizar lista de clientes después de la eliminación
     } catch (error) {
       console.error("Error al eliminar cliente:", error);
     }
+  };
+
+  const mostrarConfirmacion = (mensaje) => {
+    setMensajeConfirmacion(mensaje);
+    setModalConfirmacion(true);
+    setTimeout(() => {
+      setModalConfirmacion(false);
+    }, 1000);
   };
 
   return (
@@ -206,7 +218,8 @@ const ListaClientes = () => {
         isOpen={modalCrear}
         onRequestClose={handleCerrarModal}
         contentLabel="Crear Cliente"
-        className={styles.ModalPanel}
+        className={`${styles.ModalPanelClientes} ${styles.Modal}`}
+        closeTimeoutMS={1000}
       >
         <h2>Crear Cliente</h2>
         <form onSubmit={handleSubmitCrear} className={styles.formularioPanel}>
@@ -226,30 +239,6 @@ const ListaClientes = () => {
             value={nuevoCliente.category}
             onChange={handleChange}
           />
-          <label htmlFor="description">Descripción:</label>
-          <input
-            type="text"
-            id="description"
-            name="description"
-            value={nuevoCliente.description}
-            onChange={handleChange}
-          />
-          <label htmlFor="price">Precio:</label>
-          <input
-            type="number"
-            id="price"
-            name="price"
-            value={nuevoCliente.price}
-            onChange={handleChange}
-          />
-          <label htmlFor="imagen">Imagen:</label>
-          <input
-            type="text"
-            id="imagen"
-            name="imagen"
-            value={nuevoCliente.imagen}
-            onChange={handleChange}
-          />
           <button type="submit">Crear</button>
         </form>
       </Modal>
@@ -259,7 +248,8 @@ const ListaClientes = () => {
         isOpen={modalEditar}
         onRequestClose={handleCerrarModal}
         contentLabel="Editar Cliente"
-        className={styles.ModalPanel}
+        className={`${styles.ModalPanelClientes} ${styles.Modal}`}
+        closeTimeoutMS={1000}
       >
         <h2>Editar Cliente</h2>
         {clienteSeleccionado && (
@@ -280,30 +270,6 @@ const ListaClientes = () => {
               value={clienteSeleccionado.category}
               onChange={handleChange}
             />
-            <label htmlFor="description">Descripción:</label>
-            <input
-              type="text"
-              id="description"
-              name="description"
-              value={clienteSeleccionado.description}
-              onChange={handleChange}
-            />
-            <label htmlFor="price">Precio:</label>
-            <input
-              type="number"
-              id="price"
-              name="price"
-              value={clienteSeleccionado.price}
-              onChange={handleChange}
-            />
-            <label htmlFor="imagen">Imagen:</label>
-            <input
-              type="text"
-              id="imagen"
-              name="imagen"
-              value={clienteSeleccionado.imagen}
-              onChange={handleChange}
-            />
             <button type="submit">Guardar</button>
           </form>
         )}
@@ -314,18 +280,29 @@ const ListaClientes = () => {
         isOpen={modalEliminar}
         onRequestClose={handleCerrarModal}
         contentLabel="Eliminar Cliente"
-        className={styles.ModalPanelEditar}
+        className={`${styles.ModalPanelEditar} ${styles.Modal}`}
+        closeTimeoutMS={1000}
       >
         <h2>Eliminar Cliente</h2>
         {clienteSeleccionado && (
           <div className={styles.contenidoPanelEditar}>
-            <p>¿Estás seguro de que deseas eliminar a <span>{clienteSeleccionado.name}?</span></p>
+            <p>¿Estás seguro de que deseas eliminar a <span>{clienteSeleccionado.name}</span>?</p>
             <div className={styles.contenedorBotonesEditar}>
               <button onClick={handleSubmitEliminar} className={styles.botonEliminarProducto}>Eliminar</button>
               <button onClick={handleCerrarModal} className={styles.botonCancelarModal}>Cancelar</button>
             </div>
           </div>
         )}
+      </Modal>
+
+      {/* Modal Confirmación */}
+      <Modal
+        isOpen={modalConfirmacion}
+        contentLabel="Confirmación"
+        className={`${styles.ModalConfirmacion} ${styles.Modal}`}
+        closeTimeoutMS={1000}
+      >
+        <h2>{mensajeConfirmacion}</h2>
       </Modal>
     </div>
   );

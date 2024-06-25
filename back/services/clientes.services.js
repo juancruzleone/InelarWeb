@@ -1,21 +1,12 @@
-// services/clientes.services.js
-import { readFile, writeFile } from "node:fs/promises";
 import { MongoClient, ObjectId } from "mongodb";
 
-const client = new MongoClient('mongodb+srv://juan:juan123@proyectoinelar.2eadspu.mongodb.net/'); // mongodb://localhost:27017 -> 127.0.0.1 ipv6 ipv4
-
+const client = new MongoClient('mongodb+srv://juan:juan123@proyectoinelar.2eadspu.mongodb.net/');
+await client.connect();
 const db = client.db("inelar");
 
-
 async function obtenerClientes(filter = {}) {
-  const filterMongo = { eliminado: { $ne: true } }
-
-  // Puedes agregar lógica adicional para filtrar según tus necesidades
-
-  return db
-    .collection("clientes")
-    .find(filterMongo)
-    .toArray();
+  const filterMongo = { eliminado: { $ne: true } };
+  return db.collection("clientes").find(filterMongo).toArray();
 }
 
 async function obtenerClienteById(id) {
@@ -25,7 +16,6 @@ async function obtenerClienteById(id) {
 const crearCliente = async (cliente) => {
   const clienteInsertado = await db.collection("clientes").insertOne(cliente);
   cliente._id = clienteInsertado.insertedId;
-
   return cliente;
 };
 
