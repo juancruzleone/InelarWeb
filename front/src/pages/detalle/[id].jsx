@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Layout from '@/components/Layout';
@@ -7,10 +7,41 @@ import styles from '@/styles/Home.module.css';
 import Modal from 'react-modal';
 import Cookies from 'js-cookie';
 
-const DetalleProducto = ({ producto, productosRelacionados }) => {
+const DetalleProducto = ({ initialProducto, initialProductosRelacionados }) => {
   const router = useRouter();
   const { id } = router.query;
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [producto, setProducto] = useState(initialProducto);
+  const [productosRelacionados, setProductosRelacionados] = useState(initialProductosRelacionados);
+  const [loading, setLoading] = useState(!initialProducto || !initialProductosRelacionados);
+
+  useEffect(() => {
+    if (!initialProducto || !initialProductosRelacionados) {
+      const fetchData = async () => {
+        setLoading(true);
+        try {
+          const responseProducto = await fetch(`http://localhost:2023/api/productos/${id}`);
+          const fetchedProducto = await responseProducto.json();
+
+          const responseProductos = await fetch(`http://localhost:2023/api/productos`);
+          const fetchedProductos = await responseProductos.json();
+
+          const fetchedProductosRelacionados = fetchedProductos
+            .filter(p => p.categoria === fetchedProducto.categoria && p._id !== id)
+            .slice(0, 3); // Mostramos solo 3 productos relacionados
+
+          setProducto(fetchedProducto);
+          setProductosRelacionados(fetchedProductosRelacionados);
+        } catch (error) {
+          console.error('Error al obtener detalles del producto:', error);
+        } finally {
+          setLoading(false);
+        }
+      };
+
+      fetchData();
+    }
+  }, [id]);
 
   const handleAgregarAlCarrito = () => {
     const carrito = Cookies.get('carrito') ? JSON.parse(Cookies.get('carrito')) : [];
@@ -40,6 +71,15 @@ const DetalleProducto = ({ producto, productosRelacionados }) => {
   const handleVerMas = (productoId) => {
     router.push(`/detalle/${productoId}`);
   };
+
+  if (loading) {
+    return (
+      <Layout className={styles.app}>
+        <p>Cargando detalles del producto...</p>
+        <Footer />
+      </Layout>
+    );
+  }
 
   return (
     <Layout className={styles.app}>
@@ -120,8 +160,8 @@ export async function getServerSideProps(context) {
 
     return {
       props: {
-        producto,
-        productosRelacionados,
+        initialProducto: producto,
+        initialProductosRelacionados: productosRelacionados,
       },
     };
   } catch (error) {

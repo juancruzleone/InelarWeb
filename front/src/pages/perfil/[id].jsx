@@ -11,6 +11,7 @@ const Perfil = () => {
   const [showModal, setShowModal] = useState(false);
   const [newUserName, setNewUserName] = useState("");
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
   const router = useRouter();
   const { id } = router.query;
 
@@ -39,6 +40,8 @@ const Perfil = () => {
       } catch (error) {
         console.error("Error fetching user data:", error);
         setError("Error al cargar los datos del usuario");
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -82,6 +85,15 @@ const Perfil = () => {
       setError(error.message);
     }
   };
+
+  if (loading) {
+    return (
+      <Layout>
+        <p>Cargando...</p>
+        <Footer />
+      </Layout>
+    );
+  }
 
   if (!user) return <p>Cargando...</p>;
 
