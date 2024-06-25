@@ -33,10 +33,13 @@ const agregarProducto = async (req, res) => {
 const remplazarProducto = async (req, res) => {
   try {
     const id = req.params.id;
-    const producto = { ...req.body, imagen: `/${req.file.filename}` };
+    const producto = { ...req.body };
+    if (req.file) {
+      producto.imagen = `/${req.file.filename}`;
+    }
     const productoEditado = await service.remplazarProducto(id, producto);
-    if (productoEditado) {
-      res.status(200).json(productoEditado);
+    if (productoEditado.modifiedCount > 0) {
+      res.status(200).json(producto);
     } else {
       res.status(404).json();
     }
@@ -49,10 +52,13 @@ const remplazarProducto = async (req, res) => {
 const actualizarProducto = async (req, res) => {
   try {
     const id = req.params.id;
-    const producto = { ...req.body, imagen: `/${req.file.filename}` };
+    const producto = { ...req.body };
+    if (req.file) {
+      producto.imagen = `/${req.file.filename}`;
+    }
     const productoEditado = await service.editProducto(id, producto);
-    if (productoEditado) {
-      res.status(200).json(productoEditado);
+    if (productoEditado.modifiedCount > 0) {
+      res.status(200).json(producto);
     } else {
       res.status(404).json();
     }

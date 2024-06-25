@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Modal from "react-modal";
 import styles from "@/styles/Home.module.css";
 
-// Configurar react-modal
+// Configuring react-modal
 Modal.setAppElement("#__next");
 
 const ListaProductos = () => {
@@ -14,6 +14,8 @@ const ListaProductos = () => {
   const [modalCrear, setModalCrear] = useState(false);
   const [modalEditar, setModalEditar] = useState(false);
   const [modalEliminar, setModalEliminar] = useState(false);
+  const [modalNotificacion, setModalNotificacion] = useState(false);
+  const [mensajeNotificacion, setMensajeNotificacion] = useState("");
   const [productoSeleccionado, setProductoSeleccionado] = useState(null);
   const [nuevoProducto, setNuevoProducto] = useState({ name: "", categoria: "", description: "", price: "", imagen: null });
   const [busqueda, setBusqueda] = useState("");
@@ -45,6 +47,15 @@ const ListaProductos = () => {
   useEffect(() => {
     filtrarProductos();
   }, [categoriaSeleccionada, productos, busqueda]);
+
+  useEffect(() => {
+    if (modalNotificacion) {
+      const timer = setTimeout(() => {
+        setModalNotificacion(false);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [modalNotificacion]);
 
   const filtrarProductos = () => {
     let productosFiltrados = productos;
@@ -86,6 +97,8 @@ const ListaProductos = () => {
     setModalCrear(false);
     setModalEditar(false);
     setModalEliminar(false);
+    setNuevoProducto({ name: "", categoria: "", description: "", price: "", imagen: null });
+    setProductoSeleccionado(null);
   };
 
   const handleChange = (e) => {
@@ -108,46 +121,65 @@ const ListaProductos = () => {
   const handleSubmitCrear = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-    for (const key in nuevoProducto) {
-      formData.append(key, nuevoProducto[key]);
+    formData.append("name", nuevoProducto.name);
+    formData.append("categoria", nuevoProducto.categoria);
+    formData.append("description", nuevoProducto.description);
+    formData.append("price", nuevoProducto.price);
+    if (nuevoProducto.imagen) {
+      formData.append("imagen", nuevoProducto.imagen);
     }
     try {
       const response = await fetch("http://localhost:2023/api/productos", {
         method: "POST",
         body: formData,
       });
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error);
+      if (response.ok) {
+        const productoCreado = await response.json();
+        setProductos([...productos, productoCreado]);
+        setModalCrear(false);
+        setNuevoProducto({ name: "", categoria: "", description: "", price: "", imagen: null });
+        setMensajeNotificacion("Producto creado exitosamente.");
+        setModalNotificacion(true);
+        obtenerProductos(); // Actualizar lista de productos después de la creación
+      } else {
+        console.error("Error al crear el producto");
       }
-      const createdProducto = await response.json();
-      setProductos([...productos, createdProducto]);
-      handleCerrarModal();
     } catch (error) {
-      console.error("Error al crear producto:", error);
+      console.error("Error al crear el producto:", error);
     }
   };
 
   const handleSubmitEditar = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-    for (const key in productoSeleccionado) {
-      formData.append(key, productoSeleccionado[key]);
+    formData.append("name", productoSeleccionado.name);
+    formData.append("categoria", productoSeleccionado.categoria);
+    formData.append("description", productoSeleccionado.description);
+    formData.append("price", productoSeleccionado.price);
+    if (productoSeleccionado.imagen instanceof File) {
+      formData.append("imagen", productoSeleccionado.imagen);
     }
     try {
       const response = await fetch(`http://localhost:2023/api/productos/${productoSeleccionado._id}`, {
-        method: "PUT",
+        method: "PATCH",
         body: formData,
       });
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error);
+      if (response.ok) {
+        const productoActualizado = await response.json();
+        setProductos(
+          productos.map((producto) =>
+            producto._id === productoActualizado._id ? productoActualizado : producto
+          )
+        );
+        setModalEditar(false);
+        setProductoSeleccionado(null);
+        setMensajeNotificacion("Producto editado exitosamente.");
+        setModalNotificacion(true);
+      } else {
+        console.error("Error al editar el producto");
       }
-      const editedProducto = await response.json();
-      setProductos(productos.map((prod) => (prod._id === editedProducto._id ? editedProducto : prod)));
-      handleCerrarModal();
     } catch (error) {
-      console.error("Error al editar producto:", error);
+      console.error("Error al editar el producto:", error);
     }
   };
 
@@ -156,14 +188,19 @@ const ListaProductos = () => {
       const response = await fetch(`http://localhost:2023/api/productos/${productoSeleccionado._id}`, {
         method: "DELETE",
       });
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error);
+      if (response.ok) {
+        setProductos(
+          productos.filter((producto) => producto._id !== productoSeleccionado._id)
+        );
+        setModalEliminar(false);
+        setProductoSeleccionado(null);
+        setMensajeNotificacion("Producto eliminado exitosamente.");
+        setModalNotificacion(true);
+      } else {
+        console.error("Error al eliminar el producto");
       }
-      setProductos(productos.filter((prod) => prod._id !== productoSeleccionado._id));
-      handleCerrarModal();
     } catch (error) {
-      console.error("Error al eliminar producto:", error);
+      console.error("Error al eliminar el producto:", error);
     }
   };
 
@@ -362,9 +399,17 @@ const ListaProductos = () => {
               <button onClick={handleSubmitEliminar} className={styles.botonModalEliminar}>Eliminar</button>
               <button onClick={handleCerrarModal} className={styles.botonModalCancelar}>Cancelar</button>
             </div>
-
           </>
         )}
+      </Modal>
+
+      {/* Modal Notificación */}
+      <Modal
+        isOpen={modalNotificacion}
+        contentLabel="Notificación"
+        className={styles.Modal}
+      >
+        <h2>{mensajeNotificacion}</h2>
       </Modal>
     </div>
   );
