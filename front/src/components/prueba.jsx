@@ -95,23 +95,17 @@ const ListaProductos = () => {
   const handleSubmitCrear = async (e) => {
     e.preventDefault();
     try {
-      const formData = new FormData();
-      formData.append('name', nuevoProducto.name);
-      formData.append('categoria', nuevoProducto.categoria);
-      formData.append('description', nuevoProducto.description);
-      formData.append('price', nuevoProducto.price);
-      formData.append('imagen', nuevoProducto.imagen);
-
       const response = await fetch("http://localhost:2023/api/productos", {
         method: "POST",
-        body: formData,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(nuevoProducto),
       });
-
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.error);
       }
-
       const createdProducto = await response.json();
       setProductos([...productos, createdProducto]);
       handleCerrarModal();
@@ -125,25 +119,17 @@ const ListaProductos = () => {
   const handleSubmitEditar = async (e) => {
     e.preventDefault();
     try {
-      const formData = new FormData();
-      formData.append('name', productoSeleccionado.name);
-      formData.append('categoria', productoSeleccionado.categoria);
-      formData.append('description', productoSeleccionado.description);
-      formData.append('price', productoSeleccionado.price);
-      if (productoSeleccionado.imagen instanceof File) {
-        formData.append('imagen', productoSeleccionado.imagen);
-      }
-
       const response = await fetch(`http://localhost:2023/api/productos/${productoSeleccionado._id}`, {
         method: "PUT",
-        body: formData,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(productoSeleccionado),
       });
-
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.error);
       }
-
       const updatedProducto = await response.json();
       setProductos(
         productos.map((producto) =>
@@ -152,7 +138,6 @@ const ListaProductos = () => {
       );
       handleCerrarModal();
       mostrarConfirmacion("Producto editado exitosamente");
-      obtenerProductos(); // Actualizar lista de productos después de la creación
     } catch (error) {
       console.error("Error al editar producto:", error);
     }
@@ -170,7 +155,6 @@ const ListaProductos = () => {
       setProductos(productos.filter(producto => producto._id !== productoSeleccionado._id));
       handleCerrarModal();
       mostrarConfirmacion("Producto eliminado exitosamente");
-      obtenerProductos(); // Actualizar lista de productos después de la creación
     } catch (error) {
       console.error("Error al eliminar producto:", error);
     }
@@ -201,7 +185,11 @@ const ListaProductos = () => {
             {categorias.map((categoria, index) => (
               <div
                 key={index}
-                className={`${styles.contenedorCategoria} ${categoria === categoriaSeleccionada ? styles.categoriaSeleccionada : ""}`}
+                className={`${styles.contenedorCategoria} ${
+                  categoria === categoriaSeleccionada
+                    ? styles.categoriaSeleccionada
+                    : ""
+                }`}
                 onClick={() => setCategoriaSeleccionada(categoria)}
               >
                 <p>{categoria.charAt(0).toUpperCase() + categoria.slice(1)}</p>
@@ -288,7 +276,8 @@ const ListaProductos = () => {
             onChange={(e) => setNuevoProducto({ ...nuevoProducto, imagen: e.target.files[0] })}
             required
           />
-          <button type="submit">Crear</button>
+          <button type="submit">Guardar</button>
+          <button onClick={handleCerrarModal}>Cancelar</button>
         </form>
       </Modal>
 
@@ -297,7 +286,7 @@ const ListaProductos = () => {
         isOpen={modalEditar}
         onRequestClose={handleCerrarModal}
         contentLabel="Editar Producto"
-        className={`${styles.ModalPanel} ${styles.Modal}`}
+        className={`${styles.ModalPanelClientes} ${styles.Modal}`}
         closeTimeoutMS={500}
       >
         <h2>Editar Producto</h2>
@@ -350,6 +339,7 @@ const ListaProductos = () => {
             onChange={(e) => setProductoSeleccionado({ ...productoSeleccionado, imagen: e.target.files[0] })}
           />
           <button type="submit">Guardar</button>
+          <button onClick={handleCerrarModal}>Cancelar</button>
         </form>
       </Modal>
 
@@ -358,25 +348,25 @@ const ListaProductos = () => {
         isOpen={modalEliminar}
         onRequestClose={handleCerrarModal}
         contentLabel="Eliminar Producto"
-        className={`${styles.ModalPanelEditar} ${styles.Modal}`}
+        className={`${styles.ModalPanelClientes} ${styles.Modal}`}
         closeTimeoutMS={500}
       >
-        <h2>Eliminar Producto</h2>
-        <p>¿Estás seguro de que deseas eliminar a <span>{productoSeleccionado.name}</span>?</p>
-        <div className={styles.contenedorBotonesEditar}>
-          <button onClick={handleSubmitEliminar} className={styles.botonEliminarProducto}>Eliminar</button>
-          <button onClick={handleCerrarModal} className={styles.botonCancelarModal}>Cancelar</button>
+        <h2>¿Estás seguro de que deseas eliminar este producto?</h2>
+        <div className={styles.botonesEliminar}>
+          <button onClick={handleSubmitEliminar}>Eliminar</button>
+          <button onClick={handleCerrarModal}>Cancelar</button>
         </div>
       </Modal>
 
       {/* Modal Confirmación */}
       <Modal
         isOpen={modalConfirmacion}
+        onRequestClose={() => setModalConfirmacion(false)}
         contentLabel="Confirmación"
         className={`${styles.ModalConfirmacion} ${styles.Modal}`}
         closeTimeoutMS={500}
       >
-        <p>{mensajeConfirmacion}</p>
+        <h2>{mensajeConfirmacion}</h2>
       </Modal>
     </div>
   );

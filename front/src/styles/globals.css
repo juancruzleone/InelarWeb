@@ -194,7 +194,7 @@ input[type="date"]::-webkit-clear-button {
 
 
 input[type="file"]::file-selector-button {
-  background-color: #c76205; 
+  background-color: rgb(43, 43, 43);
   color: white; 
   padding: 7px; 
   border: none; 
