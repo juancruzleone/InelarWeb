@@ -33,7 +33,7 @@ const Profile = () => {
         }
         setUser(parsedUserData.cuenta);
 
-        const response = await fetch(`http://localhost:2023/api/orders`);
+        const response = await fetch(`https://inelarweb-back.onrender.com/api/orders`);
         const data = await response.json();
 
         const userOrders = data.filter(order => order.userId === id);
@@ -61,7 +61,7 @@ const Profile = () => {
       const userData = JSON.parse(localStorage.getItem("userData"));
       const token = userData.token;
 
-      const response = await fetch(`http://localhost:2023/api/cuenta/profile`, {
+      const response = await fetch(`https://inelarweb-back.onrender.com/api/cuenta/profile`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

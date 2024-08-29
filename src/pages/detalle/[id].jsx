@@ -21,10 +21,10 @@ const DetalleProducto = ({ initialProducto, initialProductosRelacionados }) => {
       const fetchData = async () => {
         setLoading(true);
         try {
-          const responseProducto = await fetch(`http://localhost:2023/api/productos/${id}`);
+          const responseProducto = await fetch(`https://inelarweb-back.onrender.com/api/productos/${id}`);
           const fetchedProducto = await responseProducto.json();
 
-          const responseProductos = await fetch(`http://localhost:2023/api/productos`);
+          const responseProductos = await fetch(`https://inelarweb-back.onrender.com/api/productos`);
           const fetchedProductos = await responseProductos.json();
 
           const fetchedProductosRelacionados = fetchedProductos
