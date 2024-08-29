@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchProductos, submitSolicitud } from "@/components/solicitudServicios/SolicitarInstalacion/services/SolicitarInstalacionService";
-import { validateField } from "@/components/SolicitudServicios/SolicitarInstalacion/utils/SolicitarInstalacionUtils";
+import { validateField } from "@/components/solicitudServicios/SolicitarInstalacion/utils/SolicitarInstalacionUtils";
 
 const useFormDataState = () => {
   const [formData, setFormData] = useState({
