@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import Layout from "@/components/Layout/index";
+import Layout from "@/components/layout/index";
 import Footer from "@/components/Footer";
 import ProductosCategorias from "@/components/productos/components/ProductCategorys";
 import ProductosLista from "@/components/productos/components/ProductList";

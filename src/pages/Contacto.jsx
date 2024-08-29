@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Head from "next/head";
-import Layout from "@/components/Layout/index";
+import Layout from "@/components/layout/index";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/contacto/components/ContactForm";
 import ContactMap from "@/components/contacto/components/ContactMap";

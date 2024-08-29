@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import Layout from "@/components/Layout/index";
+import Layout from "@/components/layout/index";
 import Footer from "@/components/Footer";
 import FormularioMantenimiento from "@/components/solicitudServicios/SolicitarMantenimiento/components/SolicitarMantenimientoForm.jsx";
 import SolicitarMantenimientoModal from "@/components/solicitudServicios/SolicitarMantenimiento/components/SolicitarMantenimientoModal.jsx";

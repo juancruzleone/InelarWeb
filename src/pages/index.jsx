@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
-import Layout from "@/components/Layout/index";
+import Layout from "@/components/layout/index";
 import Footer from "@/components/Footer";
 import Carrousel from "@/components/Carrousel";
 import styles from "@/styles/Home.module.css";

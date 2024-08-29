@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import Layout from "@/components/Layout/index";
+import Layout from "@/components/layout/index";
 import Footer from "@/components/Footer";
 import RegisterForm from "@/components/register/components/RegisterForm";
 import RegisterModal from "@/components/register/components/RegisterModal";
