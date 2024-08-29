@@ -1,0 +1,3197 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6rem;
+  min-height: 100vh;
+}
+
+
+.description {
+  display: inherit;
+  justify-content: inherit;
+  align-items: inherit;
+  font-size: 0.85rem;
+  max-width: var(--max-width);
+  width: 100%;
+  z-index: 2;
+  font-family: var(--font-mono);
+}
+
+.description a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.description p {
+  position: relative;
+  margin: 0;
+  padding: 1rem;
+  background-color: rgba(var(--callout-rgb), 0.5);
+  border: 1px solid rgba(var(--callout-border-rgb), 0.3);
+  border-radius: var(--border-radius);
+}
+
+.code {
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(25%, auto));
+  max-width: var(--max-width);
+  width: 100%;
+} 
+
+.card {
+  padding: 1rem 1.2rem;
+  border-radius: var(--border-radius);
+  background: rgba(var(--card-rgb), 0);
+  border: 1px solid rgba(var(--card-border-rgb), 0);
+  transition: background 200ms, border 200ms;
+}
+
+.card span {
+  display: inline-block;
+  transition: transform 200ms;
+}
+
+.card h2 {
+  font-weight: 600;
+  margin-bottom: 0.7rem;
+}
+
+.card p {
+  margin: 0;
+  opacity: 0.6;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  max-width: 30ch;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 4rem 0;
+}
+
+.center::before {
+  background: var(--secondary-glow);
+  border-radius: 50%;
+  width: 480px;
+  height: 360px;
+  margin-left: -400px;
+}
+
+.center::after {
+  background: var(--primary-glow);
+  width: 240px;
+  height: 180px;
+  z-index: -1;
+}
+
+.center::before,
+.center::after {
+  content: '';
+  left: 50%;
+  position: absolute;
+  filter: blur(45px);
+  transform: translateZ(0);
+}
+
+.logo {
+  position: relative;
+}
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    background: rgba(var(--card-rgb), 0.1);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+  }
+
+  .card:hover span {
+    transform: translateX(4px);
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .card:hover span {
+    transform: none;
+  }
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .content {
+    padding: 4rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    margin-bottom: 120px;
+    max-width: 320px;
+    text-align: center;
+  }
+
+  .card {
+    padding: 1rem 2.5rem;
+  }
+
+  .card h2 {
+    margin-bottom: 0.5rem;
+  }
+
+  .center {
+    padding: 8rem 0 6rem;
+  }
+
+  .center::before {
+    transform: none;
+    height: 300px;
+  }
+
+  .description {
+    font-size: 0.8rem;
+  }
+
+  .description a {
+    padding: 1rem;
+  }
+
+  .description p,
+  .description div {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+  }
+
+  .description p {
+    align-items: center;
+    inset: 0 0 auto;
+    padding: 2rem 1rem 1.4rem;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid rgba(var(--callout-border-rgb), 0.25);
+    background: linear-gradient(
+      to bottom,
+      rgba(var(--background-start-rgb), 1),
+      rgba(var(--callout-rgb), 0.5)
+    );
+    background-clip: padding-box;
+    backdrop-filter: blur(24px);
+  }
+
+  .description div {
+    align-items: flex-end;
+    pointer-events: none;
+    inset: auto 0 0;
+    padding: 2rem;
+    height: 200px;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgb(var(--background-end-rgb)) 40%
+    );
+    z-index: 1;
+  }
+}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 701px) and (max-width: 1120px) {
+  .grid {
+    grid-template-columns: repeat(2, 50%);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .vercelLogo {
+    filter: invert(1);
+  }
+
+  .logo {
+    filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  padding-left: 28px;
+  background-color: #121212;
+}
+
+.seccionesNav {
+  font-family: "montserrat", sans-serif;
+  font-size: 16px;
+  color: white;
+  text-decoration: none;
+  margin: 0 0.5rem;
+  padding: 0.3rem;
+  border-bottom: 4px solid transparent;
+}
+
+.seccionesNav:hover {
+  border-bottom: 4px solid #C75F00;
+}
+
+.sesion,
+.carrito {
+  width: 40px;
+  height: 40px;
+}
+
+#sesion {
+  margin-left: auto;
+}
+
+.carrito {
+  margin-right: 40px; 
+  margin-left: 5px;
+}
+
+#cerrarSesion{
+  margin-right: 20px;
+}
+
+.tituloHome{
+  font-family: "montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: lighter;
+  margin-left: 50px;
+  margin-top: 20px;
+}
+
+.tituloHome h2{
+  margin-top: -40px;
+  color: #f9bf79;
+  font-weight: 500;
+}
+
+.nombreProductoDetalle{
+  font-family: "montserrat", sans-serif;
+  font-size: 32px;
+  text-align: left;
+  margin-top: 80px;
+  font-weight: 600;
+  color: #C75F00;
+}
+
+.tituloPaginas{
+  font-family: "montserrat", sans-serif;
+  font-size: 42px;
+  text-align: center;
+  margin-top: 80px;
+  font-weight: 600;
+  color: #C75F00;
+}
+
+.tituloServicio{
+  font-family: "montserrat", sans-serif;
+  padding-left: 100px;
+  font-size: 42px;
+  text-align: left;
+  margin-top: 100px;
+  font-weight: 600;
+  color: #C75F00;
+}
+
+.subtitulos{
+  font-family: "montserrat", sans-serif;
+  color: #C75F00;
+  font-size: 32px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.subtituloServicios{
+  font-family: "montserrat", sans-serif;
+  color: #C75F00;
+  font-size: 32px;
+  text-align: center;
+}
+
+.subtituloApp{
+  font-family: "montserrat", sans-serif;
+  color: #C75F00;
+  font-size: 32px;
+  text-align: left;
+  padding-bottom: 20px;
+}
+
+.tituloFooter{
+  font-size: 22px;
+  font-family: "montserrat", sans-serif;
+  text-align: center;
+}
+
+.contenedorQuienesSomos{
+  margin-top: 300px;
+  margin-bottom: 80px;
+}
+
+.contenedorNuestraApp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 420px;
+  margin-bottom: 60px;
+}
+
+.contenedorTextoNuestraApp {
+  font-family: "montserrat", sans-serif;
+  margin: 140px;
+  margin-top: 0; 
+  justify-content: center; 
+  align-items: center; 
+
+}
+
+
+
+
+
+.circulo {
+  width: 300px;
+  height: 300px;
+  background-color: #f9bf79;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 100px;
+  margin-left: 300px;
+}
+
+.contenedorServicios{
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+@media (max-width: 768px) {
+  .contenedorNuestraApp {
+      flex-direction: column;
+  }
+  .circulo{
+      width: 100%;
+  }
+  .celularImagen {
+      width: 150px;
+  }
+}
+
+.contenedorFooter{
+  background-color: #121212;
+  padding: 30px;
+  margin-top: 80px;
+}
+
+.contenedorFormasContactoFooter ul li{
+  font-family: "montserrat", sans-serif;
+  list-style-type: none;
+}
+
+.emailFooter{
+  font-family: "montserrat", sans-serif;
+}
+
+.emailFooter:hover{
+  color: #f57600;
+}
+
+.posicionContacto{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+}
+
+.contenedorMapa{
+  padding-right: 100px;
+}
+
+.contenedorMapa iframe{
+  width: 480px;
+  height: 580px;
+  border-radius: 10px;
+  margin-right: 40px;
+}
+
+.mapa{
+  width: 500px;
+  height: 400px;
+  padding: 40px;
+}
+
+.contenedorMapa address{
+  text-align: center;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  width: 3000px;
+  max-width: 400px;
+  margin: auto;
+  margin-bottom: 140px;
+}
+
+.formulario label {
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  font-weight: bold;
+  font-family: "montserrat", sans-serif;
+}
+
+.formulario input,
+.formulario textarea {
+  padding: 0.9rem;
+  margin-bottom: 1.2rem;
+  margin-bottom: 0px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #121212;
+  color: white;
+  font-family: "montserrat", sans-serif;
+}
+
+.formulario select{
+  font-family: "montserrat", sans-serif;
+  border-radius: 10px;
+  height: 47px;
+}
+
+
+.formulario .botonSolicitudServicio {
+  font-family: "montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 0.6rem 1rem;
+  background-color: #f57600;
+  color: #121212 ;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.formulario .botonSolicitudServicio:hover {
+  background-color: #C75F00;
+}
+
+
+.posicionServicios{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.cajaServicios{
+  background-color: #121212;
+  border-radius: 20px;
+  width: 300px;
+  height: 240px;
+  margin: 20px;
+}
+
+.cajaServicios:hover{
+  background-color: #C75F00;
+}
+
+.contenedorCardServicios{
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.cardServicios{
+  margin-top: 20px;
+  width: 300px;
+  height: 300px;
+  background-color: #121212;
+  margin: 20px;
+  border-radius: 20px;
+}
+
+.cardServicios:hover{
+  background-color: #C75F00;
+  cursor: pointer;
+}
+
+.cardServicios:hover .botonCardServicio{
+  background-color: #121212;
+  color: white;
+}
+
+.tituloCardServicio{
+  font-family: "montserrat", sans-serif;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.descripcionServicio{
+  font-family: "montserrat", sans-serif;
+}
+
+.botonCardServicio{
+  font-family: "montserrat", sans-serif;
+  padding: 6px;
+  font-weight: 500;
+  background-color: #f57600;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  width: 30%;
+  margin: auto;
+  margin-top: 20px;
+  color:  #121212;
+}
+
+
+
+.nombreServicios{
+  font-family: "montserrat", sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  margin-top: 20px;
+  text-align: left;
+  padding: 5px;
+  margin: 20px;
+  text-align: left;
+}
+
+.iconoServiciosCard:hover {
+  transform: scale(1.1); 
+}
+
+.cardServicios:hover {
+  background-color: #C75F00;
+  cursor: pointer;
+  transform: scale(1.05); 
+}
+
+.posicionSeccionProductos{
+  display: flex;
+}
+
+.posicionSeccionProductos .contenedorCategorias{
+  margin-top: 50px;
+}
+
+.contenedorCategorias{
+  background-color: #121212;
+  border-radius: 4px;
+  height: 300px;
+  margin-right: 60px;
+}
+
+.contenedorCategorias button{
+  display: block;
+  font-family: "montserrat", sans-serif;
+  margin-top: 10px;
+  margin: 40px;
+  border: 3px solid transparent;
+  background-color: #121212;
+  cursor: pointer;
+}
+
+.iconoServicios{
+  width: 140px;
+  height: 140px;
+  margin: auto;
+  cursor: pointer;
+}
+
+.iconoServiciosCard{
+  display: flex;
+  justify-content: center;
+  width: 140px;
+  height: 140px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.cajaServicios img{
+  display: flex;
+  justify-content: center;
+}
+
+.subtituloServicio{
+  font-family: "montserrat", sans-serif;
+  text-align: center;
+  font-weight: 400;
+  font-size: 20px;
+  margin-top: 8px;
+}
+
+.contenedorTextoQuienesSomos{
+  padding: 20px 200px;
+  margin-top: 40px;
+  background-color: #121212;
+  border-radius: 40px;
+  margin: 80px;
+  padding: 40px;
+  margin-bottom: 100px;
+}
+
+.contenedorTextoQuienesSomos p{
+  display: block;
+  font-size: 18px;
+  justify-content: center;
+  text-align: left;
+  font-family: "montserrat", sans-serif;
+  color: white;
+
+}
+
+.contenedorTextoQuienesSomos span{
+  font-weight: bolder;
+}
+
+.textoError404{
+  font-family: "montserrat", sans-serif;
+  font-size: 18px;
+  text-align: center;
+  margin-top: 7px;
+}
+
+.contenedor404{
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.posicionBotonError404{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.botonError404{
+  background-color: #f57600;
+  padding: 5px;
+  border-radius: 4px;
+  font-family: "montserrat", sans-serif;
+  font-weight: lighter;
+  font-size: 18px;
+}
+
+.botonError404:hover{
+  background-color: #C75F00;
+}
+
+.posicionPreguntasFrecuentes{
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.contenedorPreguntasFrecuentes{
+  display: flex;
+  justify-content: center;
+  background-color: #121212;
+  padding: 10px;
+  margin: 12px;
+  border-radius: 6px;
+}
+
+
+.contenedorPreguntasFrecuentes:hover{
+  background-color: #f57600;
+}
+
+.contenedorPreguntasFrecuentes h2{
+  font-family: "montserrat", sans-serif;
+}
+
+.respuesta {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.respuestaVisible {
+  max-height: 1000px; 
+}
+
+
+.tituloPaginas {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.posicionPreguntasFrecuentes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.contenedorPreguntaRespuesta {
+  width: 600px;
+  height: 60px;
+  /*background-color: #f57600;*/
+   background-color: #121212;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+/*.contenedorPreguntaRespuesta:hover{
+  background-color: #ff8c20;
+}*/
+
+.toggleButton {
+  font-size: 24px;
+  float: right;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  border: none;
+  outline: none;
+  width: 30px;
+  border-radius: 50px;
+}
+
+.toggleButton:hover {
+  color: gray;
+}
+
+#pregunta {
+  font-size: 18px;
+  margin: 10px 0;
+  cursor: pointer;
+  color: white;
+  font-family: "montserrat", sans-serif;
+}
+
+.respuesta {
+  display: none;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius:10px;
+}
+
+.respuestaVisible {
+  display: block;
+}
+
+#titulosPreguntas{
+  font-family: "montserrat", sans-serif;
+  font-size: 20px;
+  padding-left: 6px;
+  padding-top: 10px;
+}
+
+#respuestasPreguntas{
+  font-family: "montserrat", sans-serif;
+  font-size: 16px;
+  color: black;
+}
+
+.swiper-container {
+  width: 100%;
+  height: 300px;
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  background: #eee;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #fff;
+  background: #000;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  transform: scale(1.1);
+}
+
+.subtituloCertificaciones{
+  text-align: center;
+  font-family: "montserrat", sans-serif;
+  margin-top: 10px;
+  font-size: 22px;
+  font-weight: 300;
+}
+
+.posicionContenedorCertificaciones{
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.contenedorCertificaciones{
+  background-color: white;
+  margin: 10px;
+  border-radius: 10px;
+  height: 120px;
+}
+
+.textoServicios{
+  font-family: "montserrat", sans-serif;
+  font-size: 18px;
+}
+
+.contenedorContenidoServicio{
+  margin-top: 100px;
+  padding: 60px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.footer {
+  background-color: #121212;
+  color: white;
+  padding: 40px 0;
+}
+
+.footerContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footerColumn {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.footerHeading {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #C75F00; 
+}
+
+.footerText {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.footerList {
+  list-style: none;
+  padding: 0;
+}
+
+.footerListItem {
+  margin-bottom: 10px;
+}
+
+.footerListItem a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footerListItem a:hover {
+  color: #ffa24a; 
+}
+
+
+.footerBottom {
+  text-align: center;
+  padding-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .footerColumn {
+    flex: 1 1 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+}
+
+.footer {
+  background-color: #121212;
+  color: #ffffff;
+  padding: 30px 0;
+  margin-top: 120px;
+}
+
+.footerContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; 
+}
+
+.footerColumn {
+  width: calc(33.33% - 20px); 
+  padding: 0 10px;
+}
+
+.footerHeading {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.footerText {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.footerList {
+  list-style: none;
+  padding: 0;
+}
+
+.footerListItem {
+  margin-bottom: 10px;
+}
+
+.footerListItem a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+.footerBottom {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+
+@media (max-width: 768px) {
+  .footerColumn {
+    width: 100%; 
+    margin-bottom: 20px; 
+  }
+}
+
+.footerHeading{
+  font-family: "montserrat", sans-serif;
+}
+
+.footerText{
+  font-family: "montserrat", sans-serif;
+}
+
+.footerListItem{
+  font-family: "montserrat", sans-serif;
+}
+
+.footerHeadingMain{
+  font-family: "montserrat", sans-serif;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.footerBottom p{
+  font-size: 16px;
+  font-family: "montserrat", sans-serif;
+  font-style:italic
+}
+
+.botonSolicitarServicio{
+  padding: 4px;
+  border-radius: 4px;
+  font-family: "montserrat", sans-serif;
+  font-size: 18px;
+  background-color: #C75F00;
+  color: white;
+}
+
+.botonSolicitarServicio:hover{
+  background-color: #f57600;
+}
+
+.textoSolicitudServicios{
+  font-family: "montserrat", sans-serif;
+  font-size: 18px;
+  text-align: center;
+  margin-top: -50px;
+  margin-bottom: 40px;
+}
+
+.tituloSolicitudServicio{
+  font-family: "montserrat", sans-serif;
+  font-size: 42px;
+  text-align: center;
+  margin-top: 80px;
+  font-weight: 600;
+  color: #C75F00;
+}
+
+.botonServicio{
+  font-family: "montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 0.6rem 1rem;
+  background-color: #f57600;
+  color: #121212;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 100px;
+}
+
+.botonSolicitudServicio{
+  font-family: "montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 0.6rem 1rem;
+  background-color: #f57600;
+  color: #121212;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.contenedorContenidoServicio{
+  margin-bottom: -50px;
+}
+
+.contenedorPosicionamientoContenidoServicio{
+  display: flex;
+  margin-top: 100px;
+  padding: 60px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+
+
+.subtituloMantenimiento{
+  font-family: "montserrat", sans-serif;
+  margin-bottom: 5px;
+  margin-top: 20px;
+  color: #C75F00;
+}
+
+.fotoServicio{
+  border-radius: 10px;
+  margin-top: 40px;
+}
+
+.logoFooter{
+  border-radius: 10px;
+  margin-top: 40px;
+}
+
+.contenedorTextoServicio{
+  padding: 40px;
+}
+
+.tarjetaProducto {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 300px;
+  height: 350px; 
+  margin: 15px;
+  border-radius: 7px;
+  padding: 20px;
+  text-align: center;
+  background-color: #121212;
+  font-family: 'montserrat', sans-serif;
+}
+
+.tarjetaProducto h2 {
+  font-family: "montserrat", sans-serif;
+  font-weight: 600;
+  margin: 10px 0; 
+  font-size: 20px;
+}
+
+.tarjetaProducto p {
+  margin: 10px 0; 
+}
+
+.imagenProducto {
+  display: block;
+  margin: 0 auto 10px auto; 
+  width: 120px; 
+  height: 120px;
+  object-fit: cover; 
+}
+
+.botonVerMas {
+  font-family: "montserrat", sans-serif;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 4px;
+  border: none;
+  background-color: #C75F00;
+  color: #121212;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  margin-top: auto; 
+}
+
+
+
+.imagenProductoEditar {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 0px;
+  min-height: 80px;
+}
+
+.botonVerMas {
+  font-family: "montserrat", sans-serif;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 4px;
+  border: none;
+  background-color: #C75F00;
+  color:  #121212;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.botonVerMas:hover {
+  background-color: #ffa24a;
+}
+
+
+.contenedorProductos{
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  margin-top: 70px;
+}
+
+.formularioContacto {
+  display: flex;
+  flex-direction: column;
+  width: 3000px;
+  max-width: 400px;
+  margin: auto;
+  margin-bottom: 140px;
+  margin-top: 100px;
+}
+
+.formularioContacto label {
+  color: white;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  font-weight: bold;
+  font-family: "montserrat", sans-serif;
+}
+
+.formularioContacto input,
+.formularioContacto textarea {
+  padding: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #121212;
+  color: white;
+  font-family: "montserrat", sans-serif;
+}
+
+.formularioContacto .botonContacto {
+  font-family: "montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 0.6rem 1rem;
+  background-color: #f57600;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.formularioContacto .botonContacto:hover {
+  background-color: #C75F00;
+}
+
+.formularioLogin {
+  display: flex;
+  flex-direction: column;
+  width: 3000px;
+  max-width: 400px;
+  margin: auto;
+  margin-bottom: 140px;
+  margin-top: 30px;
+}
+
+.formularioLogin label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  font-family: "montserrat", sans-serif;
+}
+
+.formularioLogin input,
+.formularioLogin textarea {
+  padding: 0.7rem;
+  /*margin-bottom: 1rem;*/
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #121212;
+}
+
+.formularioLogin p{
+  text-align: center;
+  font-family: "montserrat", sans-serif;
+ 
+}
+
+.formularioLogin input{
+  padding: 0.9rem;
+  border-radius: 10px;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+
+.swiper-slide {
+  font-size: 18px;
+  color: #fff;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 40px 60px;
+}
+
+.parallaxBg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 130%;
+  height: 100%;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+}
+
+.swiper-slide .title {
+  font-size: 41px;
+  font-weight: 300;
+}
+
+.swiper-slide .subtitle {
+  font-size: 21px;
+}
+
+.swiper-slide .text {
+  font-size: 14px;
+  max-width: 400px;
+  line-height: 1.3;
+}
+
+.contenedorCarrousel{
+  width: 1000px;
+  height: 300px;
+  margin: auto;
+  margin-top: 30px;
+  border-radius: 6px;
+}
+
+.tituloObras{
+  text-align: center;
+  font-family: "montserrat", sans-serif;
+  margin-top: 20px;
+  color: black;
+  font-weight: bolder;
+  font-size: 32px;
+  background-color: #f9bf79;
+  width: 360px;
+}
+
+
+.categoriaObras h4{
+  font-family: "montserrat", sans-serif;
+  margin-top: 20px;
+  color: white;
+  font-weight: 500;
+  font-size: 22px;
+  background-color: black;
+  width: 200px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 7px;
+}
+
+.carrousel{
+  padding: 40px;
+  border-radius: 10px;
+  height: 330px;
+}
+
+.contenedorFlecha {
+  display: flex;
+  justify-content: center;
+  margin-top: 140px;
+}
+
+.contenedorDetalleProducto{
+  display: flex;
+  justify-content: center;
+}
+
+.contenedorContenidoServicio select{
+  padding: 10px;
+  /*margin-bottom: 10px;*/
+}
+
+.contenedorProducto{
+  margin-top: 60px;
+  background-color: #121212;
+  width: 250px;
+  height: 250px;
+  margin-left: 60px;
+  border-radius: 20px;
+  padding:70px;
+  margin-right: 40px;
+}
+
+.imagenProductoDetalle{
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  min-height: 150px;
+}
+
+.contenidoProducto{
+  margin-left: 60px;
+  font-family: "montserrat", sans-serif;
+}
+
+.contenidoProducto a{
+  background-color: #C75F00;
+  padding: 4px;
+  border-radius: 4px;
+  font-weight: lighter;
+}
+
+.contenidoProducto a:hover{
+  background-color: #f57600;
+}
+
+.contenedorDescripcionProducto{
+  display: block;
+  justify-content: center;
+  text-align: center;
+  margin-top: 60px;
+}
+
+.contenedorDescripcionProducto h4{
+  font-family: "montserrat", sans-serif;
+}
+
+.contenedorDescripcionProducto p{
+  color: white;
+  font-size: 16px;
+  font-family: "montserrat", sans-serif;
+  margin-top: 10px;
+}
+
+.contenedorCarrito {
+  margin: auto;
+  background-color: #121212;
+  width: 60%;
+  height: 600px;
+  margin-top: 80px;
+  border-radius: 10px;
+  overflow-y: auto; 
+}
+
+.contenedorCarritoVacio {
+  height: 180px; 
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedorCarrito p {
+  font-family: "montserrat", sans-serif;
+}
+
+.contenedorCarrito h3 {
+  font-family: "montserrat", sans-serif;
+  font-size: 21px;
+  padding-top: 30px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.mensajeCarritoVacio {
+  font-family: "montserrat", sans-serif;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.tarjetaProductoCarrito {
+  display: flex;
+  background-color: #1f1f1f;
+  width: 560px;
+  height: 140px;
+  border-radius: 4px;
+  margin: 30px;
+  margin-left: 30px;
+}
+
+.tarjetaProductoCarrito .botonSumar {
+  margin-left: 100px;
+}
+
+.tarjetaProductoCarrito img {
+  width: 80px;
+  height: 80px;
+}
+
+.tarjetaProductoCarrito {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1f1f1f; 
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  margin-left: 80px;
+  margin-top: 60px;
+}
+
+.tarjetaProductoCarrito .imagenProductoDetalleCarrito {
+  width: 80px; 
+  height: 80px; 
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tarjetaProductoCarrito .detalleProductoCarrito {
+  flex-grow: 1;
+}
+
+.nombreProductoCarrito {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.contenedorDatosPagos {
+  background-color: #121212;
+  height: 300px;
+  width: 300px;
+  margin-top: 80px;
+  border-radius: 10px;
+  margin-right: 80px;
+}
+
+.botonIrCheckout {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 20px;
+  background-color: #0070f3;
+  color: #121212;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  border: 0px;
+  cursor: pointer;
+}
+
+.botonIrCheckout:hover {
+  background-color: #005bb5;
+}
+
+
+
+.form{
+  display: flex;
+  flex-direction: column;
+  width: 3000px;
+  max-width: 400px;
+  margin: auto;
+  margin-bottom: 140px;
+  margin-top: 40px;
+}
+
+.formLabel{
+  font-family: "montserrat", sans-serif;
+  margin-left: 15px;
+  margin-bottom: 2px;
+}
+
+
+#primerInput{
+  margin-bottom: 15px;
+}
+
+.contenedorPanelAdmin{
+  margin-top: 80px;
+  display: flex;
+}
+
+.navPanel button{
+  display: block;
+  margin: 20px;
+  border-radius: 5px;
+  padding: 15px;
+  width: 300px;
+  text-align: center;
+  border: 0px;
+  color: #121212;
+  font-weight: 500;
+}
+
+.navPanel button:hover{
+  background-color:#f57600
+}
+
+.contenedorPanelAdmin .contenedorContenidoPanel{
+  margin: auto;
+}
+
+.contenedorContenidoPanel{
+  background-color: #121212;
+  border-radius: 10px;
+  width: 1000px;
+  height: 100%;
+}
+
+.botonIrCheckout{
+  background-color: #C75F00;
+  color: #121212;
+  font-family: "montserrat", sans-serif;
+  text-align: light;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 700px;
+  padding: 15px;
+  border-radius: 4px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.botonIrCheckout:hover{
+  background-color: #f57600;
+}
+
+.formularioPrelogin{
+  margin-top: 100px;
+}
+
+.formularioPrelogin h1{
+  text-align: center;
+}
+
+.tituloPrelogin{
+  font-family: "montserrat", sans-serif;
+  color: #C75F00;
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.posicionMenuPanel{
+  margin-left: 10px;
+}
+
+.seccionesNavPanel{
+  font-family: "montserrat", sans-serif;
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+  margin: 0 0.5rem;
+  padding: 0.3rem;
+  border-bottom: 4px solid transparent;
+  cursor: pointer;
+  background-color: #C75F00;
+}
+
+.solapaActiva{
+  font-family: "montserrat", sans-serif;
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+  margin: 0 0.5rem;
+  padding: 0.3rem;
+  border-bottom: 4px solid transparent;
+  cursor: pointer;
+  background-color: #f57600;
+}
+
+
+.precioDetalle{
+  font-family: "montserrat", sans-serif;
+  font-size: 22px;
+}
+.categoriaDetalle{
+  background-color: #121212;
+  text-align: center;
+  padding: 6px;
+  width: 110px;
+  border-radius: 4px;
+  font-family: "montserrat", sans-serif;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+.precioDetalle{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight: medium;
+}
+
+.contenedorProductosPanel{
+  display: block;
+  padding-left: 20px;
+  margin-top: 40px;
+}
+
+.tarjetaProductoPanelProductos{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1d1d1d;
+  border-radius: 7px;
+  padding: 20px;
+  margin: 30px;
+  width: 600px;
+  font-family: "montserrat", sans-serif;
+}
+
+.tarjetaProductoPanel{
+  background-color: #1d1d1d;
+  border-radius: 7px;
+  padding: 20px;
+  margin: 30px;
+  width: 600px;
+  font-family: "montserrat", sans-serif;
+}
+
+.tarjetaProductoPanel h3{
+  margin-top: 10px;
+}
+
+.tarjetaProductoPanelListado{
+  background-color: #1d1d1d;
+  border-radius: 7px;
+  padding: 20px;
+  margin: 30px;
+  width: 600px;
+  font-family: "montserrat", sans-serif;
+}
+
+.tarjetaProductoPanelListado p{
+  margin-top: 5px;
+}
+
+#primeroListado{
+  margin-top: 20px;
+}
+
+.contenedorCategoria{
+  margin-top:20px;
+}
+
+.contenedorCategoria{
+  background-color: #C75F00;
+}
+
+.contenedorCategoria p{
+  font-family: "montserrat", sans-serif;
+
+  padding: 5px;
+  border-radius: 4px;
+  margin: 10px;
+  font-weight: 500;
+  color: #121212;
+}
+
+.contenedorCategoria:hover{
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #f57600;
+}
+
+.categoriaSeleccionada{
+  background-color:  #f57600;
+}
+
+.contenedorServicios{
+  max-height: 600px; 
+  overflow-y: auto; 
+  margin-top: 60px;
+}
+
+.contenedorClientes {
+  max-height: 600px; 
+  overflow-y: auto; 
+  margin-top: 60px;
+}
+
+.contenedorCategorias {
+  background-color: #121212;
+  border-radius: 4px;
+  margin-top: 50px; 
+  margin-left: 40px;
+  height: 100%;
+}
+
+.contenedorCategorias a{
+  cursor: pointer;
+  color: white;
+}
+
+.contenedorCategoriasProductos{
+  background-color: #121212;
+  border-radius: 4px;
+  margin-top: 50px; 
+  height: 100%;
+  margin-right: 60px;
+}
+
+.contenedorCategoriasProductos a{
+  display: block;
+  font-family: "montserrat", sans-serif;
+  margin-top: 10px;
+  margin: 40px;
+  border: 3px solid transparent;
+}
+
+#contenedorCategoriaProductos{
+  margin-top: 90px;
+}
+
+.categoriaSeleccionada {
+  color: #121212; 
+}
+
+.categoriaSeleccionadaProducto {
+  background-color: #f57600; 
+  color: #121212; 
+  padding: 4px;
+  font-weight: 500;
+  border-radius: 2px;
+}
+
+.categoriaSeleccionadaProducto {
+  color: #121212;
+  font-weight: bold; /* Opcional, para resaltar la categoría seleccionada */
+}
+
+/* Asegúrate de que el estilo por defecto sea blanco para las categorías no seleccionadas */
+.contenedorCategorias a {
+  color: #ffffff;
+  text-decoration: none; /* Para evitar subrayado en los enlaces */
+  cursor: pointer; /* Cambiar el cursor al pasar sobre las categorías */
+}
+
+
+
+/* Estilo por defecto para las categorías */
+.contenedorCategorias a {
+  color: #ffffff; /* Color blanco por defecto */
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+/* Estilo para la categoría seleccionada */
+.categoriaSeleccionadaProducto {
+  color: #121212 !important; /* Cambia el color a #121212 */
+  font-weight: 500;
+}
+
+
+.registroLogin{
+  color: white;
+  font-weight: bold;
+  text-decoration: underline;
+  margin-left: 10px;
+  font-size: 17px;
+}
+
+.botonAgregarCarrito{
+  background-color: #C75F00;
+  padding: 7px;
+  border-radius: 5px;
+  color: white;
+  font-size: 14px;
+  font-family: "montserrat", sans-serif;
+
+}
+
+
+.Modal {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #121212;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  height: 180px;
+}
+
+.Modal p{
+  font-family: "montserrat", sans-serif;
+  font-weight: bold;
+}
+
+.Modal a{
+  font-family: "montserrat", sans-serif;
+  margin-left: 70px;
+  margin-top:20px;
+  text-decoration: underline;
+}
+
+.Modal button{
+  background-color: transparent;
+  margin-top:20px;
+  border: 0px
+}
+
+
+.Modal h2 {
+  font-family: "montserrat", sans-serif;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detalleProductoCarrito{
+  display: flex;
+  margin: 10px;
+}
+
+.detalleProductoCarrito p{
+  margin-top: 3px;
+}
+
+.categoriaProductoCarrito{
+  background-color: white;
+  color: #121212;
+  border-radius: 4px;
+  margin-top: 100px;
+  margin-bottom: 10px;
+  width: 120px;
+  text-align: center;
+  padding: 2px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.unidadesCarrito{
+  color: white;
+}
+
+.imagenProductoDetalle{
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  min-height: 10px;
+}
+
+.botonEliminar{
+  background-color: rgb(179, 19, 19);
+  border: 0px;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.botonEliminar img{
+  width: 30px;
+  height: 30px;
+  padding: 4px;
+}
+
+
+.botonSumar{
+  background-color: rgb(83, 83, 83);
+  border: 0px;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-right: 30px;
+}
+
+.botonSumar img{
+  width: 30px;
+  height: 30px;
+  padding: 4px;
+}
+
+.botonVaciar{
+  margin-left: 48%;
+  margin-top: 30px;
+  background-color: #121212;
+  padding: 6px;
+  border-radius: 4px;
+  color: black;
+  cursor: pointer;
+}
+
+.botonVaciar:hover{
+  background-color: #1b1b1b;
+}
+
+.botonEditar{
+  background-color: rgb(43, 43, 43);
+  border: 0px;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.botonEditar img{
+  width: 30px;
+  height: 30px;
+  padding: 4px;
+}
+
+.contenedorFormulario, .error {
+  font-family: "montserrat", sans-serif;
+  color: red;
+  font-size: 16px;
+}
+
+#quienesSomos{
+  margin-bottom: 80px;
+}
+
+.seccion{
+  background-color: #121212;
+  border-radius: 10px;
+  width: 90%;
+  height: 100%;
+  padding: 20px;
+  justify-content: center;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.seccion .subtitulo{
+  font-family: "montserrat", sans-serif;
+  margin-top: 0px;
+}
+
+.seccion p{
+  font-family: "montserrat", sans-serif;
+  margin-top: 15px;
+}
+
+.contenedorPagina button{
+  border: 0px;
+  padding: 3px;
+  font-family: "montserrat", sans-serif;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+
+
+.botonCrearModal{
+  height: 32px;
+  margin-left: 50px;
+  cursor: pointer;
+  background-color: #d9d9d9;
+  color: black;
+  font-family: "montserrat", sans-serif;
+  font-weight: 500;
+}
+
+
+.tituloPaginasPanel{
+  margin-left: 50px;
+  margin-top: 50px;
+  margin-bottom: 15px;
+  color: #f9bf79;
+}
+
+.ModalPanel{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #121212;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    width: 400px;
+    height: 680px
+  }
+
+  .ModalPanel h2{
+    margin-top: 20px;
+  }
+
+  .ModalPanel input{
+    margin-bottom: 15px;
+    margin-top: 5px;
+    padding: 8px;
+    border-radius: 4px;
+  }
+
+  .ModalPanel button{
+    background-color: #C75F00;
+    border: 0px;
+    padding: 8px;
+    border-radius: 4px;
+  }
+
+  .ModalPanel select{
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+  }
+
+  .ModalPanelCrear {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #121212;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    width: 400px;
+    height: 580px; 
+    max-height: 90vh; 
+    overflow: auto; 
+  }
+  
+  .ModalPanelCrear h2{
+    margin-top: 20px;
+  }
+
+  .ModalPanelCrear input{
+    margin-top: 5px;
+    padding: 8px;
+    border-radius: 4px;
+  }
+
+  .ModalPanelCrear button{
+    background-color: #C75F00;
+    border: 0px;
+    padding: 8px;
+    border-radius: 4px;
+    width: 100px;
+  }
+
+  .ModalPanelCrear select{
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 5px;
+  }
+
+  .ModalPanelCrear textarea{
+    margin-bottom: 0px;
+  }
+
+  .ModalPanelCrear #description{
+    margin-bottom: 0px;
+  }
+
+
+  
+
+  .ModalPanelClientes{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #121212;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    width: 400px;
+    height: 400px
+  }
+
+  .ModalPanelClientes h2{
+    margin-top: 20px;
+  }
+
+  .ModalPanelClientes input{
+    margin-top: 5px;
+    padding: 8px;
+    border-radius: 4px;
+  }
+
+  .ModalPanelClientes button{
+    background-color: #C75F00;
+    border: 0px;
+    padding: 8px;
+    border-radius: 4px;
+    width: 100px;
+
+  }
+
+  .ModalPanelClientes select{
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+  }
+
+.formularioPanel{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.formularioPanel button{
+  cursor: pointer;
+  width: 100px;
+}
+
+.formularioPanel textarea{
+  margin-top: 5px;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.formularioPanel label{
+  margin-top: 15px;
+}
+
+.contenedorEliminar{
+  display: flex;
+  margin: auto;
+}
+
+.contenedorEliminar .botonEliminarModal{
+  background-color: red;
+  padding: 6px;
+  border-radius: 4px;
+  font-family: "montserrat", sans-serif;
+  margin-right: 15px;
+}
+
+.contenedorEliminar .botonCancelarModal{
+  background-color: #2b2b2b;;
+  padding: 6px;
+  border-radius: 4px;
+  font-family: "montserrat",sans-serif;
+}
+
+.tituloPanel{
+  font-family: "montserrat", sans-serif;
+  font-size: 42px;
+  margin-left: 25px;
+  margin-top: 80px;
+  font-weight: 600;
+  color: #C75F00;
+}
+
+.contenidoTarjetaProductoPanel{
+  margin-top: 20px;
+}
+
+.contenidoTarjetaProductoPanel p{
+  margin-top: 8px;
+}
+
+.contenidoTarjetaProductoPanel span{
+  font-weight: 600;
+  margin-right: 8px;
+  color: white;
+}
+
+.tarjetaProductoPanelClientes{
+  display: flex;
+  justify-content: space-between;
+  background-color: #1d1d1d;
+  border-radius: 7px;
+  padding: 20px;
+  margin: 30px;
+  width: 500px;
+  font-family: "montserrat", sans-serif;
+}
+
+.buscadorPanel{
+  border-radius: 10px;
+  width: 90%;
+  padding: 15px;
+  margin-top: 40px;
+  margin-left: 50px;
+}
+
+.contenidoTarjetaProductoPanelContacto{
+  margin-top: 20px;
+}
+
+.contenidoTarjetaProductoPanelContacto span{
+  font-weight: bold;
+}
+
+.contenidoTarjetaProductoPanelContacto p{
+  margin-top: 8px;
+}
+
+.ModalPanelEditar {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #121212;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  height: 180px
+}
+
+.ModalPanelEditar .botonEliminarProducto{
+  background-color: red;
+  padding: 6px;
+  border-radius: 4px;
+  margin-right: 10px;
+  font-family: "montserrat", sans-serif;
+  border: 0px;
+  cursor: pointer;
+}
+
+.ModalPanelEditar .botonCancelarModal{
+  background-color: #2b2b2b;
+  padding: 6px;
+  border-radius: 4px;
+  font-family: "montserrat",sans-serif;
+  border: 0px;
+  cursor: pointer;
+}
+
+.Modal .botonEliminarProducto{
+  background-color: red;
+  padding: 6px;
+  border-radius: 4px;
+  margin-right: 10px;
+  font-family: "montserrat", sans-serif;
+  border: 0px;
+  cursor: pointer;
+}
+
+.Modal .botonCancelarModal{
+  /*background-color:  rgb(46, 46, 46);*/
+  background-color:  #2b2b2b;
+  padding: 7px;
+  border-radius: 4px;
+  font-family: "montserrat",sans-serif;
+  border: 0px;
+  cursor: pointer;
+}
+
+.contenedorBotonesEditar{
+  margin-top: 0px;
+}
+
+.contenidoPanelEditar{
+  margin-top: 20px;
+}
+
+.contenidoPanelEditar span{
+  font-weight: bold;
+}
+
+.contenedorImagenActual{
+  margin-bottom: 5px;
+}
+
+
+.sesion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0; 
+  border: none; 
+  background: none; 
+  cursor: pointer; 
+}
+
+
+.logoutButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoutIcon {
+  display: block;
+}
+
+.contenedorPerfilUsuario{
+  background-color: #C75F00;
+  height: 250px;
+  
+}
+
+.contenedorPerfilUsuario h1{
+  margin-bottom: 10px;
+}
+
+.contenedorPerfilUsuario .idUsuario{
+  background-color: #121212;
+  border-radius: 4px;
+  padding: 5px;
+  width: 280px;
+  text-align: center;
+}
+
+.contenidoPerfilUsuario{
+  margin-left: 28px;
+  padding-top: 40px;
+}
+
+.contenedorPedidoUsuario{
+  margin-left: 28px;
+  margin-top: 40px;
+}
+
+.contenedorPedidoUsuario h2{
+  border-bottom: 1px solid white;
+  margin-bottom: 20px;
+}
+
+.contenedorBotonesPanelEliminar{
+  margin-top: 30px;
+}
+
+.botonModalEliminar{
+  padding: 8px;
+  border-radius: 4px;
+  background-color: red;
+  border: 0px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.botonModalCancelar{
+  padding: 8px;
+  border-radius: 4px;
+  background-color: blue;
+  border: 0px;
+  cursor: pointer;
+}
+
+.textoPanelModalEliminar{
+  margin-top: 15px;
+}
+
+
+
+.tarjetaProductoCarrito {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.imagenProductoDetalleCarrito {
+  margin-right: 20px;
+}
+
+.detalleProductoCarrito {
+
+  display: flex;
+}
+
+
+.unidadesProductoCarrito {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-left: 210px;
+}
+
+.unidadesProductoCarrito span{
+  margin-right: 10px;
+}
+
+.ModalCheckout {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #121212;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  height: 140px;
+}
+
+.contenedorPerfilUsuario {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.idUsuario {
+  font-size: 18px;
+  font-weight: bold;
+  color: #666;
+}
+
+.contenedorPedidoUsuario {
+  padding: 20px;
+
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contenedorPedidoUsuario h2 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.contenidoOrdenes {
+  padding: 20px;
+  padding-top: 0px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.contenidoOrdenes ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contenidoOrdenes li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.contenidoOrdenes li:last-child {
+  border-bottom: none;
+}
+
+.contenidoOrdenes li h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.contenidoOrdenes li p {
+  font-size: 14px;
+  color: #666;
+}
+
+.contenidoOrdenes li ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contenidoOrdenes li ul li {
+  padding: 5px;
+  border-bottom: 1px solid #ccc;
+}
+
+.contenidoOrdenes li ul li:last-child {
+  border-bottom: none;
+}
+
+.contenidoOrdenes li ul li p {
+  font-size: 14px;
+  color: #666;
+}
+
+.ordenes{
+  margin-top: 20px;
+}
+
+.contenedorFormContraseñaRegistro{
+  position: relative;
+
+}
+
+
+.contenedorPrelogin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+
+
+
+.formularioLogin label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  font-family: "montserrat", sans-serif;
+}
+
+.formularioLogin input,
+.formularioLogin textarea {
+  padding: 0.7rem;
+  /*margin-bottom: 1rem;*/
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #121212;
+  color: white; 
+}
+
+/*.formularioLogin button {
+  font-family: "montserrat", sans-serif;
+  font-weight: lighter;
+  font-size: 16px;
+  padding: 0.6rem 1rem;
+  background-color: #f57600;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.formularioLogin button:hover {
+  background-color: #C75F00;
+}*/
+
+.formularioLogin p {
+  text-align: center;
+  font-family: "montserrat", sans-serif;
+}
+
+.formularioLogin input {
+  padding: 0.9rem;
+  border-radius: 10px;
+}
+
+.passwordContainer {
+  position: relative;
+}
+
+
+
+.contenedorProductosRelacionados{
+  text-align: center;
+  margin-top: 20px;
+}
+
+.contenedorProductosRelacionados .tituloSeccionProductoRelacionado{
+  margin-top: 60px;
+}
+
+.productosRelacionados{
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.productoRelacionado{
+  background-color: #121212;
+  margin: 10px;
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.productoRelacionado .botonDetalleRelacionado{
+  background-color: #C75F00;
+  padding: 4px;
+  margin-top: 10px;
+  border-radius: 4px;
+  font-family: "montserrat", sans-serif;
+  border: 0px;
+  font-weight: 500;
+  cursor: pointer;
+  color: #121212;
+}
+
+.productoRelacionado .botonDetalleRelacionado:hover{
+  background-color: #f57600;
+}
+
+.formularioLogin {
+  display: flex;
+  flex-direction: column;
+  width: 3000px;
+  max-width: 400px;
+  margin: auto;
+  margin-bottom: 140px;
+  margin-top: 30px;
+}
+
+.formularioLogin label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  font-family: "montserrat", sans-serif;
+}
+
+.formularioLogin input,
+.formularioLogin textarea {
+  padding: 0.7rem;
+  /*margin-bottom: 1rem;*/
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #121212;
+}
+
+.formularioLogin .submitButton {
+  font-family: "montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 0.6rem 1rem;
+  background-color: #f57600;
+  color: #121212;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.formularioLogin .submitButton:hover {
+  background-color: #C75F00;
+}
+
+.formularioLogin p {
+  text-align: center;
+  font-family: "montserrat", sans-serif;
+}
+
+.formularioLogin input {
+  padding: 0.9rem;
+  border-radius: 10px;
+}
+
+.passwordContainer {
+  position: relative;
+}
+
+.inputField {
+  width: 100%;
+  padding-right: 2.5rem;
+}
+
+.botonOjito {
+  position: absolute;
+  right: 0.5rem;
+  top: 55%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: white;
+  font-size: 1.5rem; 
+}
+
+.botonOjito:hover {
+  color: #C75F00;
+}
+
+.botonEditarPerfil{
+  background-color: #666;
+  color: white;
+  border-radius: 4px;
+  padding: 10px;
+  border: 0px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+
+.botonEditarPerfil:hover{
+  background-color: rgb(124, 124, 124);
+}
+
+
+.ModalEditarPerfil {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #121212;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  height: 320px;
+  width: 420px;
+}
+
+.ModalEditarPerfil a{
+  font-family: "montserrat", sans-serif;
+  margin-left: 70px;
+  margin-top:20px;
+  text-decoration: underline;
+}
+
+.ModalEditarPerfil button{
+  background-color: transparent;
+  margin-top:20px;
+  border: 0px
+}
+
+.ModalEditarPerfil input{
+  color: white;
+  border-radius: 4px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.ModalEditarPerfil h2 {
+  font-family: "montserrat", sans-serif;
+  margin-top: 10px;
+  margin-bottom: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedorBotonModalEditarPerfil{
+  display: flex;
+}
+
+
+.ModalEditarPerfil .botonGuardarCambiosPerfil{
+  background-color: #C75F00;
+  border-radius: 4px;
+  padding: 4px;
+  cursor: pointer;
+  margin-right: 12px;
+}
+
+.ModalEditarPerfil .botonCancelarCambiosPerfil{
+  background-color: #2b2b2b;
+  border-radius: 4px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.contenedorBotonesClientes{
+  display: flex;
+}
+
+.contenedorBotonesModalVaciar{
+  display: flex;
+}
+
+.contenedorBotonesModalVaciar .botonConfirmar{
+  background-color: red;
+  padding: 6px;
+  border-radius: 4px;
+  margin-right: 10px;
+  font-family: "montserrat", sans-serif;
+  border: 0px;
+  cursor: pointer;
+  color: white;
+}
+
+
+.contenedorBotonesModalVaciar .botonCancelar{
+  background-color: blue;
+  padding: 6px;
+  border-radius: 4px;
+  margin-right: 10px;
+  font-family: "montserrat", sans-serif;
+  border: 0px;
+  cursor: pointer;
+  color: white;
+}
+
+.imagenProductoDetalle {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.contenedorProductosRelacionados {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.productosRelacionados {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.productoRelacionado {
+  width: 150px; 
+  margin: 10px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.imagenProductoRelacionado {
+  max-width: 100%;
+  height: auto;
+}
+
+.productoRelacionado p {
+  margin: 10px 0;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical;
+}
+
+.contenedorDetalleProducto {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px; 
+}
+
+.contenedorProducto {
+  flex-shrink: 0; 
+  position: sticky;
+  top: 20px; 
+}
+
+.contenidoProducto {
+  flex-grow: 1; 
+  max-width: 600px; 
+}
+
+.contenedorProducto {
+  margin-top: 60px;
+  background-color: #121212;
+  width: 250px;
+  height: 250px;
+  margin-left: 60px;
+  border-radius: 20px;
+  padding: 20px; 
+  margin-right: 40px;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+}
+
+.imagenProductoDetalle {
+  width: 150px; 
+  object-fit: cover; 
+}
+
+.contenedorProductosRelacionados {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.tituloSeccionProductoRelacionado {
+  margin-top: 60px;
+}
+
+.productosRelacionados {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.productoRelacionado {
+  background-color: #121212;
+  width: 150px; 
+  height: 250px; 
+  margin: 10px;
+  border-radius: 15px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; 
+}
+
+.imagenProductoRelacionado {
+  width: 100px; 
+  height: 120px; 
+  object-fit: cover; 
+}
+
+.productoRelacionado p {
+  margin: 10px 0;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical;
+}
+
+.botonDetalleRelacionado {
+  background-color: #C75F00;
+  padding: 4px;
+  margin-top: 10px;
+  border-radius: 4px;
+  font-family: "montserrat", sans-serif;
+  border: 0px;
+  font-weight: lighter;
+  cursor: pointer;
+}
+
+.botonDetalleRelacionado:hover {
+  background-color: #f57600;
+}
+
+.tickModal{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+}
+
+.contenedorBotonesModalCrear{
+  display: flex;
+}
+
+.textoBuscadorPanel{
+  margin-left: 80px;
+  margin-top: 75px;
+}
+
+.textoBuscadorPanelClientes{
+  margin-left: 140px;
+  margin-top: 75px;
+}
+
+.textoBuscadorPanelMensajes{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-left: 200px;
+  margin-top: -30px
+}
+
+.textoBuscadorProductos{
+  margin-left: 90px;
+  margin-top: 30px;
+}
+
+.textoPedidosRealizados{
+  margin-top: 20px;
+}
+
+.botonCerrarModal{
+  cursor: pointer;
+}
+
+.error {
+  color: #e74c3c; 
+  font-size: 0.9rem; 
+  margin-bottom: 10px; 
+  margin-top: 10px;
+  padding-left: 4px; 
+  font-weight: 500; 
+  white-space: nowrap;      
+  overflow: hidden;         
+  text-overflow: ellipsis;   
+}
+
+
+.formularioLogin label{
+  margin-top: 1rem;
+}
+
+.contenedorPrelogin .submitButton{
+  margin-top: 20px;
+}
+
+.textoRedireccionaminetoLogin{
+  margin-top: 30px;
+}
+
+.ModalEditarPerfil label{
+  margin-top: 20px;
+  font-weight: 500;
+}
+
+.ModalPanelCrear .cerrarModalButton{
+  background-color: #121212;
+  cursor: pointer;
+}
+
+.Modal .cerrarModalButton{
+  cursor: pointer;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  text-align: center;
+}
+
+.ModalConfirmacion button{
+  cursor: pointer;
+}
+
+.ModalPanelCrear .cancelarModalButton{
+  background-color: #2b2b2b;
+  border: 0px;
+  padding: 8px;
+  border-radius: 4px;
+  width: 100px;
+  margin-left: 15px;
+}
+
+.ModalPanelClientes .cancelarModalButton{
+  background-color: #2b2b2b;
+    border: 0px;
+    padding: 9px;
+    border-radius: 4px;
+    width: 100px;
+}
+
+.errorServicios {
+  color: #e74c3c; 
+  font-size: 0.9rem; 
+  padding-left: 4px; 
+  font-weight: 500; 
+  white-space: nowrap;      
+  overflow: hidden;         
+  text-overflow: ellipsis;
+  margin-top: 10px;
+}
+
+.formulario .botonSolicitudServicio{
+  margin-top: 15px;
+}
+
+.botonSolicitudServicio{
+  color: #121212;
+  font-weight: 500;
+}
+
+.ModalEditarPerfil .error{
+  color: #e74c3c; 
+  font-size: 0.9rem; 
+  padding-left: 4px; 
+  font-weight: 500; 
+  white-space: nowrap;      
+  overflow: hidden;         
+  text-overflow: ellipsis;
+  margin-top: 10px;
+}
+
+/* Estilo para el mensaje de error en el modal de edición de perfil */
+.ModalEditarPerfil .error {
+  color: #d32f2f; /* Color del texto */
+  padding-bottom: 40px;
+  margin-top: 30px;
+  border-radius: 4px; /* Esquinas redondeadas */
+  margin-bottom: 15px; /* Espacio debajo del error */
+  font-size: 14px; /* Tamaño de la fuente */
+  text-align: left; /* Alineación del texto */
+}
+
+/* Estilo para los botones dentro del modal */
+.ModalEditarPerfil .contenedorBotonModalEditarPerfil {
+  margin-top: 20px;
+}
+
+
+.errorPanel{
+  color: #e74c3c; 
+  font-size: 0.9rem; 
+  margin-bottom: 15px; 
+  margin-top: 5px;
+  padding-left: 4px; 
+  font-weight: 500; 
+  white-space: nowrap;      
+  overflow: hidden;         
+  text-overflow: ellipsis;   
+}
+
+.botonGuardar{
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.contenidoDetalle a{
+  color: #121212;
+  font-weight: 500;
+  padding: 6px;
+}
+
+.contenidoDetalle .precioDetalle{
+  margin-bottom: 40px;
+}
+
+.tarjetaProductoPanel span{
+  color: white;
+  font-weight: 600;
+}
+
+.textoServicios{
+  margin-top: 15px;
+}
+
+.ModalPanelClientes label{
+  margin-top: 0px;
+}
+
+.contenedorBotonesEditar .botonCancelar{
+  background-color: #2b2b2b;
+  width: 100px;
+  cursor: pointer;
+}
+
+.formularioPanel .categoria{
+  margin-top: 15px;
+}

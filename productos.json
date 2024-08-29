@@ -1,0 +1,38 @@
+{
+    "detectores":[
+        {
+            "nombre":"",
+            "marca":"",
+            "precio":"",
+            "imagen":"",
+            "descripcion":""
+        }
+    ],
+    "extintores":[
+        {
+            "nombre":"",
+            "marca":"",
+            "precio":"",
+            "imagen":"",
+            "descripcion":""
+        }
+    ],
+    "centrales":[
+        {
+            "nombre":"",
+            "marca":"",
+            "precio":"",
+            "imagen":"",
+            "descripcion":""
+        }
+    ],
+    "mangueras": [
+        {
+            "nombre":"",
+            "marca":"",
+            "precio":"",
+            "imagen":"",
+            "descripcion":""
+        }
+    ]
+}
