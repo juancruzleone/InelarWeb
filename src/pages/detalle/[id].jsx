@@ -154,7 +154,7 @@ export async function getServerSideProps(context) {
   const { id } = params;
 
   try {
-    const responseProducto = await fetch(`http://localhost:2023/api/productos/${id}`);
+    const responseProducto = await fetch(`https://inelarweb-back.onrender.com/api/productos/${id}`);
     const producto = await responseProducto.json();
 
     if (!producto) {
@@ -163,7 +163,7 @@ export async function getServerSideProps(context) {
       };
     }
 
-    const responseProductos = await fetch(`http://localhost:2023/api/productos`);
+    const responseProductos = await fetch(`https://inelarweb-back.onrender.com/api/productos`);
     const productos = await responseProductos.json();
 
     const productosRelacionados = productos
