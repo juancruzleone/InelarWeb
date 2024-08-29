@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Layout from '@/components/Layout';
+import Layout from '@/components/Layout/index';
 import Footer from '@/components/Footer';
 import CartItem from '@/components/carrito/components/CartItem'; 
 import CartButtons from '@/components/carrito/components/CartButtons'; 

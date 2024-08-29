@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import Layout from "@/components/Layout";
+import Layout from "@/components/Layout/index";
 import Footer from "@/components/Footer";
 import LoginModal from "@/components/login/components/LoginModal";
 import LoginForm from "@/components/login/components/LoginForm";

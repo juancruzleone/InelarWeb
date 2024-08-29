@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
-import Layout from "@/components/Layout";
+import Layout from "@/components/Layout/index";
 import Footer from "@/components/Footer";
 import PanelNav from "@/components/PanelNav";
 import ListaProductos from "@/components/ListaProductos.jsx";

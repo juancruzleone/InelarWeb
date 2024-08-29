@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head"
-import Layout from "@/components/Layout";
+import Layout from "@/components/Layout/index";
 import Footer from "@/components/Footer";
 import styles from "@/styles/Home.module.css";
 

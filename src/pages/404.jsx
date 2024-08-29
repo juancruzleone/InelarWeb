@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image';
 import Link from 'next/link';
 import Head from 'next/head'
-import Layout from "@/components/Layout";
+import Layout from "@/components/Layout/index";
 import Footer from "@/components/Footer";
 
 const Custom404 = () => {
