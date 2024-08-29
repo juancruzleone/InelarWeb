@@ -1,5 +1,5 @@
 export const fetchProductos = async () => {
-    const response = await fetch("http://localhost:2023/api/productos");
+    const response = await fetch("https://inelarweb-back.onrender.com/api/productos");
     if (!response.ok) {
       throw new Error("Error al obtener productos");
     }
