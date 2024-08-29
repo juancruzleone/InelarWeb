@@ -49,9 +49,6 @@ const Layout = ({ children }) => {
           <Link href="/productos" className={styles.seccionesNav}>
             Productos
           </Link>
-          <Link href="/preguntas-frecuentes" className={styles.seccionesNav}>
-            Preguntas frecuentes
-          </Link>
           <Link href="/certificaciones" className={styles.seccionesNav}>
             Certificaciones
           </Link>
