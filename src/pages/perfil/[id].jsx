@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import Image from "next/image";
-import Layout from "@/components/Layout";
+import Layout from "@/components/layout";
 import Footer from "@/components/Footer";
 import Modal from 'react-modal';
 import styles from "@/styles/Home.module.css";
