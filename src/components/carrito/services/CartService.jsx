@@ -1,6 +1,6 @@
 export const fetchCheckout = async (cart, userData) => {
     try {
-      const response = await fetch('http://localhost:2023/api/create-order', {
+      const response = await fetch('https://inelarweb-back.onrender.com/api/create-order', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ carrito: cart, estado: 'nuevo', userId: userData.cuenta._id }),

@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:2023/api/clientes";
+const API_URL = "https://inelarweb-back.onrender.com/api/clientes";
 
 export const obtenerClientes = async (token, role) => {
   const response = await fetch(API_URL, {

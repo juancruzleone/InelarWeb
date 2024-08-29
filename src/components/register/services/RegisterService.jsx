@@ -1,5 +1,5 @@
 export const registerUser = async ({ username, password }) => {
-    return fetch("http://localhost:2023/api/cuenta", {
+    return fetch("https://inelarweb-back.onrender.com/api/cuenta", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -9,7 +9,7 @@ export const registerUser = async ({ username, password }) => {
   };
   
   export const loginUser = async ({ username, password }) => {
-    return fetch("http://localhost:2023/api/cuenta/login", {
+    return fetch("https://inelarweb-back.onrender.com/api/cuenta/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

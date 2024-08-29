@@ -1,5 +1,5 @@
 export const sendContactForm = async (formData) => {
-    const response = await fetch("http://localhost:2023/api/contactos", {
+    const response = await fetch("https://inelarweb-back.onrender.com//api/contactos", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),

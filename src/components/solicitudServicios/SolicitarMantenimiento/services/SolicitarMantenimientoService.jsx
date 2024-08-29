@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:2023/api';
+const API_URL = 'https://inelarweb-back.onrender.com/api';
 
 export const obtenerProductos = async () => {
   const response = await fetch(`${API_URL}/productos`);
