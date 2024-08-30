@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { loginUser } from "@/components/login/services/LoginService";
-import { validateLoginFields } from "@/components/login/utils/LoginValidation";
+import { loginUser } from "@/components/login/services/FetchLogin";
+import { validateLoginFields } from "@/components/login/utils/ValidacionesLogin";
 
 const useLoginState = () => {
   const router = useRouter();

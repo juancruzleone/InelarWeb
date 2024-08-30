@@ -2,9 +2,9 @@ import React from "react";
 import Head from "next/head";
 import Layout from "@/components/layout/index";
 import Footer from "@/components/Footer";
-import ProductosCategorias from "@/components/productos/components/ProductCategorys";
-import ProductosLista from "@/components/productos/components/ProductList";
-import useProductosState from "@/components/productos/components/ProductState";
+import ProductosCategorias from "@/components/productos/components/Categorias";
+import ListaProductos from "@/components/productos/components/ListaProductos";
+import useProductos from "@/components/productos/hooks/useProductos";
 import styles from "@/styles/Home.module.css";
 
 const Productos = () => {
@@ -13,7 +13,7 @@ const Productos = () => {
     loading,
     categoriaSeleccionada,
     changeCategory,
-  } = useProductosState();
+  } = useProductos();
 
   return (
     <Layout>
@@ -29,7 +29,7 @@ const Productos = () => {
             changeCategory={changeCategory} 
             categoriaSeleccionada={categoriaSeleccionada} 
           />
-          <ProductosLista productos={productos} loading={loading} />
+          <ListaProductos productos={productos} loading={loading} />
         </div>
       </div>
       <Footer />

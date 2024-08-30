@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from "react";
-import { fetchProducts, createProduct, editProduct, deleteProduct } from "@/components/panel/ListaProductos/services/ListaProductoService.jsx";
+import { fetchProducts, createProduct, editProduct, deleteProduct } from "@/components/panel/ListaProductos/services/FetchListaProductos.jsx";
 import { validarProducto } from "@/components/panel/ListaProductos/utils/validaciones.jsx";
 
 const useProductos = () => {

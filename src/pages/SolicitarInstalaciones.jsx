@@ -2,7 +2,7 @@ import React from "react";
 import Head from "next/head";
 import Layout from "@/components/layout/index";
 import Footer from "@/components/Footer";
-import useFormDataState from "@/components/solicitudServicios/SolicitarInstalacion/components/SolicitarInstalacionesState";
+import useFormData from "@/components/solicitudServicios/SolicitarInstalacion/hooks/SolicitarInstalacionesState";
 import SolicitarInstalacionesForm from "@/components/solicitudServicios/SolicitarInstalacion/components/SolicitarInstalacionesForm";
 import SolicitarInstalacionModal from "@/components/solicitudServicios/SolicitarInstalacion/components/SolicitarInstalacionModal";
 import styles from "@/styles/Home.module.css";
@@ -17,7 +17,7 @@ const SolicitarInstalaciones = () => {
     handleSubmit,
     closeModal,
     handleKeyDown,
-  } = useFormDataState();
+  } = useFormData();
 
   return (
     <Layout>

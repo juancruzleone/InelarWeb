@@ -1,13 +1,13 @@
 import Head from 'next/head';
 import Layout from '@/components/layout/index';
 import Footer from '@/components/Footer';
-import CartItem from '@/components/carrito/components/CartItem'; 
-import CartButtons from '@/components/carrito/components/CartButtons'; 
-import CartModals from '@/components/carrito/components/CartModals'; 
-import { validateCart, validateUserData } from '@/components/carrito/utils/CartValidation'; 
+import CartItem from '@/components/carrito/components/ProductosCarrito'; 
+import CartButtons from '@/components/carrito/components/BotonCarrito'; 
+import CartModals from '@/components/carrito/components/CarritoModal'; 
+import { validateCart, validateUserData } from '@/components/carrito/utils/CarritoValidaciones'; 
 import styles from '@/styles/Home.module.css';
-import { fetchCheckout } from '@/components/carrito/services/CartService';
-import useCartState from '@/components/carrito/components/CartState';
+import { fetchCheckout } from '@/components/carrito/services/FetchCarrito';
+import useCartState from '@/components/carrito/hooks/useCarrito';
 
 const Carrito = () => {
   const {

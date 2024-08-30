@@ -2,9 +2,9 @@ import React from "react";
 import Head from "next/head";
 import Layout from "@/components/layout/index";
 import Footer from "@/components/Footer";
-import RegisterForm from "@/components/register/components/RegisterForm";
-import RegisterModal from "@/components/register/components/RegisterModal";
-import useRegisterState from "@/components/register/components/RegisterState";
+import RegisterForm from "@/components/register/components/FormularioRegistro";
+import RegisterModal from "@/components/register/components/ModalRegistro";
+import useRegister from "@/components/register/components/useRegister";
 import styles from "@/styles/Home.module.css";
 
 const Register = () => {
@@ -19,7 +19,7 @@ const Register = () => {
     handleSubmit,
     togglePasswordVisibility,
     closeModal,
-  } = useRegisterState();
+  } = useRegister();
 
   return (
     <Layout className={styles.app}>
@@ -44,7 +44,6 @@ const Register = () => {
         </div>
       </div>
       <Footer />
-
       <RegisterModal isOpen={showModal} closeModal={closeModal} />
     </Layout>
   );

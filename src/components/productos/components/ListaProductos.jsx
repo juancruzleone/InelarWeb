@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "@/styles/Home.module.css";
 
-const ProductList = ({ productos, loading }) => {
+const ListaProductos = ({ productos, loading }) => {
   if (loading) {
     return <p>Cargando productos...</p>;
   }
@@ -31,4 +31,4 @@ const ProductList = ({ productos, loading }) => {
   );
 };
 
-export default ProductList;
+export default ListaProductos;

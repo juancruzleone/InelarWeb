@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { sendContactForm } from "@/components/contacto/services/ContactService";
-import { validateName, validateEmail, validateMessage } from "@/components/contacto/utils/ContactValidation";
+import { sendContactForm } from "@/components/contacto/services/FetchContacto";
+import { validateName, validateEmail, validateMessage } from "@/components/contacto/utils/ValidacionesContacto";
 import styles from "@/styles/Home.module.css";
 
 const ContactForm = ({ onSubmit }) => {

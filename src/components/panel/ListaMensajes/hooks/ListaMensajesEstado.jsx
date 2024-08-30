@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fetchMensajes } from "@/components/panel/ListaMensajes/services/ListasMensajesService.jsx";
+import { fetchMensajes } from "@/components/panel/ListaMensajes/services/FetchListaMensajes.jsx";
 import { filterMensajes } from "@/components/panel/ListaMensajes/utils/ListasMensajesUtils.jsx";
 
 export default function useMensajes() {

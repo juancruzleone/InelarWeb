@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { validateUsername, validatePassword } from "@/components/register/utils/RegisterValidation";
-import { registerUser, loginUser } from "@/components/register/services/RegisterService";
+import { validateUsername, validatePassword } from "@/components/register/utils/ValidacionesRegistro";
+import { registerUser, loginUser } from "@/components/register/services/FetchRegistro";
 
 const useRegisterState = () => {
   const [username, setUsername] = useState("");

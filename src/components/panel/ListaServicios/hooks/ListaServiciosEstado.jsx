@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fetchServicios } from "@/components/panel/ListaServicios/services/ListasServiciosService.jsx";
+import { fetchServicios } from "@/components/panel/ListaServicios/services/FetchListaServicios.jsx";
 import { filterServicios } from "@/components/panel/ListaServicios/utils/ListasServiciosUtils.jsx";
 
 export default function useServicios() {

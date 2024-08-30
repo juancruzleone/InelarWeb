@@ -4,7 +4,7 @@ import Layout from "@/components/layout/index";
 import Footer from "@/components/Footer";
 import LoginModal from "@/components/login/components/LoginModal";
 import LoginForm from "@/components/login/components/LoginForm";
-import useLoginState from "@/components/login/components/LoginState";
+import useLoginState from "@/components/login/hooks/useLogin";
 import styles from "@/styles/Home.module.css";
 
 const Login = () => {
