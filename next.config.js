@@ -83,6 +83,9 @@ const nextConfig = {
       },
     ];
   },
+  images: {
+    domains: ['res.cloudinary.com'], // Permite cargar imágenes desde res.cloudinary.com
+  },
 };
 
 module.exports = nextConfig;
