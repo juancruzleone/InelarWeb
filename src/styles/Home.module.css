@@ -81,6 +81,7 @@
   margin-top: 80px;
   font-weight: 600;
   color: #C75F00;
+  text-align: left;
 }
 
 .tituloServicio{
@@ -1437,6 +1438,7 @@
   margin-top: 20px;
   margin-bottom: 20px;
   font-weight: medium;
+  text-align: left;
 }
 
 .contenedorProductosPanel{
@@ -2141,6 +2143,7 @@
 
 .contenedorPerfilUsuario h1{
   margin-bottom: 10px;
+  font-size: 36px;
 }
 
 .contenedorPerfilUsuario .idUsuario{
@@ -2154,6 +2157,10 @@
 .contenidoPerfilUsuario{
   margin-left: 28px;
   padding-top: 40px;
+}
+
+.contenidoPerfilUsuario h1{
+  text-align: left;
 }
 
 .contenedorPedidoUsuario{
@@ -2311,6 +2318,14 @@
 
 .ordenes{
   margin-top: 20px;
+}
+
+.ordenes p{
+  text-align: left;
+}
+
+.ordenes span{
+  color: white;
 }
 
 .contenedorFormContraseñaRegistro{
