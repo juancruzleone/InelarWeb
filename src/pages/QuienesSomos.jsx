@@ -13,9 +13,8 @@ const SobreNosotros = () => {
         <link rel="icon" href="/inelar.ico" />
       </Head>
       <h1 className={styles.tituloPaginas} id={styles.quienesSomos}>Quiénes somos</h1>
-      <section className={styles.seccion}>
-        <div className={styles.contenido}>
-          <h2 className={styles.subtitulo}>Nuestra Empresa</h2>
+      <section className={styles.contenedoresQuienesSomos}>
+          <h2>Nuestra Empresa</h2>
           <p>
             <span>INELAR</span>, una empresa de más de 50 años especializada en
             los Sistemas automatizados de detección y extinción de incendios. Con
@@ -23,11 +22,9 @@ const SobreNosotros = () => {
             más importantes en todos los rubros: comunicación, energía, transporte,
             entidades financieras y manufactureras.
           </p>
-        </div>
       </section>
-      <section className={styles.seccion}>
-        <div className={styles.contenido}>
-          <h2 className={styles.subtitulo}>Investigación y Desarrollo</h2>
+      <section className={styles.contenedoresQuienesSomos}>
+          <h2>Investigación y Desarrollo</h2>
           <p>
             Es una empresa dedicada a la investigación y el desarrollo de nuevos
             productos. A través del entrenamiento de su personal profesional,
@@ -36,11 +33,9 @@ const SobreNosotros = () => {
             incorpora en forma continua los avances tecnológicos que permiten el
             mejoramiento y abaratamiento de los sistemas automáticos de control.
           </p>
-        </div>
       </section>
-      <section className={styles.seccion}>
-        <div className={styles.contenido}>
-          <h2 className={styles.subtitulo}>Compromiso con la Calidad</h2>
+      <section className={styles.contenedoresQuienesSomos}>
+          <h2>Compromiso con la Calidad</h2>
           <p>
             Trabajamos bajo la consigna de que todo elemento diseñado para la
             protección de la vida humana debe ser confiable y funcionar
@@ -49,11 +44,9 @@ const SobreNosotros = () => {
             programa de superación es la obtención de la calificación ISO 9002 que
             garantiza el reconocimiento internacional de nuestros productos.
           </p>
-        </div>
       </section>
-      <section className={styles.seccion}>
-        <div className={styles.contenido}>
-          <h2 className={styles.subtitulo}>Servicios Complementarios</h2>
+      <section className={styles.contenedoresQuienesSomos}>
+          <h2>Servicios Complementarios</h2>
           <p>
             Sabemos que todo producto de seguridad cumple su cometido cuando se
             transforma en un servicio de protección, por lo que complementamos
@@ -63,26 +56,16 @@ const SobreNosotros = () => {
             ayuda para cualquier consulta referida a nuestros productos o a normas y
             requerimientos nacionales o internacionales de seguridad contra incendios.
           </p>
-        </div>
       </section>
-      <section className={styles.seccion}>
-        <div className={styles.contenido}>
-          <h2 className={styles.subtitulo}>Tecnología e Innovación</h2>
+      <section className={styles.contenedoresQuienesSomos}>
+          <h2>Tecnología e Innovación</h2>
           <p>
-            Podemos exhibir hoy, como resultado de nuestro esfuerzo, una extensa
-            gama de productos y servicios de alta calidad que nos han convertido en
-            un símbolo de tecnología e innovación, líder en el mercado argentino.
+            Podemos exhibir hoy, como resultado de nuestro esfuerzo, una extensa gama de productos y servicios de alta calidad que nos han convertido en un símbolo de tecnología e innovación, líder en el mercado argentino.
           </p>
-        </div>
       </section>
-      <section className={styles.seccion}>
-        <div className={styles.contenido}>
-          <h2 className={styles.subtitulo}>Nuestra Misión</h2>
-          <p>
-            Protegemos lo más importante utilizando los recursos más modernos de
-            la ingeniería y la informática.
-          </p>
-        </div>
+      <section className={styles.contenedoresQuienesSomos}>
+        <h2>Nuestra Misión</h2>
+        <p>Protegemos lo más importante utilizando los recursos más modernos de la ingeniería y la informática.</p>
       </section>
       <Footer></Footer>
     </Layout>

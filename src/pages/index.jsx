@@ -82,7 +82,7 @@ const Index = () => {
           <Image
             src="/logo-elegidos.svg"
             alt="Logo inelar"
-            className={styles.fotoServicio}
+            className={styles.iconoHome}
             width={300}
             height={300}
           />
@@ -114,15 +114,14 @@ const Index = () => {
           </div>
         </div>
         <div className={styles.contenedorTextoNuestraApp}>
-          <h2 className={styles.subtituloApp}>Descubre Nuestra App</h2>
+          <h2>Descubre Nuestra App</h2>
           <p>
             ¡Bienvenido a la puerta de entrada a la innovación tecnológica! En
             INELAR, hemos creado una aplicación revolucionaria pensando en ti y
             en la simplicidad de mantener tus dispositivos siempre en óptimas
             condiciones.
           </p>
-          <br />
-          <p>
+          <p id={styles.segundoParrafoNuestraApp}>
             Nuestra App es tu solución para un mantenimiento rápido y efectivo.
             Imagina tener el control total de tus dispositivos con tan solo un
             escaneo de código QR. Es fácil, rápido y está diseñado pensando en
@@ -130,9 +129,8 @@ const Index = () => {
           </p>
         </div>
       </div>
-
       <div className={styles.contenedorServicios}>
-        <h2 className={styles.subtituloServicios}>Servicios</h2>
+        <h2>Servicios</h2>
         <div className={styles.posicionServicios}>
           <div className={styles.cajaServicios}>
             <Link href="/instalaciones" className={styles.servicioLink}>

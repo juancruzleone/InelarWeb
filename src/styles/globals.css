@@ -116,14 +116,14 @@ main{
   padding-top: 120px;
 }
 
-.contenedor404, .titulo404{
+.contenedor404, h1{
   font-size: 50px;
   font-family: "montserrat", sans-serif;
   justify-content: center;
   text-align: center;
 }
 
-.contenedor404, .texto404{
+.contenedor404, p{
   font-size: 18px;
   font-family: "montserrat", sans-serif;
   justify-content: center;
@@ -132,7 +132,7 @@ main{
 }
 
 
-.boton-404{
+.contenedor404 a{
   background-color: #C75F00;
   text-align: center;
   padding: 5px;
@@ -142,10 +142,9 @@ main{
   font-weight: 500;
 }
 
-.boton-404:hover{
+.contenedor404 a:hover{
   background-color: #f57600;
 }
-
 
 .contenedorImg404{
   display: block;
@@ -162,7 +161,6 @@ main{
 #boton-contacto{
   margin-top: 20px;
 }
-
 
 input[type="date"] {
   font-family: "Montserrat", sans-serif;
@@ -191,10 +189,6 @@ input[type="date"]::-webkit-clear-button {
   display: none;
 }
 
-
-
-
-
 input[type="file"]::file-selector-button {
   background-color: rgb(43, 43, 43);
   color: white; 
@@ -203,7 +197,6 @@ input[type="file"]::file-selector-button {
   border-radius: 4px; 
   cursor: pointer; 
 }
-
 
 input[type="file"]::file-selector-button:hover {
   background-color: #ff7b00; 
@@ -223,7 +216,6 @@ input[type="file"]::file-selector-button:hover {
   font-weight: bold;
   color: gray;
 }
-
 
 textarea {
   height: auto; 

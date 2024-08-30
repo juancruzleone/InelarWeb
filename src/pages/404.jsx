@@ -14,12 +14,12 @@ const Custom404 = () => {
                 <link rel="icon" href="/inelar.ico" />
             </Head>
             <section className='contenedor404'>
-                <h1 className='titulo404'>Código 404</h1>
-                <p className='texto404'>Página no encontrada</p>
+                <h1>Código 404</h1>
+                <p>Página no encontrada</p>
                 <div className='contenedorImg404'>
                     <Image src='/manguera.svg' alt="Icono de manguera" width={100} height={100}/>
                 </div> 
-                <Link href="/" className='boton-404'>Ir al inicio</Link>
+                <Link href="/">Ir al inicio</Link>
             </section>
             <Footer />
         </Layout>

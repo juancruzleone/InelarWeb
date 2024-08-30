@@ -1,3 +1,4 @@
+/*Nav*/
 .nav {
   display: flex;
   justify-content: space-between;
@@ -38,6 +39,16 @@
 
 #cerrarSesion{
   margin-right: 20px;
+}
+
+
+
+/*Inicio*/
+.iconoHome{
+  border-radius: 10px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: left;
 }
 
 .tituloHome{
@@ -90,26 +101,11 @@
   margin-top: 40px;
 }
 
-.subtituloServicios{
-  font-family: "montserrat", sans-serif;
-  color: #C75F00;
-  font-size: 32px;
-  text-align: center;
-}
-
 .subtitulosHome{
   font-family: "montserrat", sans-serif;
   color: #C75F00;
   font-size: 32px;
   text-align: center;
-}
-
-.subtituloApp{
-  font-family: "montserrat", sans-serif;
-  color: #C75F00;
-  font-size: 32px;
-  text-align: left;
-  padding-bottom: 20px;
 }
 
 .tituloFooter{
@@ -121,6 +117,10 @@
 .contenedorQuienesSomos{
   margin-top: 300px;
   margin-bottom: 80px;
+}
+
+.contenedorQuienesSomos p{
+  margin-top: 100px;
 }
 
 .contenedorNuestraApp {
@@ -137,12 +137,23 @@
   margin-top: 0; 
   justify-content: center; 
   align-items: center; 
-
 }
 
+.contenedorTextoNuestraApp h2{
+  font-family: "montserrat", sans-serif;
+  color: #C75F00;
+  font-size: 32px;
+  text-align: left;
+  padding-bottom: 20px;
+}
 
+.contenedorTextoNuestraApp p{
+  text-align: left;
+}
 
-
+#segundoParrafoNuestraApp{
+  margin-top: 15px;
+}
 
 .circulo {
   width: 300px;
@@ -174,6 +185,8 @@
   }
 }
 
+
+/*Footer*/
 .contenedorFooter{
   background-color: #121212;
   padding: 30px;
@@ -193,6 +206,8 @@
   color: #f57600;
 }
 
+
+/*Contacto*/
 .posicionContacto{
   display: flex;
   justify-content: center;
@@ -221,6 +236,9 @@
   text-align: center;
 }
 
+
+
+/*Solicitar servicios*/
 .formulario {
   display: flex;
   flex-direction: column;
@@ -255,7 +273,6 @@
   height: 47px;
 }
 
-
 .formulario .botonSolicitudServicio {
   font-family: "montserrat", sans-serif;
   font-weight: 500;
@@ -271,7 +288,6 @@
 .formulario .botonSolicitudServicio:hover {
   background-color: #C75F00;
 }
-
 
 .posicionServicios{
   display: flex;
@@ -340,8 +356,6 @@
   margin-top: 20px;
   color:  #121212;
 }
-
-
 
 .nombreServicios{
   font-family: "montserrat", sans-serif;
@@ -442,38 +456,6 @@
   font-weight: bolder;
 }
 
-.textoError404{
-  font-family: "montserrat", sans-serif;
-  font-size: 18px;
-  text-align: center;
-  margin-top: 7px;
-}
-
-.contenedor404{
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-}
-
-.posicionBotonError404{
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
-
-.botonError404{
-  background-color: #f57600;
-  padding: 5px;
-  border-radius: 4px;
-  font-family: "montserrat", sans-serif;
-  font-weight: lighter;
-  font-size: 18px;
-}
-
-.botonError404:hover{
-  background-color: #C75F00;
-}
-
 .posicionPreguntasFrecuentes{
   margin-top: 80px;
   margin-bottom: 80px;
@@ -487,7 +469,6 @@
   margin: 12px;
   border-radius: 6px;
 }
-
 
 .contenedorPreguntasFrecuentes:hover{
   background-color: #f57600;
@@ -531,10 +512,6 @@
   margin-top: 20px;
   border-radius: 10px;
 }
-
-/*.contenedorPreguntaRespuesta:hover{
-  background-color: #ff8c20;
-}*/
 
 .toggleButton {
   font-size: 24px;
@@ -611,6 +588,10 @@
   transform: scale(1.1);
 }
 
+
+
+
+/*Certificaciones*/
 .subtituloCertificaciones{
   text-align: center;
   font-family: "montserrat", sans-serif;
@@ -619,17 +600,17 @@
   font-weight: 300;
 }
 
-.posicionContenedorCertificaciones{
-  display: flex;
-  justify-content: center;
-  margin-top: 40px;
-}
-
 .contenedorCertificaciones{
   background-color: white;
   margin: 10px;
   border-radius: 10px;
   height: 120px;
+}
+
+.posicionContenedorCertificaciones{
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
 }
 
 .textoServicios{
@@ -857,6 +838,7 @@
   padding-top: 0px;
   padding-bottom: 0px;
 }
+
 
 
 
@@ -1529,6 +1511,13 @@
   margin-top: 60px;
 }
 
+.contenedorServicios h2{
+  font-family: "montserrat", sans-serif;
+  color: #C75F00;
+  font-size: 32px;
+  text-align: center;
+}
+
 .contenedorClientes {
   max-height: 600px; 
   overflow-y: auto; 
@@ -1582,32 +1571,27 @@
 
 .categoriaSeleccionadaProducto {
   color: #121212;
-  font-weight: bold; /* Opcional, para resaltar la categoría seleccionada */
+  font-weight: bold; 
 }
 
-/* Asegúrate de que el estilo por defecto sea blanco para las categorías no seleccionadas */
 .contenedorCategorias a {
   color: #ffffff;
-  text-decoration: none; /* Para evitar subrayado en los enlaces */
-  cursor: pointer; /* Cambiar el cursor al pasar sobre las categorías */
+  text-decoration: none; 
+  cursor: pointer; 
 }
 
 
-
-/* Estilo por defecto para las categorías */
 .contenedorCategorias a {
-  color: #ffffff; /* Color blanco por defecto */
+  color: #ffffff; 
   text-decoration: none;
   cursor: pointer;
   transition: color 0.3s ease;
 }
 
-/* Estilo para la categoría seleccionada */
 .categoriaSeleccionadaProducto {
-  color: #121212 !important; /* Cambia el color a #121212 */
+  color: #121212 !important; 
   font-weight: 500;
 }
-
 
 .registroLogin{
   color: white;
@@ -1624,9 +1608,7 @@
   color: white;
   font-size: 14px;
   font-family: "montserrat", sans-serif;
-
 }
-
 
 .Modal {
   display: flex;
@@ -1660,7 +1642,6 @@
   margin-top:20px;
   border: 0px
 }
-
 
 .Modal h2 {
   font-family: "montserrat", sans-serif;
@@ -1720,7 +1701,6 @@
   padding: 4px;
 }
 
-
 .botonSumar{
   background-color: rgb(83, 83, 83);
   border: 0px;
@@ -1774,7 +1754,7 @@
   margin-bottom: 80px;
 }
 
-.seccion{
+.contenedoresQuienesSomos{
   background-color: #121212;
   border-radius: 10px;
   width: 90%;
@@ -1785,14 +1765,14 @@
   margin-top: 30px;
 }
 
-.seccion .subtitulo{
-  font-family: "montserrat", sans-serif;
-  margin-top: 0px;
+.contenedoresQuienesSomos p{
+  margin-top: 10px;
+  text-align: left;
 }
 
-.seccion p{
-  font-family: "montserrat", sans-serif;
-  margin-top: 15px;
+.contenedoresQuienesSomos span{
+  font-weight: bold;
+  color: white;
 }
 
 .contenedorPagina button{
@@ -1803,8 +1783,6 @@
   margin-right: 10px;
 }
 
-
-
 .botonCrearModal{
   height: 32px;
   margin-left: 50px;
@@ -1814,7 +1792,6 @@
   font-family: "montserrat", sans-serif;
   font-weight: 500;
 }
-
 
 .tituloPaginasPanel{
   margin-left: 50px;
@@ -1913,9 +1890,6 @@
   .ModalPanelCrear #description{
     margin-bottom: 0px;
   }
-
-
-  
 
   .ModalPanelClientes{
     display: flex;
@@ -2124,7 +2098,6 @@
   margin-bottom: 5px;
 }
 
-
 .sesion {
   display: flex;
   align-items: center;
@@ -2134,7 +2107,6 @@
   background: none; 
   cursor: pointer; 
 }
-
 
 .logoutButton {
   display: flex;
@@ -2204,8 +2176,6 @@
   margin-top: 15px;
 }
 
-
-
 .tarjetaProductoCarrito {
   display: flex;
   align-items: center;
@@ -2217,10 +2187,8 @@
 }
 
 .detalleProductoCarrito {
-
   display: flex;
 }
-
 
 .unidadesProductoCarrito {
   display: flex;
@@ -2254,7 +2222,6 @@
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
 
 .idUsuario {
   font-size: 18px;
@@ -2336,16 +2303,12 @@
 
 }
 
-
 .contenedorPrelogin {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
-
-
-
 
 .formularioLogin label {
   margin-bottom: 0.5rem;
@@ -2363,22 +2326,6 @@
   color: white; 
 }
 
-/*.formularioLogin button {
-  font-family: "montserrat", sans-serif;
-  font-weight: lighter;
-  font-size: 16px;
-  padding: 0.6rem 1rem;
-  background-color: #f57600;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.formularioLogin button:hover {
-  background-color: #C75F00;
-}*/
-
 .formularioLogin p {
   text-align: center;
   font-family: "montserrat", sans-serif;
@@ -2393,14 +2340,12 @@
   position: relative;
 }
 
-
-
 .contenedorProductosRelacionados{
   text-align: center;
   margin-top: 20px;
 }
 
-.contenedorProductosRelacionados .tituloSeccionProductoRelacionado{
+.contenedorProductosRelacionados h2{
   margin-top: 60px;
 }
 
@@ -2418,7 +2363,7 @@
   padding: 15px;
 }
 
-.productoRelacionado .botonDetalleRelacionado{
+.productoRelacionado button{
   background-color: #C75F00;
   padding: 4px;
   margin-top: 10px;
@@ -2453,7 +2398,6 @@
 .formularioLogin input,
 .formularioLogin textarea {
   padding: 0.7rem;
-  /*margin-bottom: 1rem;*/
   border: 1px solid #ccc;
   border-radius: 4px;
   background-color: #121212;
@@ -2521,11 +2465,9 @@
   cursor: pointer;
 }
 
-
 .botonEditarPerfil:hover{
   background-color: rgb(124, 124, 124);
 }
-
 
 .ModalEditarPerfil {
   display: flex;
@@ -2576,7 +2518,6 @@
   display: flex;
 }
 
-
 .ModalEditarPerfil .botonGuardarCambiosPerfil{
   background-color: #C75F00;
   border-radius: 4px;
@@ -2617,7 +2558,6 @@
   cursor: pointer;
   color: white;
 }
-
 
 .contenedorBotonesModalVaciar .botonCancelar{
   background-color: blue;
@@ -2825,7 +2765,6 @@
   text-overflow: ellipsis;   
 }
 
-
 .formularioLogin label{
   margin-top: 1rem;
 }
@@ -2908,22 +2847,19 @@
   margin-top: 10px;
 }
 
-/* Estilo para el mensaje de error en el modal de edición de perfil */
 .ModalEditarPerfil .error {
-  color: #d32f2f; /* Color del texto */
+  color: #d32f2f; 
   padding-bottom: 40px;
   margin-top: 30px;
-  border-radius: 4px; /* Esquinas redondeadas */
-  margin-bottom: 15px; /* Espacio debajo del error */
-  font-size: 14px; /* Tamaño de la fuente */
-  text-align: left; /* Alineación del texto */
+  border-radius: 4px; 
+  margin-bottom: 15px; 
+  font-size: 14px; 
+  text-align: left; 
 }
 
-/* Estilo para los botones dentro del modal */
 .ModalEditarPerfil .contenedorBotonModalEditarPerfil {
   margin-top: 20px;
 }
-
 
 .errorPanel{
   color: #e74c3c; 

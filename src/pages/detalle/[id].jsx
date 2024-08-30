@@ -115,7 +115,7 @@ const DetalleProducto = ({ initialProducto, initialProductosRelacionados }) => {
         <p>{producto.description}</p>
       </div>
       <div className={styles.contenedorProductosRelacionados}>
-        <h2 className={styles.tituloSeccionProductoRelacionado}>Productos relacionados</h2>
+        <h2>Productos relacionados</h2>
         <div className={styles.productosRelacionados}>
           {productosRelacionados.map((relacionado) => (
             <div key={relacionado._id} className={styles.productoRelacionado}>
@@ -127,7 +127,7 @@ const DetalleProducto = ({ initialProducto, initialProductosRelacionados }) => {
                 className={styles.imagenProductoRelacionado}
               />
               <p>{relacionado.name}</p>
-              <button onClick={() => handleVerMas(relacionado._id)} className={styles.botonDetalleRelacionado}>Ver más</button>
+              <button onClick={() => handleVerMas(relacionado._id)}>Ver más</button>
             </div>
           ))}
         </div>
