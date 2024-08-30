@@ -845,7 +845,7 @@
 .subtituloMantenimiento{
   font-family: "montserrat", sans-serif;
   margin-bottom: 5px;
-  margin-top: 20px;
+  margin-top: 40px;
   color: #C75F00;
 }
 
@@ -861,6 +861,12 @@
 
 .contenedorTextoServicio{
   padding: 40px;
+}
+
+.contenedorTextoServicio p{
+  display: flex;
+  justify-content: left;
+  text-align: left;
 }
 
 .tarjetaProducto {
@@ -1313,6 +1319,10 @@
 .contenedorPanelAdmin{
   margin-top: 80px;
   display: flex;
+}
+
+.navPanel{
+  margin-left: 10px;
 }
 
 .navPanel button{
@@ -1977,10 +1987,11 @@
 .tituloPanel{
   font-family: "montserrat", sans-serif;
   font-size: 42px;
-  margin-left: 25px;
+  margin-left: 40px;
   margin-top: 80px;
   font-weight: 600;
   color: #C75F00;
+  text-align: left;
 }
 
 .contenidoTarjetaProductoPanel{
@@ -1989,6 +2000,8 @@
 
 .contenidoTarjetaProductoPanel p{
   margin-top: 8px;
+  text-align: left;
+  font-size: 16px;
 }
 
 .contenidoTarjetaProductoPanel span{
@@ -2026,6 +2039,8 @@
 
 .contenidoTarjetaProductoPanelContacto p{
   margin-top: 8px;
+  text-align: left;
+  font-size: 16px;
 }
 
 .ModalPanelEditar {
