@@ -1,4 +1,3 @@
-// ListaClientes.jsx
 import React, { useEffect } from "react";
 import Image from "next/image";
 import styles from "@/styles/Home.module.css";
@@ -33,10 +32,9 @@ const ListaClientes = () => {
     clienteSeleccionado,
     setClienteSeleccionado,
     actualizarClientes,
-    eliminarClienteSeleccionado, // Nueva función para eliminar cliente
+    eliminarClienteSeleccionado,
   } = useClientes(token, role);
 
-  // Función para abrir el modal de edición
   const handleOpenEditModal = (cliente) => {
     setClienteSeleccionado(cliente);
     setModalEditar(true);
@@ -75,7 +73,7 @@ const ListaClientes = () => {
 
         <div className={styles.contenedorClientes}>
           {loading ? (
-            <p>Cargando clientes...</p>
+            <p>Loading clients...</p>
           ) : clientesFiltrados.length > 0 ? (
             clientesFiltrados.map((cliente, index) => (
               <div key={index} className={styles.tarjetaProductoPanelClientes}>
@@ -87,7 +85,7 @@ const ListaClientes = () => {
                   >
                     <Image
                       src="/editar.svg"
-                      alt="Editar"
+                      alt="Edit"
                       width={10}
                       height={10}
                     />
@@ -98,7 +96,7 @@ const ListaClientes = () => {
                   >
                     <Image
                       src="/eliminar.svg"
-                      alt="Eliminar"
+                      alt="Delete"
                       width={10}
                       height={10}
                     />
@@ -108,7 +106,7 @@ const ListaClientes = () => {
             ))
           ) : (
             <p className={styles.textoBuscadorPanelClientes}>
-              No se encontraron clientes
+              No clients found
             </p>
           )}
         </div>
@@ -134,8 +132,8 @@ const ListaClientes = () => {
         isOpen={modalEliminar}
         onRequestClose={handleCerrarModal}
         onConfirm={() => {
-          eliminarClienteSeleccionado(clienteSeleccionado._id); // Llamar a eliminar cliente
-          handleCerrarModal(); // Cerrar el modal después de eliminar
+          eliminarClienteSeleccionado(clienteSeleccionado._id); 
+          handleCerrarModal();
         }}
       />
       <ModalConfirmacion

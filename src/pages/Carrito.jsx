@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import CartItem from '@/components/carrito/components/ProductosCarrito'; 
 import CartButtons from '@/components/carrito/components/BotonCarrito'; 
 import CartModals from '@/components/carrito/components/CarritoModal'; 
-import { validateCart, validateUserData } from '@/components/carrito/utils/CarritoValidaciones'; 
+import { validateCart, validateUserData } from '@/components/carrito/utils/ValidacionesCarrito.jsx'; 
 import styles from '@/styles/Home.module.css';
 import { fetchCheckout } from '@/components/carrito/services/FetchCarrito';
 import useCartState from '@/components/carrito/hooks/useCarrito';

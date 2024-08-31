@@ -9,16 +9,16 @@ const ModalCrear = ({ isOpen, onRequestClose, token, role, actualizarClientes })
   <Modal
     isOpen={isOpen}
     onRequestClose={onRequestClose}
-    contentLabel="Crear Cliente"
+    contentLabel="Create Client"
     className={`${styles.ModalPanelClientes} ${styles.Modal}`}
     closeTimeoutMS={1000}
   >
-    <h2>Crear Cliente</h2>
+    <h2>Create Client</h2>
     <FormularioCrearCliente 
       onRequestClose={onRequestClose} 
       token={token} 
       role={role} 
-      actualizarClientes={actualizarClientes} // Pasar actualizarClientes a FormularioCrearCliente
+      actualizarClientes={actualizarClientes}
     />
   </Modal>
 );

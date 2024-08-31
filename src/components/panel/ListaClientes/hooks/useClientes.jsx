@@ -36,10 +36,10 @@ const useClientes = (token, role) => {
     });
     setClientesFiltrados(filtered);
 
-    const categoriasUnicas = [
+    const uniqueCategories = [
       ...new Set(clientes.map((cliente) => cliente.category)),
     ];
-    setCategorias(categoriasUnicas);
+    setCategorias(uniqueCategories);
   }, [clientes, buscar, categoriaSeleccionada]);
 
   const handleCrearCliente = () => {
@@ -54,12 +54,12 @@ const useClientes = (token, role) => {
   const eliminarClienteSeleccionado = async (idCliente) => {
     try {
       await eliminarCliente(idCliente, token, role);
-      setMensajeConfirmacion("Cliente eliminado exitosamente");
+      setMensajeConfirmacion("Client successfully deleted");
       setModalConfirmacion(true);
-      actualizarClientes(); // Actualizar la lista de clientes después de eliminar uno
+      actualizarClientes();
     } catch (error) {
-      console.error('Error al eliminar el cliente:', error);
-      setMensajeConfirmacion("Error al eliminar el cliente");
+      console.error('Error deleting client:', error);
+      setMensajeConfirmacion("Error deleting client");
       setModalConfirmacion(true);
     }
   };
@@ -93,7 +93,7 @@ const useClientes = (token, role) => {
     setClienteSeleccionado,
     setClientes,
     actualizarClientes,
-    eliminarClienteSeleccionado, // Exponer la función para eliminar cliente
+    eliminarClienteSeleccionado,
   };
 };
 

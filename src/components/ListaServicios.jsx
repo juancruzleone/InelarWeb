@@ -20,11 +20,11 @@ export default function ListaServicios() {
       <h2 className={styles.tituloPaginasPanel}>Servicios</h2>
       <input
         type="text"
-        placeholder="Buscar servicio por nombre o dirección..."
+        placeholder="Search service by name or address..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
         className={styles.buscadorPanel} 
-        aria-label="Buscar servicios solicitados"
+        aria-label="Search requested services"
       />
       <div className={styles.posicionSeccionProductos}>
         <div className={styles.contenedorCategorias}>
@@ -40,13 +40,13 @@ export default function ListaServicios() {
 
         <div className={styles.contenedorServicios}>
           {loading ? (
-            <p>Cargando servicios...</p>
+            <p>Cargando clientes...</p>
           ) : filteredServices.length > 0 ? (
             filteredServices.map((service, index) => (
               <ServicioItem key={index} service={service} />
             ))
           ) : (
-            <p className={styles.textoBuscadorPanel}>No se encontraron servicios que coincidan con tu búsqueda.</p>
+            <p className={styles.textoBuscadorPanel}>No services found matching your search.</p>
           )}
         </div>
       </div>

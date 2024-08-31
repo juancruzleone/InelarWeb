@@ -9,7 +9,7 @@ const FormularioEditarCliente = ({
   handleCerrarModal,
   token,
   role,
-  actualizarClientes,  // Recibir la función actualizarClientes
+  actualizarClientes,
 }) => {
   const {
     handleChange,
@@ -24,14 +24,14 @@ const FormularioEditarCliente = ({
     handleCerrarModal,
     token,
     role,
-    actualizarClientes  // Pasar la función actualizarClientes al hook
+    actualizarClientes
   );
 
   return (
     <>
       <form onSubmit={handleSubmitEditar}>
         <div className={styles.formularioPanel}>
-          <label htmlFor="name">Nombre</label>
+          <label htmlFor="name">Name</label>
           <input
             type="text"
             id="name"
@@ -42,7 +42,7 @@ const FormularioEditarCliente = ({
           {errores.name && <p className={styles.error}>{errores.name}</p>}
         </div>
         <div className={styles.formularioPanel}>
-          <label htmlFor="category">Categoría</label>
+          <label htmlFor="category">Category</label>
           <input
             type="text"
             id="category"
@@ -54,8 +54,8 @@ const FormularioEditarCliente = ({
         </div>
         {errores.submit && <p className={styles.error}>{errores.submit}</p>}
         <div className={styles.contenedorBotonesEditar}>
-          <button type="submit" className={styles.botonGuardar}>Guardar</button>
-          <button type="button" onClick={handleCerrarModal} className={styles.botonCancelar}>Cancelar</button>
+          <button type="submit" className={styles.botonGuardar}>Save</button>
+          <button type="button" onClick={handleCerrarModal} className={styles.botonCancelar}>Cancel</button>
         </div>
       </form>
       <ModalConfirmacion

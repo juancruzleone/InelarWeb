@@ -16,7 +16,7 @@ export default function useMensajes() {
         setMessages(data);
         setFilteredMessages(data);
       } catch (error) {
-        console.error("Error al obtener mensajes:", error);
+        console.error("Error fetching messages:", error);
       } finally {
         setLoading(false);
       }

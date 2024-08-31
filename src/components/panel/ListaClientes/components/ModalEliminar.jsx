@@ -6,21 +6,21 @@ const ModalEliminar = ({ isOpen, onRequestClose, onConfirm }) => (
   <Modal
     isOpen={isOpen}
     onRequestClose={onRequestClose}
-    contentLabel="Eliminar Cliente"
+    contentLabel="Delete Client"
     className={`${styles.ModalPanelEditar} ${styles.Modal}`}
     closeTimeoutMS={1000}
   >
-    <h2>Eliminar Cliente</h2>
-    <p>¿Estás seguro de que deseas eliminar este cliente?</p>
+    <h2>Delete Client</h2>
+    <p>Are you sure you want to delete this client?</p>
     <div className={styles.contenedorBotonesEditar}>
       <button
-        onClick={onConfirm} // Cambiado para llamar a eliminarClienteSeleccionado
+        onClick={onConfirm}
         className={styles.botonEliminarProducto}
       >
-        Eliminar
+        Delete
       </button>
       <button onClick={onRequestClose} className={styles.botonCancelarModal}>
-        Cancelar
+        Cancel
       </button>
     </div>
   </Modal>

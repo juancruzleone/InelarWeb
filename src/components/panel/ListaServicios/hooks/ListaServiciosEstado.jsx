@@ -18,11 +18,11 @@ export default function useServicios() {
         setServices(data);
 
         const uniqueCategories = Array.from(
-          new Set(data.map((service) => service.category || "Sin Categoría"))
+          new Set(data.map((service) => service.category || "Uncategorized"))
         );
         setCategories(uniqueCategories);
       } catch (error) {
-        console.error("Error al obtener servicios:", error);
+        console.error("Error fetching services:", error);
       } finally {
         setLoading(false);
       }

@@ -8,18 +8,18 @@ const EditarClienteModal = ({ modalEditar, handleCerrarModal, clienteSeleccionad
     <Modal
       isOpen={modalEditar}
       onRequestClose={handleCerrarModal}
-      contentLabel="Editar Cliente"
+      contentLabel="Edit Client"
       className={`${styles.ModalPanelClientes} ${styles.Modal}`}
       closeTimeoutMS={1000}
     >
-      <h2>Editar Cliente</h2>
+      <h2>Edit Client</h2>
       <FormularioEditarCliente
         clienteSeleccionado={clienteSeleccionado}
         setClienteSeleccionado={setClienteSeleccionado}
         handleCerrarModal={handleCerrarModal}
         token={token}
         role={role}
-        actualizarClientes={actualizarClientes}  // Pasar la función actualizarClientes al formulario
+        actualizarClientes={actualizarClientes}
       />
     </Modal>
   );

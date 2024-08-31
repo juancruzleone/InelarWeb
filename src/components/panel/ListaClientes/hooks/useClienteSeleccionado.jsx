@@ -46,7 +46,7 @@ const useClienteSeleccionado = (
       setMensajeConfirmacion(resultado.message || 'Cliente creado exitosamente');
       setModalConfirmacion(true);
       handleCerrarModal();
-      actualizarClientes(); // Actualizar la lista de clientes después de crear uno nuevo
+      actualizarClientes();
     } catch (error) {
       console.error('Error al crear el cliente:', error);
       setErrores({ submit: error.message || 'Error al crear el cliente' });

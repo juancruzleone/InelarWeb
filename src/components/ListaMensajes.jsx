@@ -12,22 +12,22 @@ export default function ListaMensajes() {
         <h2 className={styles.tituloPaginasPanel}>Mensajes de contacto</h2>
         <input
           type="text"
-          placeholder="Buscar mensaje por nombre o email..."
+          placeholder="Search message by name or email..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className={styles.buscadorPanel} 
-          aria-label="Buscar mensajes de contacto"
+          aria-label="Search contact messages"
         />
         <div className={styles.posicionSeccionProductos}>
           <div className={styles.contenedorProductosPanel}>
             {loading ? (
-              <p>Cargando mensajes...</p>
+              <p>Loading messages...</p>
             ) : filteredMessages.length > 0 ? (
               filteredMessages.map((message, index) => (
                 <MensajeItem key={index} message={message} />
               ))
             ) : (
-              <p className={styles.textoBuscadorPanelMensajes}>No se encontraron mensajes que coincidan con tu búsqueda.</p>
+              <p className={styles.textoBuscadorPanelMensajes}>No messages found matching your search.</p>
             )}
           </div>
         </div>
