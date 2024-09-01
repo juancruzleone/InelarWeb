@@ -74,7 +74,7 @@ const FormularioCrear = ({
 
       <div>
         <button type="submit">Guardar</button>
-        <button type="button" onClick={onClose} className={styles.botonCancelar}>
+        <button type="button" onClick={onClose} id={styles.botonCancelar}>
           Cancelar
         </button>
       </div>

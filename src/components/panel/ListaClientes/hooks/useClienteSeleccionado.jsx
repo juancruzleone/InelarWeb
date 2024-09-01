@@ -68,7 +68,7 @@ const useClienteSeleccionado = (
       setMensajeConfirmacion(resultado.message || 'Cliente editado exitosamente');
       setModalConfirmacion(true);
       handleCerrarModal();
-      actualizarClientes(); // Actualizar la lista de clientes después de editar uno existente
+      actualizarClientes();
     } catch (error) {
       console.error('Error al editar el cliente:', error);
       setErrores({ submit: error.message || 'Error al editar el cliente' });
@@ -80,7 +80,7 @@ const useClienteSeleccionado = (
       const resultado = await eliminarCliente(idCliente, token, role);
       setMensajeConfirmacion(resultado.message || 'Cliente eliminado exitosamente');
       setModalConfirmacion(true);
-      actualizarClientes(); // Actualizar la lista de clientes después de eliminar uno
+      actualizarClientes();
     } catch (error) {
       console.error('Error al eliminar el cliente:', error);
       setErrores({ submit: error.message || 'Error al eliminar el cliente' });
@@ -95,8 +95,8 @@ const useClienteSeleccionado = (
     setMensajeConfirmacion,
     handleChange,
     handleSubmitCrear,
-    handleSubmitEditar,  // Nuevo handle para editar
-    handleEliminarCliente,  // Nuevo handle para eliminar
+    handleSubmitEditar,
+    handleEliminarCliente,
     nuevoCliente,
     setErrores,
   };

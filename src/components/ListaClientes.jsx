@@ -73,7 +73,7 @@ const ListaClientes = () => {
 
         <div className={styles.contenedorClientes}>
           {loading ? (
-            <p>Loading clients...</p>
+            <p>Cargando clientes...</p>
           ) : clientesFiltrados.length > 0 ? (
             clientesFiltrados.map((cliente, index) => (
               <div key={index} className={styles.tarjetaProductoPanelClientes}>
@@ -138,8 +138,8 @@ const ListaClientes = () => {
       />
       <ModalConfirmacion
         isOpen={modalConfirmacion}
+        onRequestClose={handleCerrarModal}
         mensaje={mensajeConfirmacion}
-        onRequestClose={handleCerrarModal} 
       />
     </div>
   );

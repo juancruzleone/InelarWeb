@@ -21,7 +21,7 @@ export default function ListaMensajes() {
         <div className={styles.posicionSeccionProductos}>
           <div className={styles.contenedorProductosPanel}>
             {loading ? (
-              <p>Loading messages...</p>
+              <p>Cargando mensajes...</p>
             ) : filteredMessages.length > 0 ? (
               filteredMessages.map((message, index) => (
                 <MensajeItem key={index} message={message} />

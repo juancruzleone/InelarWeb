@@ -1,6 +1,6 @@
-// useClientes.jsx
 import { useState, useEffect, useCallback } from "react";
-import { obtenerClientes, eliminarCliente } from "@/components/panel/ListaClientes/services/ListaClienteService.jsx";
+import { obtenerClientes, eliminarCliente }
+from "@/components/panel/ListaClientes/services/ListaClienteService.jsx";
 
 const useClientes = (token, role) => {
   const [clientes, setClientes] = useState([]);
@@ -54,12 +54,12 @@ const useClientes = (token, role) => {
   const eliminarClienteSeleccionado = async (idCliente) => {
     try {
       await eliminarCliente(idCliente, token, role);
-      setMensajeConfirmacion("Client successfully deleted");
+      setMensajeConfirmacion("Cliente eliminado exitosamente");
       setModalConfirmacion(true);
       actualizarClientes();
     } catch (error) {
-      console.error('Error deleting client:', error);
-      setMensajeConfirmacion("Error deleting client");
+      console.error('Error eliminando cliente:', error);
+      setMensajeConfirmacion("Error eliminando cleinte");
       setModalConfirmacion(true);
     }
   };

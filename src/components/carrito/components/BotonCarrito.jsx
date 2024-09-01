@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import styles from '@/styles/Home.module.css';
 
-const CartButtons = ({ cart, onEmptyCart, onCheckout }) => {
+const BotonCarrito = ({ cart, onEmptyCart, onCheckout }) => {
   if (cart.length === 0) return null;
 
   return (
@@ -22,4 +22,4 @@ const CartButtons = ({ cart, onEmptyCart, onCheckout }) => {
   );
 };
 
-export default CartButtons;
+export default BotonCarrito;

@@ -89,7 +89,7 @@ const FormularioEditar = ({
         <button type="submit" className={styles.botonPrimarioPanel}>
           Guardar
         </button>
-        <button onClick={handleCloseModal} className={styles.botonSecundarioPanel}>
+        <button onClick={handleCloseModal} className={styles.botonSecundarioPanel} id={styles.botonCerrar}>
           Cancelar
         </button>
       </div>

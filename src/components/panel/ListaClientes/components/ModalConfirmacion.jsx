@@ -3,17 +3,17 @@ import Modal from "react-modal";
 import Image from "next/image";
 import styles from "@/styles/Home.module.css";
 
-const ModalConfirmacion = ({ isOpen, onClose, message }) => (
+const ModalConfirmacion = ({ isOpen, onRequestClose, mensaje }) => (
   <Modal
     isOpen={isOpen}
-    onRequestClose={onClose}
+    onRequestClose={onRequestClose}
     contentLabel="Confirmation"
     className={`${styles.Modal}`}
     closeTimeoutMS={500}
   >
-    <p>{message}</p>
+    <p>{mensaje}</p>
     <Image src="/tick.svg" alt="Success icon" width={40} height={40} className={styles.tickModal} />
-    <button onClick={onClose} className={styles.cerrarModalButton}>
+    <button onClick={onRequestClose} className={styles.cerrarModalButton}>
       ❌
     </button>
   </Modal>

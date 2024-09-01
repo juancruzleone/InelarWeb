@@ -10,17 +10,17 @@ const ModalEliminar = ({ isOpen, onRequestClose, onConfirm }) => (
     className={`${styles.ModalPanelEditar} ${styles.Modal}`}
     closeTimeoutMS={1000}
   >
-    <h2>Delete Client</h2>
-    <p>Are you sure you want to delete this client?</p>
+    <h2>Eliminar cliente</h2>
+    <p className={styles.textoEliminarCliente}>¿Estás seguro de eliminar este cliente?</p>
     <div className={styles.contenedorBotonesEditar}>
       <button
         onClick={onConfirm}
         className={styles.botonEliminarProducto}
       >
-        Delete
+        Eliminar
       </button>
       <button onClick={onRequestClose} className={styles.botonCancelarModal}>
-        Cancel
+        Cancelar
       </button>
     </div>
   </Modal>

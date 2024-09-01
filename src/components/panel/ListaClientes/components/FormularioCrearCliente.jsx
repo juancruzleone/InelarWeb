@@ -26,7 +26,7 @@ const FormularioCrearCliente = ({ onRequestClose, token, role, actualizarCliente
   return (
     <>
       <form onSubmit={handleSubmitCrear} className={styles.formularioPanel}>
-        <label htmlFor="name">Name</label>
+        <label htmlFor="name">Nombre</label>
         <input
           type="text"
           id="name"
@@ -36,7 +36,7 @@ const FormularioCrearCliente = ({ onRequestClose, token, role, actualizarCliente
         />
         {errores.name && <p className={styles.errorPanel}>{errores.name}</p>}
 
-        <label htmlFor="category" className={styles.categoria}>Category</label>
+        <label htmlFor="category" className={styles.categoria}>Categoria</label>
         <input
           type="text"
           id="category"
@@ -48,14 +48,14 @@ const FormularioCrearCliente = ({ onRequestClose, token, role, actualizarCliente
 
         <div className={styles.contenedorBotonesEditar}>
           <button type="submit" className={styles.botonGuardar}>
-            Save
+            Crear
           </button>
           <button
             type="button"
             onClick={onRequestClose}
             className={styles.botonCancelarModal}
           >
-            Cancel
+            Cancelar
           </button>
         </div>
       </form>

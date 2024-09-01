@@ -40,7 +40,7 @@ export default function ListaServicios() {
 
         <div className={styles.contenedorServicios}>
           {loading ? (
-            <p>Cargando clientes...</p>
+            <p>Cargando servicios...</p>
           ) : filteredServices.length > 0 ? (
             filteredServices.map((service, index) => (
               <ServicioItem key={index} service={service} />

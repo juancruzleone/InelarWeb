@@ -7,7 +7,7 @@ export default function MensajeItem({ message }) {
       <h3>{message.name}</h3>
       <div className={styles.contenidoTarjetaProductoPanelContacto}>
         <p><span>Email:</span> {message.email}</p>
-        <p><span>Message:</span> {message.message}</p>
+        <p><span>Mensaje:</span> {message.message}</p>
       </div>
     </div>
   );

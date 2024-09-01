@@ -1639,7 +1639,7 @@
 
 .Modal p{
   font-family: "montserrat", sans-serif;
-  font-weight: bold;
+  font-weight: 300;
 }
 
 .Modal a{
@@ -1887,6 +1887,11 @@
     padding: 8px;
     border-radius: 4px;
     width: 100px;
+    margin-right: 15px;
+  }
+
+  #botonCancelar{
+    background-color: #2b2b2b;
   }
 
   .ModalPanelCrear select{
@@ -1901,6 +1906,10 @@
 
   .ModalPanelCrear #description{
     margin-bottom: 0px;
+  }
+
+  .ModalPanelCrear .botonCerrar{
+    background-color: #2b2b2b;
   }
 
   .ModalPanelClientes{
@@ -2939,4 +2948,13 @@
 
 .formularioPanel .categoria{
   margin-top: 15px;
+}
+
+.textoEliminarCliente{
+  font-size: 18px;
+  font-weight: lighter;
+}
+
+.contenedorBotonesModal #botonCerrar{
+  background-color: #2b2b2b;
 }
