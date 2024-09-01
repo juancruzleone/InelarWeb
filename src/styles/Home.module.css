@@ -1957,6 +1957,28 @@
   .ModalPanelClientes .error{
     text-align: left;
   }
+
+  .ModalPanelClientes .errorPanel{
+    text-align: left;
+  }
+
+  .ModalPanelCrear .errorPanel{
+    text-align: left;
+  }
+
+  .ModalPanelCrear img{
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+
+  .ModalEliminarProducto{
+    height: 240px;
+    width: 600px;
+  }
+
+  .ModalEliminarProducto h2{
+    margin-top: 20px;
+  }
   
 
 .formularioPanel{
