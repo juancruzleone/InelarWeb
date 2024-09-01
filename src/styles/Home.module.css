@@ -1912,7 +1912,7 @@
     background-color: #2b2b2b;
   }
 
-  .ModalPanelClientes{
+  .ModalPanelClientes {
     display: flex;
     flex-direction: column;
     position: fixed;
@@ -1925,34 +1925,39 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     z-index: 9999;
     width: 400px;
-    height: 400px
+    min-height: 320px; /* Se cambió height por min-height */
+    overflow-y: auto; /* Permite scroll si el contenido es mayor que el alto */
   }
-
-  .ModalPanelClientes h2{
+  
+  .ModalPanelClientes h2 {
     margin-top: 20px;
   }
-
-  .ModalPanelClientes input{
+  
+  .ModalPanelClientes input {
     margin-top: 5px;
     padding: 8px;
     border-radius: 4px;
   }
-
-  .ModalPanelClientes button{
+  
+  .ModalPanelClientes button {
     background-color: #C75F00;
     border: 0px;
     padding: 8px;
     border-radius: 4px;
     width: 100px;
-
   }
-
-  .ModalPanelClientes select{
+  
+  .ModalPanelClientes select {
     padding: 10px;
     border-radius: 5px;
     margin-top: 5px;
     margin-bottom: 15px;
   }
+
+  .ModalPanelClientes .error{
+    text-align: left;
+  }
+  
 
 .formularioPanel{
   display: flex;

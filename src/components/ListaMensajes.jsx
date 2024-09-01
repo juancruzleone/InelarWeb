@@ -27,7 +27,7 @@ export default function ListaMensajes() {
                 <MensajeItem key={index} message={message} />
               ))
             ) : (
-              <p className={styles.textoBuscadorPanelMensajes}>No messages found matching your search.</p>
+              <p className={styles.textoBuscadorPanelMensajes}>No se encontraron mensajes</p>
             )}
           </div>
         </div>

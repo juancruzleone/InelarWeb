@@ -106,7 +106,7 @@ const ListaClientes = () => {
             ))
           ) : (
             <p className={styles.textoBuscadorPanelClientes}>
-              No clients found
+                No se encontraron clientes
             </p>
           )}
         </div>

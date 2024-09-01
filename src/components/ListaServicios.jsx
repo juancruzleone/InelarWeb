@@ -46,7 +46,7 @@ export default function ListaServicios() {
               <ServicioItem key={index} service={service} />
             ))
           ) : (
-            <p className={styles.textoBuscadorPanel}>No services found matching your search.</p>
+            <p className={styles.textoBuscadorPanel}>No se encontraron servicios</p>
           )}
         </div>
       </div>
