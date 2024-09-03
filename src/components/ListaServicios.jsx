@@ -4,7 +4,7 @@ import ServicioItem from "@/components/panel/ListaServicios/components/ServicioI
 import CategoriaItem from "@/components/panel/ListaServicios/components/CategoriaItem.jsx";
 import useServicios from "@/components/panel/ListaServicios/hooks/ListaServiciosEstado.jsx";
 
-export default function ListaServicios() {
+const ListaServicios = () => {
   const { 
     filteredServices, 
     categories, 
@@ -53,3 +53,5 @@ export default function ListaServicios() {
     </>
   );
 }
+
+export default ListaServicios

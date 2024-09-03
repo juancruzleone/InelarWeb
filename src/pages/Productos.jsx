@@ -2,7 +2,7 @@ import React from "react";
 import Head from "next/head";
 import Layout from "@/components/layout/index";
 import Footer from "@/components/Footer";
-import ProductosCategorias from "@/components/productos/components/Categorias";
+import Categorias from "@/components/productos/components/Categorias";
 import ListaProductos from "@/components/productos/components/ListaProductos";
 import useProductos from "@/components/productos/hooks/useProductos";
 import styles from "@/styles/Home.module.css";
@@ -25,7 +25,7 @@ const Productos = () => {
       <div className={styles.contenedorPagina}>
         <h1 className={styles.tituloPaginas}>Productos</h1>
         <div className={styles.posicionSeccionProductos}>
-          <ProductosCategorias 
+          <Categorias 
             changeCategory={changeCategory} 
             categoriaSeleccionada={categoriaSeleccionada} 
           />

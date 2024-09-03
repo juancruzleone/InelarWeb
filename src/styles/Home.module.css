@@ -2622,6 +2622,23 @@
   display: flex;
 }
 
+.contenedorBotonesModalVaciar button{
+  margin-right: 15px;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.contenedorBotonesModalVaciar .botonConfirmarModal{
+  background-color: red;
+  padding: 6px;
+  border-radius: 4px;
+  margin-right: 10px;
+  font-family: "montserrat", sans-serif;
+  border: 0px;
+  cursor: pointer;
+  color: white;
+}
+
 .contenedorBotonesModalVaciar .botonConfirmar{
   background-color: red;
   padding: 6px;
@@ -2631,6 +2648,10 @@
   border: 0px;
   cursor: pointer;
   color: white;
+}
+
+.Modal .tituloModalConfirm{
+  margin-top: 25px;
 }
 
 .contenedorBotonesModalVaciar .botonCancelar{

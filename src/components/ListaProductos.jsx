@@ -8,7 +8,7 @@ import EditarProductoModal from "@/components/panel/ListaProductos/components/Mo
 import EliminarProductoModal from "@/components/panel/ListaProductos/components/ModalEliminar.jsx";
 import ConfirmacionModal from "@/components/panel/ListaProductos/components/ModalConfirmacion.jsx";
 
-export default function ListaProductos() {
+const ListaProductos = () => {
   const {
     products,
     filteredProducts,
@@ -171,3 +171,5 @@ export default function ListaProductos() {
     </div>
   );
 }
+
+export default ListaProductos

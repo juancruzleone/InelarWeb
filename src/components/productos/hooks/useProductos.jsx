@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { fetchProductos } from "@/components/productos/services/FetchProductos";
 
-const useProductosState = () => {
+const useProductos = () => {
   const [productos, setProductos] = useState([]);
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -39,4 +39,4 @@ const useProductosState = () => {
   };
 };
 
-export default useProductosState;
+export default useProductos;

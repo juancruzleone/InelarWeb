@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { validateUsername, validatePassword } from "@/components/register/utils/ValidacionesRegistro";
 import { registerUser, loginUser } from "@/components/register/services/FetchRegistro";
 
-const useRegisterState = () => {
+const useRegister = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState({ username: "", password: "", general: "" });
@@ -95,4 +95,4 @@ const useRegisterState = () => {
   };
 };
 
-export default useRegisterState;
+export default useRegister;

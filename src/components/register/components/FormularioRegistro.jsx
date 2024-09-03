@@ -2,7 +2,7 @@ import React from "react";
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 import styles from "@/styles/Home.module.css";
 
-const RegisterForm = ({
+const FormularioRegistro = ({
   username,
   password,
   error,
@@ -58,4 +58,4 @@ const RegisterForm = ({
   );
 };
 
-export default RegisterForm;
+export default FormularioRegistro;

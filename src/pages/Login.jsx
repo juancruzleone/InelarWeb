@@ -2,8 +2,8 @@ import React from "react";
 import Head from "next/head";
 import Layout from "@/components/layout/index";
 import Footer from "@/components/Footer";
-import LoginModal from "@/components/login/components/LoginModal";
-import LoginForm from "@/components/login/components/LoginForm";
+import ModalLogin from "@/components/login/components/ModalLogin";
+import FormularioLogin from "@/components/login/components/FormularioLogin";
 import useLoginState from "@/components/login/hooks/useLogin";
 import styles from "@/styles/Home.module.css";
 
@@ -31,7 +31,7 @@ const Login = () => {
       <div className={styles.contenedorPrelogin}>
         <div className={styles.formularioPrelogin}>
           <h1 className={styles.tituloPrelogin}>Inicia sesión</h1>
-          <LoginForm
+          <FormularioLogin
             username={username}
             password={password}
             error={error}
@@ -45,7 +45,7 @@ const Login = () => {
       </div>
       <Footer />
 
-      <LoginModal isOpen={showModal} closeModal={closeModal} />
+      <ModalLogin isOpen={showModal} closeModal={closeModal} />
     </Layout>
   );
 };

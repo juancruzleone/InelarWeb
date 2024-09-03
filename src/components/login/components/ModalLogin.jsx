@@ -5,7 +5,7 @@ import styles from "@/styles/Home.module.css";
 
 Modal.setAppElement("#__next");
 
-const LoginModal = ({ isOpen, closeModal }) => {
+const ModalLogin = ({ isOpen, closeModal }) => {
   return (
     <Modal
       isOpen={isOpen}
@@ -20,4 +20,4 @@ const LoginModal = ({ isOpen, closeModal }) => {
   );
 };
 
-export default LoginModal;
+export default ModalLogin;

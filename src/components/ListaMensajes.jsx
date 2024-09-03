@@ -3,7 +3,7 @@ import styles from "@/styles/Home.module.css";
 import MensajeItem from "@/components/panel/ListaMensajes/components/MensajeItem.jsx";
 import useMensajes from "@/components/panel/ListaMensajes/hooks/ListaMensajesEstado.jsx";
 
-export default function ListaMensajes() {
+const ListaMensajes = () => {
   const { filteredMessages, loading, searchTerm, setSearchTerm } = useMensajes();
 
   return (
@@ -35,3 +35,5 @@ export default function ListaMensajes() {
     </div>
   );
 }
+
+export default ListaMensajes

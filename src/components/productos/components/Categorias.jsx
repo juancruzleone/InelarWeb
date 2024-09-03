@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "@/styles/Home.module.css";
 
-const ProductCategorys = ({ changeCategory, categoriaSeleccionada }) => {
+const Categorias = ({ changeCategory, categoriaSeleccionada }) => {
   return (
     <div className={styles.contenedorCategoriasProductos} id={styles.contenedorCategoriaProductos}>
       <div className={styles.contenedorCategorias}>
@@ -28,4 +28,4 @@ const ProductCategorys = ({ changeCategory, categoriaSeleccionada }) => {
   );
 };
 
-export default ProductCategorys;
+export default Categorias;

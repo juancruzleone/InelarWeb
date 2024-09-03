@@ -23,7 +23,7 @@ export const validateCart = (cart) => {
       }
     }
   
-    return null;  // No errors found
+    return null; 
   };
   
   export const validateUserData = (userData) => {
@@ -35,6 +35,6 @@ export const validateCart = (cart) => {
       return 'El usuario no tiene un ID válido.';
     }
   
-    return null;  // No errors found
+    return null; 
   };
   

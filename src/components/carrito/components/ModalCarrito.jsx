@@ -1,7 +1,7 @@
 import Modal from 'react-modal';
 import styles from '@/styles/Home.module.css';
 
-const CartModals = ({ modalState, setModalState, action, handleConfirmAction }) => {
+const CarritoModal = ({ modalState, setModalState, action, handleConfirmAction }) => {
   const closeModal = (modal) => {
     setModalState({ ...modalState, [modal]: false });
   };
@@ -54,4 +54,4 @@ const CartModals = ({ modalState, setModalState, action, handleConfirmAction }) 
   );
 };
 
-export default CartModals;
+export default CarritoModal;

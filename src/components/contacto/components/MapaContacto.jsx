@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "@/styles/Home.module.css";
 
-const ContactMap = () => {
+const MapaContacto = () => {
   return (
     <div className={styles.contenedorMapa}>
       <iframe
@@ -15,4 +15,4 @@ const ContactMap = () => {
   );
 };
 
-export default ContactMap;
+export default MapaContacto;

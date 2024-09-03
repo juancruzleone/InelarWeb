@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import Head from "next/head";
 import Layout from "@/components/layout/index";
 import Footer from "@/components/Footer";
-import ContactForm from "@/components/contacto/components/FormularioContacto";
-import ContactMap from "@/components/contacto/components/MapaContacto";
-import ContactModal from "@/components/contacto/components/ModalContacto";
+import FormularioContacto from "@/components/contacto/components/FormularioContacto";
+import Mapa from "@/components/contacto/components/MapaContacto";
+import ModalContacto from "@/components/contacto/components/ModalContacto";
 import styles from "@/styles/Home.module.css";
 
 const Contacto = () => {
@@ -27,13 +27,13 @@ const Contacto = () => {
       </Head>
       <h1 className={styles.tituloPaginas}>Contacto</h1>
       <div className={styles.posicionContacto}>
-        <ContactMap />
+        <Mapa />
         <div className={styles.contenedorFormulario}>
-          <ContactForm onSubmit={openModal} />
+          <FormularioContacto onSubmit={openModal} />
         </div>
       </div>
       <Footer />
-      <ContactModal isOpen={modalIsOpen} closeModal={closeModal} />
+      <ModalContacto isOpen={modalIsOpen} closeModal={closeModal} />
     </Layout>
   );
 };

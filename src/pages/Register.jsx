@@ -2,8 +2,8 @@ import React from "react";
 import Head from "next/head";
 import Layout from "@/components/layout/index";
 import Footer from "@/components/Footer";
-import RegisterForm from "@/components/register/components/FormularioRegistro";
-import RegisterModal from "@/components/register/components/ModalRegistro";
+import FormularioRegistro from "@/components/register/components/FormularioRegistro";
+import ModalRegistro from "@/components/register/components/ModalRegistro";
 import useRegister from "@/components/register/hooks/useRegister.jsx";
 import styles from "@/styles/Home.module.css";
 
@@ -31,7 +31,7 @@ const Register = () => {
       <div className={styles.contenedorPrelogin}>
         <div className={styles.formularioPrelogin}>
           <h1 className={styles.tituloPrelogin}>Regístrate</h1>
-          <RegisterForm
+          <FormularioRegistro
             username={username}
             password={password}
             error={error}
@@ -44,7 +44,7 @@ const Register = () => {
         </div>
       </div>
       <Footer />
-      <RegisterModal isOpen={showModal} closeModal={closeModal} />
+      <ModalRegistro isOpen={showModal} closeModal={closeModal} />
     </Layout>
   );
 };

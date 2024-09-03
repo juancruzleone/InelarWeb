@@ -3,7 +3,7 @@ import { sendContactForm } from "@/components/contacto/services/FetchContacto";
 import { validateName, validateEmail, validateMessage } from "@/components/contacto/utils/ValidacionesContacto";
 import styles from "@/styles/Home.module.css";
 
-const ContactForm = ({ onSubmit }) => {
+const FormularioContacto = ({ onSubmit }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -117,4 +117,4 @@ const ContactForm = ({ onSubmit }) => {
   );
 };
 
-export default ContactForm;
+export default FormularioContacto;

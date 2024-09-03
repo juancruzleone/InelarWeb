@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { getSavedCart, getUserData, clearCart } from '@/components/carrito/utils/CartUtils';
 
-const useCartState = () => {
+const useCarrito = () => {
   const router = useRouter();
   const [cart, setCart] = useState([]);
   const [userData, setUserData] = useState(null);
@@ -83,4 +83,4 @@ const useCartState = () => {
   };
 };
 
-export default useCartState;
+export default useCarrito;

@@ -3,7 +3,7 @@ import Image from "next/image";
 import Modal from "react-modal";
 import styles from "@/styles/Home.module.css";
 
-const ContactModal = ({ isOpen, closeModal }) => {
+const ModalContacto = ({ isOpen, closeModal }) => {
   return (
     <Modal
       isOpen={isOpen}
@@ -21,4 +21,4 @@ const ContactModal = ({ isOpen, closeModal }) => {
   );
 };
 
-export default ContactModal;
+export default ModalContacto;

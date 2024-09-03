@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import styles from '@/styles/Home.module.css';
 
-const CartItem = ({ producto, index, onIncrease, onRemove }) => {
+const ProductosCarrito = ({ producto, index, onIncrease, onRemove }) => {
   return (
     <div key={index} className={styles.tarjetaProductoCarrito}>
       <div className={styles.imagenProductoDetalleCarrito}>
@@ -38,4 +38,4 @@ const CartItem = ({ producto, index, onIncrease, onRemove }) => {
   );
 };
 
-export default CartItem;
+export default ProductosCarrito;
