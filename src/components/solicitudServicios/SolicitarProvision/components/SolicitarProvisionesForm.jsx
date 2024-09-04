@@ -57,11 +57,15 @@ const SolicitarProvisionesForm = ({ formData, formErrors, handleChange, handleSu
         className={formErrors.dispositivo ? styles.inputError : ""}
       >
         <option value="">Selecciona una opción</option>
-        {productList.map((product) => (
-          <option key={product.id} value={product.name}>
-            {product.name}
-          </option>
-        ))}
+        {productList.length > 0 ? (
+          productList.map((product) => (
+            <option key={product.id} value={product.name}>
+              {product.name}
+            </option>
+          ))
+        ) : (
+          <option disabled>Cargando productos...</option>
+        )}
       </select>
       {formErrors.dispositivo && <p className={styles.errorServicios}>{formErrors.dispositivo}</p>}
 

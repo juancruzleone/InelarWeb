@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '@/styles/Home.module.css';
 
-const SolicitarMantenimientoForm = ({ formData, formErrors, handleChange, handleSubmit, productos }) => {
+const SolicitarInstalacionesForm = ({ formData, formErrors, handleInputChange, handleSubmit, products }) => {
   return (
     <form onSubmit={handleSubmit} className={styles.formulario}>
       <label htmlFor="nombre">Nombre:</label>
@@ -10,7 +10,7 @@ const SolicitarMantenimientoForm = ({ formData, formErrors, handleChange, handle
         id="nombre"
         name="nombre"
         value={formData.nombre}
-        onChange={handleChange}
+        onChange={handleInputChange}
         className={formErrors.nombre ? styles.inputError : ""}
       />
       {formErrors.nombre && <p className={styles.errorServicios}>{formErrors.nombre}</p>}
@@ -21,7 +21,7 @@ const SolicitarMantenimientoForm = ({ formData, formErrors, handleChange, handle
         id="email"
         name="email"
         value={formData.email}
-        onChange={handleChange}
+        onChange={handleInputChange}
         className={formErrors.email ? styles.inputError : ""}
       />
       {formErrors.email && <p className={styles.errorServicios}>{formErrors.email}</p>}
@@ -32,7 +32,7 @@ const SolicitarMantenimientoForm = ({ formData, formErrors, handleChange, handle
         id="telefono"
         name="telefono"
         value={formData.telefono}
-        onChange={handleChange}
+        onChange={handleInputChange}
         className={formErrors.telefono ? styles.inputError : ""}
       />
       {formErrors.telefono && <p className={styles.errorServicios}>{formErrors.telefono}</p>}
@@ -43,7 +43,7 @@ const SolicitarMantenimientoForm = ({ formData, formErrors, handleChange, handle
         id="direccion"
         name="direccion"
         value={formData.direccion}
-        onChange={handleChange}
+        onChange={handleInputChange}
         className={formErrors.direccion ? styles.inputError : ""}
       />
       {formErrors.direccion && <p className={styles.errorServicios}>{formErrors.direccion}</p>}
@@ -53,11 +53,11 @@ const SolicitarMantenimientoForm = ({ formData, formErrors, handleChange, handle
         id="dispositivo"
         name="dispositivo"
         value={formData.dispositivo}
-        onChange={handleChange}
+        onChange={handleInputChange}
         className={formErrors.dispositivo ? styles.inputError : ""}
       >
         <option value="">Selecciona una opción</option>
-        {productos.map((producto) => (
+        {products.map((producto) => (
           <option key={producto.id} value={producto.name}>
             {producto.name}
           </option>
@@ -71,7 +71,7 @@ const SolicitarMantenimientoForm = ({ formData, formErrors, handleChange, handle
         id="cantidad"
         name="cantidad"
         value={formData.cantidad}
-        onChange={handleChange}
+        onChange={handleInputChange}
         min="1"
         className={formErrors.cantidad ? styles.inputError : ""}
       />
@@ -83,7 +83,7 @@ const SolicitarMantenimientoForm = ({ formData, formErrors, handleChange, handle
         id="fecha"
         name="fecha"
         value={formData.fecha}
-        onChange={handleChange}
+        onChange={handleInputChange}
         className={formErrors.fecha ? styles.inputError : ""}
       />
       {formErrors.fecha && <p className={styles.errorServicios}>{formErrors.fecha}</p>}
@@ -96,4 +96,4 @@ const SolicitarMantenimientoForm = ({ formData, formErrors, handleChange, handle
   );
 };
 
-export default SolicitarMantenimientoForm;
+export default SolicitarInstalacionesForm;

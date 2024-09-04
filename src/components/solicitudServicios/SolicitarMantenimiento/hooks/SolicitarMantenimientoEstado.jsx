@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { validateField } from '@/components/solicitudServicios/SolicitarMantenimiento/utils/SolicitarMantenimientoUtils.jsx';
-import { obtenerProductos, enviarSolicitud } from '@/components/solicitudServicios/SolicitarMantenimiento/services/SolicitarMantenimientoService.jsx';
+import { fetchProducts, submitRequest } from '@/components/solicitudServicios/SolicitarMantenimiento/services/SolicitarMantenimientoService.jsx';
 
-const useFormularioMantenimiento = () => {
+const useFormularioInstalaciones = () => {
   const [formData, setFormData] = useState({
     nombre: "",
     email: "",
@@ -11,7 +11,7 @@ const useFormularioMantenimiento = () => {
     dispositivo: "",
     fecha: "",
     cantidad: "",
-    category: "mantenimiento",
+    category: "instalacion",
   });
 
   const [formErrors, setFormErrors] = useState({
@@ -25,23 +25,23 @@ const useFormularioMantenimiento = () => {
     general: "",
   });
 
-  const [productos, setProductos] = useState([]);
+  const [products, setProducts] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   useEffect(() => {
-    const fetchProductos = async () => {
+    const fetchProductsData = async () => {
       try {
-        const data = await obtenerProductos();
-        setProductos(data);
+        const data = await fetchProducts();
+        setProducts(data);
       } catch (error) {
-        console.error("Error al obtener productos:", error);
+        console.error("Error fetching products:", error);
       }
     };
 
-    fetchProductos();
+    fetchProductsData();
   }, []);
 
-  const handleChange = (e) => {
+  const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
 
@@ -67,7 +67,7 @@ const useFormularioMantenimiento = () => {
     }
 
     try {
-      await enviarSolicitud(formData);
+      await submitRequest(formData);
       setModalIsOpen(true);
       setFormData({
         nombre: "",
@@ -77,7 +77,7 @@ const useFormularioMantenimiento = () => {
         dispositivo: "",
         fecha: "",
         cantidad: "",
-        category: "mantenimiento",
+        category: "instalacion",
       });
       setFormErrors({
         nombre: "",
@@ -101,15 +101,19 @@ const useFormularioMantenimiento = () => {
     }
   };
 
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
   return {
     formData,
     formErrors,
-    productos,
+    products,
     modalIsOpen,
-    setModalIsOpen,
-    handleChange,
+    closeModal,
+    handleInputChange,
     handleSubmit,
   };
 };
 
-export default useFormularioMantenimiento;
+export default useFormularioInstalaciones;

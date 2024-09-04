@@ -1,105 +1,51 @@
-import { useState, useEffect } from 'react';
-import { validateField } from '@/components/solicitudServicios/SolicitarProvision/utils/SolicitarProvisionesValidaciones.jsx';
-import { fetchProducts, submitRequest } from '@/components/solicitudServicios/SolicitarProvision/services/SolicitarProvisionesServices.jsx';
+import { useState, useCallback } from 'react';
+import { fetchProducts, submitRequest } from '@/components/solicitudServicios/SolicitarProvision/services/SolicitarProvisionesServices';
 
-const SolicitarProvisionesEstado = () => {
+const useFormularioProvisiones = () => {
   const [formData, setFormData] = useState({
-    nombre: "",
-    email: "",
-    telefono: "",
-    direccion: "",
-    dispositivo: "",
-    cantidad: "",
-    fecha: "",
-    category: "provisiones",
+    nombre: '',
+    email: '',
+    telefono: '',
+    direccion: '',
+    dispositivo: '',
+    cantidad: '',
+    fecha: '',
   });
-
-  const [formErrors, setFormErrors] = useState({
-    nombre: "",
-    email: "",
-    telefono: "",
-    direccion: "",
-    dispositivo: "",
-    cantidad: "",
-    fecha: "",
-    general: "",
-  });
-
+  const [formErrors, setFormErrors] = useState({});
   const [productList, setProductList] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const data = await fetchProducts();
-        setProductList(data);
-      } catch (error) {
-        console.error("Error al obtener productos:", error);
-      }
-    };
-
-    fetchProducts();
-  }, []);
-
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-
-    const error = validateField(name, value);
-    setFormErrors((prev) => ({
-      ...prev,
-      [name]: error,
-    }));
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const errors = {};
-    Object.keys(formData).forEach((field) => {
-      errors[field] = validateField(field, formData[field]);
-    });
-
-    setFormErrors(errors);
-
-    if (Object.values(errors).some((error) => error)) {
-      return;
-    }
-
     try {
       await submitRequest(formData);
       setModalIsOpen(true);
       setFormData({
-        nombre: "",
-        email: "",
-        telefono: "",
-        direccion: "",
-        dispositivo: "",
-        cantidad: "",
-        fecha: "",
-        category: "provisiones",
+        nombre: '',
+        email: '',
+        telefono: '',
+        direccion: '',
+        dispositivo: '',
+        cantidad: '',
+        fecha: '',
       });
-      setFormErrors({
-        nombre: "",
-        email: "",
-        telefono: "",
-        direccion: "",
-        dispositivo: "",
-        cantidad: "",
-        fecha: "",
-        general: "",
-      });
-      setTimeout(() => {
-        setModalIsOpen(false);
-      }, 3000);
-    } catch (err) {
-      console.error(err);
-      setFormErrors((prev) => ({
-        ...prev,
-        general: "Ocurrió un error al enviar la solicitud",
-      }));
+    } catch (error) {
+      setFormErrors({ general: error.message });
     }
   };
+
+  const loadProducts = useCallback(async () => {
+    try {
+      const products = await fetchProducts();
+      setProductList(products);
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    }
+  }, []);
 
   return {
     formData,
@@ -109,7 +55,8 @@ const SolicitarProvisionesEstado = () => {
     setModalIsOpen,
     handleChange,
     handleSubmit,
+    loadProducts,
   };
 };
 
-export default SolicitarProvisionesEstado;
+export default useFormularioProvisiones;

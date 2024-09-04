@@ -11,7 +11,7 @@ const SolicitarMantenimiento = () => {
   const {
     formData,
     formErrors,
-    productos,
+    products,
     modalIsOpen,
     setModalIsOpen,
     handleChange,
@@ -36,13 +36,14 @@ const SolicitarMantenimiento = () => {
           formErrors={formErrors}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
-          productos={productos}
+          products={products}
         />
       </div>
       <Footer />
       <SolicitarMantenimientoModal
         isOpen={modalIsOpen}
         onRequestClose={() => setModalIsOpen(false)}
+        mensaje="Solicitud enviada con éxito"
       />
     </Layout>
   );

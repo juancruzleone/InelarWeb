@@ -4,7 +4,7 @@ import Layout from "@/components/layout/index";
 import Footer from "@/components/Footer";
 import useFormData from "@/components/solicitudServicios/SolicitarInstalacion/hooks/SolicitarInstalacionesState";
 import SolicitarInstalacionesForm from "@/components/solicitudServicios/SolicitarInstalacion/components/SolicitarInstalacionesForm";
-import SolicitarInstalacionModal from "@/components/solicitudServicios/SolicitarInstalacion/components/SolicitarInstalacionModal";
+import ModalConfirmacion from "@/components/solicitudServicios/SolicitarInstalacion/components/ModalConfirmacion";
 import styles from "@/styles/Home.module.css";
 
 const SolicitarInstalaciones = () => {
@@ -43,7 +43,11 @@ const SolicitarInstalaciones = () => {
         />
       </div>
       <Footer />
-      <SolicitarInstalacionModal modalIsOpen={modalIsOpen} closeModal={closeModal} />
+      <ModalConfirmacion 
+        isOpen={modalIsOpen} 
+        onRequestClose={closeModal} 
+        mensaje="Solicitud enviada con éxito"
+      />
     </Layout>
   );
 };

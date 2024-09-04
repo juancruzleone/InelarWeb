@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
 import Layout from "@/components/layout/index";
 import Footer from "@/components/Footer";
@@ -16,7 +16,12 @@ const SolicitarProvisiones = () => {
     setModalIsOpen,
     handleChange,
     handleSubmit,
+    loadProducts,
   } = useFormularioProvisiones();
+
+  useEffect(() => {
+    loadProducts();
+  }, [loadProducts]);
 
   return (
     <Layout>

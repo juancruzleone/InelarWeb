@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { validateField } from '@/components/solicitudServicios/SolicitarServicioTecnico/utils/SolicitarServicioTecnicoValidaciones.jsx';
-import { obtenerProductos, enviarSolicitud } from '@/components/solicitudServicios/SolicitarServicioTecnico/services/SolicitarServicioTecnicoService.jsx';
+import { fetchProducts, submitRequest } from '@/components/solicitudServicios/SolicitarServicioTecnico/services/SolicitarServicioTecnicoService.jsx';
 
 const useFormularioServicioTecnico = () => {
   const [formData, setFormData] = useState({
@@ -12,7 +12,7 @@ const useFormularioServicioTecnico = () => {
     fecha: "",
     dispositivo: "",
     cantidad: 1,
-    category: "técnico",
+    category: "técnico", // Cambiar "técnico" a "tecnico"
   });
 
   const [formErrors, setFormErrors] = useState({
@@ -33,7 +33,7 @@ const useFormularioServicioTecnico = () => {
   useEffect(() => {
     const fetchProductos = async () => {
       try {
-        const data = await obtenerProductos();
+        const data = await fetchProducts();
         setProductos(data);
       } catch (error) {
         console.error("Error al obtener productos:", error);
@@ -57,6 +57,7 @@ const useFormularioServicioTecnico = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Validar todos los campos
     const errors = {};
     Object.keys(formData).forEach((field) => {
       errors[field] = validateField(field, formData[field]);
@@ -64,21 +65,27 @@ const useFormularioServicioTecnico = () => {
 
     setFormErrors(errors);
 
+    // Si hay errores, no enviar la solicitud
     if (Object.values(errors).some((error) => error)) {
       return;
     }
 
+    // Depuración: Mostrar los datos del formulario antes de enviarlos
+    console.log("Datos del formulario enviados:", formData);
+
     try {
-      await enviarSolicitud(formData);
-      setModalIsOpen(true);
-      setTimeout(() => {
-        setModalIsOpen(false);
-      }, 3000);
+      const response = await submitRequest(formData);
+      if (response) {
+        setModalIsOpen(true);
+        setTimeout(() => {
+          setModalIsOpen(false);
+        }, 3000);
+      }
     } catch (err) {
-      console.error(err);
+      console.error("Error al enviar la solicitud:", err);
       setFormErrors((prev) => ({
         ...prev,
-        general: "Ocurrió un error al enviar la solicitud",
+        general: err.message || "Ocurrió un error al enviar la solicitud",
       }));
     }
   };

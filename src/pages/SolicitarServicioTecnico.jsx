@@ -3,7 +3,7 @@ import Head from "next/head";
 import Layout from "@/components/layout/index";
 import Footer from "@/components/Footer";
 import FormularioServicioTecnico from "@/components/solicitudServicios/SolicitarServicioTecnico/components/SolicitarServicioTecnicoForm.jsx";
-import ModalExito from "@/components/solicitudServicios/SolicitarServicioTecnico/components/SolicitarServicioTecnicoModal.jsx";
+import ModalConfirmacion from "@/components/solicitudServicios/SolicitarServicioTecnico/components/ModalConfirmacion.jsx";
 import useFormularioServicioTecnico from "@/components/solicitudServicios/SolicitarServicioTecnico/hooks/SolicitarServicioTecnicoEstado.jsx";
 import styles from "@/styles/Home.module.css";
 
@@ -42,11 +42,10 @@ const SolicitarServicioTecnico = () => {
         />
       </div>
       <Footer />
-      <ModalExito
+      <ModalConfirmacion
         isOpen={modalIsOpen}
         onRequestClose={() => setModalIsOpen(false)}
         mensaje="¡Solicitud enviada con éxito!"
-        submensaje="Nos pondremos en contacto contigo pronto."
       />
     </Layout>
   );
