@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { fetchServicios } from "@/components/panel/ListaServicios/services/FetchListaServicios.jsx";
-import { filterServicios } from "@/components/panel/ListaServicios/utils/ListasServiciosUtils.jsx";
+import { fetchServices } from "@/components/panel/ListaServicios/services/FetchListaServicios.jsx";
+import { filterServices } from "@/components/panel/ListaServicios/utils/ListasServiciosUtils.jsx";
 
 export default function useServicios() {
   const [services, setServices] = useState([]);
@@ -11,10 +11,10 @@ export default function useServicios() {
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    const getServicios = async () => {
+    const getServices = async () => {
       setLoading(true);
       try {
-        const data = await fetchServicios();
+        const data = await fetchServices();
         setServices(data);
 
         const uniqueCategories = Array.from(
@@ -28,11 +28,11 @@ export default function useServicios() {
       }
     };
 
-    getServicios();
+    getServices();
   }, []);
 
   useEffect(() => {
-    setFilteredServices(filterServicios(services, selectedCategory, searchTerm));
+    setFilteredServices(filterServices(services, selectedCategory, searchTerm));
   }, [selectedCategory, services, searchTerm]);
 
   const handleCategoryClick = (category) => {

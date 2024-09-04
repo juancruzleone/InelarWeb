@@ -46,7 +46,7 @@ const ListaServicios = () => {
               <ServicioItem key={index} service={service} />
             ))
           ) : (
-            <p className={styles.textoBuscadorPanel}>No se encontraron servicios</p>
+            <p className={styles.textoBuscadorPanel}>No services found</p>
           )}
         </div>
       </div>
@@ -54,4 +54,4 @@ const ListaServicios = () => {
   );
 }
 
-export default ListaServicios
+export default ListaServicios;

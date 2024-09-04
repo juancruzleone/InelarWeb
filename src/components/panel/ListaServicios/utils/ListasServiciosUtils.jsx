@@ -1,4 +1,4 @@
-export function filterServicios(services, selectedCategory, searchTerm) {
+export function filterServices(services, selectedCategory, searchTerm) {
   return services.filter(service => {
     const matchesCategory = selectedCategory === null || service.category === selectedCategory;
     const matchesSearch = 

@@ -1,4 +1,4 @@
-export async function fetchServicios() {
+export async function fetchServices() {
   try {
     const response = await fetch("https://inelarweb-back.onrender.com/api/servicios");
     if (!response.ok) {
