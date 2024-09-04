@@ -3,7 +3,7 @@ import Head from "next/head";
 import Layout from "@/components/layout/index";
 import Footer from "@/components/Footer";
 import FormularioProvisiones from "@/components/solicitudServicios/SolicitarProvision/components/SolicitarProvisionesForm.jsx";
-import ModalExito from "@/components/solicitudServicios/SolicitarProvision/components/SolicitarProvisionesModal.jsx";
+import ModalConfirmacion from "@/components/solicitudServicios/SolicitarProvision/components/ModalConfirmacion.jsx";
 import useFormularioProvisiones from "@/components/solicitudServicios/SolicitarProvision/hooks/SolicitarProvisionesEstado.jsx";
 import styles from "@/styles/Home.module.css";
 
@@ -44,9 +44,10 @@ const SolicitarProvisiones = () => {
         />
       </div>
       <Footer />
-      <ModalExito
+      <ModalConfirmacion
         isOpen={modalIsOpen}
         onRequestClose={() => setModalIsOpen(false)}
+        mensaje="Solicitud enviada con éxito"
       />
     </Layout>
   );

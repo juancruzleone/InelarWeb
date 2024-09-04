@@ -4,7 +4,7 @@ import Layout from "@/components/layout/index";
 import Footer from "@/components/Footer";
 import ModalConfirmacion from "@/components/login/components/ModalConfirmacion"; 
 import FormularioLogin from "@/components/login/components/FormularioLogin";
-import useLoginState from "@/components/login/hooks/useLogin";
+import useLogin from "@/components/login/hooks/useLogin";
 import styles from "@/styles/Home.module.css";
 
 const Login = () => {
@@ -19,7 +19,7 @@ const Login = () => {
     handleSubmit,
     togglePasswordVisibility,
     closeModal,
-  } = useLoginState();
+  } = useLogin();
 
   return (
     <Layout className={styles.app}>

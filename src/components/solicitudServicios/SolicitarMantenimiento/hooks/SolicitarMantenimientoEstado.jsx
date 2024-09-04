@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { validateField } from '@/components/solicitudServicios/SolicitarMantenimiento/utils/SolicitarMantenimientoUtils.jsx';
 import { fetchProducts, submitRequest } from '@/components/solicitudServicios/SolicitarMantenimiento/services/SolicitarMantenimientoService.jsx';
 
-const useFormularioInstalaciones = () => {
+const useFormularioMantenimiento = () => {
   const [formData, setFormData] = useState({
     nombre: "",
     email: "",
@@ -10,8 +10,8 @@ const useFormularioInstalaciones = () => {
     direccion: "",
     dispositivo: "",
     fecha: "",
-    cantidad: "",
-    category: "instalacion",
+    cantidad: 1,
+    category: "instalaciones",
   });
 
   const [formErrors, setFormErrors] = useState({
@@ -41,7 +41,7 @@ const useFormularioInstalaciones = () => {
     fetchProductsData();
   }, []);
 
-  const handleInputChange = (e) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
 
@@ -66,43 +66,23 @@ const useFormularioInstalaciones = () => {
       return;
     }
 
+    console.log("Datos del formulario enviados:", formData);
+
     try {
-      await submitRequest(formData);
-      setModalIsOpen(true);
-      setFormData({
-        nombre: "",
-        email: "",
-        telefono: "",
-        direccion: "",
-        dispositivo: "",
-        fecha: "",
-        cantidad: "",
-        category: "instalacion",
-      });
-      setFormErrors({
-        nombre: "",
-        email: "",
-        telefono: "",
-        direccion: "",
-        dispositivo: "",
-        fecha: "",
-        cantidad: "",
-        general: "",
-      });
-      setTimeout(() => {
-        setModalIsOpen(false);
-      }, 3000);
+      const response = await submitRequest(formData);
+      if (response) {
+        setModalIsOpen(true);
+        setTimeout(() => {
+          setModalIsOpen(false);
+        }, 3000);
+      }
     } catch (err) {
-      console.error(err);
+      console.error("Error al enviar la solicitud:", err);
       setFormErrors((prev) => ({
         ...prev,
-        general: "Ocurrió un error al enviar la solicitud",
+        general: err.message || "Ocurrió un error al enviar la solicitud",
       }));
     }
-  };
-
-  const closeModal = () => {
-    setModalIsOpen(false);
   };
 
   return {
@@ -110,10 +90,10 @@ const useFormularioInstalaciones = () => {
     formErrors,
     products,
     modalIsOpen,
-    closeModal,
-    handleInputChange,
+    setModalIsOpen,
+    handleChange,
     handleSubmit,
   };
 };
 
-export default useFormularioInstalaciones;
+export default useFormularioMantenimiento;
