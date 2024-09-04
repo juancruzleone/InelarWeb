@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { validateField } from '@/components/solicitudServicios/SolicitarProvision/utils/SolicitarProvisionesValidaciones.jsx';
-import { obtenerProductos, enviarSolicitud } from '@/components/solicitudServicios/SolicitarProvision/services/SolicitarProvisionesServices.jsx';
+import { fetchProducts, submitRequest } from '@/components/solicitudServicios/SolicitarProvision/services/SolicitarProvisionesServices.jsx';
 
 const SolicitarProvisionesEstado = () => {
   const [formData, setFormData] = useState({
@@ -29,16 +29,16 @@ const SolicitarProvisionesEstado = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   useEffect(() => {
-    const fetchProductos = async () => {
+    const fetchProducts = async () => {
       try {
-        const data = await obtenerProductos();
+        const data = await fetchProducts();
         setProductList(data);
       } catch (error) {
         console.error("Error al obtener productos:", error);
       }
     };
 
-    fetchProductos();
+    fetchProducts();
   }, []);
 
   const handleChange = (e) => {
@@ -67,7 +67,7 @@ const SolicitarProvisionesEstado = () => {
     }
 
     try {
-      await enviarSolicitud(formData);
+      await submitRequest(formData);
       setModalIsOpen(true);
       setFormData({
         nombre: "",

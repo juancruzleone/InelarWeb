@@ -1,6 +1,6 @@
 const API_URL = 'https://inelarweb-back.onrender.com/api';
 
-export const obtenerProductos = async () => {
+export const fetchProducts = async () => {
   const response = await fetch(`${API_URL}/productos`);
   if (!response.ok) {
     throw new Error('Error al obtener productos');
@@ -8,7 +8,7 @@ export const obtenerProductos = async () => {
   return await response.json();
 };
 
-export const enviarSolicitud = async (formData) => {
+export const submitRequest = async (formData) => {
   const response = await fetch(`${API_URL}/servicios`, {
     method: 'POST',
     headers: {
