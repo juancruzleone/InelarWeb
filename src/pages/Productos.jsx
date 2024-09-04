@@ -9,9 +9,9 @@ import styles from "@/styles/Home.module.css";
 
 const Productos = () => {
   const {
-    productos,
+    products,
     loading,
-    categoriaSeleccionada,
+    selectedCategory,
     changeCategory,
   } = useProductos();
 
@@ -27,9 +27,9 @@ const Productos = () => {
         <div className={styles.posicionSeccionProductos}>
           <Categorias 
             changeCategory={changeCategory} 
-            categoriaSeleccionada={categoriaSeleccionada} 
+            categoriaSeleccionada={selectedCategory} 
           />
-          <ListaProductos productos={productos} loading={loading} />
+          <ListaProductos productos={products} loading={loading} />
         </div>
       </div>
       <Footer />

@@ -2,21 +2,21 @@ import { useState, useEffect } from "react";
 import { fetchProductos } from "@/components/productos/services/FetchProductos";
 
 const useProductos = () => {
-  const [productos, setProductos] = useState([]);
-  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(null);
+  const [products, setProducts] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const fetchProducts = async () => {
+    const fetchProductsData = async () => {
       setLoading(true);
       try {
         const data = await fetchProductos();
 
-        const filteredProducts = categoriaSeleccionada
-          ? data.filter((producto) => producto.categoria === categoriaSeleccionada)
+        const filteredProducts = selectedCategory
+          ? data.filter((product) => product.categoria === selectedCategory)
           : data;
 
-        setProductos(filteredProducts);
+        setProducts(filteredProducts);
       } catch (error) {
         console.error("Error al obtener productos:", error);
       } finally {
@@ -24,17 +24,17 @@ const useProductos = () => {
       }
     };
 
-    fetchProducts();
-  }, [categoriaSeleccionada]);
+    fetchProductsData();
+  }, [selectedCategory]);
 
   const changeCategory = (category) => {
-    setCategoriaSeleccionada(category);
+    setSelectedCategory(category);
   };
 
   return {
-    productos,
+    products,
     loading,
-    categoriaSeleccionada,
+    selectedCategory,
     changeCategory,
   };
 };
