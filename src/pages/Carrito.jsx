@@ -83,6 +83,7 @@ const Carrito = () => {
         setModalState={setModalState} 
         action={action} 
         handleConfirmAction={handleConfirmAction} 
+        confirmRemoveProduct={confirmRemoveProduct} // Pasar la función de confirmación
       />
     </Layout>
   );

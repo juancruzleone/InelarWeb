@@ -1,7 +1,8 @@
 import Modal from 'react-modal';
+import Image from "next/image";
 import styles from '@/styles/Home.module.css';
 
-const CarritoModal = ({ modalState, setModalState, action, handleConfirmAction }) => {
+const CarritoModal = ({ modalState, setModalState, action, handleConfirmAction, confirmRemoveProduct }) => {
   const closeModal = (modal) => {
     setModalState({ ...modalState, [modal]: false });
   };
@@ -36,7 +37,7 @@ const CarritoModal = ({ modalState, setModalState, action, handleConfirmAction }
       >
         <h2 className={styles.tituloModalConfirm}>¿Estás seguro de que quieres eliminar este producto del carrito?</h2>
         <div className={styles.contenedorBotonesModalVaciar}>
-          <button className={styles.botonConfirmarModal} onClick={handleConfirmAction}>Confirmar</button>
+          <button className={styles.botonConfirmarModal} onClick={confirmRemoveProduct}>Confirmar</button>
           <button className={styles.botonCancelarModal} onClick={() => closeModal('deleteOpen')}>Cancelar</button>
         </div>
       </Modal>
@@ -47,7 +48,7 @@ const CarritoModal = ({ modalState, setModalState, action, handleConfirmAction }
         contentLabel="Orden exitosa"
       >
         <h2 className={styles.tituloModalSuccess}>¡Tu orden ha sido exitosa!</h2>
-        <p className={styles.textoModalSuccess}>Gracias por tu compra. Hemos recibido tu pedido y está siendo procesado.</p>
+        <Image src="/tick.svg" alt="Success icon" width={40} height={40} className={styles.tickModal} />
         <button className={styles.botonCerrarModal} onClick={() => closeModal('successOpen')}>❌</button>
       </Modal>
     </>

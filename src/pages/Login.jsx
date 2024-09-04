@@ -2,7 +2,7 @@ import React from "react";
 import Head from "next/head";
 import Layout from "@/components/layout/index";
 import Footer from "@/components/Footer";
-import ModalLogin from "@/components/login/components/ModalLogin";
+import ModalConfirmacion from "@/components/login/components/ModalConfirmacion"; 
 import FormularioLogin from "@/components/login/components/FormularioLogin";
 import useLoginState from "@/components/login/hooks/useLogin";
 import styles from "@/styles/Home.module.css";
@@ -38,14 +38,18 @@ const Login = () => {
             showPassword={showPassword}
             setUsername={setUsername}
             setPassword={setPassword}
-            handleSubmit={handleSubmit}
+            handleSubmit={handleSubmit} // Asegúrate de que esto se pase correctamente
             togglePasswordVisibility={togglePasswordVisibility}
           />
         </div>
       </div>
       <Footer />
 
-      <ModalLogin isOpen={showModal} closeModal={closeModal} />
+      <ModalConfirmacion 
+        isOpen={showModal} 
+        onRequestClose={closeModal} 
+        mensaje="Inicio de sesión exitoso" 
+      />
     </Layout>
   );
 };

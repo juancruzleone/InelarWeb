@@ -12,7 +12,7 @@ const useLoginState = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Asegúrate de que el evento se pase correctamente
     setError("");
 
     const validationError = validateLoginFields(username, password);

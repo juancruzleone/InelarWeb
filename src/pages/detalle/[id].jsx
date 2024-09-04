@@ -3,10 +3,10 @@ import { useRouter } from 'next/router';
 import Layout from '@/components/layout';
 import Footer from '@/components/Footer';
 import ProductDetail from '@/components/detalleProducto/components/DetalleProducto.jsx';
-import RelatedProducts from '@/components/detalleProducto/components/ProductosRelacionados.jsx';
-import Loading from '@/components/detalleProducto/components/Cargando.jsx';
-import AddToCartModal from '@/components/detalleProducto/components/ModalAgregarAlCarrito.jsx';
-import useProductDetail from '@/components/detalleProducto/hooks/useProductoDetalle.jsx';
+import ProductosRelacionados from '@/components/detalleProducto/components/ProductosRelacionados.jsx';
+import Cargando from '@/components/detalleProducto/components/Cargando.jsx';
+import ModalConfirmacion from '@/components/detalleProducto/components/ModalConfirmacion.jsx'; 
+import useProductoDetalle from '@/components/detalleProducto/hooks/useProductoDetalle.jsx';
 import { addToCart } from '@/components/detalleProducto/utils/CarritoUtils.jsx';
 import { fetchProductoData } from '@/components/detalleProducto/utils/FetchProductoData.jsx'; 
 import styles from '@/styles/Home.module.css';
@@ -14,7 +14,7 @@ import styles from '@/styles/Home.module.css';
 const DetalleProducto = ({ initialProducto, initialProductosRelacionados }) => {
   const router = useRouter();
   const { id } = router.query;
-  const { producto, productosRelacionados, loading } = useProductDetail(id, initialProducto, initialProductosRelacionados);
+  const { producto, productosRelacionados, loading } = useProductoDetalle(id, initialProducto, initialProductosRelacionados);
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const handleAgregarAlCarrito = () => {
@@ -34,7 +34,7 @@ const DetalleProducto = ({ initialProducto, initialProductosRelacionados }) => {
   if (loading) {
     return (
       <Layout className={styles.app}>
-        <Loading />
+        <Cargando />
         <Footer />
       </Layout>
     );
@@ -47,9 +47,13 @@ const DetalleProducto = ({ initialProducto, initialProductosRelacionados }) => {
         <h2>Descripción</h2>
         <p>{producto.description}</p>
       </div>
-      <RelatedProducts productosRelacionados={productosRelacionados} handleVerMas={handleVerMas} />
+      <ProductosRelacionados productosRelacionados={productosRelacionados} handleVerMas={handleVerMas} />
       <Footer />
-      <AddToCartModal modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} />
+      <ModalConfirmacion 
+        isOpen={modalIsOpen} 
+        onRequestClose={() => setModalIsOpen(false)} 
+        mensaje="Producto agregado al carrito" 
+      />
     </Layout>
   );
 };

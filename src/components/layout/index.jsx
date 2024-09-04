@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Modal from 'react-modal';
+import ModalConfirmacion from "@/components/layout/components/ModalConfirmacion"; 
 import styles from "@/styles/Home.module.css";
 
 const Layout = ({ children }) => {
@@ -27,10 +27,11 @@ const Layout = ({ children }) => {
     setIsLoggedIn(false);
     setIsAdmin(false);
     setLogoutModalIsOpen(true);
-    
-    setTimeout(() => {
-      window.location.href = "/login";
-    }, 2000); 
+  };
+
+  const closeModal = () => {
+    setLogoutModalIsOpen(false);
+    window.location.href = "/login"; // Redirigir a la página de inicio de sesión
   };
 
   return (
@@ -116,18 +117,11 @@ const Layout = ({ children }) => {
           )}
         </nav>
         {children}
-        <Modal
-          isOpen={logoutModalIsOpen}
-          className={styles.Modal}
-          onRequestClose={() => setLogoutModalIsOpen(false)}
-          contentLabel="Sesión cerrada"
-        >
-          <h2 className={styles.tituloModal}>Sesión cerrada exitosamente</h2>
-          <Image src="/tick.svg" alt="Icono modal exitoso" width={40} height={40} className={styles.tickModal}/>
-          <button onClick={() => setLogoutModalIsOpen(false)} className={styles.cerrarModalButton}>
-            ❌
-          </button>
-        </Modal>
+        <ModalConfirmacion 
+          isOpen={logoutModalIsOpen} 
+          onRequestClose={closeModal} 
+          mensaje="Sesión cerrada éxitosamente" 
+        />
       </main>
     </>
   );

@@ -2555,7 +2555,7 @@
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   z-index: 9999;
-  height: 320px;
+  height: 270px;
   width: 420px;
 }
 
@@ -2581,8 +2581,8 @@
 
 .ModalEditarPerfil h2 {
   font-family: "montserrat", sans-serif;
-  margin-top: 10px;
-  margin-bottom: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2944,7 +2944,7 @@
 
 .ModalEditarPerfil .error {
   color: #d32f2f; 
-  padding-bottom: 40px;
+  padding-bottom: 20px;
   margin-top: 30px;
   border-radius: 4px; 
   margin-bottom: 15px; 
@@ -3014,3 +3014,68 @@
 .contenedorBotonesModal #botonCerrar{
   background-color: #2b2b2b;
 }
+
+
+.ModalEditarPerfil {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #121212;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  width: 420px;
+  max-height: 80vh; 
+  overflow-y: auto; 
+}
+
+.ModalEditarPerfil .error {
+  color: #d32f2f; 
+  padding-bottom: 20px;
+  margin-top: 10px;
+  border-radius: 4px; 
+  margin-bottom: 15px; 
+  font-size: 14px; 
+  text-align: left; 
+}
+
+
+.ModalEditarPerfil .botonGuardarCambiosPerfil {
+  background-color: #C75F00;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: 400;
+  color: black;
+  margin-right: 12px;
+}
+
+.ModalEditarPerfil .botonCancelarCambiosPerfil {
+  background-color: #2b2b2b;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.ModalEditarPerfil label {
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.ModalEditarPerfil input {
+  color: white;
+  border-radius: 4px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.ModalEditarPerfil h2 {
+  font-family: "montserrat", sans-serif;
+  margin-bottom: 20px;
+  text-align: center;
+}
+

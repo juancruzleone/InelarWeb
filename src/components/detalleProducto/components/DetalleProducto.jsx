@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import styles from '@/styles/Home.module.css';
-import AddToCartModal from '@/components/detalleProducto/components/ModalAgregarAlCarrito.jsx';
 
 const DetalleProducto = ({ producto, handleAgregarAlCarrito }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -33,7 +32,6 @@ const DetalleProducto = ({ producto, handleAgregarAlCarrito }) => {
           <a href="#" onClick={handleAgregarProducto}>Agregar al carrito</a>
         </div>
       </div>
-      <AddToCartModal modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} />
     </div>
   );
 };

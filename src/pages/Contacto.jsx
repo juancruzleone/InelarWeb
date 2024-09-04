@@ -3,8 +3,8 @@ import Head from "next/head";
 import Layout from "@/components/layout/index";
 import Footer from "@/components/Footer";
 import FormularioContacto from "@/components/contacto/components/FormularioContacto";
-import Mapa from "@/components/contacto/components/MapaContacto";
-import ModalContacto from "@/components/contacto/components/ModalContacto";
+import Mapa from "@/components/contacto/components/Mapa";
+import ModalConfirmacion from "@/components/contacto/components/ModalConfirmacion";
 import styles from "@/styles/Home.module.css";
 
 const Contacto = () => {
@@ -33,7 +33,11 @@ const Contacto = () => {
         </div>
       </div>
       <Footer />
-      <ModalContacto isOpen={modalIsOpen} closeModal={closeModal} />
+      <ModalConfirmacion
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        mensaje="Mensaje enviado correctamente"
+      />
     </Layout>
   );
 };
