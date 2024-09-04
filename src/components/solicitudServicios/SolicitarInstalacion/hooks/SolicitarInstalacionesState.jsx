@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fetchProductos, submitSolicitud } from "@/components/solicitudServicios/SolicitarInstalacion/services/SolicitarInstalacionService";
+import { fetchProducts, submitRequest } from "@/components/solicitudServicios/SolicitarInstalacion/services/SolicitarInstalacionService.jsx";
 import { validateField } from "@/components/solicitudServicios/SolicitarInstalacion/utils/SolicitarInstalacionUtils";
 
 const useFormDataState = () => {
@@ -9,8 +9,8 @@ const useFormDataState = () => {
     telefono: "",
     direccion: "",
     dispositivo: "",
-    fecha: "",
     cantidad: "",
+    fecha: "",
     category: "instalaciones",
   });
 
@@ -20,43 +20,36 @@ const useFormDataState = () => {
     telefono: "",
     direccion: "",
     dispositivo: "",
-    fecha: "",
     cantidad: "",
+    fecha: "",
     general: "",
   });
 
-  const [productos, setProductos] = useState([]);
+  const [products, setProducts] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   useEffect(() => {
-    const obtenerProductos = async () => {
+    const loadProducts = async () => {
       try {
-        const data = await fetchProductos();
-        setProductos(data);
+        const products = await fetchProducts();
+        setProducts(products);
       } catch (error) {
-        console.error("Error al obtener productos:", error);
+        console.error("Error al cargar productos", error);
       }
     };
-
-    obtenerProductos();
+    loadProducts();
   }, []);
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
 
     const error = validateField(name, value);
-    setFormErrors({
-      ...formErrors,
-      [name]: error,
-    });
+    setFormErrors({ ...formErrors, [name]: error });
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
     const errors = {};
     Object.keys(formData).forEach((field) => {
@@ -70,7 +63,7 @@ const useFormDataState = () => {
     }
 
     try {
-      await submitSolicitud(formData);
+      await submitRequest(formData);
       setModalIsOpen(true);
       resetForm();
     } catch (error) {
@@ -89,9 +82,9 @@ const useFormDataState = () => {
       telefono: "",
       direccion: "",
       dispositivo: "",
-      fecha: "",
       cantidad: "",
-      category: "instalaciones",
+      fecha: "",
+      category: "instalaciones", 
     });
     setFormErrors({
       nombre: "",
@@ -99,8 +92,8 @@ const useFormDataState = () => {
       telefono: "",
       direccion: "",
       dispositivo: "",
-      fecha: "",
       cantidad: "",
+      fecha: "",
       general: "",
     });
   };
@@ -110,7 +103,7 @@ const useFormDataState = () => {
   return {
     formData,
     formErrors,
-    productos,
+    products,
     modalIsOpen,
     handleInputChange,
     handleSubmit,

@@ -11,7 +11,7 @@ const SolicitarInstalaciones = () => {
   const {
     formData,
     formErrors,
-    productos,
+    products,
     modalIsOpen,
     handleInputChange,
     handleSubmit,
@@ -36,7 +36,7 @@ const SolicitarInstalaciones = () => {
         <SolicitarInstalacionesForm
           formData={formData}
           formErrors={formErrors}
-          productos={productos}
+          products={products}
           handleInputChange={handleInputChange}
           handleSubmit={handleSubmit}
           handleKeyDown={handleKeyDown}

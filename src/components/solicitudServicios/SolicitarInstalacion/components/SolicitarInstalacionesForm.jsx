@@ -4,7 +4,7 @@ import styles from "@/styles/Home.module.css";
 const SolicitarInstalacionesForm = ({
   formData,
   formErrors,
-  productos,
+  products,
   handleInputChange,
   handleSubmit,
   handleKeyDown,
@@ -65,7 +65,7 @@ const SolicitarInstalacionesForm = ({
         className={formErrors.dispositivo ? styles.inputError : ""}
       >
         <option value="">Selecciona una opción</option>
-        {productos.map((producto) => (
+        {products.map((producto) => (
           <option key={producto.id} value={producto.name}>
             {producto.name}
           </option>
