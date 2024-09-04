@@ -12,11 +12,11 @@ const ListaMensajes = () => {
         <h2 className={styles.tituloPaginasPanel}>Mensajes de contacto</h2>
         <input
           type="text"
-          placeholder="Search message by name or email..."
+          placeholder="Buca por nombre o email..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className={styles.buscadorPanel} 
-          aria-label="Search contact messages"
+          className={styles.buscadorPanel}
+          aria-label="Buscador mensajes de contacto"
         />
         <div className={styles.posicionSeccionProductos}>
           <div className={styles.contenedorProductosPanel}>
@@ -27,13 +27,13 @@ const ListaMensajes = () => {
                 <MensajeItem key={index} message={message} />
               ))
             ) : (
-              <p className={styles.textoBuscadorPanelMensajes}>No se encontraron mensajes</p>
+              <p className={styles.textoBuscadorPanelMensajes}>Ningun mensaje encontrado</p>
             )}
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
 
-export default ListaMensajes
+export default ListaMensajes;

@@ -1,4 +1,4 @@
-export async function fetchMensajes() {
+export async function fetchMessages() {
   try {
     const response = await fetch("https://inelarweb-back.onrender.com/api/contactos");
     if (!response.ok) {

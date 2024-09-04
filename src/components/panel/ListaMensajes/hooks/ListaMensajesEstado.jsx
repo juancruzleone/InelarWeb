@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { fetchMensajes } from "@/components/panel/ListaMensajes/services/FetchListaMensajes.jsx";
-import { filterMensajes } from "@/components/panel/ListaMensajes/utils/ListasMensajesUtils.jsx";
+import { fetchMessages } from "@/components/panel/ListaMensajes/services/FetchListaMensajes.jsx";
+import { filterMessages } from "@/components/panel/ListaMensajes/utils/ListasMensajesUtils.jsx";
 
 export default function useMensajes() {
   const [messages, setMessages] = useState([]);
@@ -9,10 +9,10 @@ export default function useMensajes() {
   const [filteredMessages, setFilteredMessages] = useState([]);
 
   useEffect(() => {
-    const getMensajes = async () => {
+    const getMessages = async () => {
       setLoading(true);
       try {
-        const data = await fetchMensajes();
+        const data = await fetchMessages();
         setMessages(data);
         setFilteredMessages(data);
       } catch (error) {
@@ -22,11 +22,11 @@ export default function useMensajes() {
       }
     };
 
-    getMensajes();
+    getMessages();
   }, []);
 
   useEffect(() => {
-    setFilteredMessages(filterMensajes(messages, searchTerm));
+    setFilteredMessages(filterMessages(messages, searchTerm));
   }, [searchTerm, messages]);
 
   return { filteredMessages, loading, searchTerm, setSearchTerm };
