@@ -48,7 +48,7 @@ const CarritoModal = ({ modalState, setModalState, action, handleConfirmAction, 
         contentLabel="Orden exitosa"
       >
         <h2 className={styles.tituloModalSuccess}>¡Tu orden ha sido exitosa!</h2>
-        <Image src="/tick.svg" alt="Success icon" width={40} height={40} className={styles.tickModal} />
+        <Image src="/tick.svg" alt="Operación realizada correctamente" width={40} height={40} className={styles.tickModal} />
         <button className={styles.botonCerrarModal} onClick={() => closeModal('successOpen')}>❌</button>
       </Modal>
     </>

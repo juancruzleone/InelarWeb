@@ -14,7 +14,7 @@ const ModalConfirmacion = ({ isOpen, onClose, message }) => {
     >
       <div className={styles.modalContent}>
         <p className={styles.confirmationMessage}>{message}</p>
-        <Image src="/tick.svg" alt="Icono modal exitoso" width={40} height={40} className={styles.tickModal} />
+        <Image src="/tick.svg" alt="Operación realizada correctamente" width={40} height={40} className={styles.tickModal} />
         <button onClick={onClose} className={styles.cerrarModalButton}>
           ❌
         </button>
