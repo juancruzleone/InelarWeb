@@ -1,15 +1,18 @@
+import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Layout from '@/components/layout/index';
 import Footer from '@/components/Footer';
-import CartItem from '@/components/carrito/components/ProductosCarrito'; 
-import BotonCarrito from '@/components/carrito/components/BotonCarrito'; 
-import ModalCarrito from '@/components/carrito/components/ModalCarrito'; 
-import { validateCart, validateUserData } from '@/components/carrito/utils/ValidacionesCarrito.jsx'; 
+import CartItem from '@/components/carrito/components/ProductosCarrito';
+import BotonCarrito from '@/components/carrito/components/BotonCarrito';
+import ModalCarrito from '@/components/carrito/components/ModalCarrito';
+import { validateCart, validateUserData } from '@/components/carrito/utils/ValidacionesCarrito.jsx';
 import styles from '@/styles/Home.module.css';
 import { fetchCheckout } from '@/components/carrito/services/FetchCarrito';
 import useCarrito from '@/components/carrito/hooks/useCarrito';
 
 const Carrito = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
   const {
     cart,
     userData,
@@ -23,6 +26,16 @@ const Carrito = () => {
     confirmEmptyCart,
     setAction,
   } = useCarrito();
+
+  useEffect(() => {
+    // Simulamos un tiempo de carga para asegurar que las imágenes de los productos y botones están cargadas.
+    const loadCartContent = async () => {
+      await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulación de carga
+      setIsLoading(false); // Cambiamos el estado de carga a falso después del tiempo de simulación
+    };
+
+    loadCartContent();
+  }, []);
 
   const handleCheckout = async () => {
     const userValidationError = validateUserData(userData);
@@ -57,7 +70,9 @@ const Carrito = () => {
       <div className={`${styles.contenedorSeccionCarrito} ${cart.length === 0 ? styles.contenedorSeccionCarritoVacio : ''}`}>
         <div className={`${styles.contenedorCarrito} ${cart.length === 0 ? styles.contenedorCarritoVacio : ''}`}>
           <h3>Productos en el carrito</h3>
-          {cart.length === 0 ? (
+          {isLoading ? (
+            <p className={styles.cargandoCarrito}>Cargando carrito...</p>
+          ) : cart.length === 0 ? (
             <p className={styles.mensajeCarritoVacio}>No hay productos en el carrito.</p>
           ) : (
             cart.map((producto, index) => (
@@ -71,11 +86,13 @@ const Carrito = () => {
             ))
           )}
         </div>
-        <BotonCarrito 
-          cart={cart} 
-          onEmptyCart={handleEmptyCart} 
-          onCheckout={handleCheckout} 
-        />
+        {!isLoading && (
+          <BotonCarrito 
+            cart={cart} 
+            onEmptyCart={handleEmptyCart} 
+            onCheckout={handleCheckout} 
+          />
+        )}
       </div>
       <Footer />
       <ModalCarrito 
@@ -83,7 +100,7 @@ const Carrito = () => {
         setModalState={setModalState} 
         action={action} 
         handleConfirmAction={handleConfirmAction} 
-        confirmRemoveProduct={confirmRemoveProduct} // Pasar la función de confirmación
+        confirmRemoveProduct={confirmRemoveProduct}
       />
     </Layout>
   );
