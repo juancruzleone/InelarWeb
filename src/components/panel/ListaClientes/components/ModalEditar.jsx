@@ -5,22 +5,22 @@ import styles from "@/styles/Home.module.css";
 
 Modal.setAppElement('#__next');
 
-const ModalEditar = ({ modalEditar, handleCerrarModal, clienteSeleccionado, setClienteSeleccionado, token, role, actualizarClientes }) => (
+const ModalEditar = ({ editModal, handleCloseModal, selectedClient, setSelectedClient, token, role, refreshClients }) => (
   <Modal
-    isOpen={modalEditar}
-    onRequestClose={handleCerrarModal}
-    contentLabel="Edit Client"
+    isOpen={editModal}
+    onRequestClose={handleCloseModal}
+    contentLabel="Editar Cliente"
     className={`${styles.ModalPanelClientes} ${styles.Modal}`}
     closeTimeoutMS={1000}
   >
-    <h2>Editar cliente</h2>
+    <h2>Editar Cliente</h2>
     <FormularioEditarCliente 
-      clienteSeleccionado={clienteSeleccionado}
-      setClienteSeleccionado={setClienteSeleccionado}
-      handleCerrarModal={handleCerrarModal}
+      selectedClient={selectedClient}
+      setSelectedClient={setSelectedClient}
+      handleCloseModal={handleCloseModal}
       token={token}
       role={role}
-      actualizarClientes={actualizarClientes}
+      refreshClients={refreshClients}
     />
   </Modal>
 );

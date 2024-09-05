@@ -1,15 +1,15 @@
-const validarFormulario = (cliente) => {
-  let errores = {};
+const validateForm = (client) => {
+  let errors = {};
 
-  if (!cliente.name.trim()) {
-    errores.name = "El nombre es obligatorio";
+  if (!client.name.trim()) {
+    errors.name = "El nombre es obligatorio";
   }
 
-  if (!cliente.category.trim()) {
-    errores.category = "La categoría es obligatoria";
+  if (!client.category.trim()) {
+    errors.category = "La categoría es obligatoria";
   }
 
-  return errores;
+  return errors;
 };
 
-export default validarFormulario;
+export default validateForm;

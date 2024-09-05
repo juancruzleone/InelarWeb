@@ -6,9 +6,9 @@ import ModalConfirmacion from '@/components/panel/ListaClientes/components/Modal
 
 const FormularioCrearCliente = ({ onRequestClose, token, role, actualizarClientes }) => {
   const {
-    nuevoCliente,
+    newClient,
     handleChange,
-    handleSubmitCrear,
+    handleCreateSubmit,
     errores,
     setErrores,
     modalConfirmacion,
@@ -19,29 +19,29 @@ const FormularioCrearCliente = ({ onRequestClose, token, role, actualizarCliente
   const handleInputChange = (e) => {
     handleChange(e);
     const { name, value } = e.target;
-    const newErrors = validarFormulario({ ...nuevoCliente, [name]: value });
+    const newErrors = validarFormulario({ ...newClient, [name]: value });
     setErrores(newErrors);
   };
 
   return (
     <>
-      <form onSubmit={handleSubmitCrear} className={styles.formularioPanel}>
+      <form onSubmit={handleCreateSubmit} className={styles.formularioPanel}>
         <label htmlFor="name">Nombre</label>
         <input
           type="text"
           id="name"
           name="name"
-          value={nuevoCliente.name}
+          value={newClient.name}
           onChange={handleInputChange}
         />
         {errores.name && <p className={styles.errorPanel}>{errores.name}</p>}
 
-        <label htmlFor="category" className={styles.categoria}>Categoria</label>
+        <label htmlFor="category" className={styles.categoria}>Categoría</label>
         <input
           type="text"
           id="category"
           name="category"
-          value={nuevoCliente.category}
+          value={newClient.category}
           onChange={handleInputChange}
         />
         {errores.category && <p className={styles.errorPanel}>{errores.category}</p>}

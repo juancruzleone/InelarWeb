@@ -13,60 +13,60 @@ const ListaClientes = () => {
   const role = userData.cuenta.role;
 
   const {
-    clientesFiltrados,
-    categorias,
-    buscar,
-    setBuscar,
-    categoriaSeleccionada,
-    setCategoriaSeleccionada,
+    filteredClients,
+    categories,
+    search,
+    setSearch,
+    selectedCategory,
+    setSelectedCategory,
     loading,
-    handleCrearCliente,
-    handleEliminarCliente,
-    modalCrear,
-    modalEditar,
-    modalEliminar,
-    modalConfirmacion,
-    handleCerrarModal,
-    mensajeConfirmacion,
-    setModalEditar,
-    clienteSeleccionado,
-    setClienteSeleccionado,
-    actualizarClientes,
-    eliminarClienteSeleccionado,
+    handleCreateClient,
+    handleDeleteClient,
+    createModal,
+    editModal,
+    deleteModal,
+    confirmationModal,
+    handleCloseModal,
+    confirmationMessage,
+    setEditModal,
+    selectedClient,
+    setSelectedClient,
+    refreshClients,
+    deleteSelectedClient,
   } = useClientes(token, role);
 
-  const handleOpenEditModal = (cliente) => {
-    setClienteSeleccionado(cliente);
-    setModalEditar(true);
+  const handleOpenEditModal = (client) => {
+    setSelectedClient(client);
+    setEditModal(true);
   };
 
   return (
     <div className={styles.contenedorPagina}>
       <h2 className={styles.tituloPaginasPanel}>Clientes</h2>
-      <button onClick={handleCrearCliente} className={styles.botonCrearModal}>
+      <button onClick={handleCreateClient} className={styles.botonCrearModal}>
         Crear cliente
       </button>
       <input
         type="text"
-        value={buscar}
-        onChange={(e) => setBuscar(e.target.value)}
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
         className={styles.buscadorPanel}
         placeholder="Busca el nombre del cliente"
         aria-label="Buscar clientes"
       />
       <div className={styles.posicionSeccionProductos}>
         <div className={styles.contenedorCategorias}>
-          {['Todos', ...categorias].map((categoria, index) => (
+          {['Todos', ...categories].map((category, index) => (
             <div
               key={index}
               className={`${styles.contenedorCategoria} ${
-                categoria === categoriaSeleccionada
+                category === selectedCategory
                   ? styles.categoriaSeleccionada
                   : ""
               }`}
-              onClick={() => setCategoriaSeleccionada(categoria)}
+              onClick={() => setSelectedCategory(category)}
             >
-              <p>{categoria ? categoria.charAt(0).toUpperCase() + categoria.slice(1) : ''}</p>
+              <p>{category ? category.charAt(0).toUpperCase() + category.slice(1) : ''}</p>
             </div>
           ))}
         </div>
@@ -74,29 +74,29 @@ const ListaClientes = () => {
         <div className={styles.contenedorClientes}>
           {loading ? (
             <p>Cargando clientes...</p>
-          ) : clientesFiltrados.length > 0 ? (
-            clientesFiltrados.map((cliente, index) => (
+          ) : filteredClients.length > 0 ? (
+            filteredClients.map((client, index) => (
               <div key={index} className={styles.tarjetaProductoPanelClientes}>
-                <h3>{cliente.name}</h3>
+                <h3>{client.name}</h3>
                 <div className={styles.contenedorBotonesClientes}>
                   <button
-                    onClick={() => handleOpenEditModal(cliente)}
+                    onClick={() => handleOpenEditModal(client)}
                     className={styles.botonEditar}
                   >
                     <Image
                       src="/editar.svg"
-                      alt="Edit"
+                      alt="Editar"
                       width={10}
                       height={10}
                     />
                   </button>
                   <button
-                    onClick={() => handleEliminarCliente(cliente)}
+                    onClick={() => handleDeleteClient(client)}
                     className={styles.botonEliminar}
                   >
                     <Image
                       src="/eliminar.svg"
-                      alt="Delete"
+                      alt="Eliminar"
                       width={10}
                       height={10}
                     />
@@ -106,40 +106,40 @@ const ListaClientes = () => {
             ))
           ) : (
             <p className={styles.textoBuscadorPanelClientes}>
-                No se encontraron clientes
+              No se encontraron clientes
             </p>
           )}
         </div>
       </div>
 
       <ModalCrear 
-        isOpen={modalCrear} 
-        onRequestClose={handleCerrarModal} 
+        isOpen={createModal} 
+        onRequestClose={handleCloseModal} 
         token={token}
         role={role}
-        actualizarClientes={actualizarClientes} 
+        refreshClients={refreshClients} 
       />
       <ModalEditar
-        modalEditar={modalEditar}
-        handleCerrarModal={handleCerrarModal}
-        clienteSeleccionado={clienteSeleccionado}
-        setClienteSeleccionado={setClienteSeleccionado}
+        editModal={editModal}
+        handleCloseModal={handleCloseModal}
+        selectedClient={selectedClient}
+        setSelectedClient={setSelectedClient}
         token={token}
         role={role}
-        actualizarClientes={actualizarClientes}  
+        refreshClients={refreshClients}  
       />
       <ModalEliminar
-        isOpen={modalEliminar}
-        onRequestClose={handleCerrarModal}
+        isOpen={deleteModal}
+        onRequestClose={handleCloseModal}
         onConfirm={() => {
-          eliminarClienteSeleccionado(clienteSeleccionado._id); 
-          handleCerrarModal();
+          deleteSelectedClient(selectedClient._id); 
+          handleCloseModal();
         }}
       />
       <ModalConfirmacion
-        isOpen={modalConfirmacion}
-        onRequestClose={handleCerrarModal}
-        mensaje={mensajeConfirmacion}
+        isOpen={confirmationModal}
+        onRequestClose={handleCloseModal}
+        mensaje={confirmationMessage}
       />
     </div>
   );

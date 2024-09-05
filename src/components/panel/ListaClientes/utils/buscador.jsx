@@ -1,14 +1,13 @@
-const filtrarClientes = (clientes, buscar, categoriaSeleccionada) => {
-  return clientes.filter((cliente) => {
-    const coincideNombre = cliente.name
+const filterClients = (clients, search, selectedCategory) => {
+  return clients.filter((client) => {
+    const matchesName = client.name
       .toLowerCase()
-      .includes(buscar.toLowerCase());
-    const coincideCategoria =
-      categoriaSeleccionada === "Todos" ||
-      cliente.category === categoriaSeleccionada;
+      .includes(search.toLowerCase());
+    const matchesCategory =
+      selectedCategory === "Todos" || client.category === selectedCategory;
 
-    return coincideNombre && coincideCategoria;
+    return matchesName && matchesCategory;
   });
 };
 
-export default filtrarClientes;
+export default filterClients;

@@ -4,42 +4,42 @@ import useClienteSeleccionado from "@/components/panel/ListaClientes/hooks/useCl
 import ModalConfirmacion from '@/components/panel/ListaClientes/components/ModalConfirmacion.jsx';
 
 const FormularioEditarCliente = ({
-  clienteSeleccionado,
-  setClienteSeleccionado,
-  handleCerrarModal,
+  selectedClient,
+  setSelectedClient,
+  handleCloseModal,
   token,
   role,
-  actualizarClientes,
+  refreshClients,
 }) => {
   const {
     handleChange,
-    handleSubmitEditar,
-    errores,
-    modalConfirmacion,
-    setModalConfirmacion,
-    mensajeConfirmacion,
+    handleEditSubmit,
+    errors,
+    confirmationModal,
+    setConfirmationModal,
+    confirmationMessage,
   } = useClienteSeleccionado(
-    clienteSeleccionado,
-    setClienteSeleccionado,
-    handleCerrarModal,
+    selectedClient,
+    setSelectedClient,
+    handleCloseModal,
     token,
     role,
-    actualizarClientes
+    refreshClients
   );
 
   return (
     <>
-      <form onSubmit={handleSubmitEditar}>
+      <form onSubmit={handleEditSubmit}>
         <div className={styles.formularioPanel}>
           <label htmlFor="name">Nombre</label>
           <input
             type="text"
             id="name"
             name="name"
-            value={clienteSeleccionado?.name || ''}
+            value={selectedClient?.name || ''}
             onChange={handleChange}
           />
-          {errores.name && <p className={styles.error}>{errores.name}</p>}
+          {errors.name && <p className={styles.error}>{errors.name}</p>}
         </div>
         <div className={styles.formularioPanel}>
           <label htmlFor="category">Categoría</label>
@@ -47,21 +47,21 @@ const FormularioEditarCliente = ({
             type="text"
             id="category"
             name="category"
-            value={clienteSeleccionado?.category || ''}
+            value={selectedClient?.category || ''}
             onChange={handleChange}
           />
-          {errores.category && <p className={styles.error}>{errores.category}</p>}
+          {errors.category && <p className={styles.error}>{errors.category}</p>}
         </div>
-        {errores.submit && <p className={styles.error}>{errores.submit}</p>}
+        {errors.submit && <p className={styles.error}>{errors.submit}</p>}
         <div className={styles.contenedorBotonesEditar}>
           <button type="submit" className={styles.botonGuardar}>Guardar</button>
-          <button type="button" onClick={handleCerrarModal} className={styles.botonCancelar}>Cancelar</button>
+          <button type="button" onClick={handleCloseModal} className={styles.botonCancelar}>Cancelar</button>
         </div>
       </form>
       <ModalConfirmacion
-        isOpen={modalConfirmacion}
-        onRequestClose={() => setModalConfirmacion(false)}
-        mensaje={mensajeConfirmacion}
+        isOpen={confirmationModal}
+        onRequestClose={() => setConfirmationModal(false)}
+        mensaje={confirmationMessage}
       />
     </>
   );

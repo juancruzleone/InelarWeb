@@ -1,100 +1,99 @@
 import { useState, useEffect, useCallback } from "react";
-import { obtenerClientes, eliminarCliente }
-from "@/components/panel/ListaClientes/services/ListaClienteService.jsx";
+import { getClients, deleteClient } from '@/components/panel/ListaClientes/services/ListaClienteService.jsx';
 
-const useClientes = (token, role) => {
-  const [clientes, setClientes] = useState([]);
-  const [clientesFiltrados, setClientesFiltrados] = useState([]);
-  const [categorias, setCategorias] = useState([]);
-  const [buscar, setBuscar] = useState("");
-  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("Todos");
+const useClients = (token, role) => {
+  const [clients, setClients] = useState([]);
+  const [filteredClients, setFilteredClients] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [search, setSearch] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("Todos");
   const [loading, setLoading] = useState(true);
-  const [modalCrear, setModalCrear] = useState(false);
-  const [modalEditar, setModalEditar] = useState(false);
-  const [modalEliminar, setModalEliminar] = useState(false);
-  const [modalConfirmacion, setModalConfirmacion] = useState(false);
-  const [mensajeConfirmacion, setMensajeConfirmacion] = useState("");
-  const [clienteSeleccionado, setClienteSeleccionado] = useState(null);
+  const [createModal, setCreateModal] = useState(false);
+  const [editModal, setEditModal] = useState(false);
+  const [deleteModal, setDeleteModal] = useState(false);
+  const [confirmationModal, setConfirmationModal] = useState(false);
+  const [confirmationMessage, setConfirmationMessage] = useState("");
+  const [selectedClient, setSelectedClient] = useState(null);
 
-  const actualizarClientes = useCallback(async () => {
+  const refreshClients = useCallback(async () => {
     setLoading(true);
-    const data = await obtenerClientes(token, role);
-    setClientes(data);
+    const data = await getClients(token, role);
+    setClients(data);
     setLoading(false);
   }, [token, role]);
 
   useEffect(() => {
-    actualizarClientes();
-  }, [actualizarClientes]);
+    refreshClients();
+  }, [refreshClients]);
 
   useEffect(() => {
-    const filtered = clientes.filter((cliente) => {
+    const filtered = clients.filter((client) => {
       return (
-        (buscar === "" || cliente.name.toLowerCase().includes(buscar.toLowerCase())) &&
-        (categoriaSeleccionada === "Todos" || cliente.category === categoriaSeleccionada)
+        (search === "" || client.name.toLowerCase().includes(search.toLowerCase())) &&
+        (selectedCategory === "Todos" || client.category === selectedCategory)
       );
     });
-    setClientesFiltrados(filtered);
+    setFilteredClients(filtered);
 
     const uniqueCategories = [
-      ...new Set(clientes.map((cliente) => cliente.category)),
+      ...new Set(clients.map((client) => client.category)),
     ];
-    setCategorias(uniqueCategories);
-  }, [clientes, buscar, categoriaSeleccionada]);
+    setCategories(uniqueCategories);
+  }, [clients, search, selectedCategory]);
 
-  const handleCrearCliente = () => {
-    setModalCrear(true);
+  const handleCreateClient = () => {
+    setCreateModal(true);
   };
 
-  const handleEliminarCliente = (cliente) => {
-    setClienteSeleccionado(cliente);
-    setModalEliminar(true);
+  const handleDeleteClient = (client) => {
+    setSelectedClient(client);
+    setDeleteModal(true);
   };
 
-  const eliminarClienteSeleccionado = async (idCliente) => {
+  const deleteSelectedClient = async (idClient) => {
     try {
-      await eliminarCliente(idCliente, token, role);
-      setMensajeConfirmacion("Cliente eliminado exitosamente");
-      setModalConfirmacion(true);
-      actualizarClientes();
+      await deleteClient(idClient, token, role);
+      setConfirmationMessage("Cliente eliminado exitosamente");
+      setConfirmationModal(true);
+      refreshClients();
     } catch (error) {
       console.error('Error eliminando cliente:', error);
-      setMensajeConfirmacion("Error eliminando cleinte");
-      setModalConfirmacion(true);
+      setConfirmationMessage("Error eliminando cliente");
+      setConfirmationModal(true);
     }
   };
 
-  const handleCerrarModal = () => {
-    setModalCrear(false);
-    setModalEditar(false);
-    setModalEliminar(false);
-    setModalConfirmacion(false);
-    setClienteSeleccionado(null);
+  const handleCloseModal = () => {
+    setCreateModal(false);
+    setEditModal(false);
+    setDeleteModal(false);
+    setConfirmationModal(false);
+    setSelectedClient(null);
   };
 
   return {
-    clientesFiltrados,
-    categorias,
-    buscar,
-    setBuscar,
-    categoriaSeleccionada,
-    setCategoriaSeleccionada,
+    filteredClients,
+    categories,
+    search,
+    setSearch,
+    selectedCategory,
+    setSelectedCategory,
     loading,
-    handleCrearCliente,
-    handleEliminarCliente,
-    modalCrear,
-    modalEditar,
-    modalEliminar,
-    modalConfirmacion,
-    handleCerrarModal,
-    mensajeConfirmacion,
-    setModalEditar,
-    clienteSeleccionado,
-    setClienteSeleccionado,
-    setClientes,
-    actualizarClientes,
-    eliminarClienteSeleccionado,
+    handleCreateClient,
+    handleDeleteClient,
+    createModal,
+    editModal,
+    deleteModal,
+    confirmationModal,
+    handleCloseModal,
+    confirmationMessage,
+    setEditModal,
+    selectedClient,
+    setSelectedClient,
+    setClients,
+    refreshClients,
+    deleteSelectedClient,
   };
 };
 
-export default useClientes;
+export default useClients;

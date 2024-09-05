@@ -1,105 +1,105 @@
 import { useState } from 'react';
-import { editarCliente, crearCliente, eliminarCliente } from '@/components/panel/ListaClientes/services/ListaClienteService.jsx';
-import validarFormulario from '@/components/panel/ListaClientes/utils/validaciones.jsx';
+import { updateClient, createClient, deleteClient } from '@/components/panel/ListaClientes/services/ListaClienteService.jsx';
+import validateForm from '@/components/panel/ListaClientes/utils/validaciones.jsx';
 
-const useClienteSeleccionado = (
-  clienteSeleccionado,
-  setClienteSeleccionado,
-  handleCerrarModal,
+const useSelectedClient = (
+  selectedClient,
+  setSelectedClient,
+  handleCloseModal,
   token,
   role,
-  actualizarClientes
+  refreshClients
 ) => {
-  const [errores, setErrores] = useState({});
-  const [modalConfirmacion, setModalConfirmacion] = useState(false);
-  const [mensajeConfirmacion, setMensajeConfirmacion] = useState('');
-  const [nuevoCliente, setNuevoCliente] = useState({
+  const [errors, setErrors] = useState({});
+  const [confirmationModal, setConfirmationModal] = useState(false);
+  const [confirmationMessage, setConfirmationMessage] = useState('');
+  const [newClient, setNewClient] = useState({
     name: "",
     category: "",
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    if (clienteSeleccionado) {
-      setClienteSeleccionado((prev) => ({ ...prev, [name]: value }));
+    if (selectedClient) {
+      setSelectedClient((prev) => ({ ...prev, [name]: value }));
     } else {
-      setNuevoCliente((prev) => ({ ...prev, [name]: value }));
+      setNewClient((prev) => ({ ...prev, [name]: value }));
     }
 
-    const cliente = clienteSeleccionado || nuevoCliente;
-    const newErrors = validarFormulario({ ...cliente, [name]: value });
-    setErrores(newErrors);
+    const client = selectedClient || newClient;
+    const newErrors = validateForm({ ...client, [name]: value });
+    setErrors(newErrors);
   };
 
-  const handleSubmitCrear = async (e) => {
+  const handleCreateSubmit = async (e) => {
     e.preventDefault();
-    setErrores({});
+    setErrors({});
     
-    const erroresValidados = validarFormulario(nuevoCliente);
-    if (Object.keys(erroresValidados).length > 0) {
-      setErrores(erroresValidados);
+    const validatedErrors = validateForm(newClient);
+    if (Object.keys(validatedErrors).length > 0) {
+      setErrors(validatedErrors);
       return;
     }
 
     try {
-      const resultado = await crearCliente(nuevoCliente, token, role);
-      setMensajeConfirmacion(resultado.message || 'Cliente creado exitosamente');
-      setModalConfirmacion(true);
-      handleCerrarModal();
-      actualizarClientes();
+      const result = await createClient(newClient, token, role);
+      setConfirmationMessage(result.message || 'Cliente creado exitosamente');
+      setConfirmationModal(true);
+      handleCloseModal();
+      refreshClients();
     } catch (error) {
       console.error('Error al crear el cliente:', error);
-      setErrores({ submit: error.message || 'Error al crear el cliente' });
+      setErrors({ submit: error.message || 'Error al crear el cliente' });
     }
   };
 
-  const handleSubmitEditar = async (e) => {
+  const handleEditSubmit = async (e) => {
     e.preventDefault();
-    setErrores({});
+    setErrors({});
 
-    const erroresValidados = validarFormulario(clienteSeleccionado);
-    if (Object.keys(erroresValidados).length > 0) {
-      setErrores(erroresValidados);
+    const validatedErrors = validateForm(selectedClient);
+    if (Object.keys(validatedErrors).length > 0) {
+      setErrors(validatedErrors);
       return;
     }
 
     try {
-      const resultado = await editarCliente(clienteSeleccionado, token, role);
-      setMensajeConfirmacion(resultado.message || 'Cliente editado exitosamente');
-      setModalConfirmacion(true);
-      handleCerrarModal();
-      actualizarClientes();
+      const result = await updateClient(selectedClient, token, role);
+      setConfirmationMessage(result.message || 'Cliente editado exitosamente');
+      setConfirmationModal(true);
+      handleCloseModal();
+      refreshClients();
     } catch (error) {
       console.error('Error al editar el cliente:', error);
-      setErrores({ submit: error.message || 'Error al editar el cliente' });
+      setErrors({ submit: error.message || 'Error al editar el cliente' });
     }
   };
 
-  const handleEliminarCliente = async (idCliente) => {
+  const handleDeleteClient = async (idClient) => {
     try {
-      const resultado = await eliminarCliente(idCliente, token, role);
-      setMensajeConfirmacion(resultado.message || 'Cliente eliminado exitosamente');
-      setModalConfirmacion(true);
-      actualizarClientes();
+      const result = await deleteClient(idClient, token, role);
+      setConfirmationMessage(result.message || 'Cliente eliminado exitosamente');
+      setConfirmationModal(true);
+      refreshClients();
     } catch (error) {
       console.error('Error al eliminar el cliente:', error);
-      setErrores({ submit: error.message || 'Error al eliminar el cliente' });
+      setErrors({ submit: error.message || 'Error al eliminar el cliente' });
     }
   };
 
   return {
-    errores,
-    modalConfirmacion,
-    setModalConfirmacion,
-    mensajeConfirmacion,
-    setMensajeConfirmacion,
+    errors,
+    confirmationModal,
+    setConfirmationModal,
+    confirmationMessage,
+    setConfirmationMessage,
     handleChange,
-    handleSubmitCrear,
-    handleSubmitEditar,
-    handleEliminarCliente,
-    nuevoCliente,
-    setErrores,
+    handleCreateSubmit,
+    handleEditSubmit,
+    handleDeleteClient,
+    newClient,
+    setErrors,
   };
 };
 
-export default useClienteSeleccionado;
+export default useSelectedClient;

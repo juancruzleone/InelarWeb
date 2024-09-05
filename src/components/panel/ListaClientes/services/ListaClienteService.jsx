@@ -1,6 +1,6 @@
 const API_URL = "https://inelarweb-back.onrender.com/api/clientes";
 
-export const obtenerClientes = async (token, role) => {
+export const getClients = async (token, role) => {
   const response = await fetch(API_URL, {
     headers: {
       "Content-Type": "application/json",
@@ -14,7 +14,7 @@ export const obtenerClientes = async (token, role) => {
   return await response.json();
 };
 
-export const crearCliente = async (cliente, token, role) => {
+export const createClient = async (client, token, role) => {
   const response = await fetch(API_URL, {
     method: "POST",
     headers: {
@@ -22,7 +22,7 @@ export const crearCliente = async (cliente, token, role) => {
       "Authorization": `Bearer ${token}`,
       "Role": role,
     },
-    body: JSON.stringify(cliente),
+    body: JSON.stringify(client),
   });
   if (!response.ok) {
     const errorData = await response.json();
@@ -31,15 +31,15 @@ export const crearCliente = async (cliente, token, role) => {
   return await response.json();
 };
 
-export const editarCliente = async (cliente, token, role) => {
-  const response = await fetch(`${API_URL}/${cliente._id}`, {
+export const updateClient = async (client, token, role) => {
+  const response = await fetch(`${API_URL}/${client._id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
       "Authorization": `Bearer ${token}`,
       "Role": role,
     },
-    body: JSON.stringify(cliente),
+    body: JSON.stringify(client),
   });
 
   if (!response.ok) {
@@ -67,7 +67,7 @@ export const editarCliente = async (cliente, token, role) => {
   }
 };
 
-export const eliminarCliente = async (id, token, role) => {
+export const deleteClient = async (id, token, role) => {
   const response = await fetch(`${API_URL}/${id}`, {
     method: "DELETE",
     headers: {
@@ -80,17 +80,16 @@ export const eliminarCliente = async (id, token, role) => {
     throw new Error(errorData.error || "Error al eliminar el cliente");
   }
   
-  // Manejar respuesta vacía
   if (response.status === 204) {
     return { success: true, message: "Cliente eliminado exitosamente" };
   }
 
-  return await response.json(); // En caso de que haya un mensaje en el cuerpo
+  return await response.json();
 };
 
 export default {
-  obtenerClientes,
-  crearCliente,
-  editarCliente,
-  eliminarCliente,
+  getClients,
+  createClient,
+  updateClient,
+  deleteClient,
 };

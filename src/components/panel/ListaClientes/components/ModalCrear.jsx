@@ -5,11 +5,11 @@ import styles from "@/styles/Home.module.css";
 
 Modal.setAppElement('#__next');
 
-const ModalCrear = ({ isOpen, onRequestClose, token, role, actualizarClientes }) => (
+const ModalCrear = ({ isOpen, onRequestClose, token, role, refreshClients }) => (
   <Modal
     isOpen={isOpen}
     onRequestClose={onRequestClose}
-    contentLabel="Create Client"
+    contentLabel="Crear Cliente"
     className={`${styles.ModalPanelClientes} ${styles.Modal}`}
     closeTimeoutMS={1000}
   >
@@ -18,7 +18,7 @@ const ModalCrear = ({ isOpen, onRequestClose, token, role, actualizarClientes })
       onRequestClose={onRequestClose} 
       token={token} 
       role={role} 
-      actualizarClientes={actualizarClientes}
+      refreshClients={refreshClients}
     />
   </Modal>
 );
