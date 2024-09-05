@@ -26,13 +26,13 @@ const ProductosCarrito = ({ producto, index, onIncrease, onRemove }) => {
         className={styles.botonSumar}
         onClick={() => onIncrease(index)}
       >
-        <Image src="/suma.svg" alt="Icono sumar unidades" width={20} height={20} />
+        <Image src="/suma2.svg" alt="Icono sumar unidades" width={20} height={20} />
       </button>
       <button
         className={styles.botonEliminar}
         onClick={() => onRemove(index)}
       >
-        <Image src="/menos.svg" alt="Icono eliminar unidades" width={20} height={20} />
+        <Image src="/menos2.svg" alt="Icono eliminar unidades" width={20} height={20} />
       </button>
     </div>
   );

@@ -10,7 +10,7 @@ const BotonCarrito = ({ cart, onEmptyCart, onCheckout }) => {
         className={styles.botonVaciar}
         onClick={onEmptyCart}
       >
-        <Image src="/eliminar.svg" alt="Vaciar carrito" width={40} height={40} />
+        <Image src="/eliminar2.svg" alt="Vaciar carrito" width={40} height={40} />
       </button>
       <button
         className={styles.botonIrCheckout}

@@ -28,10 +28,9 @@ const Carrito = () => {
   } = useCarrito();
 
   useEffect(() => {
-    // Simulamos un tiempo de carga para asegurar que las imágenes de los productos y botones están cargadas.
     const loadCartContent = async () => {
-      await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulación de carga
-      setIsLoading(false); // Cambiamos el estado de carga a falso después del tiempo de simulación
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      setIsLoading(false);
     };
 
     loadCartContent();
