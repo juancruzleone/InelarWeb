@@ -1,20 +1,20 @@
-export const buscarProductos = (categoria, search, productos) => {
-  let filtered = productos;
+const searchProducts = (category, search, products) => {
+  let filtered = products;
 
-  if (categoria !== "Todos") {
+  if (category !== "Todos") {
     filtered = filtered.filter(
-      (producto) => producto.categoria.toLowerCase() === categoria.toLowerCase()
+      (product) => product.categoria.toLowerCase() === category.toLowerCase()
     );
   }
 
   if (search) {
-    filtered = filtered.filter((producto) =>
-      producto.name.toLowerCase().includes(search.toLowerCase())
+    filtered = filtered.filter((product) =>
+      product.name.toLowerCase().includes(search.toLowerCase())
     );
   }
 
   return filtered;
 };
 
-// Add a default export
-export default buscarProductos;
+
+export default searchProducts;

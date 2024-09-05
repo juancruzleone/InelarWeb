@@ -40,7 +40,7 @@ const useProductos = () => {
     try {
       const data = await fetchProducts(token);
       setProducts(data);
-      setCategories([...new Set(data.map((product) => product.categoria))]);
+      setCategories(["Todos", ...new Set(data.map((product) => product.categoria))]);
       setFilteredProducts(data);
     } catch (error) {
       console.error("Error fetching products:", error);

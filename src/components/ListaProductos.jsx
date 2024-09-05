@@ -74,7 +74,7 @@ const ListaProductos = () => {
       />
       <div className={styles.posicionSeccionProductos}>
         <div className={styles.contenedorCategorias}>
-          {["Todos", ...categories].map((categoria, index) => (
+          {categories.map((categoria, index) => (
             <div
               key={index}
               className={`${styles.contenedorCategoria} ${
@@ -82,7 +82,7 @@ const ListaProductos = () => {
               }`}
               onClick={() => setSelectedCategory(categoria)}
             >
-              <p>{categoria.charAt(0).toUpperCase() + categoria.slice(1)}</p>
+              <p>{categoria ? categoria.charAt(0).toUpperCase() + categoria.slice(1) : "Sin Categoría"}</p>
             </div>
           ))}
         </div>
@@ -172,4 +172,4 @@ const ListaProductos = () => {
   );
 }
 
-export default ListaProductos
+export default ListaProductos;
