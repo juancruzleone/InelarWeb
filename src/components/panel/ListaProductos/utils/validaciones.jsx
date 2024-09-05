@@ -1,27 +1,27 @@
-export const validateProduct = (product) => {
+export const validarProducto = (product) => {
   let errors = {};
 
   if (!product.name?.trim()) {
-    errors.name = "El nombre es requerido.";
+    errors.name = "El nombre es obligatorio.";
   }
 
-  if (!product.category?.trim()) {
-    errors.category = "La categoria es requerida.";
+  if (!product.categoria?.trim()) {
+    errors.categoria = "La categoría es obligatoria.";
   }
 
   if (!product.description?.trim()) {
-    errors.description = "La descripción es requerida.";
+    errors.description = "La descripción es obligatoria.";
   }
 
   if (!product.price) {
-    errors.price = "El precio es requerido.";
+    errors.price = "El precio es obligatorio.";
   } else if (isNaN(product.price) || Number(product.price) <= 0) {
-    errors.price = "El precio tiene que ser mayor a 0.";
+    errors.price = "El precio debe ser un número mayor que cero.";
   }
 
   // Remove the image validation if it's not a new product
-  if (!product._id && (!product.image || product.image.size === 0)) {
-    errors.image = "La imagen es requerida.";
+  if (!product._id && (!product.imagen || product.imagen.size === 0)) {
+    errors.imagen = "La imagen es obligatoria.";
   }
 
   return errors;
@@ -32,16 +32,17 @@ export const handleInputChange = (e, product, setProduct, setErrors) => {
   const updatedProduct = { ...product, [name]: value };
   setProduct(updatedProduct);
   
-  const newErrors = validateProduct(updatedProduct);
+  const newErrors = validarProducto(updatedProduct);
   setErrors(newErrors);
 };
 
-export const handleFileChange = (e, product, setProduct, setErrors) => {
+export const handleFileChange = (e, product, setProduct,
+ setErrors) => {
   const { name, files } = e.target;
   const updatedProduct = { ...product, [name]: files[0] };
   setProduct(updatedProduct);
 
-  const newErrors = validateProduct(updatedProduct);
+  const newErrors = validarProducto(updatedProduct);
   setErrors(newErrors);
 };
 
@@ -50,6 +51,6 @@ export const handleTextareaInput = (e, product, setProduct, setErrors) => {
   const updatedProduct = { ...product, [name]: value };
   setProduct(updatedProduct);
 
-  const newErrors = validateProduct(updatedProduct);
+  const newErrors = validarProducto(updatedProduct);
   setErrors(newErrors);
 };
