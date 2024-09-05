@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect } from "react";
 import { fetchProducts, createProduct, editProduct, deleteProduct } from "@/components/panel/ListaProductos/services/FetchListaProductos.jsx";
-import { validarProducto } from "@/components/panel/ListaProductos/utils/validaciones.jsx";
+import { validateProduct } from "@/components/panel/ListaProductos/utils/validaciones.jsx";
 
 const useProductos = () => {
   const [token, setToken] = useState("");
@@ -100,7 +100,7 @@ const useProductos = () => {
 
   const handleCreateSubmit = async (e) => {
     e.preventDefault();
-    const validationErrors = validarProducto(newProduct);
+    const validationErrors = validateProduct(newProduct);
     if (Object.keys(validationErrors).length === 0) {
       try {
         const formData = new FormData();
@@ -110,7 +110,7 @@ const useProductos = () => {
         await createProduct(formData, token);
         fetchProductsData();
         handleCloseModal();
-        showConfirmation("Producto creado exitosamente.");
+        showConfirmation("Producto creado éxitosamente.");
       } catch (error) {
         console.error('Error al crear producto:', error);
         showConfirmation("Hubo un error al crear el producto.");
@@ -122,7 +122,7 @@ const useProductos = () => {
 
   const handleEditSubmit = async (e) => {
     e.preventDefault();
-    const validationErrors = validarProducto(selectedProduct);
+    const validationErrors = validateProduct(selectedProduct);
     if (Object.keys(validationErrors).length === 0) {
       try {
         const formData = new FormData();
@@ -137,7 +137,7 @@ const useProductos = () => {
         await editProduct(selectedProduct._id, formData, token);
         await fetchProductsData();
         handleCloseModal();
-        showConfirmation("Producto editado exitosamente");
+        showConfirmation("Producto editado éxitosamente");
       } catch (error) {
         console.error('Error al editar producto:', error);
         showConfirmation("Hubo un error al editar el producto: " + error.message);
@@ -153,7 +153,7 @@ const useProductos = () => {
       await deleteProduct(selectedProduct._id, token);
       await fetchProductsData();
       handleCloseModal();
-      showConfirmation("Producto eliminado exitosamente.");
+      showConfirmation("Producto eliminado éxitosamente.");
     } catch (error) {
       console.error('Error al eliminar producto:', error);
       showConfirmation("Hubo un error al eliminar el producto.");
@@ -163,19 +163,19 @@ const useProductos = () => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewProduct({ ...newProduct, [name]: value });
-    setErrors(validarProducto({ ...newProduct, [name]: value }));
+    setErrors(validateProduct({ ...newProduct, [name]: value }));
   };
 
   const handleEditInputChange = (e) => {
     const { name, value } = e.target;
     setSelectedProduct({ ...selectedProduct, [name]: value });
-    setErrors(validarProducto({ ...selectedProduct, [name]: value }));
+    setErrors(validateProduct({ ...selectedProduct, [name]: value }));
   };
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     setNewProduct({ ...newProduct, imagen: file });
-    setErrors(validarProducto({ ...newProduct, imagen: file }));
+    setErrors(validateProduct({ ...newProduct, imagen: file }));
     setPreviewImage(URL.createObjectURL(file));
   };
 
@@ -190,13 +190,13 @@ const useProductos = () => {
   const handleTextareaInput = (e) => {
     const { name, value } = e.target;
     setNewProduct({ ...newProduct, [name]: value });
-    setErrors(validarProducto({ ...newProduct, [name]: value }));
+    setErrors(validateProduct({ ...newProduct, [name]: value }));
   };
 
   const handleEditTextareaInput = (e) => {
     const { name, value } = e.target;
     setSelectedProduct({ ...selectedProduct, [name]: value });
-    setErrors(validarProducto({ ...selectedProduct, [name]: value }));
+    setErrors(validateProduct({ ...selectedProduct, [name]: value }));
   };
 
   return {

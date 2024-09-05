@@ -1,4 +1,4 @@
-export const buscarProductos = (categoria, search, productos) => {
+const searchProducts = (categoria, search, productos) => {
   let filtered = productos;
 
   if (categoria !== "Todos") {
@@ -17,4 +17,4 @@ export const buscarProductos = (categoria, search, productos) => {
 };
 
 // Add a default export
-export default buscarProductos;
+export default searchProducts;

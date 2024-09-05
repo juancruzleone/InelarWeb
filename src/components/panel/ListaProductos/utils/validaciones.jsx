@@ -1,4 +1,4 @@
-export const validarProducto = (product) => {
+export const validateProduct = (product) => {
   let errors = {};
 
   if (!product.name?.trim()) {

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Image from 'next/image';
 import styles from "@/styles/Home.module.css";
-import buscarProductos from "@/components/panel/ListaProductos/utils/buscador.jsx";
+import searchProducts from "@/components/panel/ListaProductos/utils/buscador.jsx";
 import useProductos from "@/components/panel/ListaProductos/hooks/useProductos.jsx";
 import CrearProductoModal from "@/components/panel/ListaProductos/components/ModalCrear.jsx";
 import EditarProductoModal from "@/components/panel/ListaProductos/components/ModalEditar.jsx";
@@ -54,7 +54,7 @@ const ListaProductos = () => {
   }, [fetchProductsData]);
 
   useEffect(() => {
-    const filtered = buscarProductos(selectedCategory, search, products);
+    const filtered = searchProducts(selectedCategory, search, products);
     setFilteredProducts(filtered);
   }, [selectedCategory, search, products, setFilteredProducts]);
 
