@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import Image from 'next/image';
 import styles from "@/styles/Home.module.css";
 import searchProducts from "@/components/panel/ListaProductos/utils/buscador.jsx";

@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "@/styles/Home.module.css";
 import { capitalizeFirstLetter } from "@/components/panel/ListaServicios/utils/StringUtils.jsx";
 

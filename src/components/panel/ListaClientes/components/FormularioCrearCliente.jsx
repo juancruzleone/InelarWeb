@@ -1,4 +1,3 @@
-import React from "react";
 import useClienteSeleccionado from "@/components/panel/ListaClientes/hooks/useClienteSeleccionado.jsx";
 import validarFormulario from "@/components/panel/ListaClientes/utils/validaciones.jsx";
 import styles from "@/styles/Home.module.css";

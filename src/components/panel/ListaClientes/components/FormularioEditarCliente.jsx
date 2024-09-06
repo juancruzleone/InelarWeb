@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from '@/styles/Home.module.css';
 import useClienteSeleccionado from "@/components/panel/ListaClientes/hooks/useClienteSeleccionado.jsx";
 import ModalConfirmacion from '@/components/panel/ListaClientes/components/ModalConfirmacion.jsx';

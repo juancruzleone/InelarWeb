@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "@/styles/Home.module.css";
 import ServicioItem from "@/components/panel/ListaServicios/components/ServicioItem.jsx";
 import CategoriaItem from "@/components/panel/ListaServicios/components/CategoriaItem.jsx";

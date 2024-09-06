@@ -1,4 +1,3 @@
-import React from "react";
 import Modal from "react-modal";
 import styles from "@/styles/Home.module.css";
 import FormularioCrear from "@/components/panel/ListaProductos/components/FormularioCrear.jsx";

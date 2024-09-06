@@ -1,4 +1,3 @@
-import React from "react";
 import Link from "next/link";
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 import styles from "@/styles/Home.module.css";
