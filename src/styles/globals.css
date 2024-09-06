@@ -100,58 +100,13 @@ a {
   }
 }
 
-/* Regular */
-@font-face {
-  font-family: 'Montserrat';
-  src: url('/fonts/static/Montserrat-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
-/* Italic */
-@font-face {
-  font-family: 'Montserrat';
-  src: url('/fonts/static/Montserrat-Italic.ttf') format('truetype');
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-
-/* Light */
-@font-face {
-  font-family: 'Montserrat';
-  src: url('/fonts/static/Montserrat-Light.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* SemiBold */
-@font-face {
-  font-family: 'Montserrat';
-  src: url('/fonts/static/Montserrat-SemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* Bold */
-@font-face {
-  font-family: 'Montserrat';
-  src: url('/fonts/static/Montserrat-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* Estilos generales */
 * {
   padding: 0;
   margin: 0;
   font-family: 'Montserrat', sans-serif;
 }
-
 
 /*
 {
