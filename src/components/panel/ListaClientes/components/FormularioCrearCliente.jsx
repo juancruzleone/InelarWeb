@@ -3,11 +3,11 @@ import styles from '@/styles/Home.module.css';
 import useClienteSeleccionado from "@/components/panel/ListaClientes/hooks/useClienteSeleccionado.jsx";
 import { getClients } from "@/components/panel/ListaClientes/services/ListaClienteService.jsx";
 import ModalConfirmacion from '@/components/panel/ListaClientes/components/ModalConfirmacion.jsx';
-import validarFormulario from "@/components/panel/ListaClientes/utils/validaciones.jsx"; // Importación de validaciones
+import validarFormulario from "@/components/panel/ListaClientes/utils/validaciones.jsx"; 
 
 const FormularioCrearCliente = ({ onRequestClose, token, role, actualizarClientes }) => {
   const [categorias, setCategorias] = useState([]);
-  const [errores, setErrores] = useState({}); // Inicializar errores como objeto vacío
+  const [errores, setErrores] = useState({}); 
 
   const {
     newClient,
@@ -18,7 +18,7 @@ const FormularioCrearCliente = ({ onRequestClose, token, role, actualizarCliente
     mensajeConfirmacion,
   } = useClienteSeleccionado(null, null, onRequestClose, token, role, actualizarClientes);
 
-  // Obtener las categorías de los clientes al cargar el formulario
+  
   useEffect(() => {
     const fetchClients = async () => {
       try {
@@ -36,8 +36,8 @@ const FormularioCrearCliente = ({ onRequestClose, token, role, actualizarCliente
   const handleInputChange = (e) => {
     handleChange(e);
     const { name, value } = e.target;
-    const newErrors = validarFormulario({ ...newClient, [name]: value }); // Llamar a la función de validación
-    setErrores(newErrors); // Actualizar los errores en el estado
+    const newErrors = validarFormulario({ ...newClient, [name]: value }); 
+    setErrores(newErrors);
   };
 
   return (
@@ -51,7 +51,6 @@ const FormularioCrearCliente = ({ onRequestClose, token, role, actualizarCliente
           value={newClient.name || ''}
           onChange={handleInputChange}
         />
-        {/* Verificar si errores.name existe antes de intentar renderizar */}
         {errores.name && <p className={styles.errorPanel}>{errores.name}</p>}
 
         <label htmlFor="category" className={styles.categoria}>Categoría</label>

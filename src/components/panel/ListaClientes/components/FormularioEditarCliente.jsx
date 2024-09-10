@@ -30,7 +30,7 @@ const FormularioEditarCliente = ({
     refreshClients
   );
 
-  // Obtener las categorías de los clientes al cargar el formulario
+  
   useEffect(() => {
     const fetchClients = async () => {
       try {

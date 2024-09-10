@@ -39,13 +39,13 @@ const ListaServicios = () => {
 
         <div className={styles.contenedorServicios}>
           {loading ? (
-            <p>Cargando servicios...</p>
+            <p className={styles.cargandoMensajes}>Cargando servicios...</p>
           ) : filteredServices.length > 0 ? (
             filteredServices.map((service, index) => (
               <ServicioItem key={index} service={service} />
             ))
           ) : (
-            <p className={styles.textoBuscadorPanel}>No services found</p>
+            <p className={styles.textoBuscadorPanel}>Niguna solicitud de servicio encontrada</p>
           )}
         </div>
       </div>

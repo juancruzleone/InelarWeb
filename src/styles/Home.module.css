@@ -1926,7 +1926,7 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     z-index: 9999;
     width: 400px;
-    min-height: 320px; /* Se cambió height por min-height */
+    min-height: 320px; 
     overflow-y: auto; /* Permite scroll si el contenido es mayor que el alto */
   }
   
@@ -2832,8 +2832,8 @@
   display: flex;
   text-align: center;
   justify-content: center;
-  margin-left: 200px;
-  margin-top: -30px
+  margin-top: -15px;
+  margin-left: 30px;
 }
 
 .textoBuscadorProductos{
@@ -3088,3 +3088,11 @@
   margin-top: 100px;
 }
 
+.cargandoMensajes{
+  margin-left: 35px;
+  margin-top: 10px;
+}
+
+#MensajeVacios{
+  margin-left: 200px;
+}

@@ -20,7 +20,7 @@ const ListaMensajes = () => {
         <div className={styles.posicionSeccionProductos}>
           <div className={styles.contenedorProductosPanel}>
             {loading ? (
-              <p>Cargando mensajes...</p>
+              <p className={styles.cargandoMensajes}>Cargando mensajes...</p>
             ) : filteredMessages.length > 0 ? (
               filteredMessages.map((message, index) => (
                 <MensajeItem key={index} message={message} />
