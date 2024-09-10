@@ -1952,7 +1952,7 @@
     padding: 10px;
     border-radius: 5px;
     margin-top: 5px;
-    margin-bottom: 15px;
+    margin-bottom: 0px;
   }
 
   .ModalPanelClientes .error{
@@ -3087,3 +3087,4 @@
   font-weight: 400;
   margin-top: 100px;
 }
+
