@@ -1,5 +1,7 @@
+import { useState, useEffect } from 'react';
 import styles from '@/styles/Home.module.css';
 import useClienteSeleccionado from "@/components/panel/ListaClientes/hooks/useClienteSeleccionado.jsx";
+import { getClients } from "@/components/panel/ListaClientes/services/ListaClienteService.jsx";
 import ModalConfirmacion from '@/components/panel/ListaClientes/components/ModalConfirmacion.jsx';
 
 const FormularioEditarCliente = ({
@@ -10,6 +12,8 @@ const FormularioEditarCliente = ({
   role,
   refreshClients,
 }) => {
+  const [categorias, setCategorias] = useState([]);
+  
   const {
     handleChange,
     handleEditSubmit,
@@ -25,6 +29,21 @@ const FormularioEditarCliente = ({
     role,
     refreshClients
   );
+
+  // Obtener las categorías de los clientes al cargar el formulario
+  useEffect(() => {
+    const fetchClients = async () => {
+      try {
+        const clientes = await getClients(token, role);
+        const categoriasUnicas = [...new Set(clientes.map(cliente => cliente.category))];
+        setCategorias(categoriasUnicas);
+      } catch (error) {
+        console.error("Error al obtener las categorías de los clientes", error);
+      }
+    };
+
+    fetchClients();
+  }, [token, role]);
 
   return (
     <>
@@ -42,13 +61,17 @@ const FormularioEditarCliente = ({
         </div>
         <div className={styles.formularioPanel}>
           <label htmlFor="category">Categoría</label>
-          <input
-            type="text"
+          <select
             id="category"
             name="category"
             value={selectedClient?.category || ''}
             onChange={handleChange}
-          />
+          >
+            <option value="">Seleccione una categoría</option>
+            {categorias.map((categoria, index) => (
+              <option key={index} value={categoria}>{categoria}</option>
+            ))}
+          </select>
           {errors.category && <p className={styles.error}>{errors.category}</p>}
         </div>
         {errors.submit && <p className={styles.error}>{errors.submit}</p>}
