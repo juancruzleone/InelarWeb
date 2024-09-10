@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { updateClient, createClient, deleteClient } from '@/components/panel/ListaClientes/services/ListaClienteService.jsx';
 import validateForm from '@/components/panel/ListaClientes/utils/validaciones.jsx';
 
-const useSelectedClient = (
+const useClienteSeleccionado = (
   selectedClient,
   setSelectedClient,
   handleCloseModal,
@@ -38,18 +38,19 @@ const useSelectedClient = (
     const validatedErrors = validateForm(newClient);
     if (Object.keys(validatedErrors).length > 0) {
       setErrors(validatedErrors);
-      return;
+      return false;
     }
 
     try {
       const result = await createClient(newClient, token, role);
       setConfirmationMessage(result.message || 'Cliente creado exitosamente');
       setConfirmationModal(true);
-      handleCloseModal();
       refreshClients();
+      return true;
     } catch (error) {
       console.error('Error al crear el cliente:', error);
       setErrors({ submit: error.message || 'Error al crear el cliente' });
+      return false;
     }
   };
 
@@ -102,4 +103,4 @@ const useSelectedClient = (
   };
 };
 
-export default useSelectedClient;
+export default useClienteSeleccionado;

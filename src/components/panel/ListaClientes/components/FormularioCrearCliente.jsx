@@ -2,23 +2,21 @@ import { useState, useEffect } from 'react';
 import styles from '@/styles/Home.module.css';
 import useClienteSeleccionado from "@/components/panel/ListaClientes/hooks/useClienteSeleccionado.jsx";
 import { getClients } from "@/components/panel/ListaClientes/services/ListaClienteService.jsx";
+import validarFormulario from "@/components/panel/ListaClientes/utils/validaciones.jsx"; // Importa la función de validación
 import ModalConfirmacion from '@/components/panel/ListaClientes/components/ModalConfirmacion.jsx';
-import validarFormulario from "@/components/panel/ListaClientes/utils/validaciones.jsx"; 
 
-const FormularioCrearCliente = ({ onRequestClose, token, role, actualizarClientes }) => {
+const FormularioCrearCliente = ({ onRequestClose, token, role, refreshClients }) => {
   const [categorias, setCategorias] = useState([]);
-  const [errores, setErrores] = useState({}); 
+  const [errores, setErrores] = useState({});
+  const [confirmationModal, setConfirmationModal] = useState(false); // Asegúrate de definir este estado local
+  const [confirmationMessage, setConfirmationMessage] = useState('');
 
   const {
     newClient,
     handleChange,
-    handleCreateSubmit,
-    modalConfirmacion,
-    setModalConfirmacion,
-    mensajeConfirmacion,
-  } = useClienteSeleccionado(null, null, onRequestClose, token, role, actualizarClientes);
+    handleCreateSubmit
+  } = useClienteSeleccionado(null, null, onRequestClose, token, role, refreshClients);
 
-  
   useEffect(() => {
     const fetchClients = async () => {
       try {
@@ -36,20 +34,29 @@ const FormularioCrearCliente = ({ onRequestClose, token, role, actualizarCliente
   const handleInputChange = (e) => {
     handleChange(e);
     const { name, value } = e.target;
-    const newErrors = validarFormulario({ ...newClient, [name]: value }); 
+    const newErrors = validarFormulario({ ...newClient, [name]: value }); // Usa validarFormulario para validar el input
     setErrores(newErrors);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const success = await handleCreateSubmit(e);
+    if (success) {
+      setConfirmationMessage('Cliente creado con éxito.');
+      setConfirmationModal(true); // Mostrar modal de confirmación
+    }
   };
 
   return (
     <>
-      <form onSubmit={handleCreateSubmit} className={styles.formularioPanel}>
+      <form onSubmit={handleSubmit} className={styles.formularioPanel}>
         <label htmlFor="name">Nombre</label>
         <input
           type="text"
           id="name"
           name="name"
           value={newClient.name || ''}
-          onChange={handleInputChange}
+          onChange={handleInputChange} 
         />
         {errores.name && <p className={styles.errorPanel}>{errores.name}</p>}
 
@@ -80,9 +87,9 @@ const FormularioCrearCliente = ({ onRequestClose, token, role, actualizarCliente
       </form>
 
       <ModalConfirmacion
-        isOpen={modalConfirmacion}
-        onRequestClose={() => setModalConfirmacion(false)}
-        mensaje={mensajeConfirmacion}
+        isOpen={confirmationModal}
+        onRequestClose={() => setConfirmationModal(false)} 
+        mensaje={confirmationMessage}
       />
     </>
   );

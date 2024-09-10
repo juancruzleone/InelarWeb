@@ -33,6 +33,7 @@ const ListaClientes = () => {
     setSelectedClient,
     refreshClients,
     deleteSelectedClient,
+    setConfirmationModal, // Este es el setConfirmationModal correcto
   } = useClientes(token, role);
 
   const handleOpenEditModal = (client) => {
@@ -118,6 +119,7 @@ const ListaClientes = () => {
         token={token}
         role={role}
         refreshClients={refreshClients} 
+        setConfirmationModal={setConfirmationModal} // Asegurar que pase correctamente aquí
       />
       <ModalEditar
         editModal={editModal}

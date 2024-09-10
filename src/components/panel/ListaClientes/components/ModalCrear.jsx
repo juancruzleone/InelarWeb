@@ -4,7 +4,7 @@ import styles from "@/styles/Home.module.css";
 
 Modal.setAppElement('#__next');
 
-const ModalCrear = ({ isOpen, onRequestClose, token, role, refreshClients }) => (
+const ModalCrear = ({ isOpen, onRequestClose, token, role, refreshClients, setConfirmationModal }) => (
   <Modal
     isOpen={isOpen}
     onRequestClose={onRequestClose}
@@ -18,6 +18,7 @@ const ModalCrear = ({ isOpen, onRequestClose, token, role, refreshClients }) => 
       token={token} 
       role={role} 
       refreshClients={refreshClients}
+      setConfirmationModal={setConfirmationModal} 
     />
   </Modal>
 );
