@@ -110,7 +110,7 @@ const useProductos = () => {
         await createProduct(formData, token);
         fetchProductsData();
         handleCloseModal();
-        showConfirmation("Producto creado éxitosamente.");
+        showConfirmation("Producto creado exitosamente.");
       } catch (error) {
         console.error('Error al crear producto:', error);
         showConfirmation("Hubo un error al crear el producto.");
@@ -137,7 +137,7 @@ const useProductos = () => {
         await editProduct(selectedProduct._id, formData, token);
         await fetchProductsData();
         handleCloseModal();
-        showConfirmation("Producto editado éxitosamente");
+        showConfirmation("Producto editado exitosamente");
       } catch (error) {
         console.error('Error al editar producto:', error);
         showConfirmation("Hubo un error al editar el producto: " + error.message);
@@ -153,7 +153,7 @@ const useProductos = () => {
       await deleteProduct(selectedProduct._id, token);
       await fetchProductsData();
       handleCloseModal();
-      showConfirmation("Producto eliminado éxitosamente.");
+      showConfirmation("Producto eliminado exitosamente.");
     } catch (error) {
       console.error('Error al eliminar producto:', error);
       showConfirmation("Hubo un error al eliminar el producto.");

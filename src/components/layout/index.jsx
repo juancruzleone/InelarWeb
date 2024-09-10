@@ -120,7 +120,7 @@ const Layout = ({ children }) => {
         <ModalConfirmacion 
           isOpen={logoutModalIsOpen} 
           onRequestClose={closeModal} 
-          mensaje="Sesión cerrada éxitosamente" 
+          mensaje="Sesión cerrada exitosamente" 
         />
       </main>
     </>

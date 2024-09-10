@@ -46,7 +46,7 @@ const Register = () => {
       <ModalConfirmacion 
         isOpen={showModal} 
         onRequestClose={closeModal} 
-        mensaje="Cuenta registrada éxitosamente" 
+        mensaje="Cuenta registrada exitosamente" 
       />
     </Layout>
   );

@@ -36,7 +36,7 @@ const Perfil = () => {
   const handleUpdateProfile = async () => {
     if (validateUserName(newUserName, setErrorMessage)) {
       await updateUserProfile(newUserName, setUser, setShowEditModal, setShowConfirmationModal, setErrorMessage);
-      setShowConfirmationModal(true); // Mostrar el modal de confirmación después de actualizar
+      setShowConfirmationModal(true); 
     }
   };
 
@@ -67,7 +67,7 @@ const Perfil = () => {
         <ModalConfirmacion
           isOpen={showConfirmationModal}
           onRequestClose={() => setShowConfirmationModal(false)}
-          mensaje="Nombre editado éxitosamente"
+          mensaje="Nombre editado exitosamente"
         />
         <Footer />
       </Layout>

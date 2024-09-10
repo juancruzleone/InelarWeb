@@ -36,7 +36,7 @@ const Contacto = () => {
       <ModalConfirmacion
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        mensaje="Mensaje enviado correctamente"
+        mensaje="Mensaje enviado exitosamente"
       />
     </Layout>
   );
