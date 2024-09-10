@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "@/styles/Home.module.css";
 import useClientes from "@/components/panel/ListaClientes/hooks/useClientes.jsx";
@@ -11,6 +11,9 @@ const ListaClientes = () => {
   const userData = JSON.parse(localStorage.getItem('userData'));
   const token = userData.token;
   const role = userData.cuenta.role;
+
+  const [confirmationMessage, setConfirmationMessage] = useState('');
+  const [confirmationModal, setConfirmationModal] = useState(false);
 
   const {
     filteredClients,
@@ -25,20 +28,22 @@ const ListaClientes = () => {
     createModal,
     editModal,
     deleteModal,
-    confirmationModal,
     handleCloseModal,
-    confirmationMessage,
     setEditModal,
     selectedClient,
     setSelectedClient,
     refreshClients,
     deleteSelectedClient,
-    setConfirmationModal, // Este es el setConfirmationModal correcto
   } = useClientes(token, role);
 
   const handleOpenEditModal = (client) => {
     setSelectedClient(client);
     setEditModal(true);
+  };
+
+  const handleCloseConfirmationModal = () => {
+    setConfirmationModal(false);
+    setConfirmationMessage('');
   };
 
   return (
@@ -119,7 +124,8 @@ const ListaClientes = () => {
         token={token}
         role={role}
         refreshClients={refreshClients} 
-        setConfirmationModal={setConfirmationModal} // Asegurar que pase correctamente aquí
+        setConfirmationModal={setConfirmationModal}
+        setConfirmationMessage={setConfirmationMessage}
       />
       <ModalEditar
         editModal={editModal}
@@ -140,7 +146,7 @@ const ListaClientes = () => {
       />
       <ModalConfirmacion
         isOpen={confirmationModal}
-        onRequestClose={handleCloseModal}
+        onRequestClose={handleCloseConfirmationModal}
         mensaje={confirmationMessage}
       />
     </div>
