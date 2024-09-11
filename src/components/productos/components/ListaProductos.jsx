@@ -4,7 +4,7 @@ import styles from "@/styles/Home.module.css";
 
 const ListaProductos = ({ productos, loading }) => {
   if (loading) {
-    return <p>Cargando productos...</p>;
+    return <p className={styles.cargandoProductos}>Cargando productos...</p>;
   }
 
   return (
