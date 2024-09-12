@@ -1,7 +1,9 @@
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/Home.module.css"
 
-const Cargando = () => {
-  return <p className={styles.loader}>Cargando perfil...</p>;
-};
-
-export default Cargando;
+export default function Cargando() {
+  return (
+    <div className={styles.cargandoContenedor}>
+      <p className={styles.cargandoPerfil}>Cargando perfil...</p>
+    </div>
+  )
+}
