@@ -2922,6 +2922,7 @@
   overflow: hidden;         
   text-overflow: ellipsis;
   margin-top: 10px;
+  text-align: left;
 }
 
 .formulario .botonSolicitudServicio{

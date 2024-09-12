@@ -1,6 +1,8 @@
 export const validateField = (name, value) => {
   let error = "";
 
+  const today = new Date().setHours(0, 0, 0, 0); 
+
   switch (name) {
     case "nombre":
       error = value ? "" : "El nombre es obligatorio";
@@ -28,7 +30,14 @@ export const validateField = (name, value) => {
       error = value ? "" : "Selecciona un dispositivo";
       break;
     case "fecha":
-      error = value ? "" : "La fecha es obligatoria";
+      if (!value) {
+        error = "La fecha es obligatoria";
+      } else {
+        const selectedDate = new Date(value).setHours(0, 0, 0, 0);
+        if (selectedDate <= today) {
+          error = "La fecha debe ser posterior a la actual";
+        }
+      }
       break;
     case "cantidad":
       error = value > 0 ? "" : "La cantidad debe ser mayor que cero";
