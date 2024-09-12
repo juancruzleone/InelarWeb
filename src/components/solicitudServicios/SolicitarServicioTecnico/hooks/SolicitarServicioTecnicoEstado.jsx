@@ -12,7 +12,7 @@ const useFormularioServicioTecnico = () => {
     fecha: "",
     dispositivo: "",
     cantidad: 1,
-    category: "técnico", 
+    category: "servicio técnico", 
   });
 
   const [formErrors, setFormErrors] = useState({
