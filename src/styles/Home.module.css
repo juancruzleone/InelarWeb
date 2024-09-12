@@ -3103,7 +3103,7 @@
   margin-left: 25px;
 }
 
-.contenedorPagina {
+.contenedorPaginaPerfil {
   min-height: calc(100vh - 100px); 
   display: flex;
   flex-direction: column;

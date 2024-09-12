@@ -47,7 +47,7 @@ export default function Perfil() {
         <title>{user ? `Perfil de ${user.userName}` : 'Perfil de Usuario'}</title>
       </Head>
       <Layout>
-        <div className={styles.contenedorPagina}>
+        <div className={styles.contenedorPaginaPerfil}>
           {loading ? (
             <Cargando />
           ) : error ? (
