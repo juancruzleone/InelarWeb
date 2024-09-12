@@ -19,7 +19,7 @@ const ListaServicios = () => {
       <h2 className={styles.tituloPaginasPanel}>Servicios</h2>
       <input
         type="text"
-        placeholder="Search service by name or address..."
+        placeholder="Buscar servicio por nombre o dirección..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
         className={styles.buscadorPanel} 
