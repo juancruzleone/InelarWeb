@@ -8,6 +8,7 @@ import ListaProductos from "@/components/ListaProductos.jsx";
 import ListaClientes from "@/components/ListaClientes.jsx";
 import ListaMensajes from "@/components/ListaMensajes.jsx";
 import ListaServicios from "@/components/ListaServicios.jsx";
+import ListaInstalaciones from "@/components/ListaInstalaciones.jsx"; 
 import styles from "@/styles/Home.module.css";
 
 const PanelAdmin = () => {
@@ -16,7 +17,9 @@ const PanelAdmin = () => {
   const router = useRouter();
 
   useEffect(() => {
-    const userData = typeof window !== "undefined" ? JSON.parse(localStorage.getItem("userData")) : null;
+    const userData = typeof window !== "undefined"
+      ? JSON.parse(localStorage.getItem("userData"))
+      : null;
 
     if (!userData || !userData.cuenta || userData.cuenta.role !== "admin") {
       router.push("/login");
@@ -38,7 +41,7 @@ const PanelAdmin = () => {
   }, [solapaActiva]);
 
   if (isLoading || solapaActiva === null) {
-    return null; 
+    return null;
   }
 
   const handleSolapaClick = (solapa) => {
@@ -55,7 +58,10 @@ const PanelAdmin = () => {
       <h1 className={styles.tituloPanel}>Panel admin</h1>
       <div className={styles.contenedorPanelAdmin}>
         <div className={styles.posicionMenuPanel}>
-          <PanelNav onSolapaClick={handleSolapaClick} solapaActiva={solapaActiva} />
+          <PanelNav
+            onSolapaClick={handleSolapaClick}
+            solapaActiva={solapaActiva}
+          />
         </div>
         <div className={styles.contenedorContenidoPanel}>
           <div className={styles.contenidoPanel}>
@@ -63,6 +69,7 @@ const PanelAdmin = () => {
             {solapaActiva === "clientes" && <ListaClientes />}
             {solapaActiva === "servicios" && <ListaServicios />}
             {solapaActiva === "mensajes" && <ListaMensajes />}
+            {solapaActiva === "instalaciones" && <ListaInstalaciones />} 
           </div>
         </div>
       </div>

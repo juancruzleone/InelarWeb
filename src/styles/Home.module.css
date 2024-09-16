@@ -3122,3 +3122,41 @@
   color:  white;
   font-weight: 400;
 }
+
+
+.tarjetaProductoPanelInstalaciones{
+  display: flex;
+  justify-content: space-between;
+  background-color: #1d1d1d;
+  border-radius: 7px;
+  padding: 20px;
+  margin: 30px;
+  width: 500px;
+  height: 200px;
+  font-family: "montserrat", sans-serif;
+}
+
+.tarjetaProductoPanelInstalaciones{
+  display: flex;
+  justify-content: space-between;
+  background-color: #1d1d1d;
+  border-radius: 7px;
+  padding: 20px;
+  margin: 30px;
+  width: 600px;
+  height: 200px;
+  font-family: "montserrat", sans-serif;
+}
+
+.tarjetaDireccion{
+  margin-top: 12px;
+  font-size: 18px;
+}
+
+.TipoInstalacion{
+  margin-top: 80px;
+  background-color: #C75F00;
+  width: 250px;
+  border-radius: 4px;
+  padding: 3px;
+}
