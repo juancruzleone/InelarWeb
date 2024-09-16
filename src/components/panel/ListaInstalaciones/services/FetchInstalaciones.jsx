@@ -43,7 +43,7 @@ export const createInstallation = async (instalacion) => {
       throw new Error('No se encontró el token de autenticación');
     }
 
-    const response = await fetch(`${API_URL}/create`, {
+    const response = await fetch(`${API_URL}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ export const updateInstallation = async (id, instalacion) => {
       throw new Error('No se encontró el token de autenticación');
     }
 
-    const response = await fetch(`${API_URL}/edit/${id}`, {
+    const response = await fetch(`${API_URL}/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -97,7 +97,7 @@ export const deleteInstallation = async (id) => {
       throw new Error('No se encontró el token de autenticación');
     }
 
-    const response = await fetch(`${API_URL}/delete/${id}`, {
+    const response = await fetch(`${API_URL}/${id}`, {
       method: 'DELETE',
       headers: {
         'Authorization': `Bearer ${token}`,

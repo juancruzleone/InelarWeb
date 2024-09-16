@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
 import { fetchInstallations, createInstallation, updateInstallation, deleteInstallation } from "@/components/panel/ListaInstalaciones/services/FetchInstalaciones.jsx";
-import validateInstallation from "@/components/panel/ListaInstalaciones/utils/validaciones.jsx";
+import { validateInstallation } from "@/components/panel/ListaInstalaciones/utils/validaciones.jsx";
 
 const useInstalaciones = () => {
   const [installations, setInstallations] = useState([]);
@@ -13,23 +13,36 @@ const useInstalaciones = () => {
   const [confirmationModal, setConfirmationModal] = useState(false);
   const [confirmationMessage, setConfirmationMessage] = useState("");
   const [selectedInstallation, setSelectedInstallation] = useState(null);
-  const [newInstallation, setNewInstallation] = useState({ company: "", address: "", floorSector: "", postalCode: "", city: "", province: "", installationType: "", image: null });
+  
+  // Asegúrate de que 'company' esté inicializado con una cadena vacía
+  const [newInstallation, setNewInstallation] = useState({ 
+    company: "", 
+    address: "", 
+    floorSector: "", 
+    postalCode: "", 
+    city: "", 
+    province: "", 
+    installationType: "", 
+    image: null 
+  });
+  
   const [search, setSearch] = useState("");
-  const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const [previewImage, setPreviewImage] = useState(null);
+  
+  // Nuevos estados para manejar errores separados
+  const [createErrors, setCreateErrors] = useState({});
+  const [editErrors, setEditErrors] = useState({});
 
-  // Fetch installations data from API
   const fetchInstallationsData = useCallback(async () => {
     setLoading(true);
     try {
       const result = await fetchInstallations();
-      console.log("API response:", result); 
+      console.log("API response:", result);
 
       if (result.error) {
         throw new Error(result.error);
       }
-
 
       if (Array.isArray(result)) {
         setInstallations(result);
@@ -47,57 +60,43 @@ const useInstalaciones = () => {
     }
   }, []);
 
-
-  const handleCreateInstallation = () => setCreateModal(true);
-  const handleEditInstallation = (installation) => {
-    setSelectedInstallation(installation);
-    setPreviewImage(installation.image);
-    setEditModal(true);
+  const handleCreateInstallation = () => {
+    setCreateModal(true);
+    setCreateErrors({}); // Limpiar errores al abrir el modal de creación
   };
+  
+  const handleEditInstallation = (installation) => {
+    setSelectedInstallation({ ...installation });
+    setEditModal(true);
+    setEditErrors({}); // Limpiar errores al abrir el modal de edición
+    if (installation.image) {
+      setPreviewImage(installation.image);
+    }
+  };
+
   const handleDeleteInstallation = (installation) => {
-    setSelectedInstallation(installation);
+    setSelectedInstallation({ ...installation });
     setDeleteModal(true);
   };
+
   const handleCloseModal = () => {
     setCreateModal(false);
     setEditModal(false);
     setDeleteModal(false);
-    setConfirmationModal(false);
-    setSelectedInstallation(null);
-    setNewInstallation({ company: "", address: "", floorSector: "", postalCode: "", city: "", province: "", installationType: "", image: null });
-    setErrors({});
-    setPreviewImage(null);
+    setCreateErrors({}); // Limpiar errores al cerrar los modales
+    setEditErrors({});
   };
+
   const showConfirmation = (message) => {
     setConfirmationMessage(message);
     setConfirmationModal(true);
   };
 
-  
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setNewInstallation({ ...newInstallation, [name]: value });
-  };
-  const handleEditInputChange = (e) => {
-    const { name, value } = e.target;
-    setSelectedInstallation({ ...selectedInstallation, [name]: value });
-  };
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    setNewInstallation({ ...newInstallation, image: file });
-  };
-  const handleEditFileChange = (e) => {
-    const file = e.target.files[0];
-    setSelectedInstallation({ ...selectedInstallation, image: file });
-    setPreviewImage(URL.createObjectURL(file));
-  };
-
-
   const handleCreateSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validateInstallation(newInstallation);
     if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
+      setCreateErrors(validationErrors);
       return;
     }
     try {
@@ -106,7 +105,7 @@ const useInstalaciones = () => {
       showConfirmation("Instalación creada exitosamente");
       handleCloseModal();
     } catch (error) {
-      console.error("Error creating installation:", error);
+      console.error("Error al crear instalación:", error);
     }
   };
 
@@ -114,7 +113,7 @@ const useInstalaciones = () => {
     e.preventDefault();
     const validationErrors = validateInstallation(selectedInstallation);
     if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
+      setEditErrors(validationErrors);
       return;
     }
     try {
@@ -123,20 +122,43 @@ const useInstalaciones = () => {
       showConfirmation("Instalación editada exitosamente");
       handleCloseModal();
     } catch (error) {
-      console.error("Error editing installation:", error);
+      console.error("Error al editar la instalación:", error);
     }
   };
 
-  const handleDeleteSubmit = async (e) => {
-    e.preventDefault();
+  const handleDeleteSubmit = async () => {
+    if (!selectedInstallation) {
+      console.error("No installation selected for deletion");
+      return;
+    }
     try {
       await deleteInstallation(selectedInstallation._id);
       fetchInstallationsData();
       showConfirmation("Instalación eliminada exitosamente");
       handleCloseModal();
     } catch (error) {
-      console.error("Error deleting installation:", error);
+      console.error("Error al eliminar la instalación:", error);
     }
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setNewInstallation((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleEditInputChange = (e) => {
+    const { name, value } = e.target;
+    setSelectedInstallation((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setNewInstallation((prev) => ({ ...prev, image: file }));
+  };
+
+  const handleEditFileChange = (e) => {
+    const file = e.target.files[0];
+    setSelectedInstallation((prev) => ({ ...prev, image: file }));
   };
 
   return {
@@ -153,7 +175,8 @@ const useInstalaciones = () => {
     selectedInstallation,
     newInstallation,
     search,
-    errors,
+    createErrors,
+    editErrors,
     loading,
     previewImage,
     setCreateModal,
@@ -162,6 +185,9 @@ const useInstalaciones = () => {
     setConfirmationModal,
     setSelectedCategory,
     setSearch,
+    setNewInstallation,
+    setCreateErrors,
+    setEditErrors,
     handleCreateInstallation,
     handleEditInstallation,
     handleDeleteInstallation,

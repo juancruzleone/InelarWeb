@@ -23,7 +23,8 @@ const ListaInstalaciones = () => {
     selectedInstallation,
     newInstallation,
     search,
-    errors,
+    createErrors,
+    editErrors,
     loading,
     previewImage,
     setCreateModal,
@@ -32,6 +33,9 @@ const ListaInstalaciones = () => {
     setConfirmationModal,
     setSelectedCategory,
     setSearch,
+    setNewInstallation,
+    setCreateErrors,
+    setEditErrors,
     handleCreateInstallation,
     handleEditInstallation,
     handleDeleteInstallation,
@@ -57,12 +61,10 @@ const ListaInstalaciones = () => {
   }, [selectedCategory, search, installations, setFilteredInstallations]);
 
   const handleAddDevice = (installation) => {
-    // Implementar la lógica para agregar dispositivo
     console.log("Agregar dispositivo a", installation.company);
   };
 
   const handleViewDevices = (installation) => {
-    // Implementar la lógica para ver listado de dispositivos
     console.log("Ver dispositivos de", installation.company);
   };
 
@@ -163,20 +165,21 @@ const ListaInstalaciones = () => {
         isOpen={createModal}
         onClose={handleCloseModal}
         newInstallation={newInstallation}
-        errors={errors}
+        errors={createErrors}
         showConfirmation={showConfirmation}
         handleInputChange={handleInputChange}
         handleFileChange={handleFileChange}
         handleSubmit={handleCreateSubmit}
         categories={categories}
+        setNewInstallation={setNewInstallation}
+        setErrors={setCreateErrors}
       />
 
       <EditarInstalacionModal
         isOpen={editModal}
         onClose={handleCloseModal}
         selectedInstallation={selectedInstallation}
-        errors={errors}
-        showConfirmation={showConfirmation}
+        errors={editErrors}
         handleInputChange={handleEditInputChange}
         handleFileChange={handleEditFileChange}
         handleSubmit={handleEditSubmit}
@@ -186,9 +189,12 @@ const ListaInstalaciones = () => {
 
       <EliminarInstalacionModal
         isOpen={deleteModal}
-        onClose={handleCloseModal}
+        onRequestClose={handleCloseModal} 
         selectedInstallation={selectedInstallation}
-        handleDeleteSubmit={handleDeleteSubmit}
+        onConfirm={() => {
+          handleDeleteSubmit();
+          handleCloseModal(); 
+        }}
       />
 
       <ConfirmacionModal

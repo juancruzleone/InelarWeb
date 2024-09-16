@@ -7,13 +7,8 @@ const ModalEditar = ({
   onClose,
   selectedInstallation,
   errors,
-  showConfirmation,
   handleInputChange,
-  handleFileChange,
-  handleTextareaInput,
   handleSubmit,
-  categories,
-  previewImage,
 }) => {
   return (
     <Modal
@@ -23,21 +18,13 @@ const ModalEditar = ({
       className={`${styles.ModalPanelCrear} ${styles.Modal}`}
       closeTimeoutMS={500}
     >
-      <h2>Editar instalación</h2>
-      {selectedInstallation && (
-        <FormularioEditar
-          selectedInstallation={selectedInstallation}
-          errors={errors}
-          showConfirmation={showConfirmation}
-          handleInputChange={handleInputChange}
-          handleFileChange={handleFileChange}
-          handleTextareaInput={handleTextareaInput}
-          handleSubmit={handleSubmit}
-          categories={categories}
-          handleCloseModal={onClose}
-          previewImage={previewImage}
-        />
-      )}
+      <FormularioEditar
+        selectedInstallation={selectedInstallation}
+        errors={errors}
+        handleInputChange={handleInputChange}
+        handleSubmit={handleSubmit}
+        onClose={onClose}
+      />
     </Modal>
   );
 };

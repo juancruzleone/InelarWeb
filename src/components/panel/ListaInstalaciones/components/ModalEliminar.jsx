@@ -1,45 +1,28 @@
 import Modal from "react-modal";
 import styles from "@/styles/Home.module.css";
-import FormularioEditar from "@/components/panel/ListaInstalaciones/components/FormularioEditar";
 
-const ModalEditar = ({
-  isOpen,
-  onClose,
-  selectedInstallation,
-  errors,
-  showConfirmation,
-  handleInputChange,
-  handleFileChange,
-  handleTextareaInput,
-  handleSubmit,
-  categories,
-  previewImage,
-}) => {
-  return (
-    <Modal
-      isOpen={isOpen}
-      onRequestClose={onClose}
-      contentLabel="Editar Instalación"
-      className={`${styles.ModalPanelCrear} ${styles.Modal}`}
-      closeTimeoutMS={500}
-    >
-      <h2>Editar instalación</h2>
-      {selectedInstallation && (
-        <FormularioEditar
-          initialValues={selectedInstallation}
-          errors={errors}
-          showConfirmation={showConfirmation}
-          handleInputChange={handleInputChange}
-          handleFileChange={handleFileChange}
-          handleTextareaInput={handleTextareaInput}
-          handleSubmit={handleSubmit}
-          categories={categories}
-          onClose={onClose}
-          previewImage={previewImage}
-        />
-      )}
-    </Modal>
-  );
-};
+const ModalEliminarInstalacion = ({ isOpen, onRequestClose, onConfirm }) => (
+  <Modal
+    isOpen={isOpen}
+    onRequestClose={onRequestClose}
+    contentLabel="Eliminar Instalación"
+    className={`${styles.ModalPanelEditar} ${styles.Modal}`}
+    closeTimeoutMS={1000}
+  >
+    <h2>Eliminar instalación</h2>
+    <p className={styles.textoEliminarCliente}>¿Estás seguro de eliminar esta instalación?</p>
+    <div className={styles.contenedorBotonesEditar}>
+      <button
+        onClick={onConfirm}
+        className={styles.botonEliminarProducto}
+      >
+        Eliminar
+      </button>
+      <button onClick={onRequestClose} className={styles.botonCancelarModal}>
+        Cancelar
+      </button>
+    </div>
+  </Modal>
+);
 
-export default ModalEditar;
+export default ModalEliminarInstalacion;

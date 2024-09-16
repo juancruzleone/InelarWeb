@@ -2142,7 +2142,7 @@
 .Modal .botonCancelarModal{
   /*background-color:  rgb(46, 46, 46);*/
   background-color:  #2b2b2b;
-  padding: 7px;
+  padding: 8px;
   border-radius: 4px;
   font-family: "montserrat",sans-serif;
   border: 0px;
@@ -3204,3 +3204,6 @@
   background-color: #2c2c2c;
 }
 
+.ModalPanelCrear .error{
+  text-align: left;
+}
