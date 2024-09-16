@@ -56,6 +56,16 @@ const ListaInstalaciones = () => {
     setFilteredInstallations(filtered);
   }, [selectedCategory, search, installations, setFilteredInstallations]);
 
+  const handleAddDevice = (installation) => {
+    // Implementar la lógica para agregar dispositivo
+    console.log("Agregar dispositivo a", installation.company);
+  };
+
+  const handleViewDevices = (installation) => {
+    // Implementar la lógica para ver listado de dispositivos
+    console.log("Ver dispositivos de", installation.company);
+  };
+
   return (
     <div className={styles.contenedorPagina}>
       <h2 className={styles.tituloPaginasPanel}>Instalaciones</h2>
@@ -98,30 +108,46 @@ const ListaInstalaciones = () => {
                   <p className={styles.TipoInstalacion}>{installation.installationType}</p>
                 </div>
                 <div className={styles.tarjetaBotones}>
-                  <button
-                    onClick={() => handleEditInstallation(installation)}
-                    className={styles.botonEditar}
-                  >
-                    <Image
-                      src="/editar.svg"
-                      alt="Editar"
-                      className={styles.iconoEditar}
-                      width={30}
-                      height={30}
-                    />
-                  </button>
-                  <button
-                    onClick={() => handleDeleteInstallation(installation)}
-                    className={styles.botonEliminar}
-                  >
-                    <Image
-                      src="/eliminar.svg"
-                      alt="Eliminar"
-                      className={styles.iconoEliminar}
-                      width={30}
-                      height={30}
-                    />
-                  </button>
+                  <div className={styles.botonesDispositivos}>
+                    <button
+                      onClick={() => handleAddDevice(installation)}
+                      id={styles.botonAgregarDispositivo}
+                    >
+                      Agregar dispositivo
+                    </button>
+                    <button
+                      onClick={() => handleViewDevices(installation)}
+                      id={styles.botonVerDispositivos}
+                    >
+                      Ver listado de dispositivos
+                    </button>
+                  </div>
+                  <div className={styles.botonesEdicionEliminacion}>
+                    <button
+                      onClick={() => handleEditInstallation(installation)}
+                      className={styles.botonEditar}
+                    >
+                      <Image
+                        src="/editar.svg"
+                        alt="Editar"
+                        className={styles.iconoEditar}
+                        width={30}
+                        height={30}
+                      />
+                    </button>
+                    <button
+                      onClick={() => handleDeleteInstallation(installation)}
+                      className={styles.botonEliminar}
+                    >
+                      <Image
+                        src="/eliminar.svg"
+                        alt="Eliminar"
+                        className={styles.iconoEliminar}
+                        width={30}
+                        height={30}
+                      />
+                    </button>
+                  </div>
                 </div>
               </div>
             ))

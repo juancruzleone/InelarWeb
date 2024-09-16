@@ -2069,6 +2069,10 @@
   font-family: "montserrat", sans-serif;
 }
 
+.tarjetaProductoPanelClientes .botonEliminar{
+  background-color: rgb(179, 19, 19);
+}
+
 .buscadorPanel{
   border-radius: 10px;
   width: 90%;
@@ -3144,7 +3148,7 @@
   padding: 20px;
   margin: 30px;
   width: 600px;
-  height: 200px;
+  height: 230px;
   font-family: "montserrat", sans-serif;
 }
 
@@ -3154,9 +3158,49 @@
 }
 
 .TipoInstalacion{
-  margin-top: 80px;
+  margin-top: 100px;
   background-color: #C75F00;
   width: 250px;
   border-radius: 4px;
   padding: 3px;
+  font-size: 16px;
 }
+
+.tarjetaBotones {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.botonesDispositivos {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.botonesEdicionEliminacion {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+#botonAgregarDispositivo,
+#botonVerDispositivos {
+  width: 100%;
+  padding: 9px;
+  border-radius: 4px;
+  background-color: #2c2c2c;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.botonEditar {
+  background: none;
+  border: none;
+  cursor: pointer;
+  background-color: #2c2c2c;
+}
+

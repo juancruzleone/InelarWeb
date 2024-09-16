@@ -10,8 +10,6 @@ const FormularioCrear = ({
 }) => {
   return (
     <form onSubmit={handleSubmit} className={styles.formularioPanel}>
-      <h2>Crear Instalación</h2>
-
       <div>
         <label htmlFor="company">Empresa:</label>
         <input
