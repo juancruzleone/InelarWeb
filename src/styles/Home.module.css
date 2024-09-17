@@ -2978,6 +2978,7 @@
 .botonGuardar{
   margin-right: 15px;
   cursor: pointer;
+  color: white;
 }
 
 .contenidoDetalle a{
@@ -3207,3 +3208,9 @@
 .ModalPanelCrear .error{
   text-align: left;
 }
+
+.botonCancelarModal{
+  color: white;
+}
+
+
