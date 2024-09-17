@@ -9,6 +9,7 @@ import ListaClientes from "@/components/ListaClientes.jsx";
 import ListaMensajes from "@/components/ListaMensajes.jsx";
 import ListaServicios from "@/components/ListaServicios.jsx";
 import ListaInstalaciones from "@/components/ListaInstalaciones.jsx"; 
+import ListaUsuarios from "@/components/ListaUsuarios.jsx"; // Nueva importación
 import styles from "@/styles/Home.module.css";
 
 const PanelAdmin = () => {
@@ -70,6 +71,7 @@ const PanelAdmin = () => {
             {solapaActiva === "servicios" && <ListaServicios />}
             {solapaActiva === "mensajes" && <ListaMensajes />}
             {solapaActiva === "instalaciones" && <ListaInstalaciones />} 
+            {solapaActiva === "usuarios" && <ListaUsuarios />} 
           </div>
         </div>
       </div>

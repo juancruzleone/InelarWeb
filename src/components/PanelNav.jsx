@@ -25,9 +25,9 @@ const PanelNav = ({ onSolapaClick, solapaActiva }) => {
           Servicios
         </button>
         <button
-            onClick={() => onSolapaClick("instalaciones")} // Nueva solapa
-            className={solapaActiva === "instalaciones" ? styles.solapaActiva : styles.seccionesNavPanel}
-         >
+          onClick={() => onSolapaClick("instalaciones")}
+          className={solapaActiva === "instalaciones" ? styles.solapaActiva : styles.seccionesNavPanel}
+        >
           Instalaciones
         </button>
         <button
@@ -35,6 +35,12 @@ const PanelNav = ({ onSolapaClick, solapaActiva }) => {
           className={solapaActiva === "mensajes" ? styles.solapaActiva : styles.seccionesNavPanel}
         >
           Mensajes
+        </button>
+        <button
+          onClick={() => onSolapaClick("usuarios")} // Nueva solapa
+          className={solapaActiva === "usuarios" ? styles.solapaActiva : styles.seccionesNavPanel}
+        >
+          Usuarios
         </button>
       </nav>
     </main>
