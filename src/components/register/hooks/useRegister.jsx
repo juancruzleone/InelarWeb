@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { validateUsername, validatePassword } from "@/components/register/utils/ValidacionesRegistro";
+import { validateUsername, validateEmail, validatePassword } from "@/components/register/utils/ValidacionesRegistro";
 import { registerUser, loginUser } from "@/components/register/services/FetchRegistro";
 
 const useRegister = () => {
   const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState({ username: "", password: "", general: "" });
+  const [error, setError] = useState({ username: "", email: "", password: "", general: "" });
   const [showModal, setShowModal] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
@@ -15,6 +16,12 @@ const useRegister = () => {
     const newUsername = e.target.value;
     setUsername(newUsername);
     setError((prev) => ({ ...prev, username: validateUsername(newUsername) }));
+  };
+
+  const handleEmailChange = (e) => {
+    const newEmail = e.target.value;
+    setEmail(newEmail);
+    setError((prev) => ({ ...prev, email: validateEmail(newEmail) }));
   };
 
   const handlePasswordChange = (e) => {
@@ -27,15 +34,16 @@ const useRegister = () => {
     e.preventDefault();
 
     const usernameError = validateUsername(username);
+    const emailError = validateEmail(email);
     const passwordError = validatePassword(password);
 
-    if (usernameError || passwordError) {
-      setError({ username: usernameError, password: passwordError });
+    if (usernameError || emailError || passwordError) {
+      setError({ username: usernameError, email: emailError, password: passwordError });
       return;
     }
 
     try {
-      const response = await registerUser({ username, password });
+      const response = await registerUser({ username, email, password });
 
       if (!response.ok) {
         const errorData = await response.json();
@@ -83,11 +91,13 @@ const useRegister = () => {
 
   return {
     username,
+    email,
     password,
     error,
     showModal,
     showPassword,
     handleUsernameChange,
+    handleEmailChange,
     handlePasswordChange,
     handleSubmit,
     togglePasswordVisibility,

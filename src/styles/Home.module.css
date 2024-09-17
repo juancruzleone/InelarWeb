@@ -2508,6 +2508,10 @@
   border-radius: 10px;
 }
 
+.formularioLogin .error{
+  text-align: left;
+}
+
 .passwordContainer {
   position: relative;
 }
@@ -3164,6 +3168,8 @@
   border-radius: 4px;
   padding: 3px;
   font-size: 16px;
+  color: #1d1d1d;
+  font-weight: 500;
 }
 
 .tarjetaBotones {

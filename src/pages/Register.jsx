@@ -9,11 +9,13 @@ import styles from "@/styles/Home.module.css";
 const Register = () => {
   const {
     username,
+    email,
     password,
     error,
     showModal,
     showPassword,
     handleUsernameChange,
+    handleEmailChange,
     handlePasswordChange,
     handleSubmit,
     togglePasswordVisibility,
@@ -32,12 +34,14 @@ const Register = () => {
           <h1 className={styles.tituloPrelogin}>Regístrate</h1>
           <FormularioRegistro
             username={username}
+            email={email}
             password={password}
             error={error}
             showPassword={showPassword}
             handleUsernameChange={handleUsernameChange}
+            handleEmailChange={handleEmailChange}
             handlePasswordChange={handlePasswordChange}
-            handleSubmit={handleSubmit} 
+            handleSubmit={handleSubmit}
             togglePasswordVisibility={togglePasswordVisibility}
           />
         </div>

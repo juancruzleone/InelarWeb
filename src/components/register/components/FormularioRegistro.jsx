@@ -3,10 +3,12 @@ import styles from "@/styles/Home.module.css";
 
 const FormularioRegistro = ({
   username,
+  email, // Nuevo campo agregado
   password,
   error,
   showPassword,
   handleUsernameChange,
+  handleEmailChange, // Nueva función de manejo para email
   handlePasswordChange,
   handleSubmit,
   togglePasswordVisibility,
@@ -26,6 +28,21 @@ const FormularioRegistro = ({
         className={styles.inputField}
       />
       {error.username && <p className={styles.error}>{error.username}</p>}
+
+      {/* Campo de email agregado */}
+      <label htmlFor="email" className={styles.formLabel}>
+        Correo electrónico
+      </label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Ingresa tu correo electrónico"
+        value={email}
+        onChange={handleEmailChange}
+        className={styles.inputField}
+      />
+      {error.email && <p className={styles.error}>{error.email}</p>}
 
       <label htmlFor="contraseña" className={styles.formLabel}>
         Contraseña
