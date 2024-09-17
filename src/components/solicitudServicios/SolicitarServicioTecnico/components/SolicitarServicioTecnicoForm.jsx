@@ -10,6 +10,7 @@ const FormularioServicioTecnico = ({ formData, formErrors, productos, handleChan
         name="nombre"
         value={formData.nombre}
         onChange={handleChange}
+        placeholder="Escribe tu nombre"
         className={formErrors.nombre ? styles.inputError : ""}
       />
       {formErrors.nombre && <p className={styles.errorServicios}>{formErrors.nombre}</p>}
@@ -21,6 +22,7 @@ const FormularioServicioTecnico = ({ formData, formErrors, productos, handleChan
         name="email"
         value={formData.email}
         onChange={handleChange}
+        placeholder="Escribe tu email"
         className={formErrors.email ? styles.inputError : ""}
       />
       {formErrors.email && <p className={styles.errorServicios}>{formErrors.email}</p>}
@@ -32,6 +34,7 @@ const FormularioServicioTecnico = ({ formData, formErrors, productos, handleChan
         name="telefono"
         value={formData.telefono}
         onChange={handleChange}
+        placeholder="Escribe tu télefono"
         className={formErrors.telefono ? styles.inputError : ""}
       />
       {formErrors.telefono && <p className={styles.errorServicios}>{formErrors.telefono}</p>}
@@ -43,6 +46,7 @@ const FormularioServicioTecnico = ({ formData, formErrors, productos, handleChan
         name="direccion"
         value={formData.direccion}
         onChange={handleChange}
+        placeholder="Escribe tu dirección"
         className={formErrors.direccion ? styles.inputError : ""}
       />
       {formErrors.direccion && <p className={styles.errorServicios}>{formErrors.direccion}</p>}
@@ -53,6 +57,7 @@ const FormularioServicioTecnico = ({ formData, formErrors, productos, handleChan
         name="problema"
         value={formData.problema}
         onChange={handleChange}
+        placeholder="Describe el problema"
         className={formErrors.problema ? styles.inputError : ""}
       />
       {formErrors.problema && <p className={styles.errorServicios}>{formErrors.problema}</p>}
@@ -63,6 +68,7 @@ const FormularioServicioTecnico = ({ formData, formErrors, productos, handleChan
         name="dispositivo"
         value={formData.dispositivo}
         onChange={handleChange}
+        placeholder="Selecciona una opción"
         className={formErrors.dispositivo ? styles.inputError : ""}
       >
         <option value="">Selecciona una opción</option>
@@ -82,6 +88,7 @@ const FormularioServicioTecnico = ({ formData, formErrors, productos, handleChan
         value={formData.cantidad}
         onChange={handleChange}
         min="1"
+        placeholder="Escribe la cantidad"
         className={formErrors.cantidad ? styles.inputError : ""}
       />
       {formErrors.cantidad && <p className={styles.errorServicios}>{formErrors.cantidad}</p>}
@@ -93,6 +100,7 @@ const FormularioServicioTecnico = ({ formData, formErrors, productos, handleChan
         name="fecha"
         value={formData.fecha}
         onChange={handleChange}
+        placeholder="Selecciona una fecha"
         className={formErrors.fecha ? styles.inputError : ""}
       />
       {formErrors.fecha && <p className={styles.errorServicios}>{formErrors.fecha}</p>}

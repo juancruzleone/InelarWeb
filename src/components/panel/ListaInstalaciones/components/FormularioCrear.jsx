@@ -23,6 +23,7 @@ const FormularioCrear = ({
           name="company"
           value={newInstallation.company}
           onChange={handleChange}
+          placeholder="Escribe el nombre de la empresa"
         />
         {errors.company && <p className={styles.error}>{errors.company}</p>}
         <label htmlFor="address">Dirección:</label>
@@ -32,6 +33,7 @@ const FormularioCrear = ({
           name="address"
           value={newInstallation.address}
           onChange={handleChange}
+          placeholder="Escribe la dirección de la instalación"
         />
         {errors.address && <p className={styles.error}>{errors.address}</p>}
         <label htmlFor="floorSector">Piso/Sector:</label>
@@ -41,6 +43,7 @@ const FormularioCrear = ({
           name="floorSector"
           value={newInstallation.floorSector}
           onChange={handleChange}
+          placeholder="Escribe piso/sector de la instalación o edificio"
         />
         {errors.floorSector && <p className={styles.error}>{errors.floorSector}</p>}
         <label htmlFor="postalCode">Código Postal:</label>
@@ -50,6 +53,7 @@ const FormularioCrear = ({
           name="postalCode"
           value={newInstallation.postalCode}
           onChange={handleChange}
+          placeholder="Escribe el código postal"
         />
         {errors.postalCode && <p className={styles.error}>{errors.postalCode}</p>}
         <label htmlFor="city">Ciudad:</label>
@@ -59,6 +63,7 @@ const FormularioCrear = ({
           name="city"
           value={newInstallation.city}
           onChange={handleChange}
+          placeholder="Escribe la ciudad"
         />
         {errors.city && <p className={styles.error}>{errors.city}</p>}
         <label htmlFor="province">Provincia:</label>
@@ -68,6 +73,7 @@ const FormularioCrear = ({
           name="province"
           value={newInstallation.province}
           onChange={handleChange}
+          placeholder="Escribe la provincia"
         />
         {errors.province && <p className={styles.error}>{errors.province}</p>}
         <label htmlFor="installationType">Tipo de instalación:</label>
@@ -76,6 +82,7 @@ const FormularioCrear = ({
           name="installationType"
           value={newInstallation.installationType}
           onChange={handleChange}
+          placeholder="Seleccion un tipo de instalación"
         >
           <option value="">Seleccione un tipo</option>
           {categories.map((category, index) => (

@@ -21,6 +21,7 @@ const FormularioEditar = ({
         name="name"
         value={selectedProduct?.name || ""}
         onChange={handleInputChange}
+        placeholder="Escribe el nombre del producto"
       />
       {errors.name && <p className={styles.errorPanel}>{errors.name}</p>}
 
@@ -30,6 +31,7 @@ const FormularioEditar = ({
         name="categoria"
         value={selectedProduct?.categoria || ""}
         onChange={handleInputChange}
+        placeholder="Selecciona una categoría"
       >
         <option value="">Selecciona una categoría</option>
         {categories.map((categoria, index) => (
@@ -46,6 +48,7 @@ const FormularioEditar = ({
         name="description"
         value={selectedProduct?.description || ""}
         onChange={handleTextareaInput}
+        placeholder="Escribe la descripción del producto"
         className={styles.textarea}
       ></textarea>
       {errors.description && <p className={styles.errorPanel}>{errors.description}</p>}
@@ -57,6 +60,7 @@ const FormularioEditar = ({
         name="price"
         value={selectedProduct?.price || ""}
         onChange={handleInputChange}
+        placeholder="Escribe el precio del producto"
       />
       {errors.price && <p className={styles.errorPanel}>{errors.price}</p>}
 
@@ -79,6 +83,7 @@ const FormularioEditar = ({
         name="imagen"
         accept="image/*"
         onChange={handleFileChange}
+        placeholder="Selecciona una imagen"
       />
       {errors.imagen && !selectedProduct?.imagen && (
         <p className={styles.errorPanel}>{errors.imagen}</p>

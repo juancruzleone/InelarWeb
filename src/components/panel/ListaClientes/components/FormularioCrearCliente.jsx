@@ -41,7 +41,7 @@ const FormularioCrearCliente = ({ onRequestClose, token, role, refreshClients, s
     if (success) {
       setConfirmationMessage('Cliente creado con éxito.');
       setConfirmationModal(true);
-      onRequestClose(); // Cerrar el modal de creación
+      onRequestClose(); 
     }
   };
 
@@ -53,7 +53,8 @@ const FormularioCrearCliente = ({ onRequestClose, token, role, refreshClients, s
         id="name"
         name="name"
         value={newClient.name || ''}
-        onChange={handleInputChange} 
+        onChange={handleInputChange}
+        placeholder='Escribe el nombre del cliente'
       />
       {errores.name && <p className={styles.errorPanel}>{errores.name}</p>}
 

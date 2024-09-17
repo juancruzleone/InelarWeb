@@ -56,6 +56,7 @@ const FormularioEditarCliente = ({
             name="name"
             value={selectedClient?.name || ''}
             onChange={handleChange}
+            placeholder='Escribe el nombre del cliente'
           />
           {errors.name && <p className={styles.error}>{errors.name}</p>}
         </div>

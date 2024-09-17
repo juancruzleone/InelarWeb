@@ -20,6 +20,7 @@ const FormularioCrear = ({
         name="name"
         value={newProduct.name}
         onChange={handleInputChange}
+        placeholder="Escribe el nombre del producto"
       />
       {errors.name && <p className={styles.errorPanel}>{errors.name}</p>}
 
@@ -29,6 +30,7 @@ const FormularioCrear = ({
         name="categoria"
         value={newProduct.categoria}
         onChange={handleInputChange}
+        placeholder="Selecciona una categoría"
       >
         <option value="">Selecciona una categoría</option>
         {categories.map((categoria, index) => (
@@ -45,6 +47,7 @@ const FormularioCrear = ({
         name="description"
         value={newProduct.description}
         onChange={handleTextareaInput}
+        placeholder="Escribe la descripción del producto"
         className={styles.textarea}
       ></textarea>
       {errors.description && <p className={styles.errorPanel}>{errors.description}</p>}
@@ -56,6 +59,7 @@ const FormularioCrear = ({
         name="price"
         value={newProduct.price}
         onChange={handleInputChange}
+        placeholder="Escribe el precio del producto"
       />
       {errors.price && <p className={styles.errorPanel}>{errors.price}</p>}
 
@@ -66,6 +70,7 @@ const FormularioCrear = ({
         name="imagen"
         accept="image/*"
         onChange={handleFileChange}
+        placeholder="Selecciona una imagen"
       />
       {errors.imagen && !newProduct.imagen && (
         <p className={styles.errorPanel}>{errors.imagen}</p>

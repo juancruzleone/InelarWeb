@@ -18,6 +18,7 @@ const SolicitarInstalacionesForm = ({
         value={formData.nombre}
         onChange={handleInputChange}
         className={formErrors.nombre ? styles.inputError : ""}
+        placeholder="Escribe tu nombre"
       />
       {formErrors.nombre && <p className={styles.errorServicios}>{formErrors.nombre}</p>}
 
@@ -28,6 +29,7 @@ const SolicitarInstalacionesForm = ({
         name="email"
         value={formData.email}
         onChange={handleInputChange}
+        placeholder="Escribe tu email"
         className={formErrors.email ? styles.inputError : ""}
       />
       {formErrors.email && <p className={styles.errorServicios}>{formErrors.email}</p>}
@@ -41,6 +43,7 @@ const SolicitarInstalacionesForm = ({
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}
         className={formErrors.telefono ? styles.inputError : ""}
+        placeholder="Escribe tu télefono"
       />
       {formErrors.telefono && <p className={styles.errorServicios}>{formErrors.telefono}</p>}
 
@@ -51,6 +54,7 @@ const SolicitarInstalacionesForm = ({
         name="direccion"
         value={formData.direccion}
         onChange={handleInputChange}
+        placeholder="Escribe tu dirección"
         className={formErrors.direccion ? styles.inputError : ""}
       />
       {formErrors.direccion && <p className={styles.errorServicios}>{formErrors.direccion}</p>}
@@ -61,6 +65,7 @@ const SolicitarInstalacionesForm = ({
         name="dispositivo"
         value={formData.dispositivo}
         onChange={handleInputChange}
+        placeholder="Selecciona una opción"
         className={formErrors.dispositivo ? styles.inputError : ""}
       >
         <option value="">Selecciona una opción</option>
@@ -80,6 +85,7 @@ const SolicitarInstalacionesForm = ({
         value={formData.cantidad}
         onChange={handleInputChange}
         min="1"
+        placeholder="Escribe la cantidad"
         className={formErrors.cantidad ? styles.inputError : ""}
       />
       {formErrors.cantidad && <p className={styles.errorServicios}>{formErrors.cantidad}</p>}
@@ -91,6 +97,7 @@ const SolicitarInstalacionesForm = ({
         name="fecha"
         value={formData.fecha}
         onChange={handleInputChange}
+        placeholder="Selecciona una fecha"
         className={formErrors.fecha ? styles.inputError : ""}
       />
       {formErrors.fecha && <p className={styles.errorServicios}>{formErrors.fecha}</p>}
