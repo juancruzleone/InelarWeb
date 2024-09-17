@@ -7,8 +7,10 @@ const ModalEditar = ({
   onClose,
   selectedInstallation,
   errors,
-  handleInputChange,
+  handleEditInputChange,
   handleSubmit,
+  setErrors,
+  categories
 }) => {
   return (
     <Modal
@@ -21,9 +23,11 @@ const ModalEditar = ({
       <FormularioEditar
         selectedInstallation={selectedInstallation}
         errors={errors}
-        handleInputChange={handleInputChange}
+        handleEditInputChange={handleEditInputChange}
         handleSubmit={handleSubmit}
         onClose={onClose}
+        setErrors={setErrors}
+        categories={categories}
       />
     </Modal>
   );

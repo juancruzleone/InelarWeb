@@ -180,11 +180,12 @@ const ListaInstalaciones = () => {
         onClose={handleCloseModal}
         selectedInstallation={selectedInstallation}
         errors={editErrors}
-        handleInputChange={handleEditInputChange}
+        handleEditInputChange={handleEditInputChange}
         handleFileChange={handleEditFileChange}
         handleSubmit={handleEditSubmit}
         categories={categories}
         previewImage={previewImage}
+        setErrors={setEditErrors}
       />
 
       <EliminarInstalacionModal

@@ -66,20 +66,16 @@ export const validateInstallation = (installation) => {
   return errors;
 };
 
-export const handleInputChange = (e, installation, setInstallation, setErrors) => {
+export const handleInputChange = (e, installation) => {
   const { name, value } = e.target;
   const updatedInstallation = { ...installation, [name]: value };
-  setInstallation(updatedInstallation);
-
   const newErrors = validateInstallation(updatedInstallation);
-  setErrors(newErrors);
+  return { updatedInstallation, newErrors };
 };
 
-export const handleTextareaInput = (e, installation, setInstallation, setErrors) => {
+export const handleTextareaInput = (e, installation) => {
   const { name, value } = e.target;
   const updatedInstallation = { ...installation, [name]: value };
-  setInstallation(updatedInstallation);
-
   const newErrors = validateInstallation(updatedInstallation);
-  setErrors(newErrors);
+  return { updatedInstallation, newErrors };
 };

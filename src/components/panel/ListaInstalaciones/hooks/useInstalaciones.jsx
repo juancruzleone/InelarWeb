@@ -13,24 +13,11 @@ const useInstalaciones = () => {
   const [confirmationModal, setConfirmationModal] = useState(false);
   const [confirmationMessage, setConfirmationMessage] = useState("");
   const [selectedInstallation, setSelectedInstallation] = useState(null);
-  
-  // Asegúrate de que 'company' esté inicializado con una cadena vacía
-  const [newInstallation, setNewInstallation] = useState({ 
-    company: "", 
-    address: "", 
-    floorSector: "", 
-    postalCode: "", 
-    city: "", 
-    province: "", 
-    installationType: "", 
-    image: null 
-  });
-  
+  const [newInstallation, setNewInstallation] = useState({ company: "", address: "", floorSector: "", postalCode: "", city: "", province: "", installationType: "", image: null });
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(false);
   const [previewImage, setPreviewImage] = useState(null);
-  
-  // Nuevos estados para manejar errores separados
+
   const [createErrors, setCreateErrors] = useState({});
   const [editErrors, setEditErrors] = useState({});
 
@@ -62,13 +49,13 @@ const useInstalaciones = () => {
 
   const handleCreateInstallation = () => {
     setCreateModal(true);
-    setCreateErrors({}); // Limpiar errores al abrir el modal de creación
+    setCreateErrors({});
   };
   
   const handleEditInstallation = (installation) => {
     setSelectedInstallation({ ...installation });
     setEditModal(true);
-    setEditErrors({}); // Limpiar errores al abrir el modal de edición
+    setEditErrors({});
     if (installation.image) {
       setPreviewImage(installation.image);
     }
@@ -83,7 +70,7 @@ const useInstalaciones = () => {
     setCreateModal(false);
     setEditModal(false);
     setDeleteModal(false);
-    setCreateErrors({}); // Limpiar errores al cerrar los modales
+    setCreateErrors({});
     setEditErrors({});
   };
 
