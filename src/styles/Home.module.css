@@ -1340,7 +1340,7 @@
 }
 
 .navPanel button:hover{
-  background-color:#f57600
+  background-color: #f9bf79;
 }
 
 .contenedorPanelAdmin .contenedorContenidoPanel{
@@ -1415,9 +1415,8 @@
   padding: 0.3rem;
   border-bottom: 4px solid transparent;
   cursor: pointer;
-  background-color: #f57600;
+  background-color: #f9bf79;
 }
-
 
 .precioDetalle{
   font-family: "montserrat", sans-serif;
@@ -1511,11 +1510,11 @@
 .contenedorCategoria:hover{
   border-radius: 4px;
   cursor: pointer;
-  background-color: #f57600;
+  background-color: #f9bf79;
 }
 
 .categoriaSeleccionada{
-  background-color:  #f57600;
+  background-color:  #f9bf79;
 }
 
 .contenedorServicios{
