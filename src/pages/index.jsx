@@ -136,7 +136,7 @@ const Index = () => {
             <Link href="/instalaciones" className={styles.servicioLink}>
               <h3 className={styles.nombreServicios}>Instalaciones</h3>
               <Image
-                src="/instalaciones.svg"
+                src="/instalaciones2.svg"
                 alt="Edificio en mantenimiento"
                 className={styles.iconoServicios}
                 width={140}
@@ -148,7 +148,7 @@ const Index = () => {
             <Link href="/mantenimientos" className={styles.servicioLink}>
               <h3 className={styles.nombreServicios}>Mantenimientos</h3>
               <Image
-                src="/mantenimiento.svg"
+                src="/mantenimiento2.svg"
                 alt="Herramientas"
                 className={styles.iconoServicios}
                 width={140}
@@ -160,7 +160,7 @@ const Index = () => {
             <Link href="/serviciotecnico" className={styles.servicioLink}>
               <h3 className={styles.nombreServicios}>Servicio técnico</h3>
               <Image
-                src="/servicio-tecnico.svg"
+                src="/servicio-tecnico2.svg"
                 alt="Técnico con llave inglesa"
                 className={styles.iconoServicios}
                 width={140}
@@ -172,7 +172,7 @@ const Index = () => {
             <Link href="/provisiones" className={styles.servicioLink}>
               <h3 className={styles.nombreServicios}>Provisiones</h3>
               <Image
-                src="/provisiones.svg"
+                src="/provisiones2.svg"
                 alt="Camión de reparto"
                 className={styles.iconoServicios}
                 width={140}

@@ -21,7 +21,7 @@ const Servicios = () => {
         <div className={styles.cardServicios}>
           <Link href="/instalaciones" className={styles.cardLink}>
             <Image
-              src="/instalaciones.svg"
+              src="/instalaciones2.svg"
               alt="Edificio en mantenimiento"
               className={styles.iconoServiciosCard}
               width={140}
@@ -35,7 +35,7 @@ const Servicios = () => {
         <div className={styles.cardServicios}>
           <Link href="/mantenimientos" className={styles.cardLink}>
             <Image
-              src="/mantenimiento.svg"
+              src="/mantenimiento2.svg"
               alt="Herramientas"
               className={styles.iconoServiciosCard}
               width={140}
@@ -63,7 +63,7 @@ const Servicios = () => {
         <div className={styles.cardServicios}>
           <Link href="/provisiones" className={styles.cardLink}>
             <Image
-              src="/provisiones.svg"
+              src="/provisiones2.svg"
               alt="Camión de reparto"
               className={styles.iconoServiciosCard}
               width={140}

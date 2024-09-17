@@ -21,7 +21,7 @@ const ServicioTecnico = () => {
           <p className={styles.textoServicios}>Además, ponemos a tu disposición una línea telefónica y una plataforma de asistencia en línea para garantizar una respuesta rápida y efectiva ante cualquier inconveniente técnico. Nuestro objetivo es siempre mantener tus operaciones en línea y sin contratiempos.</p>
         </div>
         <Image
-          src="/servicio-tecnico-servicio.jpeg"
+          src="/servicio-tecnico-servicio.webp"
           alt="Imagen servicio técnico"
           className={styles.fotoServicio}
           width={300}
