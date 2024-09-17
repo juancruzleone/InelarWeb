@@ -79,12 +79,12 @@ const nextConfig = {
       },
       {
         source: '/panel',
-        destination: '/Panel',
+        destination: '/PanelAdmin',
       },
     ];
   },
   images: {
-    domains: ['res.cloudinary.com'], // Permite cargar imágenes desde res.cloudinary.com
+    domains: ['res.cloudinary.com'], 
   },
 };
 
