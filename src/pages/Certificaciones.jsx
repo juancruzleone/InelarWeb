@@ -19,7 +19,7 @@ const Certificaciones = () => {
       <div className={styles.posicionContenedorCertificaciones}>
         <div className={styles.contenedorCertificaciones}>
           <Image
-            src="/logo-iram.svg"
+            src="/logo-iram2.svg"
             alt="Logo certificación IRAM"
             width={120}
             height={120}
@@ -27,7 +27,7 @@ const Certificaciones = () => {
         </div>
         <div className={styles.contenedorCertificaciones}>
           <Image
-            src="/logo-nfpa.svg"
+            src="/logo-nfpa2.svg"
             alt="Logo certificación NFPA"
             width={120}
             height={120}
@@ -35,7 +35,7 @@ const Certificaciones = () => {
         </div>
         <div className={styles.contenedorCertificaciones}>
           <Image
-            src="/logo 3.svg"
+            src="/logo-cemera.svg"
             alt="Logo certificación CEMERA"
             className={styles.celularImagen}
             width={120}
