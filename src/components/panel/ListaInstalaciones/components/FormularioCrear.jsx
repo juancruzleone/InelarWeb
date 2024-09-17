@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "@/styles/Home.module.css";
-import { handleInputChange, handleTextareaInput } from "@/components/panel/ListaInstalaciones/utils/validaciones.jsx";
 
 const FormularioCrear = ({ 
   newInstallation, 
@@ -8,15 +7,11 @@ const FormularioCrear = ({
   handleSubmit, 
   onClose,
   categories,
-  setNewInstallation,
+  handleInputChange,
   setErrors
 }) => {
   const handleChange = (e) => {
-    handleInputChange(e, newInstallation, setNewInstallation, setErrors);
-  };
-
-  const handleTextarea = (e) => {
-    handleTextareaInput(e, newInstallation, setNewInstallation, setErrors);
+    handleInputChange(e);
   };
 
   return (

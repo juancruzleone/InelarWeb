@@ -130,12 +130,22 @@ const useInstalaciones = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setNewInstallation((prev) => ({ ...prev, [name]: value }));
+    setNewInstallation((prev) => {
+      const updatedInstallation = { ...prev, [name]: value };
+      const newErrors = validateInstallation(updatedInstallation);
+      setCreateErrors(newErrors);
+      return updatedInstallation;
+    });
   };
 
   const handleEditInputChange = (e) => {
     const { name, value } = e.target;
-    setSelectedInstallation((prev) => ({ ...prev, [name]: value }));
+    setSelectedInstallation((prev) => {
+      const updatedInstallation = { ...prev, [name]: value };
+      const newErrors = validateInstallation(updatedInstallation);
+      setEditErrors(newErrors);
+      return updatedInstallation;
+    });
   };
 
   const handleFileChange = (e) => {
