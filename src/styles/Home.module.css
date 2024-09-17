@@ -2186,7 +2186,7 @@
 
 .contenedorPerfilUsuario{
   background-color: #C75F00;
-  height: 250px;
+  height: 280px;
   
 }
 
@@ -2199,13 +2199,19 @@
   background-color: #121212;
   border-radius: 4px;
   padding: 5px;
-  width: 280px;
+  width: 300px;
   text-align: center;
 }
 
 .contenidoPerfilUsuario{
   margin-left: 28px;
   padding-top: 40px;
+}
+
+.contenedorPerfilUsuario .emailUsuario{
+  text-align: left;
+  color: black;
+  font-weight: bold;
 }
 
 .contenidoPerfilUsuario h1{
@@ -2296,8 +2302,8 @@
 
 .idUsuario {
   font-size: 18px;
-  font-weight: bold;
-  color: #666;
+  font-weight: 500;
+  color: white;
 }
 
 .contenedorPedidoUsuario {
@@ -2342,7 +2348,7 @@
 
 .contenidoOrdenes li p {
   font-size: 14px;
-  color: #666;
+  color: white;
 }
 
 .contenidoOrdenes li ul {
@@ -2362,7 +2368,7 @@
 
 .contenidoOrdenes li ul li p {
   font-size: 14px;
-  color: #666;
+  color:  white;
 }
 
 .ordenes{
@@ -2539,17 +2545,18 @@
 }
 
 .botonEditarPerfil{
-  background-color: #666;
-  color: white;
+  background-color: white;
+  color: black;
   border-radius: 4px;
   padding: 10px;
   border: 0px;
   margin-top: 15px;
   cursor: pointer;
+  font-weight: 600;
 }
 
 .botonEditarPerfil:hover{
-  background-color: rgb(124, 124, 124);
+  background-color: rgb(197, 196, 196)
 }
 
 .ModalEditarPerfil {
