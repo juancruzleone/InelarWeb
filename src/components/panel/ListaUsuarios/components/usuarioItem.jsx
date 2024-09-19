@@ -1,4 +1,5 @@
 import styles from "@/styles/Home.module.css";
+import Link from "next/link";
 
 export default function UsuarioItem({ user }) {
   return (
@@ -8,6 +9,7 @@ export default function UsuarioItem({ user }) {
         <p><span>ID:</span> {user._id}</p>
         <p><span>Email:</span> {user.email}</p>
         <p><span>Rol:</span> {user.role}</p>
+        <Link href={`/perfilUsuario/${user._id}`}>Ver perfil</Link>
       </div>
     </div>
   );
