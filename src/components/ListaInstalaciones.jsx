@@ -318,6 +318,7 @@ const ListaInstalaciones = () => {
         handleFileChange={handleEditFileChange}
         setErrors={setEditErrors}
         categories={categories}
+        showConfirmation={showConfirmation}  
       />
       <EliminarInstalacionModal
         isOpen={deleteModal}
@@ -327,7 +328,7 @@ const ListaInstalaciones = () => {
       />
       <ConfirmacionModal
         isOpen={confirmationModal}
-        handleClose={handleCloseModal}
+        onClose={() => setConfirmationModal(false)}
         message={confirmationMessage}
       />
       <ModalCrearDispositivo

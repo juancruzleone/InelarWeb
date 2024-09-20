@@ -3,7 +3,7 @@ import { addDeviceToInstallation, updateDeviceInInstallation, deleteDeviceFromIn
 import { validateDevice } from '@/components/panel/ListaInstalaciones/dispositivos/utils/Validaciones.jsx';
 
 const useDispositivos = (installationId, deviceId = null, onDeviceDeleted) => {
-  const [newDevice, setNewDevice] = useState({ nombre: '', ubicacion: '', estado: '' });
+  const [newDevice, setNewDevice] = useState({ nombre: '', ubicacion: '', categoria: '' });
   const [editDevice, setEditDevice] = useState(null);
   const [createErrors, setCreateErrors] = useState({});
   const [editErrors, setEditErrors] = useState({});
@@ -31,7 +31,7 @@ const useDispositivos = (installationId, deviceId = null, onDeviceDeleted) => {
     if (Object.keys(newErrors).length === 0) {
       const result = await addDeviceToInstallation(installationId, newDevice);
       if (!result.error) {
-        setNewDevice({ nombre: '', ubicacion: '', estado: '' });
+        setNewDevice({ nombre: '', ubicacion: '', categoria: '' });
         showConfirmation('Dispositivo creado exitosamente');
         return true;
       } else {

@@ -30,18 +30,18 @@ const FormularioCrear = ({
         placeholder="Escribe la ubicación del dispositivo"
       />
       {errors.ubicacion && <p className={styles.error}>{errors.ubicacion}</p>}
-      <label htmlFor="estado">Estado:</label>
+      <label htmlFor="categoria">Categoria:</label>
       <select
-        id="estado"
-        name="estado"
-        value={newDevice.estado}
+        id="categoria"
+        name="categoria"
+        value={newDevice.categoria}
         onChange={handleInputChange}
       >
-        <option value="">Seleccione un estado</option>
-        <option value="si">si</option>
-        <option value="no">no</option>
+        <option value="">Seleccione una categoria</option>
+        <option value="bomba">bomba</option>
+        <option value="hidrante">hidrante</option>
       </select>
-      {errors.estado && <p className={styles.error}>{errors.estado}</p>}
+      {errors.categoria && <p className={styles.error}>{errors.categoria}</p>}
       <div className={styles.contenedorBotonesEditar}>
         <button type="submit" className={styles.botonGuardar}>
           Crear

@@ -20,10 +20,10 @@ export const validateDevice = (device) => {
     }
   
     // Validación para 'estado'
-    if (!device.estado?.trim()) {
-      errors.estado = "El estado del dispositivo es un campo requerido.";
-    } else if (!['si', 'no'].includes(device.estado)) {
-      errors.estado = "El estado debe ser 'si' o 'no'.";
+    if (!device.categoria?.trim()) {
+      errors.categoria = "La categoria del dispositivo es un campo requerido.";
+    } else if (!['bomba', 'hidrante'].includes(device.categoria)) {
+      errors.categoria = "La categoria debe ser 'bomba' o 'hidrante'.";
     }
   
     return { newErrors: errors };
