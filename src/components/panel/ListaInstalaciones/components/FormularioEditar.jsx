@@ -8,10 +8,8 @@ const FormularioEditar = ({
   handleSubmit, 
   onClose,
   handleEditInputChange,
-  handleFileChange,
   setErrors,
-  categories,
-  showConfirmation
+  categories
 }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,28 +25,10 @@ const FormularioEditar = ({
     setErrors(newErrors);
   };
 
-  const handleFormSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await handleSubmit(e);
-      if (typeof showConfirmation === 'function') {
-        showConfirmation("Instalación editada exitosamente");
-      } else {
-        console.log("Instalación editada exitosamente");
-      }
-      onClose();
-    } catch (error) {
-      console.error("Error al editar la instalación:", error);
-      if (typeof showConfirmation === 'function') {
-        showConfirmation("Error al editar la instalación");
-      }
-    }
-  };
-
   if (!selectedInstallation) return null;
 
   return (
-    <form onSubmit={handleFormSubmit} className={styles.formularioPanel}>
+    <form onSubmit={handleSubmit} className={styles.formularioPanel}>
       <h2>Editar Instalación</h2>
       <label htmlFor="company">Empresa</label>
       <input

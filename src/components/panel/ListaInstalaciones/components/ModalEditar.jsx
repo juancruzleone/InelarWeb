@@ -12,8 +12,7 @@ const ModalEditar = ({
   handleEditInputChange,
   handleFileChange,
   setErrors,
-  categories,
-  showConfirmation
+  categories
 }) => (
   <Modal
     isOpen={isOpen}
@@ -28,10 +27,8 @@ const ModalEditar = ({
       handleSubmit={handleSubmit}
       onClose={handleClose}
       handleEditInputChange={handleEditInputChange}
-      handleFileChange={handleFileChange}
       setErrors={setErrors}
       categories={categories}
-      showConfirmation={showConfirmation}
     />
   </Modal>
 );
