@@ -12,14 +12,16 @@ const FormularioEditar = ({
   categories
 }) => {
   const handleChange = (e) => {
+    const { name, value } = e.target;
     const { updatedInstallation, newErrors } = handleInputChange(e, selectedInstallation);
-    handleEditInputChange(e);
+    handleEditInputChange(name, value);
     setErrors(newErrors);
   };
 
-  const handleTextarea = (e) => {
+  const handleTextareaChange = (e) => {
+    const { name, value } = e.target;
     const { updatedInstallation, newErrors } = handleTextareaInput(e, selectedInstallation);
-    handleEditInputChange(e);
+    handleEditInputChange(name, value);
     setErrors(newErrors);
   };
 

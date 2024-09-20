@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { fetchInstallations, createInstallation, updateInstallation, deleteInstallation } from "@/components/panel/ListaInstalaciones/services/FetchInstalaciones.jsx";
 import { validateInstallation } from "@/components/panel/ListaInstalaciones/utils/validaciones.jsx";
 
@@ -25,12 +25,9 @@ const useInstalaciones = () => {
     setLoading(true);
     try {
       const result = await fetchInstallations();
-      console.log("API response:", result);
-
       if (result.error) {
         throw new Error(result.error);
       }
-
       if (Array.isArray(result)) {
         setInstallations(result);
         const uniqueCategories = [...new Set(result.map(installation => installation.installationType))];
@@ -138,8 +135,7 @@ const useInstalaciones = () => {
     });
   };
 
-  const handleEditInputChange = (e) => {
-    const { name, value } = e.target;
+  const handleEditInputChange = (name, value) => {
     setSelectedInstallation((prev) => {
       const updatedInstallation = { ...prev, [name]: value };
       const newErrors = validateInstallation(updatedInstallation);
@@ -157,6 +153,10 @@ const useInstalaciones = () => {
     const file = e.target.files[0];
     setSelectedInstallation((prev) => ({ ...prev, image: file }));
   };
+
+  useEffect(() => {
+    fetchInstallationsData();
+  }, [fetchInstallationsData]);
 
   return {
     installations,

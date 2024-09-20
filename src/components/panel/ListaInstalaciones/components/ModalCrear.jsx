@@ -1,3 +1,4 @@
+import React from "react";
 import Modal from "react-modal";
 import styles from "@/styles/Home.module.css";
 import FormularioCrear from "@/components/panel/ListaInstalaciones/components/FormularioCrear.jsx";
@@ -12,9 +13,9 @@ const ModalCrear = ({
   handleFileChange, 
   handleTextareaInput, 
   handleSubmit, 
-  categories,
   setNewInstallation,
-  setErrors
+  setErrors,
+  categories
 }) => (
   <Modal
     isOpen={isOpen}
@@ -33,9 +34,9 @@ const ModalCrear = ({
       handleTextareaInput={handleTextareaInput} 
       handleSubmit={handleSubmit}
       onClose={onClose}
-      categories={categories}
       setNewInstallation={setNewInstallation}
       setErrors={setErrors}
+      categories={categories}
     />
   </Modal>
 );

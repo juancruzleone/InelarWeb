@@ -12,6 +12,7 @@ import ModalEditarDispositivo from "@/components/panel/ListaInstalaciones/dispos
 import ModalEliminarDispositivo from "@/components/panel/ListaInstalaciones/dispositivos/components/ModalEliminar";
 import ModalImprimirQR from "@/components/panel/ListaInstalaciones/dispositivos/components/ModalImprimirQR";
 import { fetchDevicesFromInstallation } from "@/components/panel/ListaInstalaciones/dispositivos/services/FetchDispositivos";
+import { deleteInstallation } from "@/components/panel/ListaInstalaciones/services/FetchInstalaciones";
 
 const ListaInstalaciones = () => {
   const {
@@ -53,7 +54,6 @@ const ListaInstalaciones = () => {
     handleEditFileChange,
     handleCreateSubmit,
     handleEditSubmit,
-    handleDeleteSubmit,
   } = useInstalaciones();
 
   const [isDeviceModalOpen, setDeviceModalOpen] = useState(false);
@@ -65,6 +65,7 @@ const ListaInstalaciones = () => {
   const [viewingDevices, setViewingDevices] = useState(false);
   const [devices, setDevices] = useState([]);
   const [loadingDevices, setLoadingDevices] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
     fetchInstallationsData();
@@ -120,6 +121,25 @@ const ListaInstalaciones = () => {
 
   const handleCloseDeviceModal = () => {
     setDeviceModalOpen(false);
+  };
+
+  const handleDeleteSubmit = async () => {
+    if (!selectedInstallation) {
+      console.error("No installation selected for deletion");
+      return;
+    }
+    setIsDeleting(true);
+    try {
+      await deleteInstallation(selectedInstallation._id);
+      fetchInstallationsData();
+      showConfirmation("Instalación eliminada exitosamente");
+      handleCloseModal();
+    } catch (error) {
+      console.error("Error al eliminar la instalación:", error);
+      showConfirmation("Error al eliminar la instalación");
+    } finally {
+      setIsDeleting(false);
+    }
   };
 
   return (
@@ -284,22 +304,26 @@ const ListaInstalaciones = () => {
         newInstallation={newInstallation}
         handleInputChange={handleInputChange}
         handleFileChange={handleFileChange}
+        setErrors={setCreateErrors}
+        categories={categories}
       />
       <EditarInstalacionModal
         isOpen={editModal}
         handleClose={handleCloseModal}
         handleSubmit={handleEditSubmit}
         errors={editErrors}
-        previewImage={previewImage}
         selectedInstallation={selectedInstallation}
-        handleInputChange={handleEditInputChange}
+        handleEditInputChange={handleEditInputChange}
         handleFileChange={handleEditFileChange}
+        setErrors={setEditErrors}
+        categories={categories}
       />
       <EliminarInstalacionModal
         isOpen={deleteModal}
         handleClose={handleCloseModal}
         handleSubmit={handleDeleteSubmit}
         selectedInstallation={selectedInstallation}
+        isDeleting={isDeleting}
       />
       <ConfirmacionModal
         isOpen={confirmationModal}

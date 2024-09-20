@@ -1,5 +1,5 @@
 import styles from "@/styles/Home.module.css";
-import UsuarioItem from "@/components/panel/ListaUsuarios/components/UsuarioItem.jsx";
+import UsuarioItem from "@/components/panel/ListaUsuarios/components/usuarioItem.jsx";
 import useUsuarios from "@/components/panel/ListaUsuarios/hooks/useUsuarios.jsx";
 
 const ListaUsuarios = () => {
