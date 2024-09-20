@@ -131,9 +131,9 @@ const ListaInstalaciones = () => {
     setIsDeleting(true);
     try {
       await deleteInstallation(selectedInstallation._id);
-      fetchInstallationsData();
+      await fetchInstallationsData();
       showConfirmation("Instalación eliminada exitosamente");
-      handleCloseModal();
+      setDeleteModal(false);
     } catch (error) {
       console.error("Error al eliminar la instalación:", error);
       showConfirmation("Error al eliminar la instalación");
@@ -320,9 +320,8 @@ const ListaInstalaciones = () => {
       />
       <EliminarInstalacionModal
         isOpen={deleteModal}
-        handleClose={handleCloseModal}
-        handleSubmit={handleDeleteSubmit}
-        selectedInstallation={selectedInstallation}
+        onRequestClose={() => setDeleteModal(false)}
+        onConfirm={handleDeleteSubmit}
         isDeleting={isDeleting}
       />
       <ConfirmacionModal
@@ -346,7 +345,8 @@ const ListaInstalaciones = () => {
         onClose={() => setDeleteDeviceModalOpen(false)}
         selectedDevice={selectedDevice}
         installation={selectedInstallationForDevice}
-        onDeviceDeleted={handleDeviceDeleted}
+        onDev
+        iceDeleted={handleDeviceDeleted}
       />
       <ModalImprimirQR
         isOpen={isPrintQRModalOpen}
