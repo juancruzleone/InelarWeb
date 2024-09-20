@@ -41,6 +41,7 @@ const FormularioCrear = ({
         placeholder="Escribe el nombre de la empresa"
       />
       {errors.company && <p className={styles.error}>{errors.company}</p>}
+      
       <label htmlFor="address">Dirección:</label>
       <input
         type="text"
@@ -51,6 +52,7 @@ const FormularioCrear = ({
         placeholder="Escribe la dirección de la instalación"
       />
       {errors.address && <p className={styles.error}>{errors.address}</p>}
+      
       <label htmlFor="floorSector">Piso/Sector:</label>
       <input
         type="text"
@@ -61,6 +63,7 @@ const FormularioCrear = ({
         placeholder="Escribe piso/sector de la instalación o edificio"
       />
       {errors.floorSector && <p className={styles.error}>{errors.floorSector}</p>}
+      
       <label htmlFor="postalCode">Código Postal:</label>
       <input
         type="text"
@@ -71,6 +74,7 @@ const FormularioCrear = ({
         placeholder="Escribe el código postal"
       />
       {errors.postalCode && <p className={styles.error}>{errors.postalCode}</p>}
+      
       <label htmlFor="city">Ciudad:</label>
       <input
         type="text"
@@ -81,6 +85,7 @@ const FormularioCrear = ({
         placeholder="Escribe la ciudad"
       />
       {errors.city && <p className={styles.error}>{errors.city}</p>}
+      
       <label htmlFor="province">Provincia:</label>
       <input
         type="text"
@@ -91,6 +96,7 @@ const FormularioCrear = ({
         placeholder="Escribe la provincia"
       />
       {errors.province && <p className={styles.error}>{errors.province}</p>}
+      
       <label htmlFor="installationType">Tipo de instalación:</label>
       <select
         id="installationType"
@@ -106,6 +112,7 @@ const FormularioCrear = ({
         ))}
       </select>
       {errors.installationType && <p className={styles.error}>{errors.installationType}</p>}
+      
       <div className={styles.contenedorBotonesEditar}>
         <button type="submit" className={styles.botonGuardar}>
           Crear

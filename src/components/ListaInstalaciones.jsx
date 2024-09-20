@@ -306,6 +306,7 @@ const ListaInstalaciones = () => {
         handleFileChange={handleFileChange}
         setErrors={setCreateErrors}
         categories={categories}
+        onClose={() => setCreateModal(false)}
       />
       <EditarInstalacionModal
         isOpen={editModal}
