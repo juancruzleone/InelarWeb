@@ -13,8 +13,11 @@ const ModalEliminarDispositivo = ({ isOpen, onClose, installation, selectedDevic
   } = useDispositivos(installation?._id, selectedDevice?._id, onDeviceDeleted);
 
   const onConfirm = async () => {
-    await handleDeleteSubmit();
-    onClose();
+    const success = await handleDeleteSubmit();
+    if (success) {
+      onDeviceDeleted(selectedDevice._id);
+      onClose();
+    }
   };
 
   return (

@@ -12,6 +12,7 @@ const ModalEditar = ({
   onClose,
   selectedDevice,
   installation,
+  onDeviceUpdated, // Add this prop
 }) => {
   const [localDevice, setLocalDevice] = useState(selectedDevice || {});
   const [localErrors, setLocalErrors] = useState({});
@@ -26,7 +27,7 @@ const ModalEditar = ({
 
   useEffect(() => {
     setLocalDevice(selectedDevice || {});
-    setLocalErrors({}); // Reset errors when the modal opens or selectedDevice changes
+    setLocalErrors({});
   }, [selectedDevice, isOpen]);
 
   const handleEditInputChange = (e) => {
@@ -42,6 +43,7 @@ const ModalEditar = ({
     if (Object.keys(newErrors).length === 0) {
       const success = await handleEditSubmit(e, localDevice);
       if (success) {
+        onDeviceUpdated(localDevice); // Call this function to update the parent component
         onClose();
       }
     } else {

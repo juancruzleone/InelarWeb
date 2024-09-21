@@ -119,6 +119,14 @@ const ListaInstalaciones = () => {
     setDevices(prevDevices => prevDevices.filter(device => device._id !== deletedDeviceId));
   };
 
+  const handleDeviceUpdated = (updatedDevice) => {
+    setDevices(prevDevices => 
+      prevDevices.map(device => 
+        device._id === updatedDevice._id ? updatedDevice : device
+      )
+    );
+  };
+
   const handleCloseDeviceModal = () => {
     setDeviceModalOpen(false);
   };
@@ -254,7 +262,7 @@ const ListaInstalaciones = () => {
                   <div className={styles.tarjetaContenido}>
                     <h3>{device.nombre}</h3>
                     <p>Ubicación: {device.ubicacion}</p>
-                    <p>Estado: {device.estado}</p>
+                    <p>Categoria: {device.categoria}</p>
                   </div>
                   <div className={styles.botonesEdicionEliminacion}>
                     <button onClick={() => handleEditDevice(device)} className={styles.botonEditar}>
@@ -341,14 +349,14 @@ const ListaInstalaciones = () => {
         onClose={() => setEditDeviceModalOpen(false)}
         selectedDevice={selectedDevice}
         installation={selectedInstallationForDevice}
+        onDeviceUpdated={handleDeviceUpdated}
       />
       <ModalEliminarDispositivo
         isOpen={isDeleteDeviceModalOpen}
         onClose={() => setDeleteDeviceModalOpen(false)}
         selectedDevice={selectedDevice}
         installation={selectedInstallationForDevice}
-        onDev
-        iceDeleted={handleDeviceDeleted}
+        onDeviceDeleted={handleDeviceDeleted}
       />
       <ModalImprimirQR
         isOpen={isPrintQRModalOpen}

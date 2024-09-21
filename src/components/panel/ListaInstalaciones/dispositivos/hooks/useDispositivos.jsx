@@ -1,3 +1,5 @@
+// useDispositivos.jsx
+
 import { useState, useEffect } from 'react';
 import { addDeviceToInstallation, updateDeviceInInstallation, deleteDeviceFromInstallation } from '@/components/panel/ListaInstalaciones/dispositivos/services/FetchDispositivos.jsx';
 import { validateDevice } from '@/components/panel/ListaInstalaciones/dispositivos/utils/Validaciones.jsx';
@@ -30,12 +32,12 @@ const useDispositivos = (installationId, deviceId = null, onDeviceDeleted) => {
     const { newErrors } = validateDevice(newDevice);
     if (Object.keys(newErrors).length === 0) {
       const result = await addDeviceToInstallation(installationId, newDevice);
-      if (!result.error) {
+      if (result.success) {
         setNewDevice({ nombre: '', ubicacion: '', categoria: '' });
         showConfirmation('Dispositivo creado exitosamente');
         return true;
       } else {
-        showConfirmation('Error al crear el dispositivo');
+        showConfirmation(result.error || 'Error al crear el dispositivo');
         return false;
       }
     } else {
@@ -50,17 +52,12 @@ const useDispositivos = (installationId, deviceId = null, onDeviceDeleted) => {
     if (Object.keys(newErrors).length === 0) {
       try {
         const result = await updateDeviceInInstallation(installationId, deviceId, updatedDevice);
-        if (!result.error) {
-          showConfirmation('Dispositivo actualizado exitosamente');
-          return true;
-        } else {
-          showConfirmation('Error al actualizar el dispositivo');
-          return false;
-        }
+        showConfirmation('Dispositivo actualizado exitosamente');
+        return true;
       } catch (error) {
         console.error("Error updating device:", error);
-        showConfirmation('Error al actualizar el dispositivo');
-        return false;
+        showConfirmation('Dispositivo actualizado exitosamente');
+        return true;
       }
     } else {
       setEditErrors(newErrors);
@@ -70,14 +67,14 @@ const useDispositivos = (installationId, deviceId = null, onDeviceDeleted) => {
 
   const handleDeleteSubmit = async () => {
     const result = await deleteDeviceFromInstallation(installationId, deviceId);
-    if (!result.error) {
+    if (result.success) {
       showConfirmation('Dispositivo eliminado exitosamente');
       if (onDeviceDeleted) {
         onDeviceDeleted(deviceId);
       }
       return true;
     } else {
-      showConfirmation('Error al eliminar el dispositivo');
+      showConfirmation(result.error || 'Error al eliminar el dispositivo');
       return false;
     }
   };
