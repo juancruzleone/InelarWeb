@@ -1,9 +1,9 @@
 import styles from "@/styles/Home.module.css";
 import UsuarioItem from "@/components/panel/ListaUsuarios/components/usuarioItem.jsx";
-import useUsuarios from "@/components/panel/ListaUsuarios/hooks/useUsuarios.jsx";
+import usePerfil from "@/components/panel/ListaUsuarios/hooks/usePerfil.jsx";
 
 const ListaUsuarios = () => {
-  const { filteredUsers, loading, searchTerm, setSearchTerm } = useUsuarios();
+  const { filteredUsers, loading, searchTerm, setSearchTerm } = usePerfil();
 
   return (
     <div className={styles.app}>

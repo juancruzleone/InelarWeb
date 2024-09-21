@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import Layout from "@/components/layout";
@@ -12,7 +12,31 @@ import styles from "@/styles/Home.module.css";
 export default function PerfilUsuarios() {
   const router = useRouter();
   const { id } = router.query;
-  const { user, orders, loading, error } = usePerfil(id, router);
+  const { user, orders, loading, error } = usePerfil(id);
+
+  useEffect(() => {
+    if (error) {
+      console.error("Error fetching user profile:", error);
+    }
+  }, [error]);
+
+  if (loading) {
+    return (
+      <Layout>
+        <Cargando />
+      </Layout>
+    );
+  }
+
+  if (error) {
+    return (
+      <Layout>
+        <div className={styles.contenedorPaginaPerfil}>
+          <p className={styles.errorMensaje}>Error: {error}</p>
+        </div>
+      </Layout>
+    );
+  }
 
   return (
     <>
@@ -21,15 +45,13 @@ export default function PerfilUsuarios() {
       </Head>
       <Layout>
         <div className={styles.contenedorPaginaPerfil}>
-          {loading ? (
-            <Cargando />
-          ) : error ? (
-            <p className={styles.errorMensaje}>Error: {error}</p>
-          ) : (
+          {user ? (
             <>
               <PerfilUsuario user={user} />
               <ListaOrdenes orders={orders} />
             </>
+          ) : (
+            <p className={styles.errorMensaje}>Usuario no encontrado</p>
           )}
         </div>
         <Footer />
