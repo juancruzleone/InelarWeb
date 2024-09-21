@@ -1,9 +1,13 @@
 import styles from "@/styles/Home.module.css";
 import UsuarioItem from "@/components/panel/ListaUsuarios/components/usuarioItem.jsx";
-import usePerfil from "@/components/panel/ListaUsuarios/hooks/usePerfil.jsx";
+import useUsuarios from "@/components/panel/ListaUsuarios/hooks/useUsuarios.jsx";
 
 const ListaUsuarios = () => {
-  const { filteredUsers, loading, searchTerm, setSearchTerm } = usePerfil();
+  const { filteredUsers, loading, error, searchTerm, setSearchTerm } = useUsuarios();
+
+  if (error) {
+    return <p className={styles.error}>Error: {error}</p>;
+  }
 
   return (
     <div className={styles.app}>
@@ -22,8 +26,8 @@ const ListaUsuarios = () => {
             {loading ? (
               <p className={styles.cargandoUsuarios}>Cargando usuarios...</p>
             ) : filteredUsers.length > 0 ? (
-              filteredUsers.map((user, index) => (
-                <UsuarioItem key={index} user={user} />
+              filteredUsers.map((user) => (
+                <UsuarioItem key={user._id} user={user} />
               ))
             ) : (
               <p className={styles.textoBuscadorPanelUsuarios}>Ningún usuario encontrado</p>

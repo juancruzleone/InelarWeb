@@ -9,8 +9,8 @@ export default function UsuarioItem({ user }) {
         <p><span>ID:</span> {user._id}</p>
         <p><span>Email:</span> {user.email}</p>
         <p><span>Rol:</span> {user.role}</p>
-        <Link href={`/perfilUsuario/${user._id}`}>
-          <a className={styles.verPerfilLink}>Ver perfil</a>
+        <Link href={`/perfilUsuario/${user._id}`} className={styles.verPerfilLink}>
+          Ver perfil
         </Link>
       </div>
     </div>
