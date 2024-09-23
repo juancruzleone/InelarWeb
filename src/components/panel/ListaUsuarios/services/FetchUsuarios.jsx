@@ -6,12 +6,11 @@ export async function fetchAllUsers() {
       throw new Error('Token no encontrado en localStorage');
     }
 
-    
     const response = await fetch('https://inelarweb-back.onrender.com/api/cuentas', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${userData.token}`  
+        'Authorization': `Bearer ${userData.token}`
       }
     });
 

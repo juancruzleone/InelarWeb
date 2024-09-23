@@ -3180,11 +3180,6 @@
   justify-content: space-between;
 }
 
-.tarjetaBotones .botonEditar{
-  width: 50px;
-  height: 50px;
-}
-
 .botonesDispositivos {
   display: flex;
   flex-direction: column;
@@ -3197,6 +3192,22 @@
   gap: 10px;
   margin-top: 10px;
 }
+
+.botonesEdicionEliminacion .botonEditar{
+  width: 40px;
+  height: 40px;
+}
+
+.botonesEdicionEliminacion .botonEliminar{
+  width: 40px;
+  height: 40px;
+}
+
+.botonesEdicionEliminacion .botonImprimir{
+  width: 40px;
+  height: 40px;
+}
+
 
 #botonAgregarDispositivo,
 #botonVerDispositivos {
@@ -3249,11 +3260,6 @@
   text-align: left;
 }
 
-.tarjetaProductoPanelDispositivos .botonEditar, .botonEliminar, .botonImprimir{
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-}
 
 
 .tarjetaProductoPanelDispositivos .tarjetaContenido{
@@ -3349,3 +3355,22 @@
   margin-top: 20px;
 }
 
+.verPerfilLink{
+  background-color: #2c2c2c;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.categoriaUsuario{
+  background-color: white;
+  color: #121212;
+  text-align: center;
+  width: 80px;
+  border-radius: 4px;
+  margin-top: 5px;
+  font-weight: 500;
+}
+
+#emailUsuario{
+  margin-bottom: 30px;
+}
