@@ -1,5 +1,7 @@
+// usePerfil.jsx
 import { useState, useEffect } from "react";
 import { fetchUserProfile } from "@/components/perfilUsuarios/services/FetchPerfil";
+import { fetchUserOrders } from "@/components/perfilUsuarios/services/FetchOrden";
 
 const usePerfil = (id) => {
   const [user, setUser] = useState(null);
@@ -9,15 +11,14 @@ const usePerfil = (id) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      if (!id) return;
-
       try {
-        setLoading(true);
-        const userData = await fetchUserProfile(id);
-        setUser(userData);
-        // Fetch orders if needed
-        // const ordersData = await fetchUserOrders(id);
-        // setOrders(ordersData);
+        const userProfile = await fetchUserProfile(id);
+        setUser(userProfile);
+
+        if (userProfile) {
+          const userOrders = await fetchUserOrders(id);
+          setOrders(userOrders);
+        }
       } catch (err) {
         setError(err.message);
       } finally {
@@ -25,7 +26,9 @@ const usePerfil = (id) => {
       }
     };
 
-    fetchData();
+    if (id) {
+      fetchData();
+    }
   }, [id]);
 
   return { user, orders, loading, error };

@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+// Perfil.jsx
+import { useEffect } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import Layout from "@/components/layout";
@@ -16,7 +17,7 @@ export default function PerfilUsuarios() {
 
   useEffect(() => {
     if (error) {
-      console.error("Error fetching user profile:", error);
+      console.error("Error in PerfilUsuarios:", error);
     }
   }, [error]);
 

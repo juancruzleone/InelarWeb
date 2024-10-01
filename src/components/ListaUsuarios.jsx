@@ -1,9 +1,22 @@
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 import styles from "@/styles/Home.module.css";
-import UsuarioItem from "@/components/panel/ListaUsuarios/components/usuarioItem.jsx";
-import useUsuarios from "@/components/panel/ListaUsuarios/hooks/useUsuarios.jsx";
+import UsuarioItem from "@/components/panel/ListaUsuarios/components/usuarioItem";
+import useUsuarios from "@/components/panel/ListaUsuarios/hooks/useUsuarios";
 
 const ListaUsuarios = () => {
   const { filteredUsers, loading, error, searchTerm, setSearchTerm } = useUsuarios();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (error && (error.includes("No autorizado") || error.includes("No se encontró"))) {
+      router.push('/login');
+    }
+  }, [error, router]);
+
+  if (loading) {
+    return <p className={styles.cargandoUsuarios}>Cargando usuarios...</p>;
+  }
 
   if (error) {
     return <p className={styles.error}>Error: {error}</p>;
@@ -23,9 +36,7 @@ const ListaUsuarios = () => {
         />
         <div className={styles.posicionSeccionProductos}>
           <div className={styles.contenedorProductosPanel}>
-            {loading ? (
-              <p className={styles.cargandoUsuarios}>Cargando usuarios...</p>
-            ) : filteredUsers.length > 0 ? (
+            {filteredUsers.length > 0 ? (
               filteredUsers.map((user) => (
                 <UsuarioItem key={user._id} user={user} />
               ))
