@@ -1,7 +1,7 @@
 export const validateDevice = (device) => {
     let errors = {};
   
-    // Validación para 'nombre'
+ 
     if (!device.nombre?.trim()) {
       errors.nombre = "El nombre del dispositivo es un campo requerido.";
     } else if (device.nombre.length < 1) {
@@ -10,7 +10,7 @@ export const validateDevice = (device) => {
       errors.nombre = "El nombre no puede tener más de 100 caracteres.";
     }
   
-    // Validación para 'ubicacion'
+    
     if (!device.ubicacion?.trim()) {
       errors.ubicacion = "La ubicación del dispositivo es un campo requerido.";
     } else if (device.ubicacion.length < 1) {
@@ -19,11 +19,11 @@ export const validateDevice = (device) => {
       errors.ubicacion = "La ubicación no puede tener más de 255 caracteres.";
     }
   
-    // Validación para 'estado'
+
     if (!device.categoria?.trim()) {
       errors.categoria = "La categoria del dispositivo es un campo requerido.";
     } else if (!['bomba', 'hidrante'].includes(device.categoria)) {
-      errors.categoria = "La categoria debe ser 'bomba' o 'hidrante'.";
+      errors.categoria = "La categoria debe ser 'detector', 'extintor', 'manguera' o 'central'.";
     }
   
     return { newErrors: errors };

@@ -38,8 +38,10 @@ const FormularioCrear = ({
         onChange={handleInputChange}
       >
         <option value="">Seleccione una categoria</option>
-        <option value="bomba">bomba</option>
-        <option value="hidrante">hidrante</option>
+        <option value="detector">detector</option>
+        <option value="extintor">extintor</option>
+        <option value="manguera">manguera</option>
+        <option value="central">central</option>
       </select>
       {errors.categoria && <p className={styles.error}>{errors.categoria}</p>}
       <div className={styles.contenedorBotonesEditar}>

@@ -40,8 +40,10 @@ const FormularioEditar = ({
         onChange={handleEditInputChange}
       >
         <option value="">Seleccione un categoria</option>
-        <option value="bomba">bomba</option>
-        <option value="hidrante">hidrante</option>
+        <option value="detector">detector</option>
+        <option value="extintor">extintor</option>
+        <option value="manguera">manguera</option>
+        <option value="central">central</option>
       </select>
       {errors.categoria && <p className={styles.error}>{errors.categoria}</p>}
 
