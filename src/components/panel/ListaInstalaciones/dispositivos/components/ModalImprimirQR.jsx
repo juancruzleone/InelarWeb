@@ -46,13 +46,13 @@ const ModalImprimirQR = ({ isOpen, onClose, codigoQR }) => {
       className={styles.ModalPanelDispositivo}
       closeTimeoutMS={500}
     >
-      <h2>Código QR</h2>
+      <h2 className={styles.tituloCodigoQR}>Código QR</h2>
       <div id="qrCode" style={{ textAlign: 'center' }}>
         <QRCodeSVG value={codigoQR} size={180} className={styles.codigoQR}/>
       </div>
       <div className={styles.contenedorBotonesEditar}>
         <button onClick={handlePrint} className={styles.botonImprimir}>
-          Imprimir Código QR
+          Imprimir
         </button>
         <button onClick={onClose} className={styles.botonCancelarModal}>
           Cancelar

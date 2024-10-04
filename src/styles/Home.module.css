@@ -3014,7 +3014,26 @@
   margin-top: 0px;
 }
 
+.ModalPanelDispositivo .contenedorBotonesEditar{
+  margin: auto;
+  margin-top: 50px;
+}
+
+.contenedorBotonesEditar {
+  margin-top: 60px;
+}
+
+.contenedorBotonesEditar button{
+  cursor: pointer;
+}
+
 .contenedorBotonesEditar .botonCancelar{
+  background-color: #2b2b2b;
+  width: 100px;
+  cursor: pointer;
+}
+
+.contenedorBotonesEditar .botonCancelarModal{
   background-color: #2b2b2b;
   width: 100px;
   cursor: pointer;
@@ -3206,6 +3225,7 @@
 .botonesEdicionEliminacion .botonImprimir{
   width: 40px;
   height: 40px;
+  cursor: pointer;
 }
 
 
@@ -3352,7 +3372,11 @@
 }
 
 .codigoQR{
-  margin-top: 20px;
+  margin-top: 40px;
+}
+
+.tituloCodigoQR{
+  text-align: center;
 }
 
 .verPerfilLink{
