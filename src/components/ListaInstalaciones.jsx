@@ -265,6 +265,15 @@ const ListaInstalaciones = () => {
                     <p>Categoria: {device.categoria}</p>
                   </div>
                   <div className={styles.botonesEdicionEliminacion}>
+                    <button onClick={() => handlePrintQR(device)} className={styles.botonImprimir}>
+                      <Image
+                        src="/imprimir.svg"
+                        alt="Imprimir QR"
+                        className={styles.iconoQR}
+                        width={20}
+                        height={20}
+                      />
+                    </button>
                     <button onClick={() => handleEditDevice(device)} className={styles.botonEditar}>
                       <Image
                         src="/editar.svg"
@@ -279,15 +288,6 @@ const ListaInstalaciones = () => {
                         src="/eliminar.svg"
                         alt="Eliminar"
                         className={styles.iconoEliminar}
-                        width={20}
-                        height={20}
-                      />
-                    </button>
-                    <button onClick={() => handlePrintQR(device)} className={styles.botonImprimir}>
-                      <Image
-                        src="/imprimir.svg"
-                        alt="Imprimir QR"
-                        className={styles.iconoQR}
                         width={20}
                         height={20}
                       />

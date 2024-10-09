@@ -3014,13 +3014,23 @@
   margin-top: 0px;
 }
 
-.ModalPanelDispositivo .contenedorBotonesEditar{
+.ModalPanelDispositivo .contenedorBotonesImprimir{
   margin: auto;
   margin-top: 50px;
 }
 
+.contenedorBotonesImprimir .botonCancelarModal{
+  background-color: #2b2b2b;
+  width: 100px;
+  cursor: pointer;
+}
+
+.contenedorBotonesImprimir .botonImprimir{
+  cursor: pointer;
+}
+
 .contenedorBotonesEditar {
-  margin-top: 60px;
+  margin-top: 3px;
 }
 
 .contenedorBotonesEditar button{
@@ -3228,6 +3238,9 @@
   cursor: pointer;
 }
 
+.botonImprimir{
+  color: #121212;
+}
 
 #botonAgregarDispositivo,
 #botonVerDispositivos {

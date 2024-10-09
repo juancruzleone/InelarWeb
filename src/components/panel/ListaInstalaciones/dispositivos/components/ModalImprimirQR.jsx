@@ -50,7 +50,7 @@ const ModalImprimirQR = ({ isOpen, onClose, codigoQR }) => {
       <div id="qrCode" style={{ textAlign: 'center' }}>
         <QRCodeSVG value={codigoQR} size={180} className={styles.codigoQR}/>
       </div>
-      <div className={styles.contenedorBotonesEditar}>
+      <div className={styles.contenedorBotonesImprimir}>
         <button onClick={handlePrint} className={styles.botonImprimir}>
           Imprimir
         </button>
