@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Image from 'next/image';
 import styles from "@/styles/Home.module.css";
 import { searchInstallations } from "@/components/panel/ListaInstalaciones/utils/buscador";
@@ -64,8 +64,12 @@ const ListaInstalaciones = () => {
   const [selectedDevice, setSelectedDevice] = useState(null);
   const [viewingDevices, setViewingDevices] = useState(false);
   const [devices, setDevices] = useState([]);
+  const [filteredDevices, setFilteredDevices] = useState([]);
   const [loadingDevices, setLoadingDevices] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [deviceSearch, setDeviceSearch] = useState('');
+  const [isScrolled, setIsScrolled] = useState(false);
+  const deviceListRef = useRef(null);
 
   useEffect(() => {
     fetchInstallationsData();
@@ -75,6 +79,36 @@ const ListaInstalaciones = () => {
     const filtered = searchInstallations(selectedCategory, search, installations);
     setFilteredInstallations(filtered);
   }, [selectedCategory, search, installations, setFilteredInstallations]);
+
+  useEffect(() => {
+    if (devices.length > 0) {
+      const filtered = devices.filter(device => 
+        device.nombre.toLowerCase().includes(deviceSearch.toLowerCase()) ||
+        device.ubicacion.toLowerCase().includes(deviceSearch.toLowerCase()) ||
+        device.categoria.toLowerCase().includes(deviceSearch.toLowerCase())
+      );
+      setFilteredDevices(filtered);
+    }
+  }, [devices, deviceSearch]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (deviceListRef.current) {
+        setIsScrolled(deviceListRef.current.scrollTop > 0);
+      }
+    };
+
+    const currentDeviceList = deviceListRef.current;
+    if (currentDeviceList) {
+      currentDeviceList.addEventListener('scroll', handleScroll);
+    }
+
+    return () => {
+      if (currentDeviceList) {
+        currentDeviceList.removeEventListener('scroll', handleScroll);
+      }
+    };
+  }, []);
 
   const handleAddDevice = (installation) => {
     setSelectedInstallationForDevice(installation);
@@ -88,9 +122,11 @@ const ListaInstalaciones = () => {
     const fetchedDevices = await fetchDevicesFromInstallation(installation._id);
     if (!fetchedDevices.error) {
       setDevices(fetchedDevices);
+      setFilteredDevices(fetchedDevices);
     } else {
       console.error("Error fetching devices:", fetchedDevices.error);
       setDevices([]);
+      setFilteredDevices([]);
     }
     setLoadingDevices(false);
   };
@@ -98,6 +134,8 @@ const ListaInstalaciones = () => {
   const handleBackToInstallations = () => {
     setViewingDevices(false);
     setSelectedInstallationForDevice(null);
+    setDeviceSearch('');
+    setIsScrolled(false);
   };
 
   const handleEditDevice = (device) => {
@@ -117,10 +155,16 @@ const ListaInstalaciones = () => {
 
   const handleDeviceDeleted = (deletedDeviceId) => {
     setDevices(prevDevices => prevDevices.filter(device => device._id !== deletedDeviceId));
+    setFilteredDevices(prevDevices => prevDevices.filter(device => device._id !== deletedDeviceId));
   };
 
   const handleDeviceUpdated = (updatedDevice) => {
     setDevices(prevDevices => 
+      prevDevices.map(device => 
+        device._id === updatedDevice._id ? updatedDevice : device
+      )
+    );
+    setFilteredDevices(prevDevices => 
       prevDevices.map(device => 
         device._id === updatedDevice._id ? updatedDevice : device
       )
@@ -253,11 +297,22 @@ const ListaInstalaciones = () => {
           <button onClick={handleBackToInstallations} className={styles.botonVolver}>
             Volver a Instalaciones
           </button>
-          <div className={styles.listaDispositivos}>
+          <input
+            type="text"
+            value={deviceSearch}
+            onChange={(e) => setDeviceSearch(e.target.value)}
+            className={styles.buscadorPanel}
+            placeholder="Buscar dispositivo por nombre, ubicación o categoría"
+            aria-label="Buscar dispositivo"
+          />
+          <div 
+            ref={deviceListRef}
+            className={`${styles.listaDispositivos} ${isScrolled ? styles.scrolled : ''}`}
+          >
             {loadingDevices ? (
-              <p>Cargando dispositivos...</p>
-            ) : devices.length > 0 ? (
-              devices.map((device) => (
+              <p className={styles.loaderDispositivos}>Cargando dispositivos...</p>
+            ) : filteredDevices.length > 0 ? (
+              filteredDevices.map((device) => (
                 <div key={device._id} className={styles.tarjetaProductoPanelDispositivos}>
                   <div className={styles.tarjetaContenido}>
                     <h3 className={styles.tituloDispositivo}>{device.nombre}</h3>
@@ -322,6 +377,7 @@ const ListaInstalaciones = () => {
         handleSubmit={handleEditSubmit}
         errors={editErrors}
         selectedInstallation={selectedInstallation}
+        
         handleEditInputChange={handleEditInputChange}
         handleFileChange={handleEditFileChange}
         setErrors={setEditErrors}

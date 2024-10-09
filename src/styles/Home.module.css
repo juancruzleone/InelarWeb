@@ -3315,6 +3315,12 @@
   text-align: left;
 }
 
+.loaderDispositivos{
+  text-align: left;
+  margin-top: 12px;
+  margin-left: 32px;
+}
+
 
 
 .tarjetaProductoPanelDispositivos .tarjetaContenido{
@@ -3338,6 +3344,8 @@
 
 .listaDispositivos{
   margin-left: 20px;
+  max-height: 100vh; /* o el valor que prefieras */
+  overflow-y: auto;
 }
 
 .ModalPanelDispositivo {
