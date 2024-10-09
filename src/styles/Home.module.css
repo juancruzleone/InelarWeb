@@ -3441,3 +3441,57 @@
 #emailUsuario{
   margin-bottom: 30px;
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.pagination li {
+  margin: 0 2px;
+}
+
+.pagination a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 36px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  color: #121212;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.pagination a:hover {
+  background-color: #f0f0f0;
+}
+
+.pagination .active a {
+  background-color: #C75F00;
+  color: #fff;
+  border-color: #007bff;
+}
+
+.pagination .disabled a {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination .break a {
+  border: none;
+}
+
+.pagination .previous a,
+.pagination .next a {
+  width: auto;
+  padding: 0 12px;
+}

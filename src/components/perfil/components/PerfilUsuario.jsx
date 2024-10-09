@@ -1,11 +1,10 @@
 import styles from '@/styles/Home.module.css';
 
 const PerfilUsuario = ({ user, setShowEditModal }) => {
-  // Check if user is null or undefined
   if (!user) {
     return (
       <div className={styles.contenedorPerfilUsuario}>
-        <p>Cargando perfil...</p> {/* Loading message */}
+        <p>Cargando perfil...</p> 
       </div>
     );
   }
