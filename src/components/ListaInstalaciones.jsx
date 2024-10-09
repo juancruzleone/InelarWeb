@@ -260,12 +260,12 @@ const ListaInstalaciones = () => {
               devices.map((device) => (
                 <div key={device._id} className={styles.tarjetaProductoPanelDispositivos}>
                   <div className={styles.tarjetaContenido}>
-                    <h3>{device.nombre}</h3>
-                    <p>Ubicación: {device.ubicacion}</p>
-                    <p>Categoria: {device.categoria}</p>
+                    <h3 className={styles.tituloDispositivo}>{device.nombre}</h3>
+                    <p className={styles.ubicacionDispositivo}>Ubicación: {device.ubicacion}</p>
+                    <p className={styles.categoriaDispositivo}>{device.categoria}</p>
                   </div>
                   <div className={styles.botonesEdicionEliminacion}>
-                    <button onClick={() => handlePrintQR(device)} className={styles.botonImprimir}>
+                    <button onClick={() => handlePrintQR(device)} className={styles.botonImprimir} id={styles.botonImprimir}>
                       <Image
                         src="/imprimir.svg"
                         alt="Imprimir QR"

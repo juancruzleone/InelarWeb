@@ -590,6 +590,28 @@
   transform: scale(1.1);
 }
 
+#botonImprimir{
+  background-color: #121212;
+}
+
+.tituloDispositivo{
+  margin-top: 10px;
+}
+
+.categoriaDispositivo{
+  display: flex;
+  background-color: #121212;
+  width: 120px;
+  color:  white;
+  border-radius: 4px;
+  text-align: center;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.ubicacionDispositivo{
+  margin-top: 15px;
+}
 
 
 
