@@ -157,7 +157,7 @@ const Index = () => {
             </Link>
           </div>
           <div className={styles.cajaServicios}>
-            <Link href="/serviciotecnico" className={styles.servicioLink}>
+            <Link href="/servicio-tecnico" className={styles.servicioLink}>
               <h3 className={styles.nombreServicios}>Servicio técnico</h3>
               <Image
                 src="/servicio-tecnico2.svg"
