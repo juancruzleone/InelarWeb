@@ -1,5 +1,6 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import styles from "@/styles/Home.module.css";
 import { searchInstallations } from "@/components/panel/ListaInstalaciones/utils/buscador";
 import useInstalaciones from "@/components/panel/ListaInstalaciones/hooks/useInstalaciones";
@@ -15,6 +16,7 @@ import { fetchDevicesFromInstallation } from "@/components/panel/ListaInstalacio
 import { deleteInstallation } from "@/components/panel/ListaInstalaciones/services/FetchInstalaciones";
 
 const ListaInstalaciones = () => {
+  const router = useRouter();
   const {
     installations,
     filteredInstallations,
@@ -73,6 +75,15 @@ const ListaInstalaciones = () => {
 
   useEffect(() => {
     fetchInstallationsData();
+    
+    const savedViewingDevices = localStorage.getItem('viewingDevices');
+    const savedSelectedInstallation = localStorage.getItem('selectedInstallation');
+    
+    if (savedViewingDevices === 'true' && savedSelectedInstallation) {
+      setViewingDevices(true);
+      setSelectedInstallationForDevice(JSON.parse(savedSelectedInstallation));
+      handleViewDevices(JSON.parse(savedSelectedInstallation));
+    }
   }, [fetchInstallationsData]);
 
   useEffect(() => {
@@ -110,6 +121,47 @@ const ListaInstalaciones = () => {
     };
   }, []);
 
+  const handleBackToInstallations = useCallback(() => {
+    setViewingDevices(false);
+    setSelectedInstallationForDevice(null);
+    setDeviceSearch('');
+    setIsScrolled(false);
+    
+    localStorage.removeItem('viewingDevices');
+    localStorage.removeItem('selectedInstallation');
+  }, []);
+
+  useEffect(() => {
+    const handlePopState = (event) => {
+      if (viewingDevices) {
+        event.preventDefault();
+        handleBackToInstallations();
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, [viewingDevices, handleBackToInstallations]);
+
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      if (viewingDevices && url !== router.asPath) {
+        router.events.emit('routeChangeError');
+        handleBackToInstallations();
+        throw 'Abort route change. Please ignore this error.';
+      }
+    };
+
+    router.events.on('routeChangeStart', handleRouteChange);
+
+    return () => {
+      router.events.off('routeChangeStart', handleRouteChange);
+    };
+  }, [viewingDevices, router, handleBackToInstallations]);
+
   const handleAddDevice = (installation) => {
     setSelectedInstallationForDevice(installation);
     setDeviceModalOpen(true);
@@ -119,6 +171,10 @@ const ListaInstalaciones = () => {
     setViewingDevices(true);
     setSelectedInstallationForDevice(installation);
     setLoadingDevices(true);
+    
+    localStorage.setItem('viewingDevices', 'true');
+    localStorage.setItem('selectedInstallation', JSON.stringify(installation));
+    
     const fetchedDevices = await fetchDevicesFromInstallation(installation._id);
     if (!fetchedDevices.error) {
       setDevices(fetchedDevices);
@@ -129,13 +185,6 @@ const ListaInstalaciones = () => {
       setFilteredDevices([]);
     }
     setLoadingDevices(false);
-  };
-
-  const handleBackToInstallations = () => {
-    setViewingDevices(false);
-    setSelectedInstallationForDevice(null);
-    setDeviceSearch('');
-    setIsScrolled(false);
   };
 
   const handleEditDevice = (device) => {
@@ -329,7 +378,9 @@ const ListaInstalaciones = () => {
                         height={20}
                       />
                     </button>
-                    <button onClick={() => handleEditDevice(device)} className={styles.botonEditar}>
+                    <button onClick={() => 
+
+ handleEditDevice(device)} className={styles.botonEditar}>
                       <Image
                         src="/editar.svg"
                         alt="Editar"
@@ -357,7 +408,6 @@ const ListaInstalaciones = () => {
         </div>
       )}
 
-      {/* Modales */}
       <CrearInstalacionModal
         isOpen={createModal}
         handleClose={handleCloseModal}
@@ -377,7 +427,6 @@ const ListaInstalaciones = () => {
         handleSubmit={handleEditSubmit}
         errors={editErrors}
         selectedInstallation={selectedInstallation}
-        
         handleEditInputChange={handleEditInputChange}
         handleFileChange={handleEditFileChange}
         setErrors={setEditErrors}
