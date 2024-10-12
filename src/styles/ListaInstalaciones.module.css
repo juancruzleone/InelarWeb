@@ -363,6 +363,7 @@
     background-color: #2b2b2b;
     width: 100px;
     cursor: pointer;
+    color: white;
   }
 
   .botonGuardar{
@@ -532,6 +533,7 @@
     font-family: "montserrat",sans-serif;
     border: 0px;
     cursor: pointer;
+    color: white;
   }
 
   .textoEliminarCliente{

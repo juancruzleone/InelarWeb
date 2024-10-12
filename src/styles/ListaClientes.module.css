@@ -214,6 +214,7 @@
   background-color: #2b2b2b;
   width: 100px;
   cursor: pointer;
+  color: white;
 }
 
 .contenedorBotonesEditar .botonGuardar{
@@ -374,6 +375,7 @@
   cursor: pointer;
   width: 100px;
   height: 30px;
+  color: white;
 }
 
 .ModalPanelEditar .botonEliminarProducto{
@@ -413,6 +415,7 @@
   background-color: #2b2b2b;
   width: 100px;
   cursor: pointer;
+  color: white;
 }
 
 .ModalPanelClientes button{

@@ -62,6 +62,7 @@
     background-color: #2b2b2b;
     width: 100px;
     cursor: pointer;
+    color: white;
   }
 
   .botonGuardar{
@@ -80,6 +81,7 @@
     background-color: #2b2b2b;
     width: 100px;
     cursor: pointer;
+    color: white;
   }
   
   .contenedorBotonesImprimir .botonImprimir{
@@ -187,6 +189,7 @@
     font-family: "montserrat",sans-serif;
     border: 0px;
     cursor: pointer;
+    color: white;
   }
 
   
@@ -294,3 +297,4 @@
     margin: auto;
 }
   
+

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { addDeviceToInstallation, updateDeviceInInstallation, deleteDeviceFromInstallation } from '@/components/panel/ListaInstalaciones/dispositivos/services/FetchDispositivos.jsx';
 import { validateDevice } from '@/components/panel/ListaInstalaciones/dispositivos/utils/Validaciones.jsx';
+import ModalConfirmacion from '@/components/panel/ListaInstalaciones/dispositivos/components/ModalConfirmacion.jsx';
 
 const useDispositivos = (installationId, deviceId = null, onDeviceDeleted) => {
   const [newDevice, setNewDevice] = useState({ nombre: '', ubicacion: '', categoria: '' });
@@ -13,8 +14,7 @@ const useDispositivos = (installationId, deviceId = null, onDeviceDeleted) => {
 
   useEffect(() => {
     if (deviceId) {
-      // Fetch device details if editing
-      // This is a placeholder. You should implement the actual fetch logic.
+      // Aquí iría la lógica para obtener los detalles del dispositivo si se está editando
       // setEditDevice(fetchedDevice);
     }
   }, [deviceId]);
@@ -42,7 +42,7 @@ const useDispositivos = (installationId, deviceId = null, onDeviceDeleted) => {
           return false;
         }
       } catch (error) {
-        console.error('Error creating device:', error);
+        console.error('Error al crear el dispositivo:', error);
         showConfirmation(`Error al crear el dispositivo: ${error.message}`);
         return false;
       } finally {
@@ -69,7 +69,7 @@ const useDispositivos = (installationId, deviceId = null, onDeviceDeleted) => {
           return false;
         }
       } catch (error) {
-        console.error("Error updating device:", error);
+        console.error("Error al actualizar el dispositivo:", error);
         showConfirmation(`Error al actualizar el dispositivo: ${error.message}`);
         return false;
       } finally {
@@ -96,7 +96,7 @@ const useDispositivos = (installationId, deviceId = null, onDeviceDeleted) => {
         return false;
       }
     } catch (error) {
-      console.error('Error deleting device:', error);
+      console.error('Error al eliminar el dispositivo:', error);
       showConfirmation(`Error al eliminar el dispositivo: ${error.message}`);
       return false;
     } finally {
@@ -122,6 +122,13 @@ const useDispositivos = (installationId, deviceId = null, onDeviceDeleted) => {
     handleCreateSubmit,
     handleEditSubmit,
     handleDeleteSubmit,
+    ModalConfirmacion: (
+      <ModalConfirmacion
+        isOpen={confirmationModal}
+        onClose={() => setConfirmationModal(false)}
+        message={confirmationMessage}
+      />
+    ),
   };
 };
 

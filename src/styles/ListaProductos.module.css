@@ -346,6 +346,7 @@
     border-radius: 4px;
     width: 100px;
     margin-left: 15px;
+    color: white;
   }
 
   .ModalPanelCrear .error{
@@ -395,6 +396,7 @@
     background-color: #2b2b2b;
     width: 100px;
     cursor: pointer;
+    color: white;
   }
 
 
@@ -422,5 +424,6 @@
     cursor: pointer;
     width: 100px;
     height: 30px;
+    color: white;
   }
   
