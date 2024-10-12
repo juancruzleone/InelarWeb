@@ -2,7 +2,7 @@ import Image from "next/image";
 import Head from "next/head";
 import Layout from "@/components/layout/index";
 import Footer from "@/components/Footer";
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/Certificaciones.module.css";
 
 const Certificaciones = () => {
   return (
@@ -22,7 +22,7 @@ const Certificaciones = () => {
             src="/logo-iram2.svg"
             alt="Logo certificación IRAM"
             width={120}
-            height={120}
+            height={100}
           />
         </div>
         <div className={styles.contenedorCertificaciones}>
@@ -30,16 +30,15 @@ const Certificaciones = () => {
             src="/logo-nfpa2.svg"
             alt="Logo certificación NFPA"
             width={120}
-            height={120}
+            height={100}
           />
         </div>
         <div className={styles.contenedorCertificaciones}>
           <Image
             src="/logo-cemera.svg"
             alt="Logo certificación CEMERA"
-            className={styles.celularImagen}
             width={120}
-            height={120}
+            height={100}
           />
         </div>
       </div>

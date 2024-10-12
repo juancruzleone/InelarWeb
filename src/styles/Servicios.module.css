@@ -1,0 +1,94 @@
+.tituloPaginas{
+    font-family: "montserrat", sans-serif;
+    font-size: 42px;
+    text-align: center;
+    margin-top: 80px;
+    font-weight: 600;
+    color: #C75F00;
+    text-align: left;
+  }
+
+  .tituloPaginas {
+    text-align: center;
+    margin-top: 80px;
+  }
+
+  
+  .subtituloServicio{
+    font-family: "montserrat", sans-serif;
+    text-align: center;
+    font-weight: 400;
+    font-size: 20px;
+    margin-top: 8px;
+  }
+
+  .contenedorCardServicios{
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+  }
+
+  .cardServicios{
+    margin-top: 20px;
+    width: 300px;
+    height: 300px;
+    background-color: #121212;
+    margin: 20px;
+    border-radius: 20px;
+  }
+  
+  .cardServicios:hover{
+    background-color: #C75F00;
+    cursor: pointer;
+  }
+  
+  .cardServicios:hover .botonCardServicio{
+    background-color: #121212;
+    color: white;
+  }
+
+  .cardServicios img{
+    margin-top: 40px;
+  }
+
+  .iconoServiciosCard:hover {
+    transform: scale(1.1); 
+  }
+
+  .iconoServiciosCard{
+    display: flex;
+    justify-content: center;
+    width: 120px;
+    height: 120px;
+    margin: auto;
+    margin-top: 20px;
+  }
+
+  .tituloCardServicio{
+    font-family: "montserrat", sans-serif;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .descripcionServicio{
+    font-family: "montserrat", sans-serif;
+  }
+
+  .cardServicios:hover .botonCardServicio{
+    background-color: #121212;
+    color: white;
+  }
+
+  .botonCardServicio{
+    font-family: "montserrat", sans-serif;
+    padding: 6px;
+    font-weight: 500;
+    background-color: #f57600;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    width: 30%;
+    margin: auto;
+    margin-top: 20px;
+    color:  #121212;
+  }

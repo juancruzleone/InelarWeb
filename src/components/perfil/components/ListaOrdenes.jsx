@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import ReactPaginate from 'react-paginate';
-import styles from '@/styles/Home.module.css';
+import styles from '@/styles/Perfil.module.css';
 
 const ListaOrdenes = ({ orders }) => {
   const [currentPage, setCurrentPage] = useState(0);
-  const ordersPerPage = 5; // Número de órdenes por página
+  const ordersPerPage = 5; 
 
   const offset = currentPage * ordersPerPage;
   const currentPageOrders = orders.slice(offset, offset + ordersPerPage);

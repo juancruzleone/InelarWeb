@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FiEye, FiEyeOff } from 'react-icons/fi';
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/Login.module.css";
 
 const FormularioLogin = ({
   username,

@@ -1,6 +1,6 @@
 import React from "react";
 import Modal from "react-modal";
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/ListaDispositivos.module.css";
 import FormularioCrear from "@/components/panel/ListaInstalaciones/dispositivos/components/FormularioCrear.jsx";
 import useDispositivos from "@/components/panel/ListaInstalaciones/dispositivos/hooks/useDispositivos.jsx";
 import ConfirmacionModal from "@/components/panel/ListaInstalaciones/components/ModalConfirmacion";

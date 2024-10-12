@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import styles from '@/styles/Home.module.css';
+import styles from '@/styles/Carrito.module.css';
 
 const ProductosCarrito = ({ producto, index, onIncrease, onRemove }) => {
   return (
@@ -16,7 +16,7 @@ const ProductosCarrito = ({ producto, index, onIncrease, onRemove }) => {
         <div>
           <p className={styles.nombreProductoCarrito}>{producto.nombre}</p>
           <p className={styles.categoriaProductoCarrito}>{producto.categoria}</p>
-          <p>${producto.precio}</p>
+          <p className={styles.precioUnidad}>${producto.precio}</p>
         </div>
         <div className={styles.unidadesProductoCarrito}>
           <p><span className={styles.unidadesCarrito}>Unidades:</span>{producto.unidades}</p>

@@ -11,7 +11,7 @@ import Cargando from "@/components/perfil/components/Cargando"
 import usePerfil from "@/components/perfil/hooks/usePerfil"
 import { validateUserName } from "@/components/perfil/utils/ValidacionesPerfil"
 import { updateUserProfile } from "@/components/perfil/services/FetchPerfil"
-import styles from "@/styles/Home.module.css"
+import styles from "@/styles/Perfil.module.css"
 
 export default function Perfil() {
   const router = useRouter()

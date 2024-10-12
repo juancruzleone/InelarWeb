@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/ListaClientes.module.css";
 import useClientes from "@/components/panel/ListaClientes/hooks/useClientes.jsx";
 import ModalCrear from "@/components/panel/ListaClientes/components/ModalCrear.jsx";
 import ModalEditar from "@/components/panel/ListaClientes/components/ModalEditar.jsx";

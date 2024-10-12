@@ -10,7 +10,7 @@ import ListaMensajes from "@/components/ListaMensajes.jsx";
 import ListaServicios from "@/components/ListaServicios.jsx";
 import ListaInstalaciones from "@/components/ListaInstalaciones.jsx"; 
 import ListaUsuarios from "@/components/ListaUsuarios.jsx"; // Nueva importación
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/PanelAdmin.module.css";
 
 const PanelAdmin = () => {
   const [solapaActiva, setSolapaActiva] = useState(null);

@@ -1,7 +1,6 @@
-// ModalEditar.jsx
 import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/ListaDispositivos.module.css";
 import FormularioEditar from "@/components/panel/ListaInstalaciones/dispositivos/components/FormularioEditar";
 import useDispositivos from "@/components/panel/ListaInstalaciones/dispositivos/hooks/useDispositivos";
 import ConfirmacionModal from "@/components/panel/ListaInstalaciones/components/ModalConfirmacion";
@@ -12,7 +11,7 @@ const ModalEditar = ({
   onClose,
   selectedDevice,
   installation,
-  onDeviceUpdated, // Add this prop
+  onDeviceUpdated, 
 }) => {
   const [localDevice, setLocalDevice] = useState(selectedDevice || {});
   const [localErrors, setLocalErrors] = useState({});

@@ -1,4 +1,4 @@
-import styles from '@/styles/Home.module.css';
+import styles from '@/styles/Perfil.module.css';
 
 const PerfilUsuario = ({ user, setShowEditModal }) => {
   if (!user) {

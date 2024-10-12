@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from "react-modal";
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/ListaInstalaciones.module.css";
 
 const ModalEliminarInstalacion = ({ isOpen, onRequestClose, onConfirm, isDeleting }) => {
   return (

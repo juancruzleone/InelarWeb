@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import styles from '@/styles/Home.module.css';
+import styles from '@/styles/ListaClientes.module.css';
 import useClienteSeleccionado from "@/components/panel/ListaClientes/hooks/useClienteSeleccionado.jsx";
 import { getClients } from "@/components/panel/ListaClientes/services/ListaClienteService.jsx";
 import ModalConfirmacion from '@/components/panel/ListaClientes/components/ModalConfirmacion.jsx';
@@ -49,7 +49,7 @@ const FormularioEditarCliente = ({
     <>
       <form onSubmit={handleEditSubmit}>
         <div className={styles.formularioPanel}>
-          <label htmlFor="name">Nombre</label>
+          <label htmlFor="name" id={styles.labelNombre}>Nombre</label>
           <input
             type="text"
             id="name"

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import ModalConfirmacion from "@/components/layout/components/ModalConfirmacion"; 
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/Nav.module.css";
 
 const Layout = ({ children }) => {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -99,6 +99,7 @@ const Layout = ({ children }) => {
                   src="/prelogin2.svg"
                   alt="Iniciar sesión"
                   className={styles.carrito}
+                  id={styles.iconoCarrito}
                   width={40}
                   height={40}
                 />

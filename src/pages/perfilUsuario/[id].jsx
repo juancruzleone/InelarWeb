@@ -7,7 +7,7 @@ import PerfilUsuario from "@/components/perfilUsuarios/components/PerfilUsuario"
 import ListaOrdenes from "@/components/perfilUsuarios/components/ListaOrdenes";
 import Cargando from "@/components/perfilUsuarios/components/Cargando";
 import usePerfil from "@/components/perfilUsuarios/hooks/usePerfil";
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/Perfil.module.css";
 
 export default function PerfilUsuarios() {
   const router = useRouter();

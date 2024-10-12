@@ -1,5 +1,5 @@
 import { FiEye, FiEyeOff } from 'react-icons/fi';
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/Register.module.css";
 
 const FormularioRegistro = ({
   username,

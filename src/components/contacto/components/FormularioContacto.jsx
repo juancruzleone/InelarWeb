@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { sendContactForm } from "@/components/contacto/services/FetchContacto";
 import { validateName, validateEmail, validateMessage } from "@/components/contacto/utils/ValidacionesContacto";
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/Contacto.module.css";
 
 const FormularioContacto = ({ onSubmit }) => {
   const [formData, setFormData] = useState({

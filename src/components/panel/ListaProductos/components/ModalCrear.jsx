@@ -1,5 +1,5 @@
 import Modal from "react-modal";
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/ListaProductos.module.css";
 import FormularioCrear from "@/components/panel/ListaProductos/components/FormularioCrear.jsx";
 
 const ModalCrear = ({ isOpen, onClose, newProduct, errors, showConfirmation, handleInputChange, handleFileChange, handleTextareaInput, handleSubmit, categories }) => (

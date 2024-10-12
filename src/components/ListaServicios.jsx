@@ -1,4 +1,4 @@
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/ListaServicios.module.css";
 import ServicioItem from "@/components/panel/ListaServicios/components/ServicioItem.jsx";
 import CategoriaItem from "@/components/panel/ListaServicios/components/CategoriaItem.jsx";
 import useServicios from "@/components/panel/ListaServicios/hooks/ListaServiciosEstado.jsx";

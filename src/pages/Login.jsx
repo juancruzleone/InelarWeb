@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import ModalConfirmacion from "@/components/login/components/ModalConfirmacion"; 
 import FormularioLogin from "@/components/login/components/FormularioLogin";
 import useLogin from "@/components/login/hooks/useLogin";
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/Login.module.css";
 
 const Login = () => {
   const {

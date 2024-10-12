@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import FormularioProvisiones from "@/components/solicitudServicios/SolicitarProvision/components/SolicitarProvisionesForm.jsx";
 import ModalConfirmacion from "@/components/solicitudServicios/SolicitarProvision/components/ModalConfirmacion.jsx";
 import useFormularioProvisiones from "@/components/solicitudServicios/SolicitarProvision/hooks/SolicitarProvisionesEstado.jsx";
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/SolicitudServicio.module.css";
 
 const SolicitarProvisiones = () => {
   const {

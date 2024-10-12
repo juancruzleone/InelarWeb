@@ -1,5 +1,5 @@
 import Modal from 'react-modal';
-import styles from '@/styles/Home.module.css';
+import styles from '@/styles/Perfil.module.css';
 import { useEffect } from 'react';
 
 const ModalEditarPerfil = ({ 

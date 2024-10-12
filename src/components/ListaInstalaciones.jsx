@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/ListaInstalaciones.module.css";
 import { searchInstallations } from "@/components/panel/ListaInstalaciones/utils/buscador";
 import useInstalaciones from "@/components/panel/ListaInstalaciones/hooks/useInstalaciones";
 import CrearInstalacionModal from "@/components/panel/ListaInstalaciones/components/ModalCrear";

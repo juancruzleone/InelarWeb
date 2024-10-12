@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import FormularioServicioTecnico from "@/components/solicitudServicios/SolicitarServicioTecnico/components/SolicitarServicioTecnicoForm.jsx";
 import ModalConfirmacion from "@/components/solicitudServicios/SolicitarServicioTecnico/components/ModalConfirmacion.jsx";
 import useFormularioServicioTecnico from "@/components/solicitudServicios/SolicitarServicioTecnico/hooks/SolicitarServicioTecnicoEstado.jsx";
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/SolicitudServicio.module.css";
 
 const SolicitarServicioTecnico = () => {
   const {

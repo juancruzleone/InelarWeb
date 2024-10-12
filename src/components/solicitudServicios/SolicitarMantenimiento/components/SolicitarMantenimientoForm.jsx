@@ -1,4 +1,4 @@
-import styles from '@/styles/Home.module.css';
+import styles from '@/styles/SolicitudServicio.module.css';
 
 const SolicitarMantenimientoForm = ({ formData, formErrors, handleChange, handleSubmit, products }) => {
   return (

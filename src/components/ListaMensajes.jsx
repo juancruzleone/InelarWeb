@@ -1,4 +1,4 @@
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/ListaMensajes.module.css";
 import MensajeItem from "@/components/panel/ListaMensajes/components/MensajeItem.jsx";
 import useMensajes from "@/components/panel/ListaMensajes/hooks/ListaMensajesEstado.jsx";
 

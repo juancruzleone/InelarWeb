@@ -1,6 +1,6 @@
 import Modal from "react-modal";
 import FormularioCrearCliente from "@/components/panel/ListaClientes/components/FormularioCrearCliente.jsx";
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/ListaClientes.module.css";
 
 Modal.setAppElement('#__next');
 

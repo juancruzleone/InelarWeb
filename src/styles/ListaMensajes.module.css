@@ -1,0 +1,71 @@
+.tituloPaginasPanel{
+    margin-left: 50px;
+    margin-top: 50px;
+    margin-bottom: 15px;
+    color: #f9bf79;
+  }
+
+  .buscadorPanel{
+    border-radius: 10px;
+    width: 90%;
+    padding: 15px;
+    margin-top: 40px;
+    margin-left: 50px;
+  }
+
+  .posicionSeccionProductos{
+    display: flex;
+  }
+
+  .contenedorProductosPanel{
+    display: block;
+    padding-left: 20px;
+    margin-top: 40px;
+  }
+
+  .cargandoMensajes{
+    margin-left: 35px;
+    margin-top: 10px;
+  }
+
+  .textoBuscadorPanelMensajes{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-top: -15px;
+    margin-left: 30px;
+  }
+
+  .tarjetaProductoPanel{
+    background-color: #1d1d1d;
+    border-radius: 7px;
+    padding: 20px;
+    margin: 30px;
+    width: 600px;
+    font-family: "montserrat", sans-serif;
+  }
+  
+  .tarjetaProductoPanel h3{
+    margin-top: 10px;
+  }
+
+  .tarjetaProductoPanel span{
+    color: white;
+    font-weight: 600;
+  }
+  
+  .contenidoTarjetaProductoPanelContacto{
+    margin-top: 20px;
+  }
+  
+  .contenidoTarjetaProductoPanelContacto span{
+    font-weight: bold;
+  }
+  
+  .contenidoTarjetaProductoPanelContacto p{
+    margin-top: 8px;
+    text-align: left;
+    font-size: 16px;
+  }
+
+  

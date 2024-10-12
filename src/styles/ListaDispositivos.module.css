@@ -1,0 +1,230 @@
+.formularioPanel{
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+  }
+  
+  .formularioPanel button{
+    cursor: pointer;
+    width: 100px;
+  }
+  
+  .formularioPanel textarea{
+    margin-top: 5px;
+    padding: 10px;
+    border-radius: 4px;
+  }
+  
+  .formularioPanel label{
+    margin-top: 15px;
+  }
+
+  .errorPanel{
+    color: #e74c3c; 
+    font-size: 0.9rem; 
+    margin-bottom: 15px; 
+    margin-top: 5px;
+    padding-left: 4px; 
+    font-weight: 500; 
+    white-space: nowrap;      
+    overflow: hidden;         
+    text-overflow: ellipsis;   
+  }
+
+  .error {
+    color: #e74c3c; 
+    font-size: 0.9rem; 
+    margin-bottom: 10px; 
+    margin-top: 10px;
+    padding-left: 4px; 
+    font-weight: 500; 
+    white-space: nowrap;      
+    overflow: hidden;         
+    text-overflow: ellipsis;   
+  }
+
+
+  .contenedorBotonesEditar {
+    margin-top: 25px;
+  }
+  
+  .contenedorBotonesEditar button{
+    cursor: pointer;
+  }
+  
+  .contenedorBotonesEditar .botonCancelar{
+    background-color: #2b2b2b;
+    width: 100px;
+    cursor: pointer;
+  }
+  
+  .contenedorBotonesEditar .botonCancelarModal{
+    background-color: #2b2b2b;
+    width: 100px;
+    cursor: pointer;
+  }
+
+  .botonGuardar{
+    margin-right: 15px;
+    cursor: pointer;
+    color: #121212;
+  }
+
+
+  .ModalPanelDispositivo .contenedorBotonesImprimir{
+    margin: auto;
+    margin-top: 50px;
+  }
+
+  .contenedorBotonesImprimir .botonCancelarModal{
+    background-color: #2b2b2b;
+    width: 100px;
+    cursor: pointer;
+  }
+  
+  .contenedorBotonesImprimir .botonImprimir{
+    cursor: pointer;
+    color: #121212;
+  }
+
+  .ModalPanelDispositivo {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #121212;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    width: 400px;
+    height: 410px; 
+    max-height: 80vh; 
+    overflow: auto; 
+  }
+  
+  .ModalPanelDispositivo h2{
+    margin-top: 20px;
+  }
+  
+  .ModalPanelDispositivo input{
+    margin-top: 5px;
+    padding: 8px;
+    border-radius: 4px;
+  }
+  
+  .ModalPanelDispositivo button{
+    background-color: #C75F00;
+    border: 0px;
+    padding: 8px;
+    border-radius: 4px;
+    width: 100px;
+    margin-right: 15px;
+  }
+  
+  #botonCancelar{
+    background-color: #2b2b2b;
+  }
+  
+  .ModalPanelDispositivo select{
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 5px;
+  }
+  
+  .ModalPanelDispositivo textarea{
+    margin-bottom: 0px;
+  }
+  
+  .ModalPanelDispositivo #description{
+    margin-bottom: 0px;
+  }
+  
+  .ModalPanelDispositivo .botonCerrar{
+    background-color: #2b2b2b;
+  }
+
+  .Modal h2 {
+    font-family: "montserrat", sans-serif;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ModalPanelEditar {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #121212;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    height: 195px
+  }
+  
+  .ModalPanelEditar .botonEliminarProducto{
+    background-color: red;
+    padding: 6px;
+    border-radius: 4px;
+    margin-right: 10px;
+    font-family: "montserrat", sans-serif;
+    border: 0px;
+    cursor: pointer;
+  }
+  
+  .ModalPanelEditar .botonCancelarModal{
+    background-color: #2b2b2b;
+    padding: 6px;
+    border-radius: 4px;
+    font-family: "montserrat",sans-serif;
+    border: 0px;
+    cursor: pointer;
+  }
+
+  
+  .textoEliminarCliente{
+    font-size: 18px;
+    font-weight: lighter;
+  }
+
+  .Modal .botonEliminarProducto{
+    /*background-color:  rgb(46, 46, 46);*/
+    background-color:  red;
+    padding: 8px;
+    border-radius: 4px;
+    font-family: "montserrat",sans-serif;
+    border: 0px;
+    cursor: pointer;
+    width: 100px;
+    height: 30px;
+    margin-right: 15px;
+  }
+
+  .tituloCodigoQR{
+    text-align: center;
+  }
+
+  
+  .codigoQR{
+    margin-top: 40px;
+  }
+  
+  
+#botonImprimir{
+    background-color: #121212;
+  }
+
+  .botonesEdicionEliminacion .botonImprimir{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+  

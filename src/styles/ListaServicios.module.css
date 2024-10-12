@@ -1,0 +1,171 @@
+.tituloPaginasPanel{
+    margin-left: 50px;
+    margin-top: 50px;
+    margin-bottom: 15px;
+    color: #f9bf79;
+  }
+
+  .buscadorPanel{
+    border-radius: 10px;
+    width: 90%;
+    padding: 15px;
+    margin-top: 40px;
+    margin-left: 50px;
+  }
+
+  .posicionSeccionProductos{
+    display: flex;
+  }
+
+  .posicionSeccionProductos .contenedorCategorias{
+    margin-top: 50px;
+  }
+
+  .contenedorServicios{
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
+
+  .contenedorServicios{
+    max-height: 600px; 
+    overflow-y: auto; 
+    margin-top: 60px;
+  }
+  
+  .contenedorServicios h2{
+    font-family: "montserrat", sans-serif;
+    color: #C75F00;
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .cargandoMensajes{
+    margin-left: 35px;
+    margin-top: 10px;
+  }
+
+  .textoBuscadorPanel{
+    margin-left: 80px;
+    margin-top: 75px;
+  }
+
+  .contenedorCategorias{
+    background-color: #121212;
+    border-radius: 4px;
+    height: 300px;
+    margin-right: 60px;
+  }
+
+  .contenedorCategorias button{
+    display: block;
+    font-family: "montserrat", sans-serif;
+    margin-top: 10px;
+    margin: 40px;
+    border: 3px solid transparent;
+    background-color: #121212;
+    cursor: pointer;
+  }
+
+  .contenedorCategorias {
+    background-color: #121212;
+    border-radius: 4px;
+    margin-top: 50px; 
+    margin-left: 40px;
+    height: 100%;
+  }
+
+  .contenedorCategorias a{
+    cursor: pointer;
+    color: white;
+  }
+
+  .contenedorCategoriasProductos{
+    background-color: #121212;
+    border-radius: 4px;
+    margin-top: 50px; 
+    height: 100%;
+    margin-right: 60px;
+  }
+
+  .contenedorCategoriasProductos a{
+    display: block;
+    font-family: "montserrat", sans-serif;
+    margin-top: 10px;
+    margin: 40px;
+    border: 3px solid transparent;
+  }
+
+  .contenedorCategorias a {
+    color: #ffffff;
+    text-decoration: none; 
+    cursor: pointer; 
+  }
+  
+  
+  .contenedorCategorias a {
+    color: #ffffff; 
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+  .contenedorCategoria{
+    margin-top:20px;
+  }
+  
+  .contenedorCategoria{
+    background-color: #C75F00;
+  }
+
+  .contenedorCategoria p{
+    font-family: "montserrat", sans-serif;
+    padding: 5px;
+    border-radius: 4px;
+    margin: 10px;
+    font-weight: 500;
+    color: #121212;
+  }
+  
+  .contenedorCategoria:hover{
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #f9bf79;
+  }
+  
+  .categoriaSeleccionada{
+    background-color:  #f9bf79;
+  }
+
+  .tarjetaProductoPanel{
+    background-color: #1d1d1d;
+    border-radius: 7px;
+    padding: 20px;
+    margin: 30px;
+    width: 600px;
+    font-family: "montserrat", sans-serif;
+  }
+  
+  .tarjetaProductoPanel h3{
+    margin-top: 10px;
+  }
+
+  .tarjetaProductoPanel span{
+    color: white;
+    font-weight: 600;
+  }
+
+  .contenidoTarjetaProductoPanel{
+    margin-top: 20px;
+  }
+  
+  .contenidoTarjetaProductoPanel p{
+    margin-top: 8px;
+    text-align: left;
+    font-size: 16px;
+  }
+  
+  .contenidoTarjetaProductoPanel span{
+    font-weight: 600;
+    margin-right: 8px;
+    color: white;
+  }

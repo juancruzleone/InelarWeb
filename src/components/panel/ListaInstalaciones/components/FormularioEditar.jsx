@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/ListaInstalaciones.module.css";
 import { handleInputChange, handleTextareaInput } from "@/components/panel/ListaInstalaciones/utils/validaciones.jsx";
 
 const FormularioEditar = ({ 

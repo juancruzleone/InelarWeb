@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import FormularioRegistro from "@/components/register/components/FormularioRegistro";
 import ModalConfirmacion from "@/components/register/components/ModalConfirmacion"; 
 import useRegister from "@/components/register/hooks/useRegister.jsx";
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/Register.module.css";
 
 const Register = () => {
   const {

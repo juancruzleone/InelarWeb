@@ -1,4 +1,4 @@
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/ListaMensajes.module.css";
 
 export default function MensajeItem({ message }) {
   return (

@@ -1,0 +1,252 @@
+.contenedorDescripcionProducto{
+    display: block;
+    justify-content: center;
+    text-align: center;
+    margin-top: 60px;
+  }
+  
+  .contenedorDescripcionProducto h4{
+    font-family: "montserrat", sans-serif;
+  }
+  
+  .contenedorDescripcionProducto p{
+    color: white;
+    font-size: 16px;
+    font-family: "montserrat", sans-serif;
+    margin-top: 10px;
+  }
+
+  .contenedorDetalleProducto{
+    display: flex;
+    justify-content: center;
+  }
+
+  .contenedorDetalleProducto {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px; 
+  }
+
+  .contenedorProducto{
+    margin-top: 60px;
+    background-color: #121212;
+    width: 250px;
+    height: 250px;
+    margin-left: 60px;
+    border-radius: 20px;
+    padding:70px;
+    margin-right: 40px;
+  }
+  
+  .imagenProductoDetalle{
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    min-height: 150px;
+  }
+
+  .imagenProductoDetalle {
+    width: 150px; 
+    object-fit: cover; 
+  }
+  
+  .contenidoProducto{
+    margin-left: 60px;
+    font-family: "montserrat", sans-serif;
+  }
+  
+  .contenidoProducto a{
+    background-color: #C75F00;
+    padding: 4px;
+    border-radius: 4px;
+    font-weight: lighter;
+  }
+  
+  .contenidoProducto a:hover{
+    background-color: #f57600;
+  }
+  
+  .contenedorDescripcionProducto{
+    display: block;
+    justify-content: center;
+    text-align: center;
+    margin-top: 60px;
+  }
+  
+  .contenedorDescripcionProducto h4{
+    font-family: "montserrat", sans-serif;
+  }
+  
+  .contenedorDescripcionProducto p{
+    color: white;
+    font-size: 16px;
+    font-family: "montserrat", sans-serif;
+    margin-top: 10px;
+  }
+
+  .contenidoDetalle a{
+    color: #121212;
+    font-weight: 500;
+    padding: 6px;
+  }
+  
+  .contenidoDetalle .precioDetalle{
+    margin-bottom: 40px;
+  }
+
+  .nombreProductoDetalle{
+    font-family: "montserrat", sans-serif;
+    font-size: 32px;
+    text-align: left;
+    margin-top: 80px;
+    font-weight: 600;
+    color: #C75F00;
+  }
+
+  .categoriaDetalle{
+    background-color: #121212;
+    text-align: center;
+    padding: 6px;
+    width: 110px;
+    border-radius: 4px;
+    font-family: "montserrat", sans-serif;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 25px;
+  }
+
+  .precioDetalle{
+    font-family: "montserrat", sans-serif;
+    font-size: 22px;
+  }
+
+  .precioDetalle{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: medium;
+    text-align: left;
+  }
+
+  
+.contenidoDetalle .precioDetalle{
+    margin-bottom: 40px;
+  }
+
+  .Modal {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #121212;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    height: 180px;
+  }
+  
+.Modal p{
+    font-family: "montserrat", sans-serif;
+    font-weight: 300;
+}
+  
+  .Modal a{
+    font-family: "montserrat", sans-serif;
+    margin-left: 70px;
+    margin-top:20px;
+    text-decoration: underline;
+  }
+  
+.Modal button{
+    background-color: transparent;
+    margin-top:20px;
+    border: 0px
+}
+  
+.Modal h2 {
+    font-family: "montserrat", sans-serif;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.Modal .modalContent{
+    margin-top: 10px;
+}
+
+.Modal .modalContent img{
+    margin-bottom: 20px;
+}
+  
+
+.Modal .cerrarModalButton{
+    cursor: pointer;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+}
+
+.tickModal{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+}
+
+.contenedorProductosRelacionados{
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .contenedorProductosRelacionados h2{
+    margin-top: 60px;
+  }
+  
+  .productosRelacionados{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .productoRelacionado{
+    background-color: #121212;
+    margin: 10px;
+    border-radius: 15px;
+    padding: 15px;
+  }
+  
+  .productoRelacionado button{
+    background-color: #C75F00;
+    padding: 4px;
+    margin-top: 10px;
+    border-radius: 4px;
+    font-family: "montserrat", sans-serif;
+    border: 0px;
+    font-weight: 500;
+    cursor: pointer;
+    color: #121212;
+  }
+  
+  .productoRelacionado .botonDetalleRelacionado:hover{
+    background-color: #f57600;
+  }
+
+  .imagenProductoRelacionado {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .imagenProductoRelacionado {
+    width: 100px; 
+    height: 120px; 
+    object-fit: cover; 
+  }
+  

@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import FormularioContacto from "@/components/contacto/components/FormularioContacto";
 import Mapa from "@/components/contacto/components/Mapa";
 import ModalConfirmacion from "@/components/contacto/components/ModalConfirmacion";
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/Contacto.module.css";
 
 const Contacto = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);

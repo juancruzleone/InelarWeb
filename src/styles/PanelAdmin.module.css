@@ -1,0 +1,42 @@
+.tituloPanel{
+    font-family: "montserrat", sans-serif;
+    font-size: 42px;
+    margin-left: 40px;
+    margin-top: 80px;
+    font-weight: 600;
+    color: #C75F00;
+    text-align: left;
+  }
+
+.contenedorPanelAdmin{
+    margin-top: 80px;
+    display: flex;
+  }
+
+  .contenedorPanelAdmin .contenedorContenidoPanel{
+    margin: auto;
+  }
+
+  .posicionMenuPanel{
+    margin-left: 10px;
+  }
+
+  .contenedorContenidoPanel{
+    background-color: #121212;
+    border-radius: 10px;
+    width: 1000px;
+    height: 100%;
+  }
+
+  .solapaActiva{
+    font-family: "montserrat", sans-serif;
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    margin: 0 0.5rem;
+    padding: 0.3rem;
+    border-bottom: 4px solid transparent;
+    cursor: pointer;
+    background-color: #f9bf79;
+  }
+  

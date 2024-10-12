@@ -1,0 +1,73 @@
+.tituloPaginas{
+    font-family: "montserrat", sans-serif;
+    font-size: 42px;
+    text-align: center;
+    margin-top: 80px;
+    font-weight: 600;
+    color: #C75F00;
+    text-align: left;
+  }
+
+  .tituloPaginas {
+    text-align: center;
+    margin-top: 80px;
+  }
+
+  .contenedorQuienesSomos{
+    margin-top: 300px;
+    margin-bottom: 80px;
+  }
+  
+  .contenedorQuienesSomos p{
+    margin-top: 100px;
+  }
+
+  .contenedorTextoQuienesSomos{
+    padding: 20px 200px;
+    margin-top: 40px;
+    background-color: #121212;
+    border-radius: 40px;
+    margin: 80px;
+    padding: 40px;
+    margin-bottom: 100px;
+  }
+  
+  .contenedorTextoQuienesSomos p{
+    display: block;
+    font-size: 18px;
+    justify-content: center;
+    text-align: left;
+    font-family: "montserrat", sans-serif;
+    color: white;
+  
+  }
+  
+  .contenedorTextoQuienesSomos span{
+    font-weight: bolder;
+  }
+
+  #quienesSomos{
+    margin-bottom: 80px;
+  }
+  
+  .contenedoresQuienesSomos{
+    background-color: #121212;
+    border-radius: 10px;
+    width: 90%;
+    height: 100%;
+    padding: 20px;
+    justify-content: center;
+    margin: auto;
+    margin-top: 30px;
+  }
+  
+  .contenedoresQuienesSomos p{
+    margin-top: 10px;
+    text-align: left;
+  }
+  
+  .contenedoresQuienesSomos span{
+    font-weight: bold;
+    color: white;
+  }
+  

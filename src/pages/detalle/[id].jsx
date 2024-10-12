@@ -9,7 +9,7 @@ import ModalConfirmacion from '@/components/detalleProducto/components/ModalConf
 import useProductoDetalle from '@/components/detalleProducto/hooks/useProductoDetalle.jsx';
 import { addToCart } from '@/components/detalleProducto/utils/CarritoUtils.jsx';
 import { fetchProductoData } from '@/components/detalleProducto/utils/FetchProductoData.jsx'; 
-import styles from '@/styles/Home.module.css';
+import styles from '@/styles/DetalleProducto.module.css';
 
 const DetalleProducto = ({ initialProducto, initialProductosRelacionados }) => {
   const router = useRouter();

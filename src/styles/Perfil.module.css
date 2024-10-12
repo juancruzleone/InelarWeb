@@ -1,0 +1,442 @@
+.cargandoContenedor {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .cargandoPerfil {
+    font-size: 1.2rem;
+    color:  white;
+    font-weight: 400;
+  }
+
+  .contenedorPaginaPerfil {
+    min-height: calc(100vh - 100px); 
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contenedorPedidoUsuario{
+    margin-left: 28px;
+    margin-top: 40px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contenedorPedidoUsuario h2{
+    border-bottom: 1px solid white;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .contenidoOrdenes {
+    padding: 20px;
+    padding-top: 0px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+  
+  .contenidoOrdenes ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .contenidoOrdenes li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .contenidoOrdenes li:last-child {
+    border-bottom: none;
+  }
+  
+  .contenidoOrdenes li h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .contenidoOrdenes li p {
+    font-size: 14px;
+    color: white;
+  }
+  
+  .contenidoOrdenes li ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .contenidoOrdenes li ul li {
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .contenidoOrdenes li ul li:last-child {
+    border-bottom: none;
+  }
+  
+  .contenidoOrdenes li ul li p {
+    font-size: 14px;
+    color:  white;
+  }
+  
+  .ordenes{
+    margin-top: 20px;
+  }
+  
+  .ordenes p{
+    text-align: left;
+  }
+  
+  .ordenes span{
+    color: white;
+  }
+  
+  .contenedorFormContraseñaRegistro{
+    position: relative;
+  
+  }
+
+  .textoPedidosRealizados{
+    margin-top: 20px;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+  }
+  
+  .pagination li {
+    margin: 0 2px;
+  }
+  
+  .pagination a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 36px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    color: #121212;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .pagination a:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .pagination .active a {
+    background-color: #C75F00;
+    color: #fff;
+    border-color: #007bff;
+  }
+  
+  .pagination .disabled a {
+    color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .pagination .break a {
+    border: none;
+  }
+  
+  .pagination .previous a,
+  .pagination .next a {
+    width: auto;
+    padding: 0 12px;
+  }
+
+
+  .Modal {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #121212;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    height: 180px;
+  }
+  
+.Modal p{
+    font-family: "montserrat", sans-serif;
+    font-weight: 300;
+}
+  
+  .Modal a{
+    font-family: "montserrat", sans-serif;
+    margin-left: 70px;
+    margin-top:20px;
+    text-decoration: underline;
+  }
+  
+.Modal button{
+    background-color: transparent;
+    margin-top:20px;
+    border: 0px
+}
+  
+.Modal h2 {
+    font-family: "montserrat", sans-serif;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.Modal .modalContent{
+    margin-top: 10px;
+}
+
+.Modal .modalContent img{
+    margin-bottom: 20px;
+}
+  
+
+.Modal .cerrarModalButton{
+    cursor: pointer;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+}
+
+.tickModal{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+}
+
+.ModalEditarPerfil {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #121212;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    height: 270px;
+    width: 420px;
+  }
+  
+  .ModalEditarPerfil a{
+    font-family: "montserrat", sans-serif;
+    margin-left: 70px;
+    margin-top:20px;
+    text-decoration: underline;
+  }
+  
+  .ModalEditarPerfil button{
+    background-color: transparent;
+    margin-top:20px;
+    border: 0px
+  }
+  
+  .ModalEditarPerfil input{
+    color: white;
+    border-radius: 4px;
+    padding: 10px;
+    margin-top: 10px;
+  }
+  
+  .ModalEditarPerfil h2 {
+    font-family: "montserrat", sans-serif;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .contenedorBotonModalEditarPerfil{
+    display: flex;
+  }
+  
+  .ModalEditarPerfil .botonGuardarCambiosPerfil{
+    background-color: #C75F00;
+    border-radius: 4px;
+    padding: 4px;
+    cursor: pointer;
+    margin-right: 12px;
+  }
+  
+  .ModalEditarPerfil .botonCancelarCambiosPerfil{
+    background-color: #2b2b2b;
+    border-radius: 4px;
+    padding: 8px;
+    cursor: pointer;
+  }
+
+  .ModalEditarPerfil {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #121212;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    width: 420px;
+    max-height: 80vh; 
+    overflow-y: auto; 
+  }
+  
+  .ModalEditarPerfil .error {
+    color: #d32f2f; 
+    padding-bottom: 20px;
+    margin-top: 10px;
+    border-radius: 4px; 
+    margin-bottom: 15px; 
+    font-size: 14px; 
+    text-align: left; 
+  }
+
+  .ModalEditarPerfil .contenedorBotonModalEditarPerfil {
+    margin-top: 20px;
+  }
+  
+  
+  .ModalEditarPerfil .botonGuardarCambiosPerfil {
+    background-color: #C75F00;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-weight: 400;
+    color: black;
+    margin-right: 12px;
+  }
+  
+  .ModalEditarPerfil .botonCancelarCambiosPerfil {
+    background-color: #2b2b2b;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+  
+  .ModalEditarPerfil label {
+    margin-top: 10px;
+    font-weight: 500;
+  }
+  
+  .ModalEditarPerfil input {
+    color: white;
+    border-radius: 4px;
+    padding: 10px;
+    margin-top: 10px;
+  }
+  
+  .ModalEditarPerfil h2 {
+    font-family: "montserrat", sans-serif;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .contenedorPerfilUsuario{
+    background-color: #C75F00;
+    height: 280px;
+    
+  }
+  
+  .contenedorPerfilUsuario h1{
+    margin-bottom: 10px;
+    font-size: 36px;
+  }
+  
+  .contenedorPerfilUsuario .idUsuario{
+    background-color: #121212;
+    border-radius: 4px;
+    padding: 5px;
+    width: 300px;
+    text-align: center;
+  }
+
+  .contenedorPerfilUsuario {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contenidoPerfilUsuario{
+    margin-left: 28px;
+    padding-top: 40px;
+  }
+  
+  .contenedorPerfilUsuario .emailUsuario{
+    text-align: left;
+    color: black;
+    font-weight: bold;
+  }
+  
+  .contenidoPerfilUsuario h1{
+    text-align: left;
+  }
+  
+  .contenedorPedidoUsuario{
+    margin-left: 28px;
+    margin-top: 40px;
+  }
+  
+  .contenedorPedidoUsuario h2{
+    border-bottom: 1px solid white;
+    margin-bottom: 20px;
+  }
+
+  .idUsuario {
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+  }
+
+  #emailUsuario{
+    margin-bottom: 30px;
+  }
+
+  .botonEditarPerfil{
+    background-color: white;
+    color: black;
+    border-radius: 4px;
+    padding: 10px;
+    border: 0px;
+    margin-top: 15px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  
+  .botonEditarPerfil:hover{
+    background-color: rgb(197, 196, 196)
+  }
+  
+  
+  
+  
+
+
+  

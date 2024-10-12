@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/ListaUsuarios.module.css";
 import UsuarioItem from "@/components/panel/ListaUsuarios/components/usuarioItem";
 import useUsuarios from "@/components/panel/ListaUsuarios/hooks/useUsuarios";
 

@@ -1,4 +1,4 @@
-import styles from '@/styles/Home.module.css';
+import styles from '@/styles/SolicitudServicio.module.css';
 
 const FormularioServicioTecnico = ({ formData, formErrors, productos, handleChange, handleSubmit }) => {
   return (

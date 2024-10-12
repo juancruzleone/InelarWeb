@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Image from 'next/image';
-import styles from '@/styles/Home.module.css';
+import styles from '@/styles/DetalleProducto.module.css';
 
 const DetalleProducto = ({ producto, handleAgregarAlCarrito }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);

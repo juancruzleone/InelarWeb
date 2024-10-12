@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import Categorias from "@/components/productos/components/Categorias";
 import ListaProductos from "@/components/productos/components/ListaProductos";
 import useProductos from "@/components/productos/hooks/useProductos";
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/Productos.module.css";
 
 const Productos = () => {
   const {

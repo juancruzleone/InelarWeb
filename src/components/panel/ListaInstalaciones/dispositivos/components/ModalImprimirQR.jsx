@@ -1,7 +1,7 @@
 import React from "react";
 import Modal from "react-modal";
 import { QRCodeSVG } from 'qrcode.react';
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/ListaDispositivos.module.css";
 
 Modal.setAppElement('#__next'); 
 

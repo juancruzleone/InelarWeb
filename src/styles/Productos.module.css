@@ -1,0 +1,204 @@
+.contenedorCategoriasProductos{
+    background-color: #121212;
+    border-radius: 4px;
+    margin-top: 50px; 
+    height: 100%;
+    margin-right: 60px;
+  }
+  
+  .contenedorCategoriasProductos a{
+    display: block;
+    font-family: "montserrat", sans-serif;
+    margin-top: 10px;
+    margin: 40px;
+    border: 3px solid transparent;
+  }
+
+  #contenedorCategoriaProductos{
+    margin-top: 90px;
+  }
+
+  .posicionSeccionProductos{
+    display: flex;
+  }
+
+  .posicionSeccionProductos .contenedorCategorias{
+    margin-top: 50px;
+  }
+  
+  .contenedorCategorias{
+    background-color: #121212;
+    border-radius: 4px;
+    height: 300px;
+    margin-right: 60px;
+  }
+  
+  .contenedorCategorias button{
+    display: block;
+    font-family: "montserrat", sans-serif;
+    margin-top: 10px;
+    margin: 40px;
+    border: 3px solid transparent;
+    background-color: #121212;
+    cursor: pointer;
+  }
+
+  .categoriaSeleccionadaProducto {
+    background-color: #f57600; 
+    color: #121212; 
+    padding: 4px;
+    font-weight: 500;
+    border-radius: 2px;
+  }
+  
+  .categoriaSeleccionadaProducto {
+    color: #121212;
+    font-weight: bold; 
+  }
+
+  .categoriaSeleccionadaProducto {
+    color: #121212 !important; 
+    font-weight: 500;
+  }
+
+  .contenedorCategorias {
+    background-color: #121212;
+    border-radius: 4px;
+    margin-top: 50px; 
+    margin-left: 40px;
+    height: 100%;
+  }
+  
+  .contenedorCategorias a{
+    cursor: pointer;
+    color: white;
+  }
+  
+  .contenedorCategoriasProductos{
+    background-color: #121212;
+    border-radius: 4px;
+    margin-top: 50px; 
+    height: 100%;
+    margin-right: 60px;
+  }
+  
+  .contenedorCategoriasProductos a{
+    display: block;
+    font-family: "montserrat", sans-serif;
+    margin-top: 10px;
+    margin: 40px;
+    border: 3px solid transparent;
+  }
+
+  .contenedorCategorias a {
+    color: #ffffff;
+    text-decoration: none; 
+    cursor: pointer; 
+  }
+  
+  
+  .contenedorCategorias a {
+    color: #ffffff; 
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+  .cargandoProductos{
+    margin-top: 90px;
+    margin-left: 25px;
+  }
+
+  .contenedorProductos{
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    margin-top: 70px;
+  }
+
+  .tarjetaProducto {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 300px;
+    height: 350px; 
+    margin: 15px;
+    border-radius: 7px;
+    padding: 20px;
+    text-align: center;
+    background-color: #121212;
+    font-family: 'montserrat', sans-serif;
+  }
+  
+  .tarjetaProducto h2 {
+    font-family: "montserrat", sans-serif;
+    font-weight: 600;
+    margin: 10px 0; 
+    font-size: 20px;
+  }
+  
+  .tarjetaProducto p {
+    margin: 10px 0; 
+  }
+
+  .imagenProducto {
+    display: block;
+    margin: 0 auto 10px auto; 
+    width: 120px; 
+    height: 120px;
+    object-fit: cover; 
+  }
+
+  .botonVerMas {
+    font-family: "montserrat", sans-serif;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: none;
+    background-color: #C75F00;
+    color: #121212;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    margin-top: auto; 
+  }
+
+  .botonVerMas {
+    font-family: "montserrat", sans-serif;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: none;
+    background-color: #C75F00;
+    color: #121212;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    margin-top: auto; 
+  }
+
+  .contenedorPagina button{
+    border: 0px;
+    padding: 3px;
+    font-family: "montserrat", sans-serif;
+    border-radius: 4px;
+    margin-right: 10px;
+  }
+
+  .tituloPaginas{
+    font-family: "montserrat", sans-serif;
+    font-size: 42px;
+    text-align: center;
+    margin-top: 80px;
+    font-weight: 600;
+    color: #C75F00;
+    text-align: left;
+  }
+
+  .tituloPaginas {
+    text-align: center;
+    margin-top: 80px;
+  }
+  

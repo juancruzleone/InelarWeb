@@ -1,4 +1,4 @@
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/Productos.module.css";
 
 const Categorias = ({ changeCategory, categoriaSeleccionada }) => {
   return (

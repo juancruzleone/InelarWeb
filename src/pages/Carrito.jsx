@@ -6,7 +6,7 @@ import CartItem from '@/components/carrito/components/ProductosCarrito';
 import BotonCarrito from '@/components/carrito/components/BotonCarrito';
 import ModalCarrito from '@/components/carrito/components/ModalCarrito';
 import { validateCart, validateUserData } from '@/components/carrito/utils/ValidacionesCarrito.jsx';
-import styles from '@/styles/Home.module.css';
+import styles from '@/styles/Carrito.module.css';
 import { fetchCheckout } from '@/components/carrito/services/FetchCarrito';
 import useCarrito from '@/components/carrito/hooks/useCarrito';
 

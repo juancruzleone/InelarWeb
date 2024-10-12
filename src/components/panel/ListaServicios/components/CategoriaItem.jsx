@@ -1,4 +1,4 @@
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/ListaServicios.module.css";
 import { capitalizeFirstLetter } from "@/components/panel/ListaServicios/utils/StringUtils.jsx";
 
 export default function CategoriaItem({ category, isSelected, onClick }) {

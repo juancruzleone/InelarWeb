@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import FormularioMantenimiento from "@/components/solicitudServicios/SolicitarMantenimiento/components/SolicitarMantenimientoForm.jsx";
 import ModalConfirmacion from "@/components/solicitudServicios/SolicitarMantenimiento/components/ModalConfirmacion.jsx";
 import useFormularioMantenimiento from "@/components/solicitudServicios/SolicitarMantenimiento/hooks/SolicitarMantenimientoEstado.jsx";
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/SolicitudServicio.module.css";
 
 const SolicitarMantenimiento = () => {
   const {

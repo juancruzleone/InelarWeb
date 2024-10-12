@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import useFormData from "@/components/solicitudServicios/SolicitarInstalacion/hooks/SolicitarInstalacionesState";
 import SolicitarInstalacionesForm from "@/components/solicitudServicios/SolicitarInstalacion/components/SolicitarInstalacionesForm";
 import ModalConfirmacion from "@/components/solicitudServicios/SolicitarInstalacion/components/ModalConfirmacion";
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/SolicitudServicio.module.css";
 
 const SolicitarInstalaciones = () => {
   const {

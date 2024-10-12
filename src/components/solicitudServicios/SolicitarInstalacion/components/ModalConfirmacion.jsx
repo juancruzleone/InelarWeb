@@ -1,6 +1,6 @@
 import Modal from "react-modal";
 import Image from "next/image";
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/SolicitudServicio.module.css";
 
 const ModalConfirmacion = ({ isOpen, onRequestClose, mensaje }) => (
   <Modal

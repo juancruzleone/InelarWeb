@@ -1,5 +1,5 @@
 import Modal from "react-modal";
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/ListaProductos.module.css";
 import FormularioEditar from "@/components/panel/ListaProductos/components/FormularioEditar.jsx";
 
 const ModalEditar = ({

@@ -1,5 +1,5 @@
 import Modal from 'react-modal';
-import styles from '@/styles/Home.module.css';
+import styles from '@/styles/SolicitudServicio.module.css';
 
 const ModalExito = ({ isOpen, onRequestClose, mensaje, submensaje }) => {
   return (

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/PanelNav.module.css";
 
 const PanelNav = ({ onSolapaClick, solapaActiva }) => {
   return (
@@ -37,7 +37,7 @@ const PanelNav = ({ onSolapaClick, solapaActiva }) => {
           Mensajes
         </button>
         <button
-          onClick={() => onSolapaClick("usuarios")} // Nueva solapa
+          onClick={() => onSolapaClick("usuarios")} 
           className={solapaActiva === "usuarios" ? styles.solapaActiva : styles.seccionesNavPanel}
         >
           Usuarios

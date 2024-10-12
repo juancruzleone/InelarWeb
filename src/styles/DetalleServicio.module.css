@@ -1,0 +1,60 @@
+.tituloServicio{
+    font-family: "montserrat", sans-serif;
+    padding-left: 100px;
+    font-size: 42px;
+    text-align: left;
+    margin-top: 100px;
+    font-weight: 600;
+    color: #C75F00;
+  }
+
+  
+  .contenedorPosicionamientoContenidoServicio{
+    display: flex;
+    margin-top: 100px;
+    padding: 60px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+
+  
+  .contenedorTextoServicio{
+    padding: 40px;
+  }
+  
+  .contenedorTextoServicio p{
+    display: flex;
+    justify-content: left;
+    text-align: left;
+  }
+
+  .textoServicios{
+    font-family: "montserrat", sans-serif;
+    font-size: 18px;
+    margin-top: 15px;
+  }
+
+  .fotoServicio{
+    border-radius: 10px;
+    margin-top: 40px;
+  }
+
+  .botonServicio{
+    font-family: "montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 0.6rem 1rem;
+    background-color: #f57600;
+    color: #121212;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 100px;
+  }
+
+  .subtituloMantenimiento{
+    font-family: "montserrat", sans-serif;
+    margin-bottom: 5px;
+    margin-top: 40px;
+    color: #C75F00;
+  }

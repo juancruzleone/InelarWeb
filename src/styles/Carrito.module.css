@@ -1,0 +1,379 @@
+.botonVaciar{
+    margin-left: 48%;
+    margin-top: 30px;
+    background-color: #121212;
+    padding: 6px;
+    border-radius: 4px;
+    color: black;
+    cursor: pointer;
+  }
+  
+  .botonVaciar:hover{
+    background-color: #1b1b1b;
+  }
+
+  .botonIrCheckout{
+    background-color: #C75F00;
+    color: #121212;
+    font-family: "montserrat", sans-serif;
+    text-align: light;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 700px;
+    padding: 15px;
+    border-radius: 4px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    font-weight: 500;
+    font-size: 18px;
+  }
+  
+  .botonIrCheckout:hover{
+    background-color: #f57600;
+    cursor: pointer;
+  }
+
+  .ModalCheckout {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #121212;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    height: 140px;
+  }
+
+  .Modal .tituloModalConfirm{
+    margin-top: 25px;
+  }
+
+  .contenedorBotonesModalVaciar{
+    display: flex;
+  }
+  
+  .contenedorBotonesModalVaciar button{
+    margin-right: 15px;
+    font-weight: 500;
+    margin-top: 10px;
+  }
+  
+  .contenedorBotonesModalVaciar .botonConfirmarModal{
+    background-color: red;
+    padding: 6px;
+    border-radius: 4px;
+    margin-right: 10px;
+    font-family: "montserrat", sans-serif;
+    border: 0px;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .contenedorBotonesModalVaciar .botonConfirmar{
+    background-color: red;
+    padding: 6px;
+    border-radius: 4px;
+    margin-right: 10px;
+    font-family: "montserrat", sans-serif;
+    border: 0px;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .Modal .tituloModalConfirm{
+    margin-top: 25px;
+  }
+  
+  .contenedorBotonesModalVaciar .botonCancelar{
+    background-color: blue;
+    padding: 6px;
+    border-radius: 4px;
+    margin-right: 10px;
+    font-family: "montserrat", sans-serif;
+    border: 0px;
+    cursor: pointer;
+    color: white;
+  }
+
+  .Modal {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #121212;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    height: 180px;
+  }
+  
+.Modal p{
+    font-family: "montserrat", sans-serif;
+    font-weight: 300;
+}
+  
+  .Modal a{
+    font-family: "montserrat", sans-serif;
+    margin-left: 70px;
+    margin-top:20px;
+    text-decoration: underline;
+  }
+  
+.Modal button{
+    background-color: transparent;
+    margin-top:20px;
+    border: 0px
+}
+  
+.Modal h2 {
+    font-family: "montserrat", sans-serif;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.Modal .modalContent{
+    margin-top: 10px;
+}
+
+.Modal .modalContent img{
+    margin-bottom: 20px;
+}
+  
+
+.Modal .cerrarModalButton{
+    cursor: pointer;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+}
+
+  .tickModal{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+  }
+
+  .tituloPaginas{
+    font-family: "montserrat", sans-serif;
+    font-size: 42px;
+    text-align: center;
+    margin-top: 80px;
+    font-weight: 600;
+    color: #C75F00;
+    text-align: left;
+  }
+
+  
+  .tituloPaginas {
+    text-align: center;
+    margin-top: 80px;
+  }
+
+  .contenedorCarrito {
+    margin: auto;
+    background-color: #121212;
+    width: 60%;
+    height: 600px;
+    margin-top: 80px;
+    border-radius: 10px;
+    overflow-y: auto; 
+  }
+  
+  .contenedorCarritoVacio {
+    height: 180px; 
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .contenedorCarrito p {
+    font-family: "montserrat", sans-serif;
+  }
+  
+  .contenedorCarrito h3 {
+    font-family: "montserrat", sans-serif;
+    font-size: 21px;
+    padding-top: 30px;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .mensajeCarritoVacio {
+    font-family: "montserrat", sans-serif;
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  .tarjetaProductoCarrito {
+    display: flex;
+    background-color: #1f1f1f;
+    width: 560px;
+    height: 140px;
+    border-radius: 4px;
+    margin: 30px;
+    margin-left: 30px;
+  }
+  
+  .tarjetaProductoCarrito .botonSumar {
+    margin-left: 100px;
+  }
+  
+  .tarjetaProductoCarrito img {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .tarjetaProductoCarrito {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1f1f1f; 
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    margin-left: 80px;
+    margin-top: 60px;
+  }
+  
+  .tarjetaProductoCarrito .imagenProductoDetalleCarrito {
+    width: 80px; 
+    height: 80px; 
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .imagenProductoDetalleCarrito {
+    margin-right: 20px;
+  }
+  
+  .tarjetaProductoCarrito .detalleProductoCarrito {
+    flex-grow: 1;
+  }
+
+  .detalleProductoCarrito{
+    display: flex;
+    margin: 10px;
+  }
+  
+  .detalleProductoCarrito p{
+    margin-top: 3px;
+  }
+  
+  .categoriaProductoCarrito{
+    background-color: white;
+    color: #121212;
+    border-radius: 4px;
+    margin-top: 100px;
+    margin-bottom: 10px;
+    width: 120px;
+    text-align: center;
+    padding: 2px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+  }
+
+  .detalleProductoCarrito {
+    display: flex;
+  }
+  
+  .nombreProductoCarrito {
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+
+  .precioUnidad{
+    text-align: left;
+  }
+  
+  .contenedorDatosPagos {
+    background-color: #121212;
+    height: 300px;
+    width: 300px;
+    margin-top: 80px;
+    border-radius: 10px;
+    margin-right: 80px;
+  }
+
+  .cargandoCarrito {
+    text-align: center;
+    font-size: 18px;
+    color:  white;
+    font-weight: 400;
+    margin-top: 100px;
+  }
+
+  .unidadesProductoCarrito {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 210px;
+  }
+  
+  .unidadesProductoCarrito span{
+    margin-right: 10px;
+  }
+
+  .unidadesCarrito{
+    color: white;
+  }
+
+  .botonSumar{
+    background-color: rgb(83, 83, 83);
+    border: 0px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-right: 30px;
+  }
+  
+  .botonSumar img{
+    width: 30px;
+    height: 30px;
+    padding: 4px;
+  }
+  
+  .botonVaciar{
+    margin-left: 48%;
+    margin-top: 30px;
+    background-color: #121212;
+    padding: 6px;
+    border-radius: 4px;
+    color: black;
+    cursor: pointer;
+  }
+  
+  .botonVaciar:hover{
+    background-color: #1b1b1b;
+  }
+
+  .botonEliminar{
+    background-color: rgb(179, 19, 19);
+    border: 0px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  .botonEliminar img{
+    width: 30px;
+    height: 30px;
+    padding: 4px;
+  }
+  
+  
+  
