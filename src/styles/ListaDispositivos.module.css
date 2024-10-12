@@ -227,4 +227,70 @@
     height: 40px;
     cursor: pointer;
   }
+
+  .ModalExito {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #121212;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    height: 180px;
+  }
+  
+.ModalExito p{
+    font-family: "montserrat", sans-serif;
+    font-weight: 300;
+}
+  
+  .ModalExito a{
+    font-family: "montserrat", sans-serif;
+    margin-left: 70px;
+    margin-top:20px;
+    text-decoration: underline;
+  }
+  
+.ModalExito button{
+    background-color: transparent;
+    margin-top:20px;
+    border: 0px
+}
+  
+.ModalExito h2 {
+    font-family: "montserrat", sans-serif;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.ModalExito .modalContent{
+    margin-top: 10px;
+}
+
+.ModalExito .modalContent img{
+    margin-bottom: 20px;
+}
+  
+
+.ModalExito .cerrarModalButton{
+    cursor: pointer;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+}
+
+.tickModal{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+}
   

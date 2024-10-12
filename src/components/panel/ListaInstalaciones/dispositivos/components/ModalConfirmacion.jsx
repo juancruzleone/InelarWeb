@@ -1,6 +1,6 @@
 import Modal from "react-modal";
 import Image from "next/image";
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/ListaDispositivos.module.css";
 
 const ModalConfirmacion = ({ isOpen, onClose, message }) => {
   return (
@@ -8,7 +8,7 @@ const ModalConfirmacion = ({ isOpen, onClose, message }) => {
       isOpen={isOpen}
       onRequestClose={onClose}
       contentLabel="Confirmación"
-      className={`${styles.Modal}`}
+      className={`${styles.ModalExito}`}
       closeTimeoutMS={500}
     >
       <div className={styles.modalContent}>

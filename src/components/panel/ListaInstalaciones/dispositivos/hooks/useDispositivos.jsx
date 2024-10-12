@@ -1,5 +1,3 @@
-// useDispositivos.jsx
-
 import { useState, useEffect } from 'react';
 import { addDeviceToInstallation, updateDeviceInInstallation, deleteDeviceFromInstallation } from '@/components/panel/ListaInstalaciones/dispositivos/services/FetchDispositivos.jsx';
 import { validateDevice } from '@/components/panel/ListaInstalaciones/dispositivos/utils/Validaciones.jsx';
@@ -56,8 +54,8 @@ const useDispositivos = (installationId, deviceId = null, onDeviceDeleted) => {
         return true;
       } catch (error) {
         console.error("Error updating device:", error);
-        showConfirmation('Dispositivo actualizado exitosamente');
-        return true;
+        showConfirmation('Error al actualizar el dispositivo');
+        return false;
       }
     } else {
       setEditErrors(newErrors);
