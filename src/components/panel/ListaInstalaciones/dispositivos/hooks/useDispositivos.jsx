@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { addDeviceToInstallation, updateDeviceInInstallation, deleteDeviceFromInstallation, fetchDevicesFromInstallation } from '../services/FetchDispositivos';
-import { validateDevice } from '../utils/Validaciones';
+import { addDeviceToInstallation, updateDeviceInInstallation, deleteDeviceFromInstallation } from '@/components/panel/ListaInstalaciones/dispositivos/services/FetchDispositivos.jsx';
+import { validateDevice } from '@/components/panel/ListaInstalaciones/dispositivos/utils/Validaciones.jsx';
 
 const useDispositivos = (installationId, deviceId = null, onDeviceDeleted) => {
   const [newDevice, setNewDevice] = useState({ nombre: '', ubicacion: '', categoria: '' });
@@ -9,22 +9,15 @@ const useDispositivos = (installationId, deviceId = null, onDeviceDeleted) => {
   const [editErrors, setEditErrors] = useState({});
   const [confirmationModal, setConfirmationModal] = useState(false);
   const [confirmationMessage, setConfirmationMessage] = useState('');
-  const [devices, setDevices] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    if (installationId) {
-      fetchDevices();
+    if (deviceId) {
+      // Fetch device details if editing
+      // This is a placeholder. You should implement the actual fetch logic.
+      // setEditDevice(fetchedDevice);
     }
-  }, [installationId]);
-
-  const fetchDevices = async () => {
-    const result = await fetchDevicesFromInstallation(installationId);
-    if (result.success) {
-      setDevices(result.data);
-    } else {
-      showConfirmation('Error al cargar los dispositivos: ' + result.error);
-    }
-  };
+  }, [deviceId]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -37,20 +30,23 @@ const useDispositivos = (installationId, deviceId = null, onDeviceDeleted) => {
     e.preventDefault();
     const { newErrors } = validateDevice(newDevice);
     if (Object.keys(newErrors).length === 0) {
+      setIsLoading(true);
       try {
         const result = await addDeviceToInstallation(installationId, newDevice);
-        if (result.success) {
+        if (!result.error) {
           setNewDevice({ nombre: '', ubicacion: '', categoria: '' });
           showConfirmation('Dispositivo creado exitosamente');
-          fetchDevices();
           return true;
         } else {
-          throw new Error(result.error || 'Error al crear el dispositivo');
+          showConfirmation(`Error al crear el dispositivo: ${result.error}`);
+          return false;
         }
       } catch (error) {
-        console.error('Error en handleCreateSubmit:', error);
+        console.error('Error creating device:', error);
         showConfirmation(`Error al crear el dispositivo: ${error.message}`);
         return false;
+      } finally {
+        setIsLoading(false);
       }
     } else {
       setCreateErrors(newErrors);
@@ -62,19 +58,22 @@ const useDispositivos = (installationId, deviceId = null, onDeviceDeleted) => {
     e.preventDefault();
     const { newErrors } = validateDevice(updatedDevice);
     if (Object.keys(newErrors).length === 0) {
+      setIsLoading(true);
       try {
-        const result = await updateDeviceInInstallation(installationId, updatedDevice._id, updatedDevice);
-        if (result.success) {
+        const result = await updateDeviceInInstallation(installationId, deviceId, updatedDevice);
+        if (!result.error) {
           showConfirmation('Dispositivo actualizado exitosamente');
-          fetchDevices();
           return true;
         } else {
-          throw new Error(result.error || 'Error al actualizar el dispositivo');
+          showConfirmation(`Error al actualizar el dispositivo: ${result.error}`);
+          return false;
         }
       } catch (error) {
-        console.error("Error en handleEditSubmit:", error);
-        showConfirmation(error.message);
+        console.error("Error updating device:", error);
+        showConfirmation(`Error al actualizar el dispositivo: ${error.message}`);
         return false;
+      } finally {
+        setIsLoading(false);
       }
     } else {
       setEditErrors(newErrors);
@@ -82,23 +81,26 @@ const useDispositivos = (installationId, deviceId = null, onDeviceDeleted) => {
     }
   };
 
-  const handleDeleteSubmit = async (deviceIdToDelete) => {
+  const handleDeleteSubmit = async () => {
+    setIsLoading(true);
     try {
-      const result = await deleteDeviceFromInstallation(installationId, deviceIdToDelete);
-      if (result.success) {
+      const result = await deleteDeviceFromInstallation(installationId, deviceId);
+      if (!result.error) {
         showConfirmation('Dispositivo eliminado exitosamente');
-        fetchDevices();
         if (onDeviceDeleted) {
-          onDeviceDeleted(deviceIdToDelete);
+          onDeviceDeleted(deviceId);
         }
         return true;
       } else {
-        throw new Error(result.error || 'Error al eliminar el dispositivo');
+        showConfirmation(`Error al eliminar el dispositivo: ${result.error}`);
+        return false;
       }
     } catch (error) {
-      console.error("Error en handleDeleteSubmit:", error);
-      showConfirmation(error.message);
+      console.error('Error deleting device:', error);
+      showConfirmation(`Error al eliminar el dispositivo: ${error.message}`);
       return false;
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -114,13 +116,12 @@ const useDispositivos = (installationId, deviceId = null, onDeviceDeleted) => {
     editErrors,
     confirmationModal,
     confirmationMessage,
-    devices,
+    isLoading,
     setConfirmationModal,
     handleInputChange,
     handleCreateSubmit,
     handleEditSubmit,
     handleDeleteSubmit,
-    fetchDevices,
   };
 };
 
