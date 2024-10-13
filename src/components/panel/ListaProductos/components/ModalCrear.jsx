@@ -8,6 +8,7 @@ const ModalCrear = ({ isOpen, onClose, newProduct, errors, showConfirmation, han
     onRequestClose={onClose}
     contentLabel="Crear Producto"
     className={`${styles.ModalPanelCrear} ${styles.Modal}`}
+    shouldCloseOnOverlayClick={false}
     closeTimeoutMS={500}
   >
     <h2>Crear Producto</h2>

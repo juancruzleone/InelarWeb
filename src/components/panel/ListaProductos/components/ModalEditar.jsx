@@ -21,6 +21,7 @@ const ModalEditar = ({
       onRequestClose={onClose}
       contentLabel="Editar Producto"
       className={`${styles.ModalPanelCrear} ${styles.Modal}`}
+      shouldCloseOnOverlayClick={false}
       closeTimeoutMS={500}
     >
       <h2>Editar Producto</h2>

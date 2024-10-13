@@ -42,7 +42,7 @@ const ModalEditar = ({
     if (Object.keys(newErrors).length === 0) {
       const success = await handleEditSubmit(e, localDevice);
       if (success) {
-        onDeviceUpdated(localDevice); // Call this function to update the parent component
+        onDeviceUpdated(localDevice);
         onClose();
       }
     } else {
@@ -58,6 +58,7 @@ const ModalEditar = ({
         contentLabel="Editar Dispositivo"
         className={`${styles.ModalPanelDispositivo} ${styles.Modal}`}
         closeTimeoutMS={500}
+        shouldCloseOnOverlayClick={false}
       >
         <h2>Editar dispositivo</h2>
         <FormularioEditar

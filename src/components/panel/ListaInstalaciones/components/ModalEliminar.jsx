@@ -9,7 +9,8 @@ const ModalEliminarInstalacion = ({ isOpen, onRequestClose, onConfirm, isDeletin
       onRequestClose={onRequestClose}
       contentLabel="Eliminar Instalación"
       className={`${styles.ModalPanelEditar} ${styles.Modal}`}
-      closeTimeoutMS={1000}
+      shouldCloseOnOverlayClick={false}
+      closeTimeoutMS={500}
     >
       <h2>Eliminar instalación</h2>
       <p className={styles.textoEliminarCliente}>¿Estás seguro de eliminar esta instalación?</p>

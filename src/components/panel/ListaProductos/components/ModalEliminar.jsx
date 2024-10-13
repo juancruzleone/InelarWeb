@@ -13,6 +13,7 @@ const ModalEliminar = ({
       onRequestClose={onClose}
       contentLabel="Eliminar Producto"
       className={`${styles.Modal} ${styles.ModalEliminarProducto}`}
+      shouldCloseOnOverlayClick={false}
       closeTimeoutMS={500}
     >
       <h2>Eliminar Producto</h2>

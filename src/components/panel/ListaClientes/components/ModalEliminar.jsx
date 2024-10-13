@@ -7,7 +7,8 @@ const ModalEliminar = ({ isOpen, onRequestClose, onConfirm }) => (
     onRequestClose={onRequestClose}
     contentLabel="Delete Client"
     className={`${styles.ModalPanelEditar} ${styles.Modal}`}
-    closeTimeoutMS={1000}
+    shouldCloseOnOverlayClick={false}
+    closeTimeoutMS={500}
   >
     <h2>Eliminar cliente</h2>
     <p className={styles.textoEliminarCliente}>¿Estás seguro de eliminar este cliente?</p>

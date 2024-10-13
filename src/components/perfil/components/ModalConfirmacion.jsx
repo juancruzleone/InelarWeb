@@ -9,6 +9,7 @@ const ModalConfirmacion = ({ isOpen, onRequestClose, mensaje }) => (
     onRequestClose={onRequestClose}
     contentLabel="Confirmation"
     className={`${styles.Modal}`}
+    shouldCloseOnOverlayClick={false}
     closeTimeoutMS={500}
   >
     <p>{mensaje}</p>

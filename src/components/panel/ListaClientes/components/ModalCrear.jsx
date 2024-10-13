@@ -10,7 +10,8 @@ const ModalCrear = ({ isOpen, onRequestClose, token, role, refreshClients, setCo
     onRequestClose={onRequestClose}
     contentLabel="Crear Cliente"
     className={`${styles.ModalPanelClientes} ${styles.Modal}`}
-    closeTimeoutMS={1000}
+    shouldCloseOnOverlayClick={false}
+    closeTimeoutMS={500}
   >
     <h2>Crear Cliente</h2>
     <FormularioCrearCliente 

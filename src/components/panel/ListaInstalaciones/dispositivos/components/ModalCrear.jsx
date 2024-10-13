@@ -35,6 +35,7 @@ const ModalCrear = ({ isOpen, onClose, installationId, onDeviceCreated }) => {
         contentLabel="Crear Dispositivo"
         className={`${styles.ModalPanelDispositivo} ${styles.Modal}`}
         closeTimeoutMS={500}
+        shouldCloseOnOverlayClick={false}
       >
         <h2>Crear dispositivo</h2>
         {isLoading ? (

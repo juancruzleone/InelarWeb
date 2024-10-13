@@ -1,6 +1,6 @@
 import React from "react";
 import Modal from "react-modal";
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/ListaInstalaciones.module.css";
 import FormularioEditar from "@/components/panel/ListaInstalaciones/components/FormularioEditar.jsx";
 
 const ModalEditar = ({ 
@@ -19,6 +19,7 @@ const ModalEditar = ({
     onRequestClose={handleClose}
     contentLabel="Editar Instalación"
     className={`${styles.ModalPanelCrear} ${styles.Modal}`}
+    shouldCloseOnOverlayClick={false}
     closeTimeoutMS={500}
   >
     <FormularioEditar 

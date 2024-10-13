@@ -26,6 +26,7 @@ const ModalEditarPerfil = ({
       onRequestClose={() => setShowEditModal(false)}
       contentLabel="Editar Perfil"
       className={styles.ModalEditarPerfil}
+      shouldCloseOnOverlayClick={false}
     >
       <h2>Editar Perfil</h2>
       {error && <p className={styles.error}>{error}</p>}

@@ -10,7 +10,8 @@ const ModalEditar = ({ editModal, handleCloseModal, selectedClient, setSelectedC
     onRequestClose={handleCloseModal}
     contentLabel="Editar Cliente"
     className={`${styles.ModalPanelClientes} ${styles.Modal}`}
-    closeTimeoutMS={1000}
+    shouldCloseOnOverlayClick={false}
+    closeTimeoutMS={500}
   >
     <h2>Editar Cliente</h2>
     <FormularioEditarCliente 

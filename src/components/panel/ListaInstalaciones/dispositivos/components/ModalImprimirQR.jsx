@@ -44,6 +44,7 @@ const ModalImprimirQR = ({ isOpen, onClose, codigoQR }) => {
       onRequestClose={onClose}
       contentLabel="Imprimir Código QR"
       className={styles.ModalPanelDispositivo}
+      shouldCloseOnOverlayClick={false}
       closeTimeoutMS={500}
     >
       <h2 className={styles.tituloCodigoQR}>Código QR</h2>
