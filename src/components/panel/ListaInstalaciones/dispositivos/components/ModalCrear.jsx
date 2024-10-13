@@ -11,6 +11,7 @@ const ModalCrear = ({ isOpen, onClose, installationId, onDeviceCreated }) => {
     createErrors,
     confirmationModal,
     confirmationMessage,
+    isLoading,
     setConfirmationModal,
     handleInputChange,
     handleCreateSubmit,
@@ -36,13 +37,20 @@ const ModalCrear = ({ isOpen, onClose, installationId, onDeviceCreated }) => {
         closeTimeoutMS={500}
       >
         <h2>Crear dispositivo</h2>
-        <FormularioCrear
-          newDevice={newDevice}
-          errors={createErrors}
-          handleInputChange={handleInputChange}
-          handleSubmit={handleSubmit}
-          onClose={onClose}
-        />
+        {isLoading ? (
+          <div className={styles.loaderContainer}>
+            <div className={styles.loader}></div>
+            <p className={styles.textoLoaderModal}>Creando dispositivo...</p>
+          </div>
+        ) : (
+          <FormularioCrear
+            newDevice={newDevice}
+            errors={createErrors}
+            handleInputChange={handleInputChange}
+            handleSubmit={handleSubmit}
+            onClose={onClose}
+          />
+        )}
       </Modal>
       <ConfirmacionModal
         isOpen={confirmationModal}
