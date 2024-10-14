@@ -14,6 +14,7 @@ const ListaClientes = () => {
 
   const [confirmationMessage, setConfirmationMessage] = useState('');
   const [confirmationModal, setConfirmationModal] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const {
     filteredClients,
@@ -35,6 +36,19 @@ const ListaClientes = () => {
     refreshClients,
     deleteSelectedClient,
   } = useClientes(token, role);
+
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+
+    checkIfMobile();
+    window.addEventListener('resize', checkIfMobile);
+
+    return () => {
+      window.removeEventListener('resize', checkIfMobile);
+    };
+  }, []);
 
   const handleOpenEditModal = (client) => {
     setSelectedClient(client);
@@ -61,21 +75,35 @@ const ListaClientes = () => {
         aria-label="Buscar clientes"
       />
       <div className={styles.posicionSeccionProductos}>
-        <div className={styles.contenedorCategorias}>
-          {['Todos', ...categories].map((category, index) => (
-            <div
-              key={index}
-              className={`${styles.contenedorCategoria} ${
-                category === selectedCategory
-                  ? styles.categoriaSeleccionada
-                  : ""
-              }`}
-              onClick={() => setSelectedCategory(category)}
-            >
-              <p>{category ? category.charAt(0).toUpperCase() + category.slice(1) : ''}</p>
-            </div>
-          ))}
-        </div>
+        {isMobile ? (
+          <select
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+            className={styles.selectCategoria}
+          >
+            {['Todos', ...categories].map((category, index) => (
+              <option key={index} value={category}>
+                {category ? category.charAt(0).toUpperCase() + category.slice(1) : ''}
+              </option>
+            ))}
+          </select>
+        ) : (
+          <div className={styles.contenedorCategorias}>
+            {['Todos', ...categories].map((category, index) => (
+              <div
+                key={index}
+                className={`${styles.contenedorCategoria} ${
+                  category === selectedCategory
+                    ? styles.categoriaSeleccionada
+                    : ""
+                }`}
+                onClick={() => setSelectedCategory(category)}
+              >
+                <p>{category ? category.charAt(0).toUpperCase() + category.slice(1) : ''}</p>
+              </div>
+            ))}
+          </div>
+        )}
 
         <div className={styles.contenedorClientes}>
           {loading ? (

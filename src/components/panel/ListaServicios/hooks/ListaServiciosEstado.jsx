@@ -3,10 +3,10 @@ import { fetchServices } from "@/components/panel/ListaServicios/services/FetchL
 import { filterServices } from "@/components/panel/ListaServicios/utils/ListasServiciosUtils.jsx";
 
 export default function useServicios() {
-  const [services, setServices] = useState([]);
+  const [allServices, setAllServices] = useState([]);
   const [categories, setCategories] = useState([]);
   const [filteredServices, setFilteredServices] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState("Todo");
   const [loading, setLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -15,14 +15,18 @@ export default function useServicios() {
       setLoading(true);
       try {
         const data = await fetchServices();
-        setServices(data);
+        setAllServices(data);
 
         const uniqueCategories = Array.from(
           new Set(data.map((service) => service.category || "Uncategorized"))
         );
         setCategories(uniqueCategories);
+        setFilteredServices(data);
       } catch (error) {
         console.error("Error fetching services:", error);
+        setAllServices([]);
+        setFilteredServices([]);
+        setCategories([]);
       } finally {
         setLoading(false);
       }
@@ -32,8 +36,12 @@ export default function useServicios() {
   }, []);
 
   useEffect(() => {
-    setFilteredServices(filterServices(services, selectedCategory, searchTerm));
-  }, [selectedCategory, services, searchTerm]);
+    if (selectedCategory === "Todo") {
+      setFilteredServices(allServices);
+    } else {
+      setFilteredServices(filterServices(allServices, selectedCategory, searchTerm));
+    }
+  }, [selectedCategory, allServices, searchTerm]);
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
@@ -41,6 +49,7 @@ export default function useServicios() {
 
   return { 
     filteredServices, 
+    allServices,
     categories, 
     loading, 
     searchTerm, 

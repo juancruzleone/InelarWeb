@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Image from 'next/image';
 import styles from "@/styles/ListaProductos.module.css";
 import searchProducts from "@/components/panel/ListaProductos/utils/buscador.jsx";
@@ -49,8 +49,21 @@ const ListaProductos = () => {
     handleDeleteSubmit,
   } = useProductos();
 
+  const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
     fetchProductsData();
+
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+
+    checkIfMobile();
+    window.addEventListener('resize', checkIfMobile);
+
+    return () => {
+      window.removeEventListener('resize', checkIfMobile);
+    };
   }, [fetchProductsData]);
 
   useEffect(() => {
@@ -73,19 +86,33 @@ const ListaProductos = () => {
         aria-label="Buscar producto"
       />
       <div className={styles.posicionSeccionProductos}>
-        <div className={styles.contenedorCategorias}>
-          {["Todos", ...categories].map((categoria, index) => (
-            <div
-              key={index}
-              className={`${styles.contenedorCategoria} ${
-                categoria === selectedCategory ? styles.categoriaSeleccionada : ""
-              }`}
-              onClick={() => setSelectedCategory(categoria)}
-            >
-              <p>{categoria.charAt(0).toUpperCase() + categoria.slice(1)}</p>
-            </div>
-          ))}
-        </div>
+        {isMobile ? (
+          <select
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+            className={styles.selectCategoria}
+          >
+            {["Todos", ...categories].map((categoria, index) => (
+              <option key={index} value={categoria}>
+                {categoria.charAt(0).toUpperCase() + categoria.slice(1)}
+              </option>
+            ))}
+          </select>
+        ) : (
+          <div className={styles.contenedorCategorias}>
+            {["Todos", ...categories].map((categoria, index) => (
+              <div
+                key={index}
+                className={`${styles.contenedorCategoria} ${
+                  categoria === selectedCategory ? styles.categoriaSeleccionada : ""
+                }`}
+                onClick={() => setSelectedCategory(categoria)}
+              >
+                <p>{categoria.charAt(0).toUpperCase() + categoria.slice(1)}</p>
+              </div>
+            ))}
+          </div>
+        )}
         <div className={styles.contenedorClientes}>
           {loading ? (
             <p>Cargando productos...</p>
@@ -172,4 +199,4 @@ const ListaProductos = () => {
   );
 }
 
-export default ListaProductos
+export default ListaProductos;

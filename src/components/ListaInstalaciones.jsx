@@ -72,6 +72,7 @@ const ListaInstalaciones = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [deviceSearch, setDeviceSearch] = useState('');
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const deviceListRef = useRef(null);
 
   useEffect(() => {
@@ -85,6 +86,17 @@ const ListaInstalaciones = () => {
       setSelectedInstallationForDevice(JSON.parse(savedSelectedInstallation));
       handleViewDevices(JSON.parse(savedSelectedInstallation));
     }
+
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+
+    checkIfMobile();
+    window.addEventListener('resize', checkIfMobile);
+
+    return () => {
+      window.removeEventListener('resize', checkIfMobile);
+    };
   }, [fetchInstallationsData]);
 
   useEffect(() => {
@@ -261,19 +273,33 @@ const ListaInstalaciones = () => {
             aria-label="Buscar instalación"
           />
           <div className={styles.posicionSeccionProductos}>
-            <div className={styles.contenedorCategorias}>
-              {["Todos", ...categories].map((categoria, index) => (
-                <div
-                  key={index}
-                  className={`${styles.contenedorCategoria} ${
-                    categoria === selectedCategory ? styles.categoriaSeleccionada : ""
-                  }`}
-                  onClick={() => setSelectedCategory(categoria)}
-                >
-                  <p>{categoria ? categoria.charAt(0).toUpperCase() + categoria.slice(1) : "Sin Categoría"}</p>
-                </div>
-              ))}
-            </div>
+            {isMobile ? (
+              <select
+                value={selectedCategory}
+                onChange={(e) => setSelectedCategory(e.target.value)}
+                className={styles.selectCategoria}
+              >
+                {["Todos", ...categories].map((categoria, index) => (
+                  <option key={index} value={categoria}>
+                    {categoria ? categoria.charAt(0).toUpperCase() + categoria.slice(1) : "Sin Categoría"}
+                  </option>
+                ))}
+              </select>
+            ) : (
+              <div className={styles.contenedorCategorias}>
+                {["Todos", ...categories].map((categoria, index) => (
+                  <div
+                    key={index}
+                    className={`${styles.contenedorCategoria} ${
+                      categoria === selectedCategory ? styles.categoriaSeleccionada : ""
+                    }`}
+                    onClick={() => setSelectedCategory(categoria)}
+                  >
+                    <p>{categoria ? categoria.charAt(0).toUpperCase() + categoria.slice(1) : "Sin Categoría"}</p>
+                  </div>
+                ))}
+              </div>
+            )}
             <div className={styles.contenedorClientes}>
               {loading ? (
                 <p>Cargando instalaciones...</p>
@@ -359,6 +385,7 @@ const ListaInstalaciones = () => {
             ref={deviceListRef}
             className={`${stylesDevices.listaDispositivos} ${isScrolled ? stylesDevices.scrolled : ''}`}
           >
+            
             {loadingDevices ? (
               <p className={stylesDevices.loaderDispositivos}>Cargando dispositivos...</p>
             ) : filteredDevices.length > 0 ? (
@@ -379,9 +406,7 @@ const ListaInstalaciones = () => {
                         height={20}
                       />
                     </button>
-                    <button onClick={() => 
-
- handleEditDevice(device)} className={stylesDevices.botonEditar}>
+                    <button onClick={() => handleEditDevice(device)} className={stylesDevices.botonEditar}>
                       <Image
                         src="/editar.svg"
                         alt="Editar"
