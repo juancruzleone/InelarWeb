@@ -9,7 +9,7 @@ import ListaClientes from "@/components/ListaClientes.jsx";
 import ListaMensajes from "@/components/ListaMensajes.jsx";
 import ListaServicios from "@/components/ListaServicios.jsx";
 import ListaInstalaciones from "@/components/ListaInstalaciones.jsx"; 
-import ListaUsuarios from "@/components/ListaUsuarios.jsx"; // Nueva importación
+import ListaUsuarios from "@/components/ListaUsuarios.jsx"; 
 import styles from "@/styles/PanelAdmin.module.css";
 
 const PanelAdmin = () => {

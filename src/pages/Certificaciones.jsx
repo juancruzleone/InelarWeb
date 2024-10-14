@@ -9,40 +9,45 @@ const Certificaciones = () => {
     <Layout>
       <Head>
         <title>Certificaciones | Inelar</title>
-        <meta name="description" content="Descripción de mi aplicación" />
+        <meta name="description" content="Certificaciones y licencias de Inelar" />
         <link rel="icon" href="/inelar.ico" />
       </Head>
-      <h1 className={styles.tituloPaginas}>Certificaciones</h1>
-      <h2 className={styles.subtituloCertificaciones}>
-        Licencias nacionales e internacionales
-      </h2>
-      <div className={styles.posicionContenedorCertificaciones}>
-        <div className={styles.contenedorCertificaciones}>
-          <Image
-            src="/logo-iram2.svg"
-            alt="Logo certificación IRAM"
-            width={120}
-            height={100}
-          />
-        </div>
-        <div className={styles.contenedorCertificaciones}>
-          <Image
-            src="/logo-nfpa2.svg"
-            alt="Logo certificación NFPA"
-            width={120}
-            height={100}
-          />
-        </div>
-        <div className={styles.contenedorCertificaciones}>
-          <Image
-            src="/logo-cemera.svg"
-            alt="Logo certificación CEMERA"
-            width={120}
-            height={100}
-          />
+      <div className={styles.container}>
+        <h1 className={styles.tituloPaginas}>Certificaciones</h1>
+        <h2 className={styles.subtituloCertificaciones}>
+          Licencias nacionales e internacionales
+        </h2>
+        <div className={styles.posicionContenedorCertificaciones}>
+          <div className={styles.contenedorCertificaciones}>
+            <Image
+              src="/logo-iram2.svg"
+              alt="Logo certificación IRAM"
+              width={120}
+              height={100}
+              layout="responsive"
+            />
+          </div>
+          <div className={styles.contenedorCertificaciones}>
+            <Image
+              src="/logo-nfpa2.svg"
+              alt="Logo certificación NFPA"
+              width={120}
+              height={100}
+              layout="responsive"
+            />
+          </div>
+          <div className={styles.contenedorCertificaciones}>
+            <Image
+              src="/logo-cemera.svg"
+              alt="Logo certificación CEMERA"
+              width={120}
+              height={100}
+              layout="responsive"
+            />
+          </div>
         </div>
       </div>
-      <Footer></Footer>
+      <Footer />
     </Layout>
   );
 };

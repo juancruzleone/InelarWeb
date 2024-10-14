@@ -1,4 +1,134 @@
-.tituloPaginasPanel{
+/* Mobile-first styles */
+.tituloPaginasPanel {
+  margin: 20px 15px;
+  color: #f9bf79;
+  font-size: 24px;
+  margin-left: 25px;
+  margin-top: 30px;
+  margin-bottom: 0px;
+}
+
+.buscadorPanel {
+  border-radius: 10px;
+  width: 90%;
+  padding: 10px;
+  margin: 20px auto;
+  margin-left: 20px;
+}
+
+.posicionSeccionProductos {
+  display: flex;
+  flex-direction: column;
+}
+
+.contenedorServicios {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.cargandoMensajes {
+  margin: 10px 15px;
+}
+
+.textoBuscadorPanel {
+  margin: 20px 15px;
+}
+
+.contenedorCategorias {
+  background-color: #121212;
+  border-radius: 4px;
+  margin: 20px 15px;
+  padding: 10px;
+}
+
+.contenedorCategoria {
+  background-color: #C75F00;
+  margin-top: 10px;
+}
+
+.contenedorCategoria p {
+  font-family: "montserrat", sans-serif;
+  padding: 5px;
+  border-radius: 4px;
+  margin: 5px;
+  font-weight: 500;
+  color: #121212;
+}
+
+.contenedorCategoria:hover {
+  background-color: #f9bf79;
+  cursor: pointer;
+}
+
+.categoriaSeleccionada {
+  background-color: #f9bf79;
+}
+
+.tarjetaProductoPanel {
+  background-color: #1d1d1d;
+  border-radius: 7px;
+  padding: 15px;
+  margin: 15px;
+  font-family: "montserrat", sans-serif;
+}
+
+.tarjetaProductoPanel h3 {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.tarjetaProductoPanel span {
+  color: white;
+  font-weight: 600;
+}
+
+.contenidoTarjetaProductoPanel {
+  margin-top: 15px;
+}
+
+.contenidoTarjetaProductoPanel p {
+  margin-top: 8px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.contenidoTarjetaProductoPanel span {
+  font-weight: 600;
+  margin-right: 8px;
+  color: white;
+}
+
+/* Tablet styles */
+@media (min-width: 768px) {
+  .tituloPaginasPanel {
+    font-size: 28px;
+    margin-left: 30px;
+  }
+
+  .buscadorPanel {
+    width: 80%;
+    margin-left: 30px;
+  }
+
+  .posicionSeccionProductos {
+    flex-direction: row;
+  }
+
+  .contenedorServicios {
+    max-height: 500px;
+  }
+
+  .tarjetaProductoPanel {
+    padding: 20px;
+    margin: 20px;
+  }
+}
+
+/* PC styles */
+@media (min-width: 1024px) {
+  .tituloPaginasPanel{
     margin-left: 50px;
     margin-top: 50px;
     margin-bottom: 15px;
@@ -169,3 +299,4 @@
     margin-right: 8px;
     color: white;
   }
+}

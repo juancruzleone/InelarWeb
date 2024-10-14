@@ -1,4 +1,313 @@
-.botonVaciar{
+/* Base styles (mobile) */
+.botonVaciar {
+  margin: 20px auto;
+  background-color: #121212;
+  padding: 6px;
+  border-radius: 4px;
+  color: black;
+  cursor: pointer;
+  display: block;
+}
+
+.botonVaciar:hover {
+  background-color: #1b1b1b;
+}
+
+.botonIrCheckout {
+  background-color: #C75F00;
+  color: #121212;
+  font-family: "montserrat", sans-serif;
+  text-align: center;
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  padding: 15px;
+  border-radius: 4px;
+  margin: 20px auto;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.botonIrCheckout:hover {
+  background-color: #f57600;
+  cursor: pointer;
+}
+
+.ModalCheckout, .Modal {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #121212;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  width: 90%;
+  max-width: 300px;
+}
+
+.ModalCheckout {
+  height: 140px;
+}
+
+.Modal {
+  height: 180px;
+}
+
+.Modal .tituloModalConfirm {
+  margin-top: 25px;
+}
+
+.contenedorBotonesModalVaciar {
+  display: flex;
+  flex-direction: column;
+}
+
+.contenedorBotonesModalVaciar button {
+  margin-top: 10px;
+  font-weight: 500;
+  padding: 6px;
+  border-radius: 4px;
+  font-family: "montserrat", sans-serif;
+  border: 0;
+  cursor: pointer;
+}
+
+.contenedorBotonesModalVaciar .botonConfirmarModal,
+.contenedorBotonesModalVaciar .botonConfirmar {
+  background-color: red;
+  color: white;
+}
+
+.contenedorBotonesModalVaciar .botonCancelar,
+.contenedorBotonesModalVaciar .botonCancelarModal {
+  background-color: blue;
+  color: white;
+}
+
+.Modal p {
+  font-family: "montserrat", sans-serif;
+  font-weight: 300;
+}
+
+.Modal a {
+  font-family: "montserrat", sans-serif;
+  margin-top: 20px;
+  text-decoration: underline;
+}
+
+.Modal button {
+  background-color: transparent;
+  margin-top: 20px;
+  border: 0;
+}
+
+.Modal h2 {
+  font-family: "montserrat", sans-serif;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.Modal .modalContent {
+  margin-top: 10px;
+}
+
+.Modal .modalContent img {
+  margin-bottom: 20px;
+}
+
+.Modal .cerrarModalButton {
+  cursor: pointer;
+  display: block;
+  margin: 10px auto 0;
+}
+
+.tickModal {
+  display: block;
+  margin: 10px auto;
+}
+
+.tituloPaginas {
+  font-family: "montserrat", sans-serif;
+  font-size: 28px;
+  text-align: center;
+  margin-top: 40px;
+  font-weight: 600;
+  color: #C75F00;
+}
+
+.contenedorCarrito {
+  margin: 20px auto;
+  background-color: #121212;
+  width: 90%;
+  max-height: 400px;
+  border-radius: 10px;
+  overflow-y: auto;
+}
+
+.contenedorCarritoVacio {
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedorCarrito p {
+  font-family: "montserrat", sans-serif;
+}
+
+.contenedorCarrito h3 {
+  font-family: "montserrat", sans-serif;
+  font-size: 18px;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.mensajeCarritoVacio {
+  font-family: "montserrat", sans-serif;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.tarjetaProductoCarrito {
+  display: flex;
+  flex-direction: column;
+  background-color: #1f1f1f;
+  width: 90%;
+  margin: 10px auto;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.imagenProductoDetalleCarrito {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.imagenProductoDetalleCarrito img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+.detalleProductoCarrito {
+  display: flex;
+  flex-direction: column;
+}
+
+.nombreProductoCarrito {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.categoriaProductoCarrito {
+  background-color: white;
+  color: #121212;
+  border-radius: 4px;
+  width: 120px;
+  text-align: center;
+  padding: 2px;
+  margin: 5px 0;
+}
+
+.precioUnidad {
+  margin-top: 5px;
+}
+
+.unidadesProductoCarrito {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.unidadesCarrito {
+  color: white;
+  margin-right: 5px;
+}
+
+.botonSumar, .botonEliminar {
+  background-color: rgb(83, 83, 83);
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.botonEliminar {
+  background-color: rgb(179, 19, 19);
+}
+
+.botonSumar img, .botonEliminar img {
+  width: 20px;
+  height: 20px;
+}
+
+.cargandoCarrito {
+  text-align: center;
+  font-size: 16px;
+  color: white;
+  font-weight: 400;
+  margin-top: 50px;
+}
+
+/* Tablet styles */
+@media (min-width: 768px) {
+  .botonIrCheckout {
+    max-width: 500px;
+    font-size: 18px;
+  }
+
+  .ModalCheckout, .Modal {
+    max-width: 400px;
+  }
+
+  .tituloPaginas {
+    font-size: 36px;
+    margin-top: 60px;
+  }
+
+  .contenedorCarrito {
+    max-height: 500px;
+    width: 80%;
+  }
+
+  .tarjetaProductoCarrito {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .imagenProductoDetalleCarrito {
+    width: auto;
+    margin-right: 20px;
+    margin-bottom: 0;
+  }
+
+  .detalleProductoCarrito {
+    flex-direction: row;
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+
+  .unidadesProductoCarrito {
+    margin-top: 0;
+  }
+
+  .botonSumar, .botonEliminar {
+    margin-top: 0;
+    margin-left: 10px;
+  }
+}
+
+/* PC styles */
+@media (min-width: 1024px) {
+  .botonVaciar{
     margin-left: 48%;
     margin-top: 30px;
     background-color: #121212;
@@ -115,10 +424,10 @@
     height: 180px;
   }
   
-.Modal p{
+  .Modal p{
     font-family: "montserrat", sans-serif;
     font-weight: 300;
-}
+  }
   
   .Modal a{
     font-family: "montserrat", sans-serif;
@@ -127,37 +436,36 @@
     text-decoration: underline;
   }
   
-.Modal button{
+  .Modal button{
     background-color: transparent;
     margin-top:20px;
     border: 0px
-}
+  }
   
-.Modal h2 {
+  .Modal h2 {
     font-family: "montserrat", sans-serif;
     margin-top: 10px;
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-}
+  }
   
-.Modal .modalContent{
+  .Modal .modalContent{
     margin-top: 10px;
-}
+  }
 
-.Modal .modalContent img{
+  .Modal .modalContent img{
     margin-bottom: 20px;
-}
+  }
   
-
-.Modal .cerrarModalButton{
+  .Modal .cerrarModalButton{
     cursor: pointer;
     display: flex;
     margin: auto;
     justify-content: center;
     text-align: center;
-}
+  }
 
   .tickModal{
     display: flex;
@@ -176,7 +484,6 @@
     text-align: left;
   }
 
-  
   .tituloPaginas {
     text-align: center;
     margin-top: 80px;
@@ -234,6 +541,8 @@
     width: 80px;
     height: 80px;
   }
+  
+  
   
   .tarjetaProductoCarrito {
     display: flex;
@@ -374,6 +683,4 @@
     height: 30px;
     padding: 4px;
   }
-  
-  
-  
+}

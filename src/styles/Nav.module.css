@@ -1,60 +1,236 @@
 .nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #121212;
+  position: relative;
+}
+
+.navLinks {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #121212;
+  padding: 1rem;
+}
+
+.navLinks.open {
+  display: flex;
+}
+
+.seccionesNav {
+  font-family: "montserrat", sans-serif;
+  font-size: 16px;
+  color: white;
+  text-decoration: none;
+  margin: 0.5rem 0;
+  padding: 0.3rem;
+  border-bottom: 4px solid transparent;
+}
+
+.seccionesNav:hover {
+  border-bottom: 4px solid #C75F00;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+}
+
+.hamburger span {
+  width: 2rem;
+  height: 0.25rem;
+  background: white;
+  border-radius: 10px;
+  transition: all 0.3s linear;
+  position: relative;
+  transform-origin: 1px;
+}
+
+.sesion,
+.carrito {
+  width: 40px;
+  height: 40px;
+}
+
+#sesion {
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+.carrito {
+  margin-right: 10px;
+  margin-left: 5px;
+}
+
+#cerrarSesion {
+  margin-right: 10px;
+  margin-left: 15px;
+}
+
+.logoutIcon {
+  display: block;
+  width: 35px;
+}
+
+.carrito{
+  width: 35px;
+}
+
+.logoutButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: 0px;
+  cursor: pointer;
+}
+
+.navIcons {
+  display: flex;
+  align-items: center;
+}
+
+/* Tablet styles (including iPad Air and iPad Pro) */
+@media (min-width: 768px) and (max-width: 1366px) {
+  .nav {
+    flex-wrap: wrap;
+  }
+
+  .navLinks {
+    width: 100%;
+    order: 3;
+  }
+
+  .navLinks.open {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    padding-left: 28px;
-    background-color: #121212;
+    flex-direction: column;
   }
-  
+
   .seccionesNav {
-    font-family: "montserrat", sans-serif;
-    font-size: 16px;
-    color: white;
-    text-decoration: none;
+    margin: 0.5rem 0;
+  }
+
+  .navIcons {
+    order: 2;
+  }
+
+  .hamburger {
+    display: flex; /* Ensure hamburger is visible on tablets */
+  }
+}
+
+/* Large desktop styles */
+@media (min-width: 1367px) {
+  .nav {
+    padding-left: 28px;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .navLinks {
+    display: flex;
+    position: static;
+    flex-direction: row;
+    background-color: transparent;
+    padding: 0;
+    flex-grow: 1;
+    justify-content: flex-start;
+  }
+
+  .seccionesNav {
     margin: 0 0.5rem;
-    padding: 0.3rem;
-    border-bottom: 4px solid transparent;
   }
-  
-  .seccionesNav:hover {
-    border-bottom: 4px solid #C75F00;
-  }
-  
-  .sesion,
-  .carrito {
-    width: 40px;
-    height: 40px;
-  }
-  
+
   #sesion {
-    margin-left: auto;
     margin-right: 23px;
   }
-  
+
   .carrito {
-    margin-right: 40px; 
-    margin-left: 5px;
+    margin-right: 40px;
   }
-  
-  #cerrarSesion{
+
+  #cerrarSesion {
     margin-right: 20px;
   }
+}
 
-  .logoutIcon {
-    display: block;
-  }
+.Modal {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #121212;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  height: 180px;
+}
 
-  .logoutButton {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: transparent;
-    border: 0px;
-    cursor: pointer;
-  }
-  
-  .logoutIcon {
-    display: block;
-  }
-  
+.Modal p{
+  font-family: "montserrat", sans-serif;
+  font-weight: 300;
+}
+
+.Modal a{
+  font-family: "montserrat", sans-serif;
+  margin-left: 70px;
+  margin-top:20px;
+  text-decoration: underline;
+}
+
+.Modal button{
+  background-color: transparent;
+  margin-top:20px;
+  border: 0px
+}
+
+.Modal h2 {
+  font-family: "montserrat", sans-serif;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Modal .modalContent{
+  margin-top: 10px;
+}
+
+.Modal .modalContent img{
+  margin-bottom: 20px;
+}
+
+
+.Modal .cerrarModalButton{
+  cursor: pointer;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  text-align: center;
+}
+
+.tickModal{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+}

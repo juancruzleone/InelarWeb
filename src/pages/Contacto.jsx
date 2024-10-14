@@ -22,15 +22,15 @@ const Contacto = () => {
     <Layout className={styles.app}>
       <Head>
         <title>Contacto | Inelar</title>
-        <meta name="description" content="Descripción de mi aplicación" />
+        <meta name="description" content="Página de contacto de Inelar" />
         <link rel="icon" href="/inelar.ico" />
       </Head>
       <h1 className={styles.tituloPaginas}>Contacto</h1>
       <div className={styles.posicionContacto}>
-        <Mapa />
         <div className={styles.contenedorFormulario}>
           <FormularioContacto onSubmit={openModal} />
         </div>
+        <Mapa />
       </div>
       <Footer />
       <ModalConfirmacion

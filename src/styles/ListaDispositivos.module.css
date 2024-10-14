@@ -1,7 +1,273 @@
-.formularioPanel{
+/* Mobile-first styles */
+.formularioPanel {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+}
+
+.botonEditar {
+  background-color: rgb(43, 43, 43);
+  border: 0px;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.botonVolver {
+  height: 32px;
+  margin-left: 50px;
+  cursor: pointer;
+  background-color: #d9d9d9;
+  color: black;
+  font-family: "montserrat", sans-serif;
+  font-weight: 500;
+  width: 200px;
+}
+
+
+.botonEditar img {
+  width: 30px;
+  height: 30px;
+  padding: 4px;
+}
+
+.botonEliminar {
+  background-color: rgb(179, 19, 19);
+  border: 0px;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.tituloPaginasPanel {
+  margin: 20px 15px;
+  color: #f9bf79;
+  margin-left: 50px;
+  margin-top: 50px;
+  margin-bottom: 15px;
+}
+
+
+.botonEliminar img {
+  width: 30px;
+  height: 30px;
+  padding: 4px;
+}
+
+.buscadorPanel {
+  border-radius: 10px;
+  width: 90%;
+  padding: 15px;
+  margin-top: 40px;
+  margin-left: 50px;
+}
+
+.formularioPanel button {
+  cursor: pointer;
+  width: 100%;
+  max-width: 200px;
+  margin: 10px auto;
+}
+
+.formularioPanel textarea {
+  margin-top: 5px;
+  padding: 10px;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.formularioPanel label {
+  margin-top: 15px;
+}
+
+.errorPanel, .error {
+  color: #e74c3c;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  padding-left: 4px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.contenedorBotonesEditar {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contenedorBotonesEditar button {
+  cursor: pointer;
+  width: 100%;
+  max-width: 200px;
+  margin: 10px 0;
+}
+
+.botonCancelar, .botonCancelarModal {
+  background-color: #2b2b2b;
+  color: white;
+}
+
+.botonGuardar {
+  color: #121212;
+}
+
+.ModalPanelDispositivo {
+  width: 90%;
+  max-width: 400px;
+  height: auto;
+  max-height: 80vh;
+  overflow: auto;
+  padding: 15px;
+}
+
+.ModalPanelDispositivo h2 {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.ModalPanelDispositivo input,
+.ModalPanelDispositivo select,
+.ModalPanelDispositivo textarea {
+  width: 100%;
+  margin-top: 5px;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.ModalPanelDispositivo button {
+  width: 100%;
+  max-width: 200px;
+  margin: 10px auto;
+}
+
+.ModalPanelEditar {
+  width: 90%;
+  max-width: 400px;
+  height: auto;
+  padding: 15px;
+}
+
+.textoEliminarCliente {
+  font-size: 16px;
+  text-align: center;
+}
+
+.ModalExito {
+  width: 90%;
+  max-width: 300px;
+  height: auto;
+  padding: 15px;
+}
+
+.loaderContainer {
+  height: 150px;
+}
+
+.tarjetaProductoPanelDispositivos {
+  display: flex;
+  justify-content: space-between;
+  background-color: #1d1d1d;
+  border-radius: 7px;
+  padding: 20px;
+  margin: 30px;
+  width: 800px;
+  font-family: "montserrat", sans-serif;
+}
+
+.tarjetaProductoPanelDispositivos p {
+  text-align: left;
+}
+
+.tarjetaProductoPanelDispositivos .tarjetaContenido {
+  width: 500px;
+}
+
+
+/* Tablet styles */
+@media (min-width: 768px) {
+  .formularioPanel button {
+    width: auto;
+    margin: 10px 10px 10px 0;
+  }
+
+  .contenedorBotonesEditar {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .contenedorBotonesEditar button {
+    width: auto;
+    margin: 10px 10px 10px 0;
+  }
+
+  .ModalPanelDispositivo,
+  .ModalPanelEditar,
+  .ModalExito {
+    width: 80%;
+    max-width: 500px;
+  }
+
+  .tarjetaProductoPanelDispositivos {
+    display: flex;
+    justify-content: space-between;
+    background-color: #1d1d1d;
+    border-radius: 7px;
+    padding: 20px;
+    margin: 30px;
+    width: 800px;
+    font-family: "montserrat", sans-serif;
+  }
+  
+  .tarjetaProductoPanelDispositivos p {
+    text-align: left;
+  }
+
+  .tarjetaProductoPanelDispositivos .tarjetaContenido {
+    width: 500px;
+  }
+
+  .botonVolver {
+    height: 32px;
+    margin-left: 50px;
+    cursor: pointer;
+    background-color: #d9d9d9;
+    color: black;
+    font-family: "montserrat", sans-serif;
+    font-weight: 500;
+    width: 200px;
+  }
+  
+
+}
+
+/* PC styles */
+@media (min-width: 1024px) {
+  .formularioPanel{
     display: flex;
     flex-direction: column;
     margin-top: 15px;
+  }
+
+  .tituloPaginasPanel {
+    margin-left: 50px;
+    margin-top: 50px;
+    margin-bottom: 15px;
+    color: #f9bf79;
+  }
+
+  .botonVolver {
+    height: 32px;
+    margin-left: 50px;
+    cursor: pointer;
+    background-color: #d9d9d9;
+    color: black;
+    font-family: "montserrat", sans-serif;
+    font-weight: 500;
+    width: 200px;
   }
   
   .formularioPanel button{
@@ -43,7 +309,6 @@
     text-overflow: ellipsis;   
   }
 
-
   .contenedorBotonesEditar {
     margin-top: 25px;
   }
@@ -71,7 +336,6 @@
     color: #121212;
   }
 
-
   .ModalPanelDispositivo .contenedorBotonesImprimir{
     margin: auto;
     margin-top: 50px;
@@ -88,6 +352,27 @@
     cursor: pointer;
     color: #121212;
   }
+
+  .tarjetaProductoPanelDispositivos {
+    display: flex;
+    justify-content: space-between;
+    background-color: #1d1d1d;
+    border-radius: 7px;
+    padding: 20px;
+    margin: 30px;
+    width: 800px;
+    font-family: "montserrat", sans-serif;
+    margin-left: 50px;
+  }
+  
+  .tarjetaProductoPanelDispositivos p {
+    text-align: left;
+  }
+
+  .tarjetaProductoPanelDispositivos .tarjetaContenido {
+    width: 500px;
+  }
+
 
   .ModalPanelDispositivo {
     display: flex;
@@ -192,14 +477,12 @@
     color: white;
   }
 
-  
   .textoEliminarCliente{
     font-size: 18px;
     font-weight: lighter;
   }
 
   .Modal .botonEliminarProducto{
-    /*background-color:  rgb(46, 46, 46);*/
     background-color:  red;
     padding: 8px;
     border-radius: 4px;
@@ -215,13 +498,11 @@
     text-align: center;
   }
 
-  
   .codigoQR{
     margin-top: 40px;
   }
   
-  
-#botonImprimir{
+  #botonImprimir{
     background-color: #121212;
   }
 
@@ -245,11 +526,28 @@
     z-index: 9999;
     height: 180px;
   }
+
+  .loaderDispositivos {
+    text-align: left;
+    margin-top: 12px;
+    margin-left: 50px;
+  }
+
+  .categoriaDispositivo {
+    display: flex;
+    background-color: #121212;
+    width: 120px;
+    color: white;
+    border-radius: 4px;
+    text-align: center;
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
   
-.ModalExito p{
+  .ModalExito p{
     font-family: "montserrat", sans-serif;
     font-weight: 300;
-}
+  }
   
   .ModalExito a{
     font-family: "montserrat", sans-serif;
@@ -258,69 +556,68 @@
     text-decoration: underline;
   }
   
-.ModalExito button{
+  .ModalExito button{
     background-color: transparent;
     margin-top:20px;
     border: 0px
-}
+  }
   
-.ModalExito h2 {
+  .ModalExito h2 {
     font-family: "montserrat", sans-serif;
     margin-top: 10px;
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-}
+  }
   
-.ModalExito .modalContent{
+  .ModalExito .modalContent{
     margin-top: 10px;
-}
+  }
 
-.ModalExito .modalContent img{
+  .ModalExito .modalContent img{
     margin-bottom: 20px;
-}
+  }
   
-
-.ModalExito .cerrarModalButton{
+  .ModalExito .cerrarModalButton{
     cursor: pointer;
     display: flex;
     margin: auto;
     justify-content: center;
     text-align: center;
-}
+  }
 
-.tickModal{
+  .tickModal{
     display: flex;
     justify-content: center;
     text-align: center;
     margin: auto;
-}
+  }
   
-.loaderContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 200px;
-}
+  .loaderContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+  }
 
-.loader {
-  border: 5px solid #f3f3f3;
-  border-top: 5px solid #C75F00;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 1s linear infinite;
-  margin-top: 80px;
-}
+  .loader {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #C75F00;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin-top: 80px;
+  }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
 
-.textoLoaderModal{
-  margin-top: 20px;
+  .textoLoaderModal{
+    margin-top: 20px;
+  }
 }
-

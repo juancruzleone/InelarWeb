@@ -1,11 +1,259 @@
-.tituloPaginasPanel{
+/* Mobile-first styles */
+.tituloPaginasPanel {
+  margin: 20px 15px;
+  color: #f9bf79;
+}
+
+.botonEditar {
+  background-color: rgb(43, 43, 43);
+  border: 0px;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.botonEditar img {
+  width: 30px;
+  height: 30px;
+  padding: 4px;
+}
+
+.botonEliminar {
+  background-color: rgb(179, 19, 19);
+  border: 0px;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.botonEliminar img {
+  width: 30px;
+  height: 30px;
+  padding: 4px;
+}
+
+.contenedorPagina button {
+  border: 0;
+  padding: 3px;
+  font-family: "montserrat", sans-serif;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.botonCrearModal {
+  height: 32px;
+  margin: 0 15px;
+  cursor: pointer;
+  background-color: #d9d9d9;
+  color: black;
+  font-family: "montserrat", sans-serif;
+  font-weight: 500;
+  width: calc(100% - 30px);
+}
+
+.buscadorPanel {
+  border-radius: 10px;
+  width: calc(100% - 30px);
+  padding: 15px;
+  margin: 20px 15px;
+}
+
+.posicionSeccionProductos {
+  display: flex;
+  flex-direction: column;
+}
+
+.contenedorCategorias {
+  background-color: #121212;
+  border-radius: 4px;
+  margin: 20px 15px;
+  padding: 10px;
+}
+
+.contenedorCategoria {
+  background-color: #C75F00;
+  margin-top: 10px;
+}
+
+.contenedorCategoria p {
+  font-family: "montserrat", sans-serif;
+  padding: 5px;
+  border-radius: 4px;
+  margin: 5px;
+  font-weight: 500;
+  color: #121212;
+}
+
+.contenedorClientes {
+  max-height: 400px;
+  overflow-y: auto;
+  margin: 20px 15px;
+}
+
+.tarjetaProductoPanelInstalaciones {
+  background-color: #1d1d1d;
+  border-radius: 7px;
+  padding: 15px;
+  margin-bottom: 20px;
+  font-family: "montserrat", sans-serif;
+  position: relative;
+}
+
+.tarjetaDireccion {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.TipoInstalacion {
+  background-color: #C75F00;
+  border-radius: 4px;
+  padding: 3px;
+  font-size: 14px;
+  color: #1d1d1d;
+  font-weight: 500;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.botonesDispositivos {
+  margin-top: 15px;
+}
+
+#botonAgregarDispositivo,
+#botonVerDispositivos {
+  width: 100%;
+  padding: 9px;
+  border-radius: 4px;
+  background-color: #2c2c2c;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.botonesEdicionEliminacion {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Tablet styles */
+@media (min-width: 768px) {
+  .botonCrearModal {
+    width: 200px;
+  }
+
+  .buscadorPanel {
+    width: calc(100% - 60px);
+    margin: 20px 30px;
+  }
+
+  .posicionSeccionProductos {
+    flex-direction: row;
+  }
+
+  .contenedorCategorias {
+    width: 200px;
+    margin-right: 20px;
+  }
+
+  .contenedorClientes {
+    flex: 1;
+  }
+
+  .tarjetaProductoPanelInstalaciones {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .botonesDispositivos {
+    display: flex;
+    gap: 10px;
+  }
+
+  #botonAgregarDispositivo,
+  #botonVerDispositivos {
+    width: auto;
+  }
+}
+
+/* iPad Air and iPad Pro styles */
+@media (min-width: 820px) and (max-width: 1366px) {
+  .tituloPaginasPanel {
+    margin: 30px 25px;
+  }
+
+  .botonCrearModal {
+    width: 180px;
+    margin-left: 25px;
+  }
+
+  .buscadorPanel {
+    width: calc(100% - 50px);
+    margin: 30px 25px;
+  }
+
+  .posicionSeccionProductos {
+    flex-direction: row;
+    margin: 0 25px;
+  }
+
+  .contenedorCategorias {
+    width: 180px;
+    margin-right: 25px;
+  }
+
+  .contenedorClientes {
+    max-height: 500px;
+    margin: 30px 0;
+  }
+
+  .tarjetaProductoPanelInstalaciones {
+    padding: 20px;
+    margin-bottom: 25px;
+  }
+
+  .tarjetaDireccion {
+    font-size: 17px;
+  }
+
+  .TipoInstalacion {
+    font-size: 15px;
+  }
+
+  #botonAgregarDispositivo,
+  #botonVerDispositivos {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .botonesEdicionEliminacion {
+    margin-top: 15px;
+  }
+
+  .botonEditar,
+  .botonEliminar {
+    padding: 12px;
+  }
+
+  .botonEditar img,
+  .botonEliminar img {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+  .tituloPaginasPanel {
     margin-left: 50px;
     margin-top: 50px;
     margin-bottom: 15px;
     color: #f9bf79;
   }
 
-.contenedorPagina button{
+  .contenedorPagina button {
     border: 0px;
     padding: 3px;
     font-family: "montserrat", sans-serif;
@@ -13,7 +261,7 @@
     margin-right: 10px;
   }
 
-  .botonCrearModal{
+  .botonCrearModal {
     height: 32px;
     margin-left: 50px;
     cursor: pointer;
@@ -24,7 +272,7 @@
     width: 120px;
   }
 
-  .buscadorPanel{
+  .buscadorPanel {
     border-radius: 10px;
     width: 90%;
     padding: 15px;
@@ -32,23 +280,22 @@
     margin-left: 50px;
   }
 
-  .posicionSeccionProductos{
+  .posicionSeccionProductos {
     display: flex;
   }
   
-  .posicionSeccionProductos .contenedorCategorias{
+  .posicionSeccionProductos .contenedorCategorias {
     margin-top: 50px;
   }
 
-  
-  .contenedorCategorias{
+  .contenedorCategorias {
     background-color: #121212;
     border-radius: 4px;
     height: 300px;
     margin-right: 60px;
   }
   
-  .contenedorCategorias button{
+  .contenedorCategorias button {
     display: block;
     font-family: "montserrat", sans-serif;
     margin-top: 10px;
@@ -66,20 +313,20 @@
     height: 100%;
   }
   
-  .contenedorCategorias a{
+  .contenedorCategorias a {
     cursor: pointer;
     color: white;
   }
 
-  .contenedorCategoria{
-    margin-top:20px;
+  .contenedorCategoria {
+    margin-top: 20px;
   }
   
-  .contenedorCategoria{
+  .contenedorCategoria {
     background-color: #C75F00;
   }
 
-  .contenedorCategoria p{
+  .contenedorCategoria p {
     font-family: "montserrat", sans-serif;
     padding: 5px;
     border-radius: 4px;
@@ -88,14 +335,14 @@
     color: #121212;
   }
   
-  .contenedorCategoria:hover{
+  .contenedorCategoria:hover {
     border-radius: 4px;
     cursor: pointer;
     background-color: #f9bf79;
   }
   
-  .categoriaSeleccionada{
-    background-color:  #f9bf79;
+  .categoriaSeleccionada {
+    background-color: #f9bf79;
   }
 
   .contenedorClientes {
@@ -121,8 +368,7 @@
     width: 250px;
   }
 
-  
-.tarjetaProductoPanelDispositivos .tarjetaContenido{
+  .tarjetaProductoPanelDispositivos .tarjetaContenido {
     width: 500px;
   }
 
@@ -150,7 +396,6 @@
     justify-content: space-between;
   }
 
-  
   .botonesDispositivos {
     display: flex;
     flex-direction: column;
@@ -158,52 +403,51 @@
   }
 
   #botonAgregarDispositivo,
-#botonVerDispositivos {
-  width: 200px;
-  padding: 9px;
-  border-radius: 4px;
-  background-color: #2c2c2c;
-  color: white;
-  border: none;
-  cursor: pointer;
-  margin-bottom: 10px;
-  margin-left: 120px;
-}
+  #botonVerDispositivos {
+    width: 200px;
+    padding: 9px;
+    border-radius: 4px;
+    background-color: #2c2c2c;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+    margin-left: 120px;
+  }
 
-.botonesEdicionEliminacion {
+  .botonesEdicionEliminacion {
     display: flex;
     justify-content: flex-end;
     gap: 10px;
     margin-top: 10px;
   }
   
-  .botonesEdicionEliminacion .botonEditar{
+  .botonesEdicionEliminacion .botonEditar {
     width: 40px;
     height: 40px;
   }
   
-  .botonesEdicionEliminacion .botonEliminar{
+  .botonesEdicionEliminacion .botonEliminar {
     width: 40px;
     height: 40px;
   }
   
-  .botonesEdicionEliminacion .botonImprimir{
+  .botonesEdicionEliminacion .botonImprimir {
     width: 40px;
     height: 40px;
     cursor: pointer;
   }
 
-  .botonesEdicionEliminacion{
+  .botonesEdicionEliminacion {
     margin-left: 200px;
   }
-  
 
-  .textoBuscadorProductos{
+  .textoBuscadorProductos {
     margin-left: 90px;
     margin-top: 30px;
   }
 
-  .botonVolver{
+  .botonVolver {
     height: 32px;
     margin-left: 50px;
     cursor: pointer;
@@ -214,19 +458,19 @@
     width: 200px;
   }
   
-  .listaDispositivos{
+  .listaDispositivos {
     margin-left: 20px;
-    max-height: 100vh; /* o el valor que prefieras */
+    max-height: 100vh;
     overflow-y: auto;
   }
 
-  .loaderDispositivos{
+  .loaderDispositivos {
     text-align: left;
     margin-top: 12px;
     margin-left: 32px;
   }
 
-  .tarjetaProductoPanelDispositivos{
+  .tarjetaProductoPanelDispositivos {
     display: flex;
     justify-content: space-between;
     background-color: #1d1d1d;
@@ -237,38 +481,38 @@
     font-family: "montserrat", sans-serif;
   }
   
-  .tarjetaProductoPanelDispositivos p{
+  .tarjetaProductoPanelDispositivos p {
     text-align: left;
   }
 
-  .tarjetaProductoPanelDispositivos .tarjetaContenido{
+  .tarjetaProductoPanelDispositivos .tarjetaContenido {
     width: 500px;
   }
 
-  .tituloDispositivo{
+  .tituloDispositivo {
     margin-top: 10px;
   }
 
-  .ubicacionDispositivo{
+  .ubicacionDispositivo {
     margin-top: 15px;
   }
 
-  .categoriaDispositivo{
+  .categoriaDispositivo {
     display: flex;
     background-color: #121212;
     width: 120px;
-    color:  white;
+    color: white;
     border-radius: 4px;
     text-align: center;
     padding-top: 2px;
     padding-bottom: 2px;
   }
 
-  #botonImprimir{
+  #botonImprimir {
     background-color: #121212;
   }
 
-  .botonEditar{
+  .botonEditar {
     background-color: rgb(43, 43, 43);
     border: 0px;
     padding: 10px;
@@ -276,13 +520,13 @@
     cursor: pointer;
   }
   
-  .botonEditar img{
+  .botonEditar img {
     width: 30px;
     height: 30px;
     padding: 4px;
   }
 
-  .botonEliminar{
+  .botonEliminar {
     background-color: rgb(179, 19, 19);
     border: 0px;
     padding: 10px;
@@ -290,34 +534,34 @@
     cursor: pointer;
   }
   
-  .botonEliminar img{
+  .botonEliminar img {
     width: 30px;
     height: 30px;
     padding: 4px;
   }
 
-  .formularioPanel{
+  .formularioPanel {
     display: flex;
     flex-direction: column;
     margin-top: 20px;
   }
   
-  .formularioPanel button{
+  .formularioPanel button  {
     cursor: pointer;
     width: 100px;
   }
   
-  .formularioPanel textarea{
+  .formularioPanel textarea {
     margin-top: 5px;
     padding: 10px;
     border-radius: 4px;
   }
   
-  .formularioPanel label{
+  .formularioPanel label {
     margin-top: 15px;
   }
 
-  .errorPanel{
+  .errorPanel {
     color: #e74c3c; 
     font-size: 0.9rem; 
     margin-bottom: 15px; 
@@ -341,32 +585,28 @@
     text-overflow: ellipsis;   
   }
 
-  .contenedorBotonesEditar{
-    margin-top: 0px;
-  }
-
   .contenedorBotonesEditar {
     margin-top: 3px;
   }
   
-  .contenedorBotonesEditar button{
+  .contenedorBotonesEditar button {
     cursor: pointer;
   }
   
-  .contenedorBotonesEditar .botonCancelar{
+  .contenedorBotonesEditar .botonCancelar {
     background-color: #2b2b2b;
     width: 100px;
     cursor: pointer;
   }
   
-  .contenedorBotonesEditar .botonCancelarModal{
+  .contenedorBotonesEditar .botonCancelarModal {
     background-color: #2b2b2b;
     width: 100px;
     cursor: pointer;
     color: white;
   }
 
-  .botonGuardar{
+  .botonGuardar {
     margin-right: 15px;
     cursor: pointer;
     color: #121212;
@@ -387,57 +627,57 @@
     height: 180px;
   }
   
-.Modal p{
+  .Modal p {
     font-family: "montserrat", sans-serif;
     font-weight: 300;
-}
+  }
   
-  .Modal a{
+  .Modal a {
     font-family: "montserrat", sans-serif;
     margin-left: 70px;
-    margin-top:20px;
+    margin-top: 20px;
     text-decoration: underline;
   }
   
-.Modal button{
+  .Modal button {
     background-color: transparent;
-    margin-top:20px;
+    margin-top: 20px;
     border: 0px
-}
+  }
   
-.Modal h2 {
+  .Modal h2 {
     font-family: "montserrat", sans-serif;
     margin-top: 10px;
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-}
+  }
   
-.Modal .modalContent{
+  .Modal .modalContent {
     margin-top: 10px;
-}
+  }
 
-.Modal .modalContent img{
+  .Modal .modalContent img {
     margin-bottom: 20px;
-}
+  }
 
-.Modal .cerrarModalButton{
+  .Modal .cerrarModalButton {
     cursor: pointer;
     display: flex;
     margin: auto;
     justify-content: center;
     text-align: center;
-}
+  }
 
-.tickModal{
+  .tickModal {
     display: flex;
     justify-content: center;
     text-align: center;
     margin: auto;
-}
+  }
 
-.ModalPanelCrear {
+  .ModalPanelCrear {
     display: flex;
     flex-direction: column;
     position: fixed;
@@ -455,17 +695,17 @@
     overflow: auto; 
   }
   
-  .ModalPanelCrear h2{
+  .ModalPanelCrear h2 {
     margin-top: 20px;
   }
 
-  .ModalPanelCrear input{
+  .ModalPanelCrear input {
     margin-top: 5px;
     padding: 8px;
     border-radius: 4px;
   }
 
-  .ModalPanelCrear button{
+  .ModalPanelCrear button {
     background-color: #C75F00;
     border: 0px;
     padding: 8px;
@@ -474,32 +714,31 @@
     margin-right: 15px;
   }
 
-  #botonCancelar{
+  #botonCancelar {
     background-color: #2b2b2b;
   }
 
-  .ModalPanelCrear select{
+  .ModalPanelCrear select {
     padding: 10px;
     border-radius: 5px;
     margin-top: 5px;
   }
 
-  .ModalPanelCrear textarea{
+  .ModalPanelCrear textarea {
     margin-bottom: 0px;
   }
 
-  .ModalPanelCrear #description{
+  .ModalPanelCrear #description {
     margin-bottom: 0px;
   }
 
-  .ModalPanelCrear .botonCerrar{
+  .ModalPanelCrear .botonCerrar {
     background-color: #2b2b2b;
   }
 
-  .ModalPanelCrear .error{
+  .ModalPanelCrear .error {
     text-align: left;
   }
-
 
   .ModalPanelEditar {
     display: flex;
@@ -516,7 +755,7 @@
     height: 180px
   }
   
-  .ModalPanelEditar .botonEliminarProducto{
+  .ModalPanelEditar .botonEliminarProducto {
     background-color: red;
     padding: 6px;
     border-radius: 4px;
@@ -526,7 +765,7 @@
     cursor: pointer;
   }
   
-  .ModalPanelEditar .botonCancelarModal{
+  .ModalPanelEditar .botonCancelarModal {
     background-color: #2b2b2b;
     padding: 6px;
     border-radius: 4px;
@@ -536,12 +775,12 @@
     color: white;
   }
 
-  .textoEliminarCliente{
+  .textoEliminarCliente {
     font-size: 18px;
     font-weight: lighter;
   }
 
-  .Modal .botonEliminarProducto{
+  .Modal .botonEliminarProducto {
     background-color: red;
     padding: 6px;
     border-radius: 4px;
@@ -551,4 +790,4 @@
     cursor: pointer;
     width: 100px;
   }
-  
+}

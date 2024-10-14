@@ -76,9 +76,9 @@ const FormularioCrear = ({
         <p className={styles.errorPanel}>{errors.imagen}</p>
       )}
 
-      <div>
-        <button type="submit">Guardar</button>
-        <button type="button" onClick={onClose} id={styles.botonCancelar}>
+      <div className={styles.contenedorBotonesModal}>
+        <button type="submit" className={styles.botonPrimarioPanel}>Guardar</button>
+        <button type="button" onClick={onClose} id={styles.botonCerrar}>
           Cancelar
         </button>
       </div>

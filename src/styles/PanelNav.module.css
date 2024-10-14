@@ -1,4 +1,66 @@
-.solapaActiva{
+/* Mobile-first styles */
+.solapaActiva,
+.seccionesNavPanel {
+  font-family: "montserrat", sans-serif;
+  font-size: 16px;
+  color: #121212;
+  text-decoration: none;
+  margin: 0.5rem 0;
+  padding: 0.3rem;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100%;
+  text-align: center;
+  border: 0;
+  font-weight: 500;
+}
+
+.solapaActiva {
+  background-color: #f9bf79;
+}
+
+.seccionesNavPanel {
+  background-color: #C75F00;
+}
+
+.navPanel {
+  margin: 10px;
+}
+
+.navPanel button {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  width: 100%;
+}
+
+.navPanel button:hover {
+  background-color: #f9bf79;
+}
+
+/* Tablet styles */
+@media (min-width: 768px) {
+  .solapaActiva,
+  .seccionesNavPanel {
+    font-size: 17px;
+    margin: 0.5rem;
+  }
+
+  .navPanel {
+
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .navPanel button {
+    width: calc(50% - 20px);
+    margin: 10px;
+  }
+}
+
+/* PC styles */
+@media (min-width: 1024px) {
+  .solapaActiva{
     font-family: "montserrat", sans-serif;
     font-size: 18px;
     color: white;
@@ -41,3 +103,4 @@
   .navPanel button:hover{
     background-color: #f9bf79;
   }
+}

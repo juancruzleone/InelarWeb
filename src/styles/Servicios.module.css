@@ -1,94 +1,147 @@
-.tituloPaginas{
-    font-family: "montserrat", sans-serif;
-    font-size: 42px;
-    text-align: center;
-    margin-top: 80px;
-    font-weight: 600;
-    color: #C75F00;
-    text-align: left;
-  }
+.container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
+.tituloPaginas {
+  font-family: "montserrat", sans-serif;
+  font-size: 36px;
+  text-align: center;
+  margin-top: 40px;
+  font-weight: 600;
+  color: #C75F00;
+}
+
+.subtituloServicio {
+  font-family: "montserrat", sans-serif;
+  text-align: center;
+  font-weight: 400;
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+.contenedorCardServicios {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.cardServicios {
+  background-color: #121212;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.cardServicios:hover {
+  background-color: #C75F00;
+  cursor: pointer;
+}
+
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.iconoServiciosCard {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+}
+
+.cardServicios:hover .iconoServiciosCard {
+  transform: scale(1.1);
+}
+
+.tituloCardServicio {
+  font-family: "montserrat", sans-serif;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.botonCardServicio {
+  font-family: "montserrat", sans-serif;
+  padding: 6px 12px;
+  font-weight: 500;
+  background-color: #f57600;
+  border-radius: 4px;
+  display: inline-block;
+  margin-top: 15px;
+  color: #121212;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cardServicios:hover .botonCardServicio {
+  background-color: #121212;
+  color: white;
+}
+
+/* Media queries para tablets */
+@media (min-width: 768px) {
   .tituloPaginas {
-    text-align: center;
+    font-size: 36px;
+    margin-top: 60px;
+  }
+
+  .subtituloServicio {
+    font-size: 18px;
+  }
+
+  .contenedorCardServicios {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  .iconoServiciosCard {
+    width: 100px;
+    height: 100px;
+  }
+
+  .tituloCardServicio {
+    font-size: 20px;
+  }
+}
+
+/* Media queries para PC */
+@media (min-width: 1024px) {
+  .tituloPaginas {
+    font-size: 42px;
     margin-top: 80px;
   }
 
-  
-  .subtituloServicio{
-    font-family: "montserrat", sans-serif;
-    text-align: center;
-    font-weight: 400;
+  .subtituloServicio {
     font-size: 20px;
-    margin-top: 8px;
   }
 
-  .contenedorCardServicios{
-    display: flex;
-    justify-content: center;
-    margin-top: 25px;
+  .contenedorCardServicios {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
   }
 
-  .cardServicios{
-    margin-top: 20px;
-    width: 300px;
-    height: 300px;
-    background-color: #121212;
-    margin: 20px;
-    border-radius: 20px;
-  }
-  
-  .cardServicios:hover{
-    background-color: #C75F00;
-    cursor: pointer;
-  }
-  
-  .cardServicios:hover .botonCardServicio{
-    background-color: #121212;
-    color: white;
+  .cardServicios {
+    padding: 30px;
   }
 
-  .cardServicios img{
-    margin-top: 40px;
-  }
-
-  .iconoServiciosCard:hover {
-    transform: scale(1.1); 
-  }
-
-  .iconoServiciosCard{
-    display: flex;
-    justify-content: center;
+  .iconoServiciosCard {
     width: 120px;
     height: 120px;
-    margin: auto;
-    margin-top: 20px;
   }
 
-  .tituloCardServicio{
-    font-family: "montserrat", sans-serif;
-    text-align: center;
-    margin-top: 20px;
+  .tituloCardServicio {
+    font-size: 22px;
   }
-
-  .descripcionServicio{
-    font-family: "montserrat", sans-serif;
-  }
-
-  .cardServicios:hover .botonCardServicio{
-    background-color: #121212;
-    color: white;
-  }
-
-  .botonCardServicio{
-    font-family: "montserrat", sans-serif;
-    padding: 6px;
-    font-weight: 500;
-    background-color: #f57600;
-    border-radius: 4px;
-    display: flex;
-    justify-content: center;
-    width: 30%;
-    margin: auto;
-    margin-top: 20px;
-    color:  #121212;
-  }
+}

@@ -1,4 +1,97 @@
-.tituloServicio{
+/* Mobile-first styles */
+.tituloServicio {
+  font-family: "montserrat", sans-serif;
+  font-size: 28px;
+  text-align: center;
+  margin-top: 40px;
+  font-weight: 600;
+  color: #C75F00;
+  padding: 0 20px;
+}
+
+.contenedorPosicionamientoContenidoServicio {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  padding: 20px;
+}
+
+.contenedorTextoServicio {
+  padding: 0;
+}
+
+.contenedorTextoServicio p {
+  text-align: left;
+}
+
+.textoServicios {
+  font-family: "montserrat", sans-serif;
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+.fotoServicio {
+  border-radius: 10px;
+  margin-top: 20px;
+  width: 100%;
+  height: auto;
+}
+
+.botonServicio {
+  font-family: "montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 0.6rem 1rem;
+  background-color: #f57600;
+  color: #121212;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: block;
+  margin: 30px auto;
+  text-align: center;
+  max-width: 240px;
+}
+
+.subtituloMantenimiento {
+  font-family: "montserrat", sans-serif;
+  margin-bottom: 5px;
+  margin-top: 30px;
+  color: #C75F00;
+  font-size: 20px;
+}
+
+/* Tablet styles */
+@media (min-width: 768px) {
+  .tituloServicio {
+    font-size: 36px;
+    text-align: left;
+    padding-left: 40px;
+  }
+
+  .contenedorPosicionamientoContenidoServicio {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 40px;
+  }
+
+  .contenedorTextoServicio {
+    padding-right: 40px;
+  }
+
+  .fotoServicio {
+    width: 40%;
+    max-width: 300px;
+  }
+
+  .botonServicio {
+    margin: 30px 0 30px 40px;
+  }
+}
+
+/* PC styles */
+@media (min-width: 1024px) {
+  .tituloServicio{
     font-family: "montserrat", sans-serif;
     padding-left: 100px;
     font-size: 42px;
@@ -58,3 +151,4 @@
     margin-top: 40px;
     color: #C75F00;
   }
+}

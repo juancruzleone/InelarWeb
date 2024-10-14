@@ -1,230 +1,213 @@
+/* Base styles (mobile-first) */
+.contenedorPrelogin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+.formularioPrelogin {
+  width: 100%;
+  max-width: 400px;
+  margin-top: 2rem;
+}
+
+.tituloPrelogin {
+  font-family: "montserrat", sans-serif;
+  color: #C75F00;
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
 .formularioLogin {
-    display: flex;
-    flex-direction: column;
-    width: 3000px;
-    max-width: 400px;
-    margin: auto;
-    margin-bottom: 140px;
-    margin-top: 30px;
-  }
-  
-  .formularioLogin label {
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-    font-family: "montserrat", sans-serif;
-  }
-  
-  .formularioLogin input,
-  .formularioLogin textarea {
-    padding: 0.7rem;
-    /*margin-bottom: 1rem;*/
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #121212;
-  }
-  
-  .formularioLogin p{
-    text-align: center;
-    font-family: "montserrat", sans-serif;
-   
-  }
-  
-  .formularioLogin input{
-    padding: 0.9rem;
-    border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.formLabel {
+  font-family: "montserrat", sans-serif;
+  margin-left: 0;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.inputField {
+  width: 100%;
+  padding: 0.9rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #121212;
+  color: white;
+}
+
+.passwordContainer {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.botonOjito {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.botonOjito:hover {
+  color: #C75F00;
+}
+
+.submitButton {
+  font-family: "montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 0.9rem;
+  background-color: #f57600;
+  color: #121212;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.submitButton:hover {
+  background-color: #C75F00;
+}
+
+.error {
+  color: #e74c3c;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  padding-left: 4px;
+  font-weight: 500;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+}
+
+/* Modal styles */
+.Modal {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #121212;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  width: 90%;
+  max-width: 300px;
+  height: auto;
+  min-height: 180px;
+}
+
+.Modal p {
+  font-family: "montserrat", sans-serif;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.Modal a {
+  font-family: "montserrat", sans-serif;
+  margin-top: 1rem;
+  text-decoration: underline;
+  display: block;
+  text-align: center;
+}
+
+.Modal button {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.Modal h2 {
+  font-family: "montserrat", sans-serif;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.Modal .modalContent {
+  margin-top: 1rem;
+}
+
+.Modal .modalContent img {
+  margin-bottom: 1rem;
+}
+
+.tickModal {
+  display: block;
+  margin: 0 auto;
+}
+
+.cerrarModalButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+/* Tablet styles */
+@media (min-width: 768px) {
+  .formularioPrelogin {
+    margin-top: 3rem;
   }
 
-  .formularioLogin {
-    display: flex;
-    flex-direction: column;
-    width: 3000px;
-    max-width: 400px;
-    margin: auto;
-    margin-bottom: 140px;
-    margin-top: 30px;
-  }
-  
-  .formularioLogin label {
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-    font-family: "montserrat", sans-serif;
-  }
-  
-  .formularioLogin input,
-  .formularioLogin textarea {
-    padding: 0.7rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #121212;
-  }
-  
-  .formularioLogin .submitButton {
-    font-family: "montserrat", sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    padding: 0.6rem 1rem;
-    background-color: #f57600;
-    color: #121212;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .formularioLogin .submitButton:hover {
-    background-color: #C75F00;
-  }
-  
-  .formularioLogin p {
-    text-align: center;
-    font-family: "montserrat", sans-serif;
-  }
-  
-  .formularioLogin input {
-    padding: 0.9rem;
-    border-radius: 10px;
-  }
-  
-  .formularioLogin .error{
-    text-align: left;
-  }
-
-  .formularioLogin label{
-    margin-top: 1rem;
-  }
-  
-  
-  .passwordContainer {
-    position: relative;
-  }
-  
-  .inputField {
-    width: 100%;
-    padding-right: 2.5rem;
-  }
-  
-  .botonOjito {
-    position: absolute;
-    right: 0.5rem;
-    top: 55%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    color: white;
-    font-size: 1.5rem; 
-  }
-  
-  .botonOjito:hover {
-    color: #C75F00;
-  }
-
-  .contenedorPrelogin {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-
-  .contenedorPrelogin .submitButton{
-    margin-top: 20px;
-  }
-
-  .formularioPrelogin{
-    margin-top: 100px;
-  }
-  
-  .formularioPrelogin h1{
-    text-align: center;
-  }
-
-  .tituloPrelogin{
-    font-family: "montserrat", sans-serif;
-    color: #C75F00;
-    font-size: 36px;
-    font-weight: 600;
-  }
-
-  .formLabel{
-    font-family: "montserrat", sans-serif;
-    margin-left: 15px;
-    margin-bottom: 2px;
-  }
-
-  .error {
-    color: #e74c3c; 
-    font-size: 0.9rem; 
-    margin-bottom: 10px; 
-    margin-top: 10px;
-    padding-left: 4px; 
-    font-weight: 500; 
-    white-space: nowrap;      
-    overflow: hidden;         
-    text-overflow: ellipsis;   
+  .tituloPrelogin {
+    font-size: 32px;
   }
 
   .Modal {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #121212;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    z-index: 9999;
-    height: 180px;
+    max-width: 400px;
   }
-  
-.Modal p{
-    font-family: "montserrat", sans-serif;
-    font-weight: 300;
 }
-  
-  .Modal a{
-    font-family: "montserrat", sans-serif;
-    margin-left: 70px;
-    margin-top:20px;
-    text-decoration: underline;
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+  .contenedorPrelogin {
+    padding: 2rem;
   }
-  
-.Modal button{
-    background-color: transparent;
-    margin-top:20px;
-    border: 0px
-}
-  
-.Modal h2 {
-    font-family: "montserrat", sans-serif;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-  
-.Modal .modalContent{
-    margin-top: 10px;
-}
 
-.Modal .modalContent img{
-    margin-bottom: 20px;
-}
-  
+  .formularioPrelogin {
+    margin-top: 0;
+  }
 
-.Modal .cerrarModalButton{
-    cursor: pointer;
-    display: flex;
-    margin: auto;
-    justify-content: center;
-    text-align: center;
-}
+  .tituloPrelogin {
+    font-size: 36px;
+  }
 
-.tickModal{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    margin: auto;
+  .formularioLogin {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .submitButton {
+    transition: background-color 0.3s ease;
+  }
+
+  .Modal {
+    max-width: 450px;
+  }
+
+  .formLabel {
+    margin-left: 15px;
+  }
 }

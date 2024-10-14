@@ -10,72 +10,70 @@ const Servicios = () => {
     <Layout>
       <Head>
         <title>Servicios | Inelar</title>
-        <meta name="description" content="Descripción de mi aplicación" />
+        <meta name="description" content="Servicios ofrecidos por Inelar" />
         <link rel="icon" href="/inelar.ico" />
       </Head>
-      <h1 className={styles.tituloPaginas}>Servicios</h1>
-      <h2 className={styles.subtituloServicio}>
-        Los servicios se brindan en toda la Argentina
-      </h2>
-      <div className={styles.contenedorCardServicios}>
-        <div className={styles.cardServicios}>
-          <Link href="/instalaciones" className={styles.cardLink}>
-            <Image
-              src="/instalaciones2.svg"
-              alt="Edificio en mantenimiento"
-              className={styles.iconoServiciosCard}
-              width={140}
-              height={140}
-            />
-            <h3 className={styles.tituloCardServicio}>Instalaciones</h3>
-            <p className={styles.descripcionServicio}></p>
-            <span className={styles.botonCardServicio}>Ver más</span>
-          </Link>
-        </div>
-        <div className={styles.cardServicios}>
-          <Link href="/mantenimientos" className={styles.cardLink}>
-            <Image
-              src="/mantenimiento2.svg"
-              alt="Herramientas"
-              className={styles.iconoServiciosCard}
-              width={140}
-              height={140}
-            />
-            <h3 className={styles.tituloCardServicio}>Mantenimientos</h3>
-            <p className={styles.descripcionServicio}></p>
-            <span className={styles.botonCardServicio}>Ver más</span>
-          </Link>
-        </div>
-        <div className={styles.cardServicios}>
-          <Link href="/servicio-tecnico" className={styles.cardLink}>
-            <Image
-              src="/servicio-tecnico.svg"
-              alt="Técnico con llave inglesa"
-              className={styles.iconoServiciosCard}
-              width={140}
-              height={140}
-            />
-            <h3 className={styles.tituloCardServicio}>Servicio técnico</h3>
-            <p className={styles.descripcionServicio}></p>
-            <span className={styles.botonCardServicio}>Ver más</span>
-          </Link>
-        </div>
-        <div className={styles.cardServicios}>
-          <Link href="/provisiones" className={styles.cardLink}>
-            <Image
-              src="/provisiones2.svg"
-              alt="Camión de reparto"
-              className={styles.iconoServiciosCard}
-              width={140}
-              height={140}
-            />
-            <h3 className={styles.tituloCardServicio}>Provisiones</h3>
-            <p className={styles.descripcionServicio}></p>
-            <span className={styles.botonCardServicio}>Ver más</span>
-          </Link>
+      <div className={styles.container}>
+        <h1 className={styles.tituloPaginas}>Servicios</h1>
+        <h2 className={styles.subtituloServicio}>
+          Los servicios se brindan en toda la Argentina
+        </h2>
+        <div className={styles.contenedorCardServicios}>
+          <div className={styles.cardServicios}>
+            <Link href="/instalaciones" className={styles.cardLink}>
+              <Image
+                src="/instalaciones2.svg"
+                alt="Edificio en mantenimiento"
+                className={styles.iconoServiciosCard}
+                width={140}
+                height={140}
+              />
+              <h3 className={styles.tituloCardServicio}>Instalaciones</h3>
+              <span className={styles.botonCardServicio}>Ver más</span>
+            </Link>
+          </div>
+          <div className={styles.cardServicios}>
+            <Link href="/mantenimientos" className={styles.cardLink}>
+              <Image
+                src="/mantenimiento2.svg"
+                alt="Herramientas"
+                className={styles.iconoServiciosCard}
+                width={140}
+                height={140}
+              />
+              <h3 className={styles.tituloCardServicio}>Mantenimientos</h3>
+              <span className={styles.botonCardServicio}>Ver más</span>
+            </Link>
+          </div>
+          <div className={styles.cardServicios}>
+            <Link href="/servicio-tecnico" className={styles.cardLink}>
+              <Image
+                src="/servicio-tecnico.svg"
+                alt="Técnico con llave inglesa"
+                className={styles.iconoServiciosCard}
+                width={140}
+                height={140}
+              />
+              <h3 className={styles.tituloCardServicio}>Servicio técnico</h3>
+              <span className={styles.botonCardServicio}>Ver más</span>
+            </Link>
+          </div>
+          <div className={styles.cardServicios}>
+            <Link href="/provisiones" className={styles.cardLink}>
+              <Image
+                src="/provisiones2.svg"
+                alt="Camión de reparto"
+                className={styles.iconoServiciosCard}
+                width={140}
+                height={140}
+              />
+              <h3 className={styles.tituloCardServicio}>Provisiones</h3>
+              <span className={styles.botonCardServicio}>Ver más</span>
+            </Link>
+          </div>
         </div>
       </div>
-      <Footer></Footer>
+      <Footer />
     </Layout>
   );
 };

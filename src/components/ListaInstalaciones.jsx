@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef, useCallback } from "react";
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import styles from "@/styles/ListaInstalaciones.module.css";
+import stylesDevices from "@/styles/ListaDispositivos.module.css"
 import { searchInstallations } from "@/components/panel/ListaInstalaciones/utils/buscador";
 import useInstalaciones from "@/components/panel/ListaInstalaciones/hooks/useInstalaciones";
 import CrearInstalacionModal from "@/components/panel/ListaInstalaciones/components/ModalCrear";
@@ -339,37 +340,37 @@ const ListaInstalaciones = () => {
           </div>
         </>
       ) : (
-        <div className={styles.contenedorDispositivos}>
-          <h2 className={styles.tituloPaginasPanel}>
+        <div className={stylesDevices.contenedorDispositivos}>
+          <h2 className={stylesDevices.tituloPaginasPanel}>
             Dispositivos ({selectedInstallationForDevice?.company})
           </h2>
-          <button onClick={handleBackToInstallations} className={styles.botonVolver}>
+          <button onClick={handleBackToInstallations} className={stylesDevices.botonVolver}>
             Volver a Instalaciones
           </button>
           <input
             type="text"
             value={deviceSearch}
             onChange={(e) => setDeviceSearch(e.target.value)}
-            className={styles.buscadorPanel}
+            className={stylesDevices.buscadorPanel}
             placeholder="Buscar dispositivo por nombre, ubicación o categoría"
             aria-label="Buscar dispositivo"
           />
           <div 
             ref={deviceListRef}
-            className={`${styles.listaDispositivos} ${isScrolled ? styles.scrolled : ''}`}
+            className={`${stylesDevices.listaDispositivos} ${isScrolled ? stylesDevices.scrolled : ''}`}
           >
             {loadingDevices ? (
-              <p className={styles.loaderDispositivos}>Cargando dispositivos...</p>
+              <p className={stylesDevices.loaderDispositivos}>Cargando dispositivos...</p>
             ) : filteredDevices.length > 0 ? (
               filteredDevices.map((device) => (
-                <div key={device._id} className={styles.tarjetaProductoPanelDispositivos}>
-                  <div className={styles.tarjetaContenido}>
-                    <h3 className={styles.tituloDispositivo}>{device.nombre}</h3>
-                    <p className={styles.ubicacionDispositivo}>Ubicación: {device.ubicacion}</p>
-                    <p className={styles.categoriaDispositivo}>{device.categoria}</p>
+                <div key={device._id} className={stylesDevices.tarjetaProductoPanelDispositivos}>
+                  <div className={stylesDevices.tarjetaContenido}>
+                    <h3 className={stylesDevices.tituloDispositivo}>{device.nombre}</h3>
+                    <p className={stylesDevices.ubicacionDispositivo}>Ubicación: {device.ubicacion}</p>
+                    <p className={stylesDevices.categoriaDispositivo}>{device.categoria}</p>
                   </div>
-                  <div className={styles.botonesEdicionEliminacion}>
-                    <button onClick={() => handlePrintQR(device)} className={styles.botonImprimir} id={styles.botonImprimir}>
+                  <div className={stylesDevices.botonesEdicionEliminacion}>
+                    <button onClick={() => handlePrintQR(device)} className={stylesDevices.botonImprimir} id={stylesDevices.botonImprimir}>
                       <Image
                         src="/imprimir.svg"
                         alt="Imprimir QR"
@@ -380,20 +381,20 @@ const ListaInstalaciones = () => {
                     </button>
                     <button onClick={() => 
 
- handleEditDevice(device)} className={styles.botonEditar}>
+ handleEditDevice(device)} className={stylesDevices.botonEditar}>
                       <Image
                         src="/editar.svg"
                         alt="Editar"
-                        className={styles.iconoEditar}
+                        className={stylesDevices.iconoEditar}
                         width={20}
                         height={20}
                       />
                     </button>
-                    <button onClick={() => handleDeleteDevice(device)} className={styles.botonEliminar}>
+                    <button onClick={() => handleDeleteDevice(device)} className={stylesDevices.botonEliminar}>
                       <Image
                         src="/eliminar.svg"
                         alt="Eliminar"
-                        className={styles.iconoEliminar}
+                        className={stylesDevices.iconoEliminar}
                         width={20}
                         height={20}
                       />
