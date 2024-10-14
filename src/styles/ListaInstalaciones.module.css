@@ -1,4 +1,4 @@
-/* Mobile-first styles */
+/* Estilos base para móviles */
 .tituloPaginasPanel {
   margin: 20px 15px;
   color: #f9bf79;
@@ -138,7 +138,7 @@
   margin-top: 10px;
 }
 
-/* Tablet styles */
+/* Estilos para tabletas */
 @media (min-width: 768px) {
   .botonCrearModal {
     width: 200px;
@@ -178,73 +178,9 @@
   }
 }
 
-/* iPad Air and iPad Pro styles */
-@media (min-width: 820px) and (max-width: 1366px) {
-  .tituloPaginasPanel {
-    margin: 30px 25px;
-  }
 
-  .botonCrearModal {
-    width: 180px;
-    margin-left: 25px;
-  }
 
-  .buscadorPanel {
-    width: calc(100% - 50px);
-    margin: 30px 25px;
-  }
-
-  .posicionSeccionProductos {
-    flex-direction: row;
-    margin: 0 25px;
-  }
-
-  .contenedorCategorias {
-    width: 180px;
-    margin-right: 25px;
-  }
-
-  .contenedorClientes {
-    max-height: 500px;
-    margin: 30px 0;
-  }
-
-  .tarjetaProductoPanelInstalaciones {
-    padding: 20px;
-    margin-bottom: 25px;
-  }
-
-  .tarjetaDireccion {
-    font-size: 17px;
-  }
-
-  .TipoInstalacion {
-    font-size: 15px;
-  }
-
-  #botonAgregarDispositivo,
-  #botonVerDispositivos {
-    padding: 10px;
-    font-size: 14px;
-  }
-
-  .botonesEdicionEliminacion {
-    margin-top: 15px;
-  }
-
-  .botonEditar,
-  .botonEliminar {
-    padding: 12px;
-  }
-
-  .botonEditar img,
-  .botonEliminar img {
-    width: 25px;
-    height: 25px;
-  }
-}
-
-/* Desktop styles */
+/* Estilos para escritorio */
 @media (min-width: 1024px) {
   .tituloPaginasPanel {
     margin-left: 50px;
@@ -565,7 +501,7 @@
     color: #e74c3c; 
     font-size: 0.9rem; 
     margin-bottom: 15px; 
-    margin-top: 5px;
+    margin-top:  5px;
     padding-left: 4px; 
     font-weight: 500; 
     white-space: nowrap;      

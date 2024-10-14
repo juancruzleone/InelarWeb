@@ -47,8 +47,9 @@
   }
 
   .navPanel {
-
+    margin-left: 00px;
     flex-wrap: wrap;
+    width: 1460px;
     justify-content: center;
   }
 
@@ -70,6 +71,13 @@
     border-bottom: 4px solid transparent;
     cursor: pointer;
     background-color: #f9bf79;
+  }
+
+  .navPanel {
+    margin-left: 00px;
+    flex-wrap: wrap;
+    width: 320px;
+    justify-content: center;
   }
 
   .seccionesNavPanel{
