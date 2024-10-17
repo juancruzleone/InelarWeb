@@ -1,76 +1,88 @@
-import React, { useRef, useState } from 'react';
-// Import Swiper React components
+import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import 'swiper/css/effect-fade';
 
 import styles from "@/styles/Home.module.css";
 
 // import required modules
-import { Parallax, Pagination, Navigation } from 'swiper/modules';
+import { Pagination, Navigation, EffectFade } from 'swiper/modules';
 
-export default function App() {
+export default function Carrousel() {
   return (
-    <>
+    <div className={styles.carouselContainer}>
       <Swiper
         style={{
           '--swiper-navigation-color': 'black',
-          '--swiper-pagination-color': 'black',
+          '--swiper-pagination-color': 'white',
         }}
+        direction={'vertical'}
         speed={600}
-        parallax={true}
         pagination={{
           clickable: true,
         }}
         navigation={true}
-        modules={[Parallax, Pagination, Navigation]}
+        modules={[Pagination, Navigation, EffectFade]}
+        effect="fade"
+        slidesPerView={1}
         className={styles.carrousel}
       >
-        <div
-          slot="container-start"
-          className={styles.parallaxBg}
+        <SwiperSlide 
+          className={styles.carrouselSlide}
           style={{
-            'background-image':
-              'url(/garrahan.webp)',
+            backgroundImage: 'url(/garrahan.webp)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
           }}
-          data-swiper-parallax="-23%"
-        ></div>
-        <SwiperSlide className={styles.carrousel}>
+        >
           <div className={styles.contenidoObras}>
-            <div className={styles.tituloObras} data-swiper-parallax="-300">
+            <div className={styles.tituloObras}>
               <h3>Hospital Garrahan</h3>
             </div>
-            <div className={styles.categoriaObras} data-swiper-parallax="-200">
+            <div className={styles.categoriaObras}>
               <h4>Mantenimiento</h4>
             </div>
           </div>
         </SwiperSlide>
-        <SwiperSlide className={styles.carrousel}  style={{
-            'background-image':
-              'url(/credicoop.webp)',
-          }}>
-          <div className={styles.tituloObras} data-swiper-parallax="-3  00">
-            <h3>Banco Credicoop</h3>
-          </div>
-          <div className={styles.categoriaObras} data-swiper-parallax="-200">
-            <h4>Instalación</h4>
+        <SwiperSlide 
+          className={styles.carrouselSlide}
+          style={{
+            backgroundImage: 'url(/credicoop.webp)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
+          <div className={styles.contenidoObras}>
+            <div className={styles.tituloObras}>
+              <h3>Banco Credicoop</h3>
+            </div>
+            <div className={styles.categoriaObras}>
+              <h4>Instalación</h4>
+            </div>
           </div>
         </SwiperSlide>
-        <SwiperSlide className={styles.carrousel} style={{
-            'background-image':
-              'url(/enel.webp)',
-          }}>
-          <div className={styles.tituloObras} data-swiper-parallax="-300">
-            <h3>Enel, El chocón</h3>
-          </div>
-          <div className={styles.categoriaObras} data-swiper-parallax="-200">
-            <h4>servicio técnico</h4>
+        <SwiperSlide 
+          className={styles.carrouselSlide}
+          style={{
+            backgroundImage: 'url(/enel.webp)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
+          <div className={styles.contenidoObras}>
+            <div className={styles.tituloObras}>
+              <h3>Enel, El chocón</h3>
+            </div>
+            <div className={styles.categoriaObras}>
+              <h4>servicio técnico</h4>
+            </div>
           </div>
         </SwiperSlide>
       </Swiper>
-    </>
+    </div>
   );
 }

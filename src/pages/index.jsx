@@ -202,7 +202,7 @@ const Index = () => {
               >
                 {openQuestion === index ? "-" : "+"}
               </button>
-              <h2 id={styles.titulosPreguntas}>{item.question}</h2>
+              <h3 id={styles.titulosPreguntas}>{item.question}</h3>
               <div
                 className={`${styles.respuesta} ${
                   openQuestion === index ? styles.respuestaVisible : ""
