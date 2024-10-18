@@ -1,4 +1,4 @@
-/* Estilos base para móviles */
+/* MOBILE */
 .tituloPaginasPanel {
   margin: 20px 15px;
   color: #f9bf79;
@@ -167,7 +167,7 @@
   margin-top: 10px;
 }
 
-/* Estilos para tabletas */
+/* TABLETS */
 @media (min-width: 768px) {
   .botonCrearModal {
     width: 200px;
@@ -238,7 +238,7 @@
 
 
 
-/* Estilos para escritorio */
+/* PC */
 @media (min-width: 1024px) {
   .tituloPaginasPanel {
     margin-left: 50px;

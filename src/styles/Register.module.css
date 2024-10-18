@@ -1,4 +1,4 @@
-/* Base styles (mobile-first) */
+/* MOBILE */
 .contenedorPrelogin {
   display: flex;
   justify-content: center;
@@ -165,7 +165,7 @@
   margin: 0 auto;
 }
 
-/* Tablet styles */
+/* TABLETS */
 @media (min-width: 768px) {
   .formularioPrelogin {
     margin-top: 3rem;
@@ -180,7 +180,7 @@
   }
 }
 
-/* Desktop styles */
+/* PC */
 @media (min-width: 1024px) {
   .contenedorPrelogin {
     padding: 2rem;

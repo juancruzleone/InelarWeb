@@ -1,4 +1,4 @@
-/* Estilos base (mobile) */
+/* MOBILE */
 .iconoHome {
   border-radius: 10px;
   margin-top: 20px;
@@ -340,12 +340,21 @@
 }
 
 
-/* Tablet */
+/* TABLETS*/
 @media (min-width: 768px) {
   .iconoHome {
     max-width: 250px;
   }
+  
+  .celularImagen{
+    padding: 0px;
+    width: 600px;
+    height: 700px;
+  }
 
+  .contenedorTextoNuestraApp p{
+    text-align: left;
+  }
 
   .tituloHome {
     font-size: 16px;
@@ -392,8 +401,8 @@
 
 
   .circulo {
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
   }
 
   .contenedorServicios h2 {
@@ -574,8 +583,8 @@
 
 
   .circulo {
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
     background-color: #f9bf79;
     border-radius: 50%;
     display: flex;
@@ -1073,4 +1082,11 @@
     font-size: 32px;
     text-align: center;
   }
+
+  .celularImagen{
+    padding: 0px;
+    width: 600px;
+    height: 700px;
+  }
+  
 }

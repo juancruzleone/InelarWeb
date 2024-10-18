@@ -38,14 +38,12 @@ const useCarrito = () => {
       newCart[index].unidades -= 1;
       setCart(newCart);
     } else {
-      // Si solo queda una unidad, confirmamos la eliminación
       setSelectedProductIndex(index);
       setModalState({ ...modalState, deleteOpen: true });
     }
   };
 
   const confirmRemoveProduct = () => {
-    // Eliminar el producto del carrito
     const newCart = [...cart];
     newCart.splice(selectedProductIndex, 1);
     setCart(newCart);

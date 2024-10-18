@@ -1,4 +1,4 @@
-/* Mobile-first styles */
+/* MOBILE */
 .contenedorContenidoServicio {
     margin-top: 40px;
     padding: 20px;
@@ -112,7 +112,7 @@
     margin: 20px auto;
   }
   
-  /* Tablet styles */
+  /* TABLETS */
   @media (min-width: 768px) {
     .contenedorContenidoServicio {
       margin-top: 60px;
@@ -133,7 +133,7 @@
     }
   }
   
-  /* PC styles */
+  /* PC */
   @media (min-width: 1024px) {
     .contenedorContenidoServicio{
       margin-top: 100px;

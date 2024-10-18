@@ -1,4 +1,4 @@
-/* Mobile-first styles */
+/* MOBILE */
 .formularioPanel {
   display: flex;
   flex-direction: column;
@@ -205,7 +205,7 @@
   margin-top: 10px;
 }
 
-/* Tablet styles */
+/* TABLETS */
 @media (min-width: 768px) {
   .formularioPanel button {
     width: auto;
@@ -268,7 +268,7 @@
   }
 }
 
-/* PC styles */
+/* PC*/
 @media (min-width: 1024px) {
   .formularioPanel {
     display: flex;

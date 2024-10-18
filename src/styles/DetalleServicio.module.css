@@ -1,4 +1,4 @@
-/* Mobile-first styles */
+/* MOBILE */
 .tituloServicio {
   font-family: "montserrat", sans-serif;
   font-size: 28px;
@@ -61,7 +61,7 @@
   font-size: 20px;
 }
 
-/* Tablet styles */
+/* TABLETS */
 @media (min-width: 768px) {
   .tituloServicio {
     font-size: 36px;
@@ -89,7 +89,7 @@
   }
 }
 
-/* PC styles */
+/* PC*/
 @media (min-width: 1024px) {
   .tituloServicio{
     font-family: "montserrat", sans-serif;

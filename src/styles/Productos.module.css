@@ -1,4 +1,4 @@
-/* Mobile-first styles */
+/* MOBILE */
 .contenedorPagina {
   padding: 20px;
 }
@@ -94,7 +94,7 @@
   margin-top: auto;
 }
 
-/* Tablet styles */
+/* TABLETS */
 @media (min-width: 768px) {
   .tituloPaginas {
     font-size: 36px;
@@ -121,7 +121,7 @@
   }
 }
 
-/* PC styles */
+/* PC */
 @media (min-width: 1024px) {
   .contenedorCategoriasProductos{
     background-color: #121212;

@@ -1,4 +1,4 @@
-/* Mobile-first styles */
+/* MOBILE */
 .contenedorPagina {
   padding: 15px;
 }
@@ -234,7 +234,7 @@
   padding: 4px;
 }
 
-/* Tablet styles */
+/* TABLETS */
 @media (min-width: 768px) {
   .contenedorPagina {
     padding: 20px;
@@ -312,7 +312,7 @@
   }
 }
 
-/* PC styles */
+/* PC */
 @media (min-width: 1024px) {
   .tituloPaginasPanel{
     margin-left: 50px;

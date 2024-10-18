@@ -15,7 +15,7 @@ const ModalEditarPerfil = ({
     if (showEditModal) {
       const modalContent = document.querySelector(`.${styles.ModalEditarPerfil}`);
       if (modalContent) {
-        modalContent.style.overflowY = 'auto'; // Habilita el scroll vertical
+        modalContent.style.overflowY = 'auto'; 
       }
     }
   }, [showEditModal]);

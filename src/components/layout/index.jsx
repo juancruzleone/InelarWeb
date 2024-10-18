@@ -32,7 +32,7 @@ export default function Layout({ children }) {
 
   const closeModal = () => {
     setLogoutModalIsOpen(false);
-    window.location.href = "/login"; // Redirigir a la página de inicio de sesión
+    window.location.href = "/login"; 
   };
 
   const toggleNav = () => {

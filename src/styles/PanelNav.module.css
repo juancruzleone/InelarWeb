@@ -1,4 +1,4 @@
-/* Mobile-first styles */
+/* MOBILE */
 .solapaActiva,
 .seccionesNavPanel {
   font-family: "montserrat", sans-serif;
@@ -38,7 +38,7 @@
   background-color: #f9bf79;
 }
 
-/* Tablet styles */
+/* TABLETS */
 @media (min-width: 768px) {
   .solapaActiva,
   .seccionesNavPanel {
@@ -59,7 +59,7 @@
   }
 }
 
-/* PC styles */
+/* PC */
 @media (min-width: 1024px) {
   .solapaActiva{
     font-family: "montserrat", sans-serif;

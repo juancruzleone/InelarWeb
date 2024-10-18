@@ -1,4 +1,4 @@
-/* Mobile-first styles */
+/* MOBILE*/
 .contenedorDescripcionProducto {
   text-align: center;
   margin-top: 30px;
@@ -160,7 +160,7 @@
   cursor: pointer;
 }
 
-/* Tablet styles */
+/* TABLETS */
 @media (min-width: 768px) {
   .contenedorDetalleProducto {
     flex-direction: row;
@@ -181,7 +181,7 @@
   }
 }
 
-/* PC styles */
+/* PC*/
 @media (min-width: 1024px) {
   .contenedorDescripcionProducto{
     display: block;

@@ -18,7 +18,7 @@ export default function Carrousel() {
       <Swiper
         style={{
           '--swiper-navigation-color': 'black',
-          '--swiper-pagination-color': 'white',
+          '--swiper-pagination-color': 'black',
         }}
         direction={'vertical'}
         speed={600}

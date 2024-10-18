@@ -1,4 +1,3 @@
-// FetchPerfil.jsx
 const API_URL = 'https://inelarweb-back.onrender.com/api';
 
 export const fetchUserProfile = async (id) => {

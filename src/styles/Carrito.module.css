@@ -1,4 +1,4 @@
-/* Base styles (mobile) */
+/* MOBILE */
 .botonVaciar {
   margin: 20px auto;
   background-color: #121212;
@@ -257,7 +257,7 @@
   margin-top: 50px;
 }
 
-/* Tablet styles */
+/* TABLETS */
 @media (min-width: 768px) {
   .botonIrCheckout {
     max-width: 500px;
@@ -305,7 +305,7 @@
   }
 }
 
-/* PC styles */
+/* PC */
 @media (min-width: 1024px) {
   .botonVaciar{
     margin-left: 48%;

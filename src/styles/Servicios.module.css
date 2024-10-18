@@ -90,7 +90,7 @@
   color: white;
 }
 
-/* Media queries para tablets */
+/* TABLETS */
 @media (min-width: 768px) {
   .tituloPaginas {
     font-size: 36px;
@@ -116,7 +116,7 @@
   }
 }
 
-/* Media queries para PC */
+/* PC */
 @media (min-width: 1024px) {
   .tituloPaginas {
     font-size: 42px;

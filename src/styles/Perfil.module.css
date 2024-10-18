@@ -1,4 +1,4 @@
-/* Base styles (mobile-first) */
+/* MOBILE */
 .contenedorPaginaPerfil {
   min-height: calc(100vh - 100px);
   display: flex;
@@ -302,7 +302,7 @@
   background-color: #3a3a3a;
 }
 
-/* Tablet styles */
+/* TABLETS */
 @media (min-width: 768px) {
   .contenedorPaginaPerfil {
     padding: 2rem;
@@ -336,7 +336,7 @@
   }
 }
 
-/* Desktop styles */
+/* PC */
 @media (min-width: 1024px) {
   .contenedorPaginaPerfil {
     padding: 3rem;

@@ -37,7 +37,7 @@ const Login = () => {
             showPassword={showPassword}
             setUsername={setUsername}
             setPassword={setPassword}
-            handleSubmit={handleSubmit} // Asegúrate de que esto se pase correctamente
+            handleSubmit={handleSubmit} 
             togglePasswordVisibility={togglePasswordVisibility}
           />
         </div>

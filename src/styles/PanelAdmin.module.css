@@ -1,4 +1,4 @@
-/* Mobile-first styles */
+/* MOBILE */
 .tituloPanel {
   font-family: "montserrat", sans-serif;
   font-size: 32px;
@@ -25,7 +25,7 @@
   margin-top: 20px;
 }
 
-/* Tablet styles */
+/* TABLETS */
 @media (min-width: 768px) {
   .tituloPanel {
     font-size: 32px;
@@ -46,7 +46,7 @@
   }
 }
 
-/* PC styles */
+/* PC */
 @media (min-width: 1024px) {
   .tituloPanel{
     font-family: "montserrat", sans-serif;

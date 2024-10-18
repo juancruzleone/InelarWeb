@@ -1,4 +1,4 @@
-/* Mobile-first styles */
+/* MOBILE */
 .tituloPaginasPanel {
   margin: 30px 20px 15px;
   color: #f9bf79;
@@ -67,7 +67,7 @@
   font-size: 14px;
 }
 
-/* Tablet styles */
+/* TABLETS styles */
 @media (min-width: 768px) {
   .tituloPaginasPanel {
     font-size: 28px;
@@ -85,7 +85,7 @@
   }
 }
 
-/* PC styles */
+/* PC*/
 @media (min-width: 1024px) {
   .tituloPaginasPanel{
     margin-left: 50px;
