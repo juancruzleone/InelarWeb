@@ -53,7 +53,7 @@ const FormularioLogin = ({
       </button>
       {error && <p className={styles.error}>{error}</p>}
       <p className={styles.textoRedireccionaminetoLogin}>
-        Si no tienes una cuenta,
+        Si no tenés una cuenta,
         <Link href="/register" className={styles.registroLogin}>
           regístrate
         </Link>
