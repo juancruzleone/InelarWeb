@@ -8,7 +8,7 @@ const ModalConfirmacion = ({ isOpen, onClose, message }) => {
       isOpen={isOpen}
       onRequestClose={onClose}
       contentLabel="Confirmación"
-      className={`${styles.Modal}`}
+      className={`${styles.ModalExito}`}
       closeTimeoutMS={500}
     >
       <div className={styles.modalContent}>

@@ -24,11 +24,44 @@
   cursor: pointer;
 }
 
+.ModalPanelEditar h2{
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.ModalPanelEditar .contenedorBotonesEditar{
+  margin-top: 30px;
+}
+
+.ModalPanelEditar .botonEliminarProducto {
+  background-color: red;
+  padding: 6px;
+  border-radius: 4px;
+  margin-right: 10px;
+  font-family: "montserrat", sans-serif;
+  border: 0px;
+  cursor: pointer;
+  width: 100px;
+  height: 30px;
+}
+
+.ModalPanelEditar .botonCancelarModal {
+  background-color: #2b2b2b;
+  padding: 6px;
+  border-radius: 4px;
+  font-family: "montserrat", sans-serif;
+  border: 0px;
+  cursor: pointer;
+  width: 100px;
+  height: 30px;
+  color: white;
+}
+
 .contenedorBotonesEditar {
   margin-top: 20px;
   display: flex;
+  justify-content: center;
   flex-direction: row;
-  justify-content: space-between;
   gap: 10px;
 }
 
@@ -294,6 +327,14 @@
   .contenedorBotonesEditar button {
     width: auto;
   }
+
+  .contenedorBotonesEditar {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+  }
 }
 
 /* IPAD AIR y IPAD PRO */
@@ -515,7 +556,6 @@
   }
   
   .contenedorBotonesEditar {
-    margin-top: 3px;
     flex-direction: row;
     justify-content: flex-start;
     gap: 10px;
@@ -662,7 +702,7 @@
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     z-index: 9999;
-    height: 180px;
+    height: 260px;
   }
   
   .ModalPanelEditar .botonEliminarProducto {

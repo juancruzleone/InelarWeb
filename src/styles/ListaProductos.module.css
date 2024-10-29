@@ -9,6 +9,11 @@
   color: #f9bf79;
 }
 
+.ModalPanelCrear h2{
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
 .selectCategoria {
   background-color: #C75F00;
@@ -165,6 +170,7 @@
 .botonPrimarioPanel {
   background-color: #C75F00;
   color: #121212;
+  margin-right: 15px;
 }
 
 .botonSecundarioPanel {
@@ -181,8 +187,106 @@
   padding: 20px;
   border-radius: 10px;
   max-width: 90%;
+  width: 340px;
   /*width: 180px;*/
 }
+
+.Modal h2{
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.contenedorBotonesEditar{
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.Modal .botonEliminarProducto{
+  background-color: red;
+  padding: 6px;
+  border-radius: 4px;
+  font-family: "montserrat",sans-serif;
+  border: 0px;
+  cursor: pointer;
+  width: 100px;
+  height: 30px;
+  color: white;
+  margin-right: 15px;
+ }
+
+ .Modal .botonCancelarModal{
+  background-color: #2b2b2b;
+  padding: 6px;
+  border-radius: 4px;
+  font-family: "montserrat",sans-serif;
+  border: 0px;
+  cursor: pointer;
+  width: 100px;
+  height: 30px;
+  color: white;
+ }
+
+.modalContent {
+  text-align: center;
+}
+
+.confirmationMessage {
+  margin-bottom: 20px;
+}
+
+.tickModal {
+  margin-bottom: 20px;
+}
+
+.ModalExito {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #121212;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 90%;
+  width: 340px;
+  /*width: 180px;*/
+}
+
+.ModalExito h2{
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.contenedorBotonesEditar{
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.ModalExito .botonEliminarProducto{
+  background-color: red;
+  padding: 6px;
+  border-radius: 4px;
+  font-family: "montserrat",sans-serif;
+  border: 0px;
+  cursor: pointer;
+  width: 100px;
+  height: 30px;
+  color: white;
+  margin-right: 15px;
+ }
+
+ .ModalExito .botonCancelarModal{
+  background-color: #2b2b2b;
+  padding: 6px;
+  border-radius: 4px;
+  font-family: "montserrat",sans-serif;
+  border: 0px;
+  cursor: pointer;
+  width: 100px;
+  height: 30px;
+  color: white;
+ }
 
 .modalContent {
   text-align: center;
@@ -240,6 +344,44 @@
   .contenedorPagina {
     padding: 20px;
   }
+
+  .contenedorBotonesEditar{
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+  }
+  
+  .Modal .botonEliminarProducto{
+    background-color: red;
+    padding: 6px;
+    border-radius: 4px;
+    font-family: "montserrat",sans-serif;
+    border: 0px;
+    cursor: pointer;
+    width: 100px;
+    height: 30px;
+    color: white;
+    margin-right: 15px;
+   }
+
+   .Modal .botonCancelarModal{
+    background-color: #2b2b2b;
+    padding: 6px;
+    border-radius: 4px;
+    font-family: "montserrat",sans-serif;
+    border: 0px;
+    cursor: pointer;
+    width: 100px;
+    height: 30px;
+    color: white;
+   }
+
+  .Modal h2{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
 
   .selectCategoria {
     background-color: #C75F00;
@@ -610,7 +752,7 @@
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     z-index: 9999;
-    height: 180px;
+    height: 266px;
   }
   
   .Modal p{

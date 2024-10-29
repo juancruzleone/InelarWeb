@@ -18,7 +18,7 @@ const ModalEditar = ({
     isOpen={isOpen}
     onRequestClose={handleClose}
     contentLabel="Editar Instalación"
-    className={`${styles.ModalPanelCrear} ${styles.Modal}`}
+    className={`${styles.ModalPanelCrear} ${styles.ModalPanelCrear}`}
     shouldCloseOnOverlayClick={false}
     closeTimeoutMS={500}
   >

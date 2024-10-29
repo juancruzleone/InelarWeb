@@ -322,9 +322,16 @@
 }
 
 .Modal button {
-  background-color: transparent;
   margin-top: 20px;
   border: 0px
+}
+
+.Modal .cerrarModalButton{
+  background-color: transparent;
+}
+
+.Modal .botonGuardar{
+  background-color: #C75F00;
 }
 
 .Modal h2 {
