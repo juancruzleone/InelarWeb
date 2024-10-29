@@ -224,6 +224,8 @@
   cursor: pointer;
   display: block;
   margin: 20px auto 0;
+  background-color: transparent;
+  border: 0px;
 }
 
 .tickModal {

@@ -385,13 +385,12 @@ const ListaInstalaciones = () => {
             ref={deviceListRef}
             className={`${stylesDevices.listaDispositivos} ${isScrolled ? stylesDevices.scrolled : ''}`}
           >
-            
             {loadingDevices ? (
               <p className={stylesDevices.loaderDispositivos}>Cargando dispositivos...</p>
             ) : filteredDevices.length > 0 ? (
               filteredDevices.map((device) => (
                 <div key={device._id} className={stylesDevices.tarjetaProductoPanelDispositivos}>
-                  <div className={stylesDevices.tarjetaContenido}>
+                  <div    className={stylesDevices.tarjetaContenido}>
                     <h3 className={stylesDevices.tituloDispositivo}>{device.nombre}</h3>
                     <p className={stylesDevices.ubicacionDispositivo}>Ubicación: {device.ubicacion}</p>
                     <p className={stylesDevices.categoriaDispositivo}>{device.categoria}</p>

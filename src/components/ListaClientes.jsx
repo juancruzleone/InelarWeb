@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "@/styles/ListaClientes.module.css";
 import useClientes from "@/components/panel/ListaClientes/hooks/useClientes.jsx";
@@ -15,6 +15,7 @@ const ListaClientes = () => {
   const [confirmationMessage, setConfirmationMessage] = useState('');
   const [confirmationModal, setConfirmationModal] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [deleteModalOpen, setDeleteModalOpen] = useState(false);
 
   const {
     filteredClients,
@@ -25,10 +26,8 @@ const ListaClientes = () => {
     setSelectedCategory,
     loading,
     handleCreateClient,
-    handleDeleteClient,
     createModal,
     editModal,
-    deleteModal,
     handleCloseModal,
     setEditModal,
     selectedClient,
@@ -60,10 +59,38 @@ const ListaClientes = () => {
     setConfirmationMessage('');
   };
 
+  const showConfirmationModal = (message) => {
+    setConfirmationMessage(message);
+    setConfirmationModal(true);
+  };
+
+  const handleCreateClientWithConfirmation = async () => {
+    const success = await handleCreateClient();
+    if (success) {
+      showConfirmationModal('Cliente creado exitosamente');
+    }
+  };
+
+  const handleDeleteClientWithConfirmation = (client) => {
+    setSelectedClient(client);
+    setDeleteModalOpen(true);
+  };
+
+  const handleConfirmDelete = async () => {
+    try {
+      await deleteSelectedClient(selectedClient._id);
+      setDeleteModalOpen(false);
+      showConfirmationModal('Cliente eliminado exitosamente');
+    } catch (error) {
+      console.error('Error al eliminar el cliente:', error);
+      showConfirmationModal('Error al eliminar el cliente');
+    }
+  };
+
   return (
     <div className={styles.contenedorPagina}>
       <h2 className={styles.tituloPaginasPanel}>Clientes</h2>
-      <button onClick={handleCreateClient} className={styles.botonCrearModal}>
+      <button onClick={handleCreateClientWithConfirmation} className={styles.botonCrearModal}>
         Crear cliente
       </button>
       <input
@@ -125,7 +152,7 @@ const ListaClientes = () => {
                     />
                   </button>
                   <button
-                    onClick={() => handleDeleteClient(client)}
+                    onClick={() => handleDeleteClientWithConfirmation(client)}
                     className={styles.botonEliminar}
                   >
                     <Image
@@ -162,15 +189,14 @@ const ListaClientes = () => {
         setSelectedClient={setSelectedClient}
         token={token}
         role={role}
-        refreshClients={refreshClients}  
+        refreshClients={refreshClients}
+        setConfirmationModal={setConfirmationModal}
+        setConfirmationMessage={setConfirmationMessage}
       />
       <ModalEliminar
-        isOpen={deleteModal}
-        onRequestClose={handleCloseModal}
-        onConfirm={() => {
-          deleteSelectedClient(selectedClient._id); 
-          handleCloseModal();
-        }}
+        isOpen={deleteModalOpen}
+        onRequestClose={() => setDeleteModalOpen(false)}
+        onConfirm={handleConfirmDelete}
       />
       <ModalConfirmacion
         isOpen={confirmationModal}

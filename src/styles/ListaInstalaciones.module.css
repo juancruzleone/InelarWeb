@@ -32,7 +32,6 @@
   color: #000000;
 }
 
-
 .botonEditar {
   background-color: rgb(43, 43, 43);
   border: 0px;
@@ -167,10 +166,287 @@
   margin-top: 10px;
 }
 
+/* Estilos de ModalConfirmacion */
+.ModalConfirmacion {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #121212;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  width: 90%;
+  max-width: 400px;
+  font-family: "montserrat", sans-serif;
+}
+
+.ModalConfirmacion h2 {
+  color: #f9bf79;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.ModalConfirmacion p {
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.ModalConfirmacion button {
+  background-color: #C75F00;
+  border: 0;
+  padding: 10px;
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.ModalConfirmacion button:hover {
+  background-color: #f9bf79;
+  color: #121212;
+}
+
+/* Estilos del formulario */
+.formularioPanel {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.formularioPanel input,
+.formularioPanel select,
+.formularioPanel textarea {
+  margin-top: 5px;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #2c2c2c;
+  background-color: #1d1d1d;
+  color: #ffffff;
+}
+
+.formularioPanel label {
+  margin-top: 15px;
+  color: white;
+}
+
+.formularioPanel button {
+  cursor: pointer;
+  width: 100%;
+  padding: 10px;
+  border: 0;
+  border-radius: 4px;
+  background-color: #C75F00;
+  color: #ffffff;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.formularioPanel button:hover {
+  background-color: #f9bf79;
+  color: #121212;
+}
+
+
+.ModalPanelCrear {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #121212;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  width: 350px;
+  height: 580px; 
+  max-height: 90vh; 
+  overflow: auto; 
+}
+
+.ModalPanelCrear h2{
+  text-align: center;
+}
+
+.ModalPanelCrear .contenedorBotonesEditar{
+  display: flex;
+}
+
+.ModalPanelCrear .contenedorBotonesEditar button{
+  width: 120px;
+  height: 35px;
+  color: #121212;
+}
+
+.ModalPanelCrear .contenedorBotonesEditar .botonCancelarModal{
+  background-color: #2b2b2b;
+  color: white;
+  margin-left: 15px;
+}
+
+.Modal {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #121212;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  height: 180px;
+}
+
+.Modal p {
+  font-family: "montserrat", sans-serif;
+  font-weight: 300;
+}
+
+.Modal a {
+  font-family: "montserrat", sans-serif;
+  margin-left: 70px;
+  margin-top: 20px;
+  text-decoration: underline;
+}
+
+.Modal button {
+  background-color: transparent;
+  margin-top: 20px;
+  border: 0px
+}
+
+.Modal h2 {
+  font-family: "montserrat", sans-serif;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Modal .modalContent {
+  margin-top: 10px;
+}
+
+.Modal .modalContent img {
+  margin-bottom: 20px;
+}
+
+.Modal .cerrarModalButton {
+  cursor: pointer;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  text-align: center;
+}
+
+.tickModal {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+}
+
 /* TABLETS */
 @media (min-width: 768px) {
   .botonCrearModal {
     width: 200px;
+  }
+
+  .Modal {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #121212;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    height: 180px;
+  }
+  
+  .Modal p {
+    font-family: "montserrat", sans-serif;
+    font-weight: 300;
+  }
+  
+  .Modal a {
+    font-family: "montserrat", sans-serif;
+    margin-left: 70px;
+    margin-top: 20px;
+    text-decoration: underline;
+  }
+  
+  .Modal button {
+    background-color: transparent;
+    margin-top: 20px;
+    border: 0px
+  }
+  
+  .Modal h2 {
+    font-family: "montserrat", sans-serif;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .Modal .modalContent {
+    margin-top: 10px;
+  }
+
+  .Modal .modalContent img {
+    margin-bottom: 20px;
+  }
+
+  .Modal .cerrarModalButton {
+    cursor: pointer;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .tickModal {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+  }
+
+  
+  .ModalPanelCrear {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #121212;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    width: 400px;
+    height: 580px; 
+    max-height: 90vh; 
+    overflow: auto; 
   }
 
   .selectCategoria {
@@ -201,7 +477,6 @@
     color: #000000;
   }
   
-
   .buscadorPanel {
     width: calc(100% - 60px);
     margin: 20px 30px;
@@ -234,9 +509,15 @@
   #botonVerDispositivos {
     width: auto;
   }
+
+  .ModalConfirmacion {
+    width: 70%;
+  }
+
+  .formularioPanel {
+    margin: 20px auto;
+  }
 }
-
-
 
 /* PC */
 @media (min-width: 1024px) {
@@ -351,7 +632,7 @@
     background-color: #1d1d1d;
     border-radius: 7px;
     padding: 20px;
-    margin: 30px;
+    margin:  30px;
     width: 600px;
     height: 200px;
     font-family: "montserrat", sans-serif;
@@ -532,27 +813,6 @@
     width: 30px;
     height: 30px;
     padding: 4px;
-  }
-
-  .formularioPanel {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-  }
-  
-  .formularioPanel button  {
-    cursor: pointer;
-    width: 100px;
-  }
-  
-  .formularioPanel textarea {
-    margin-top: 5px;
-    padding: 10px;
-    border-radius: 4px;
-  }
-  
-  .formularioPanel label {
-    margin-top: 15px;
   }
 
   .errorPanel {
@@ -783,5 +1043,13 @@
     border: 0px;
     cursor: pointer;
     width: 100px;
+  }
+
+  .ModalConfirmacion {
+    width: 400px;
+  }
+
+  .formularioPanel {
+    margin: 20px auto;
   }
 }
