@@ -19,7 +19,7 @@ const CarritoModal = ({ modalState, setModalState, action, handleConfirmAction, 
       </Modal>
       <Modal
         isOpen={modalState.confirmOpen}
-        className={styles.Modal}
+        className={styles.ModalCheckout}
         onRequestClose={() => closeModal('confirmOpen')}
         contentLabel="Confirmar acción"
       >
@@ -31,7 +31,7 @@ const CarritoModal = ({ modalState, setModalState, action, handleConfirmAction, 
       </Modal>
       <Modal
         isOpen={modalState.deleteOpen}
-        className={styles.Modal}
+        className={styles.ModalCheckout}
         onRequestClose={() => closeModal('deleteOpen')}
         contentLabel="Eliminar producto"
       >

@@ -50,7 +50,11 @@
 }
 
 .ModalCheckout {
-  height: 140px;
+  height: 220px;
+}
+
+.ModalCheckout .contenedorBotonesModalVaciar{
+  display: flex;
 }
 
 .Modal {
@@ -63,7 +67,7 @@
 
 .contenedorBotonesModalVaciar {
   display: flex;
-  flex-direction: column;
+  margin-top: 30px;
 }
 
 .contenedorBotonesModalVaciar button {
@@ -74,6 +78,7 @@
   font-family: "montserrat", sans-serif;
   border: 0;
   cursor: pointer;
+  margin-right: 15px;
 }
 
 .contenedorBotonesModalVaciar .botonConfirmarModal,
@@ -84,7 +89,7 @@
 
 .contenedorBotonesModalVaciar .botonCancelar,
 .contenedorBotonesModalVaciar .botonCancelarModal {
-  background-color: blue;
+  background-color: #2B2B2B;
   color: white;
 }
 
@@ -151,7 +156,6 @@
 
 .contenedorCarritoVacio {
   height: 180px;
-  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -214,6 +218,9 @@
   text-align: center;
   padding: 2px;
   margin: 5px 0;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .precioUnidad {
@@ -224,6 +231,12 @@
   display: flex;
   align-items: center;
   margin-top: 10px;
+  margin: auto;
+}
+
+.unidadesProductoCarrito .unidadesCarrito{
+  margin: auto;
+  margin-right: 10px;
 }
 
 .unidadesCarrito {
@@ -262,6 +275,11 @@
   .botonIrCheckout {
     max-width: 500px;
     font-size: 18px;
+  }
+
+  .tituloModalConfirm{
+    margin-top: 10px;
+    margin-bottom: 15px;
   }
 
   .ModalCheckout, .Modal {
@@ -355,7 +373,7 @@
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     z-index: 9999;
-    height: 140px;
+    height: 220px;
   }
 
   .Modal .tituloModalConfirm{
