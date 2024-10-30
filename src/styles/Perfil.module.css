@@ -305,8 +305,38 @@
   background-color: #3a3a3a;
 }
 
+.filtroOrdenes {
+  margin-bottom: 1rem;
+}
+
+.selectFiltro {
+  width: 200px;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
 /* TABLETS */
 @media (min-width: 768px) {
+
+  .filtroOrdenes {
+    margin-bottom: 1rem;
+  }
+
+  .contenedorUnidades{
+    display: flex;
+  }
+
+  .contenedorUnidades span{
+    margin-left: 10px;
+  }
+  
+  .selectFiltro {
+    width: 200px;
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
   .contenedorPaginaPerfil {
     padding: 2rem;
   }
@@ -343,6 +373,17 @@
 @media (min-width: 1024px) {
   .contenedorPaginaPerfil {
     padding: 3rem;
+  }
+
+  .filtroOrdenes {
+    margin-bottom: 1rem;
+  }
+  
+  .selectFiltro {
+    width: 200px;
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
   }
   
   .ModalEditarPerfil .botonGuardarCambiosPerfil{

@@ -16,9 +16,9 @@ const Instalaciones = () => {
       <h1 className={styles.tituloServicio}>Instalaciones</h1>
       <div className={styles.contenedorPosicionamientoContenidoServicio}>
         <div className={styles.contenedorTextoServicio}>
-          <p className={styles.textoServicios}>En Inelar, comprendemos la importancia de la implementación de dispositivos de manera eficiente y efectiva. Nuestro equipo especializado está dedicado a garantizar que tus dispositivos se instalen de manera óptima y funcionen sin problemas desde el primer momento.</p>
+          <p className={styles.textoServicios}>En <span>Inelar</span>, comprendemos la importancia de la implementación de dispositivos de manera eficiente y efectiva. <span>Nuestro equipo especializado está dedicado a garantizar que tus dispositivos se instalen de manera óptima y funcionen sin problemas desde el primer momento.</span></p>
           <p className={styles.textoServicios}>Ya sea que necesites implementar una nueva infraestructura tecnológica o desees mejorar la configuración de dispositivos existentes, estamos aquí para ayudarte. Nuestras instalaciones de dispositivos están diseñadas para garantizar que tu tecnología funcione a la perfección.</p>
-          <p className={styles.textoServicios}>Nos encargamos de todo el proceso de instalación, desde la evaluación de tus necesidades hasta la configuración y puesta en marcha de los dispositivos. Además, utilizamos equipos de alta calidad y tecnología de vanguardia para garantizar la máxima eficiencia y durabilidad.</p>
+          <p className={styles.textoServicios}>Nos encargamos de todo el proceso de instalación, desde la evaluación de tus necesidades hasta la configuración y puesta en marcha de los dispositivos. Además, <span>utilizamos equipos de alta calidad y tecnología de vanguardia para garantizar la máxima eficiencia y durabilidad.</span></p>
         </div>
         <Image
           src="/servicio-instalaciones-imagen.webp"

@@ -57,7 +57,7 @@
   border-radius: 4px;
   font-family: "montserrat", sans-serif;
   font-weight: bold;
-  font-size: 12px;
+  font-size: 16px;
   margin-bottom: 15px;
 }
 
@@ -160,12 +160,42 @@
   cursor: pointer;
 }
 
+ 
+.productoRelacionado button{
+  background-color: #C75F00;
+  padding: 4px;
+  margin-top: 10px;
+  border-radius: 4px;
+  font-family: "montserrat", sans-serif;
+  border: 0px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #121212;
+}
+
 /* TABLETS */
 @media (min-width: 768px) {
   .contenedorDetalleProducto {
     flex-direction: row;
     align-items: flex-start;
     gap: 40px;
+  }
+
+   
+  .productoRelacionado button{
+    background-color: #C75F00;
+    padding: 4px;
+    margin-top: 10px;
+    border-radius: 4px;
+    font-family: "montserrat", sans-serif;
+    border: 0px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #121212;
+  }
+
+  .precioDetalle{
+    text-align: left;
   }
 
   .contenedorProducto {
@@ -415,7 +445,7 @@
     border-radius: 4px;
     font-family: "montserrat", sans-serif;
     border: 0px;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
     color: #121212;
   }

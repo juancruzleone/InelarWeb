@@ -22,6 +22,7 @@ export default function Perfil() {
   const [showConfirmationModal, setShowConfirmationModal] = useState(false)
   const [newUserName, setNewUserName] = useState("")
   const [errorMessage, setErrorMessage] = useState(null)
+  const [filterStatus, setFilterStatus] = useState("todas")
 
   const handleUserNameChange = (e) => {
     const value = e.target.value
@@ -41,6 +42,14 @@ export default function Perfil() {
     }
   }
 
+  const handleFilterChange = (e) => {
+    setFilterStatus(e.target.value)
+  }
+
+  const filteredOrders = orders.filter(order => 
+    filterStatus === "todas" || order.status === filterStatus
+  )
+
   return (
     <>
       <Head>
@@ -55,7 +64,19 @@ export default function Perfil() {
           ) : (
             <>
               <PerfilUsuario user={user} setShowEditModal={setShowEditModal} />
-              <ListaOrdenes orders={orders} />
+              <div className={styles.filtroOrdenes}>
+                <select
+                  value={filterStatus}
+                  onChange={handleFilterChange}
+                  className={styles.selectFiltro}
+                >
+                  <option value="todas">Todas</option>
+                  <option value="procesada">Procesada</option>
+                  <option value="denegada">Denegada</option>
+                  <option value="pendiente">Pendiente</option>
+                </select>
+              </div>
+              <ListaOrdenes orders={filteredOrders} />
             </>
           )}
         </div>

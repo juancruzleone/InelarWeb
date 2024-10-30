@@ -91,6 +91,10 @@
   text-align: center;
 }
 
+.contenedorTextoNuestraApp span{
+  color: #f9bf79;
+  margin-left: 5px;
+}
 
 #segundoParrafoNuestraApp {
   margin-top: 15px;

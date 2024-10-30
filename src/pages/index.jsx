@@ -117,14 +117,14 @@ const Index = () => {
           <h2>Descubre Nuestra App</h2>
           <p>
             ¡Bienvenido a la puerta de entrada a la innovación tecnológica! En
-            INELAR, hemos creado una aplicación revolucionaria pensando en ti y
+            <span>Inelar</span>, hemos creado una aplicación revolucionaria pensando en ti y
             en la simplicidad de mantener tus dispositivos siempre en óptimas
             condiciones.
           </p>
           <p id={styles.segundoParrafoNuestraApp}>
             Nuestra App es tu solución para un mantenimiento rápido y efectivo.
-            Imagina tener el control total de tus dispositivos con tan solo un
-            escaneo de código QR. Es fácil, rápido y está diseñado pensando en
+            <span>Imagina tener el control total de tus dispositivos con tan solo un
+            escaneo de código QR.</span> Es fácil, rápido y está diseñado pensando en
             los usuarios.
           </p>
         </div>

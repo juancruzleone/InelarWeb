@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Layout from '@/components/layout';
 import Footer from '@/components/Footer';
@@ -16,6 +16,14 @@ const DetalleProducto = ({ initialProducto, initialProductosRelacionados }) => {
   const { id } = router.query;
   const { producto, productosRelacionados, loading } = useProductoDetalle(id, initialProducto, initialProductosRelacionados);
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(() => {
+    const userData = JSON.parse(localStorage.getItem('userData'));
+    if (userData && userData.cuenta && userData.cuenta.role === 'admin') {
+      setIsAdmin(true);
+    }
+  }, []);
 
   const handleAgregarAlCarrito = () => {
     addToCart(id, producto);
@@ -42,7 +50,7 @@ const DetalleProducto = ({ initialProducto, initialProductosRelacionados }) => {
 
   return (
     <Layout className={styles.app}>
-      <ProductDetail producto={producto} handleAgregarAlCarrito={handleAgregarAlCarrito} />
+      <ProductDetail producto={producto} handleAgregarAlCarrito={handleAgregarAlCarrito} isAdmin={isAdmin} />
       <div className={styles.contenedorDescripcionProducto}>
         <h2>Descripción</h2>
         <p>{producto.description}</p>

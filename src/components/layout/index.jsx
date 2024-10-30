@@ -97,7 +97,7 @@ export default function Layout({ children }) {
                 </Link>
                 <button onClick={handleLogout} className={`${styles.sesion} ${styles.logoutButton}`} id={styles.cerrarSesion}>
                   <Image
-                    src="/cerrar-sesion2.svg"
+                    src="/logout.svg"
                     alt="Cerrar sesión"
                     className={styles.logoutIcon}
                     width={40}

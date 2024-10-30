@@ -92,6 +92,7 @@
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
   margin-top: auto;
+  font-weight: 600;
 }
 
 /* TABLETS */
@@ -118,6 +119,10 @@
 
   .tarjetaProducto {
     margin: 15px;
+  }
+
+  .botonVerMas{
+    font-weight: 600px;
   }
 }
 
@@ -264,20 +269,6 @@
     object-fit: cover; 
   }
 
-  .botonVerMas {
-    font-family: "montserrat", sans-serif;
-    display: inline-block;
-    padding: 10px 20px;
-    border-radius: 4px;
-    border: none;
-    background-color: #C75F00;
-    color: #121212;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
-    margin-top: auto; 
-  }
 
   .botonVerMas {
     font-family: "montserrat", sans-serif;
@@ -288,7 +279,7 @@
     background-color: #C75F00;
     color: #121212;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
     transition: background-color 0.2s ease-in-out;
     margin-top: auto; 

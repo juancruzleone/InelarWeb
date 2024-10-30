@@ -32,7 +32,7 @@ const ListaOrdenes = ({ orders }) => {
                   <ul>
                     {order.items.map(item => (
                       <li key={item.nombre}>
-                        <div>
+                        <div className={styles.contenedorUnidades}>
                           <p>{item.nombre} - ${item.precio}</p>
                           <p><span>Cantidad:</span> {item.unidades}</p>
                         </div>

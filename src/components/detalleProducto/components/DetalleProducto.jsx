@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import styles from '@/styles/DetalleProducto.module.css';
 
-const DetalleProducto = ({ producto, handleAgregarAlCarrito }) => {
+const DetalleProducto = ({ producto, handleAgregarAlCarrito, isAdmin }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const handleAgregarProducto = () => {
@@ -29,7 +29,9 @@ const DetalleProducto = ({ producto, handleAgregarAlCarrito }) => {
           <h1 className={styles.nombreProductoDetalle}>{producto.name}</h1>
           <p className={styles.categoriaDetalle}>{producto.categoria}</p>
           <p className={styles.precioDetalle}>${producto.price}</p>
-          <a href="#" onClick={handleAgregarProducto}>Agregar al carrito</a>
+          {!isAdmin && (
+            <a href="#" onClick={handleAgregarProducto}>Agregar al carrito</a>
+          )}
         </div>
       </div>
     </div>

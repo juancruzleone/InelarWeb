@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import Layout from "@/components/layout";
@@ -13,12 +13,21 @@ export default function PerfilUsuarios() {
   const router = useRouter();
   const { id } = router.query;
   const { user, orders, loading, error } = usePerfil(id);
+  const [filterStatus, setFilterStatus] = useState("todas");
 
   useEffect(() => {
     if (error) {
       console.error("Error in PerfilUsuarios:", error);
     }
   }, [error]);
+
+  const handleFilterChange = (e) => {
+    setFilterStatus(e.target.value);
+  };
+
+  const filteredOrders = orders.filter(order => 
+    filterStatus === "todas" || order.status === filterStatus
+  );
 
   if (loading) {
     return (
@@ -48,7 +57,19 @@ export default function PerfilUsuarios() {
           {user ? (
             <>
               <PerfilUsuario user={user} />
-              <ListaOrdenes orders={orders} />
+              <div className={styles.filtroOrdenes}>
+                <select
+                  value={filterStatus}
+                  onChange={handleFilterChange}
+                  className={styles.selectFiltro}
+                >
+                  <option value="todas">Todas</option>
+                  <option value="procesada">Procesada</option>
+                  <option value="denegada">Denegada</option>
+                  <option value="pendiente">Pendiente</option>
+                </select>
+              </div>
+              <ListaOrdenes orders={filteredOrders} />
             </>
           ) : (
             <p className={styles.errorMensaje}>Usuario no encontrado</p>
