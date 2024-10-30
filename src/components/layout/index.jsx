@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ModalConfirmacion from "@/components/layout/components/ModalConfirmacion"; 
 import styles from "@/styles/Nav.module.css";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export default function Layout({ children }) {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -74,6 +75,7 @@ export default function Layout({ children }) {
             )}
           </div>
           <div className={styles.navIcons}>
+            <ThemeToggle />
             {isLoggedIn ? (
               <>
                 <Link href={`/perfil/${userId}`} className={styles.sesion} id={styles.sesion}>
