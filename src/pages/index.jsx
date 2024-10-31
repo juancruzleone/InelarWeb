@@ -91,7 +91,7 @@ const Index = () => {
           </div>
           <div className={styles.imageContainer}>
             <Image
-              src="/cartas.svg"
+              src="/Cartas.svg"
               alt="Cartas"
               width={200}
               height={200}
