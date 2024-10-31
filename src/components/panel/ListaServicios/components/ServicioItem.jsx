@@ -6,7 +6,7 @@ import ModalConfirmar from './ModalConfirmar';
 export default function ServicioItem({ service, onUpdateStatus }) {
   const [isLoading, setIsLoading] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [estado, setEstado] = useState(service.estado || 'pendiente');
+  const [estado, setEstado] = useState(service.estado || 'no realizado');
 
   const handleCompletarServicio = async () => {
     setIsLoading(true);

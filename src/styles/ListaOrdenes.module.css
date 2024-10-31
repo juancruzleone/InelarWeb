@@ -1,0 +1,780 @@
+/* MOBILE */
+.contenedorBotonesEditar{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+  }
+  
+  .ModalConfirmarServicio {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #121212;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    width: 90%;
+    max-width: 500px;
+  }
+  
+  .ModalConfirmarServicio h2{
+    text-align: center;
+  }
+  
+  .ModalConfirmarServicio p {
+    font-family: "montserrat", sans-serif;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 1rem;
+    margin-top: 20px;
+  }
+  
+  .ModalConfirmarServicio button {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+  
+  .ModalConfirmarServicio .botonConfirmar{
+    background-color: #C75F00;
+    padding: 6px;
+    border-radius: 4px;
+    font-family: "montserrat",sans-serif;
+    border: 0px;
+    cursor: pointer;
+    color: #121212;
+    margin-right: 15px;
+  }
+  
+  .ModalConfirmarServicio .botonCancelarModal{
+    background-color: #2b2b2b;
+    padding: 6px;
+    border-radius: 4px;
+    font-family: "montserrat",sans-serif;
+    border: 0px;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .tickModal {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .cerrarModalButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }  
+  
+  .botonCompletar {
+    margin-top: 16px;
+    width: 100%;
+    padding: 8px 16px;
+    background-color: #C75F00;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #121212;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .botonCompletar:hover {
+    background-color: #f9bf79;
+    color: #121212;
+  }
+  
+  .botonCompletar:disabled {
+    background-color: #4B5563;
+    cursor: not-allowed;
+  }
+  
+  .tarjetaHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  
+  .estadoOrden {
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  #estadoOrden{
+    color: #121212;
+    font-weight: 600;
+  }
+  
+  .realizado {
+    background-color: #10B981;
+    color: white;
+  }
+  
+  .pendiente {
+    background-color: #F59E0B;
+    color: #121212;
+    font-weight: 600;
+  }
+  
+  .tituloPaginasPanel {
+    margin: 20px 15px;
+    color: #f9bf79;
+    font-size: 24px;
+    margin-left: 25px;
+    margin-top: 30px;
+    margin-bottom: 0px;
+  }
+  
+  .tarjetaOrdenPanel .categoriaServicio{
+    background-color: #121212;
+    width: 200px;
+    border-radius: 4px;
+    padding: 2px;
+    margin-top: 5px;
+    text-align: center;
+  }
+  
+  .selectCategoria {
+    background-color: #C75F00;
+    color: #000000;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    width: calc(100% - 30px);
+    margin: 20px 15px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 12px auto;
+    font-weight: 600;
+  }
+  
+  .selectCategoria:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(199, 95, 0, 0.5);
+  }
+  
+  .selectCategoria option {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+  
+  .buscadorPanel {
+    border-radius: 10px;
+    width: 90%;
+    padding: 10px;
+    margin: 20px auto;
+    margin-left: 20px;
+  }
+  
+  .posicionSeccionProductos {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .contenedorServicios {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  
+  .cargandoMensajes {
+    margin: 10px 15px;
+  }
+  
+  .textoBuscadorPanel {
+    margin: 20px 15px;
+  }
+  
+  .contenedorCategorias {
+    background-color: #121212;
+    border-radius: 4px;
+    margin: 20px 15px;
+    padding: 10px;
+  }
+  
+  .contenedorCategoria {
+    background-color: #C75F00;
+    margin-top: 10px;
+  }
+  
+  .contenedorCategoria p {
+    font-family: "montserrat", sans-serif;
+    padding: 5px;
+    border-radius: 4px;
+    margin: 5px;
+    font-weight: 600;
+    color: #121212;
+  }
+  
+  .contenedorCategoria:hover {
+    background-color: #f9bf79;
+    cursor: pointer;
+  }
+  
+  .categoriaSeleccionada {
+    background-color: #f9bf79;
+  }
+  
+  .tarjetaOrdenPanel {
+    background-color: #1d1d1d;
+    border-radius: 7px;
+    padding: 15px;
+    margin: 15px;
+    font-family: "montserrat", sans-serif;
+  }
+  
+  .tarjetaOrdenPanel h3 {
+    margin-top: 10px;
+    font-size: 18px;
+  }
+  
+  .tarjetaOrdenPanel span {
+    color: white;
+    font-weight: 600;
+  }
+  
+  .contenidoTarjetaOrdenPanel {
+    margin-top: 15px;
+  }
+  
+  .contenidoTarjetaOrdenPanel p {
+    margin-top: 8px;
+    text-align: left;
+    font-size: 14px;
+  }
+  
+  .contenidoTarjetaOrdenPanel span {
+    font-weight: 600;
+    margin-right: 8px;
+    color: white;
+  }
+  
+  
+  /* TABLETS */
+  @media (min-width: 768px) {
+    .contenedorBotonesEditar{
+      display: flex;
+      justify-content: center;
+      margin: auto;
+    }
+  
+    .botonCompletar {
+      margin-top: 16px;
+      width: 100%;
+      padding: 8px 16px;
+      background-color: #C75F00;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #121212;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+  
+    .ModalConfirmarServicio {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #121212;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+      width: 90%;
+      max-width: 500px;
+    }
+  
+    .ModalConfirmarServicio h2{
+      text-align: center;
+    }
+    
+    .ModalConfirmarServicio p {
+      font-family: "montserrat", sans-serif;
+      font-weight: 300;
+      text-align: center;
+      margin-bottom: 1rem;
+      margin-top: 20px;
+    }
+    
+    .ModalConfirmarServicio button {
+      background-color: transparent;
+      border: 0;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+  
+    .ModalConfirmarServicio .botonConfirmar{
+      background-color: #C75F00;
+      padding: 6px;
+      border-radius: 4px;
+      font-family: "montserrat",sans-serif;
+      border: 0px;
+      cursor: pointer;
+      color: #121212;
+      margin-right: 15px;
+    }
+  
+    .ModalConfirmarServicio .botonCancelarModal{
+      background-color: #2b2b2b;
+      padding: 6px;
+      border-radius: 4px;
+      font-family: "montserrat",sans-serif;
+      border: 0px;
+      cursor: pointer;
+      color: white;
+    }
+    
+    .tickModal {
+      display: block;
+      margin: 0 auto;
+    }
+    
+    .cerrarModalButton {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+    }  
+    
+    .botonCompletar:hover {
+      background-color: #f9bf79;
+      color: #121212;
+    }
+    
+    .botonCompletar:disabled {
+      background-color: #4B5563;
+      cursor: not-allowed;
+    }
+  
+    .tarjetaHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    
+    .estadoOrden {
+      padding: 4px 12px;
+      border-radius: 16px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    
+    #estadoOrden{
+      color: #121212;
+      font-weight: 600;
+    }
+  
+    .realizado {
+      background-color: #10B981;
+      color: white;
+    }
+    
+    .pendiente {
+      background-color: #F59E0B;
+      color: #121212;
+      font-weight: 600;
+    }
+  
+    .tituloPaginasPanel {
+      font-size: 28px;
+      margin-left: 30px;
+    }
+  
+    .selectCategoria {
+      background-color: #C75F00;
+      color: #000000;
+      border-radius: 4px;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      width: calc(40% - 30px);
+      margin: 20px 15px;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+      background-repeat: no-repeat;
+      background-position: right 10px top 50%;
+      background-size: 12px auto;
+      font-weight: 600;
+    }
+    
+    .selectCategoria:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(199, 95, 0, 0.5);
+    }
+    
+    .selectCategoria option {
+      background-color: #ffffff;
+      color: #000000;
+    }
+    
+  
+    .buscadorPanel {
+      width: 80%;
+      margin-left: 30px;
+    }
+  
+    .posicionSeccionProductos {
+      flex-direction: row;
+    }
+  
+    .contenedorServicios {
+      max-height: 500px;
+    }
+  
+    .tarjetaOrdenPanel {
+      padding: 20px;
+      margin: 20px;
+    }
+  }
+  
+  /* PC*/
+  @media (min-width: 1024px) {
+    .contenedorBotonesEditar{
+      display: flex;
+      justify-content: center;
+      margin: auto;
+    }
+    
+    .tituloPaginasPanel{
+      margin-left: 50px;
+      margin-top: 50px;
+      margin-bottom: 15px;
+      color: #f9bf79;
+    }
+  
+    .buscadorPanel{
+      border-radius: 10px;
+      width: 90%;
+      padding: 15px;
+      margin-top: 40px;
+      margin-left: 50px;
+    }
+  
+    .posicionSeccionProductos{
+      display: flex;
+    }
+  
+    .posicionSeccionProductos .contenedorCategorias{
+      margin-top: 50px;
+    }
+  
+    .contenedorServicios{
+      margin-top: 80px;
+      margin-bottom: 80px;
+    }
+  
+    .contenedorServicios{
+      max-height: 600px; 
+      overflow-y: auto; 
+      margin-top: 60px;
+      margin-left: 20px;
+    }
+    
+    .contenedorServicios h2{
+      font-family: "montserrat", sans-serif;
+      color: #C75F00;
+      font-size: 32px;
+      text-align: center;
+    }
+  
+    .cargandoMensajes{
+      margin-left: 35px;
+      margin-top: 10px;
+    }
+  
+    .textoBuscadorPanel{
+      margin-left: 80px;
+      margin-top: 75px;
+    }
+  
+    .contenedorCategorias{
+      background-color: #121212;
+      border-radius: 4px;
+      height: 300px;
+      margin-right: 60px;
+    }
+  
+    .contenedorCategorias button{
+      display: block;
+      font-family: "montserrat", sans-serif;
+      margin-top: 10px;
+      margin: 40px;
+      border: 3px solid transparent;
+      background-color: #121212;
+      cursor: pointer;
+    }
+  
+    .contenedorCategorias {
+      background-color: #121212;
+      border-radius: 4px;
+      margin-top: 50px; 
+      margin-left: 40px;
+      height: 100%;
+    }
+  
+    .contenedorCategorias a{
+      cursor: pointer;
+      color: white;
+    }
+  
+    .contenedorCategoriasProductos{
+      background-color: #121212;
+      border-radius: 4px;
+      margin-top: 50px; 
+      height: 100%;
+      margin-right: 60px;
+    }
+  
+    .contenedorCategoriasProductos a{
+      display: block;
+      font-family: "montserrat", sans-serif;
+      margin-top: 10px;
+      margin: 40px;
+      border: 3px solid transparent;
+    }
+  
+    .contenedorCategorias a {
+      color: #ffffff;
+      text-decoration: none; 
+      cursor: pointer; 
+    }
+    
+    
+    .contenedorCategorias a {
+      color: #ffffff; 
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+  
+    .contenedorCategoria{
+      margin-top:20px;
+    }
+    
+    .contenedorCategoria{
+      background-color: #C75F00;
+    }
+  
+    .contenedorCategoria p{
+      font-family: "montserrat", sans-serif;
+      padding: 5px;
+      border-radius: 4px;
+      margin: 10px;
+      font-weight: 600;
+      color: #121212;
+    }
+    
+    .contenedorCategoria:hover{
+      border-radius: 4px;
+      cursor: pointer;
+      background-color: #f9bf79;
+    }
+    
+    .categoriaSeleccionada{
+      background-color:  #f9bf79;
+    }
+  
+    .tarjetaOrdenPanel{
+      background-color: #1d1d1d;
+      border-radius: 7px;
+      padding: 20px;
+      margin: 30px;
+      width: 600px;
+      font-family: "montserrat", sans-serif;
+    }
+    
+    .tarjetaOrdenPanel h3{
+      margin-top: 10px;
+    }
+  
+    .tarjetaOrdenPanel span{
+      color: white;
+      font-weight: 600;
+    }
+  
+    .tarjetaOrdenPanel .categoriaServicio{
+      background-color: #121212;
+      width: 200px;
+      border-radius: 4px;
+      padding: 2px;
+      margin-top: 5px;
+      text-align: center;
+    }
+  
+    .contenidoTarjetaProductoPanel{
+      margin-top: 20px;
+    }
+    
+    .contenidoTarjetaProductoPanel p{
+      margin-top: 8px;
+      text-align: left;
+      font-size: 16px;
+    }
+    
+    .contenidoTarjetaProductoPanel span{
+      font-weight: 600;
+      margin-right: 8px;
+      color: white;
+    }
+  
+    .botonCompletar {
+      margin-top: 50px;
+      width: 100%;
+      padding: 8px 16px;
+      background-color: #C75F00;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #121212;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    
+    .botonCompletar:hover {
+      background-color: #f9bf79;
+      color: #121212;
+    }
+    
+    .botonCompletar:disabled {
+      background-color: #4B5563;
+      cursor: not-allowed;
+    }
+  
+    .tarjetaHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    
+    .estadoOrden {
+      padding: 4px 12px;
+      border-radius: 16px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    
+    #estadoOrden{
+      color: #121212;
+      font-weight: 600;
+    }
+  
+    .realizado {
+      background-color: #10B981;
+      color: white;
+    }
+    
+    .pendiente {
+      background-color: #F59E0B;
+      color: #121212;
+      font-weight: 600;
+    }
+  
+    .ModalConfirmarServicio {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #121212;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+      width: 90%;
+      max-width: 500px;
+    }
+  
+    .ModalConfirmarServicio h2{
+      text-align: center;
+    }
+    
+    .ModalConfirmarServicio p {
+      font-family: "montserrat", sans-serif;
+      font-weight: 300;
+      text-align: center;
+      margin-bottom: 1rem;
+      margin-top: 20px;
+    }
+    
+    .ModalConfirmarServicio button {
+      background-color: transparent;
+      border: 0;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+  
+    .ModalConfirmarServicio .botonGuardar{
+      background-color: #C75F00;
+      padding: 6px;
+      border-radius: 4px;
+      font-family: "montserrat",sans-serif;
+      border: 0px;
+      cursor: pointer;
+      color: #121212;
+      margin-right: 15px;
+    }
+  
+    .ModalConfirmarServicio .botonCancelarModal{
+      background-color: #2b2b2b;
+      padding: 6px;
+      border-radius: 4px;
+      font-family: "montserrat",sans-serif;
+      border: 0px;
+      cursor: pointer;
+      color: white;
+    }
+    
+    .tickModal {
+      display: block;
+      margin: 0 auto;
+    }
+    
+    .cerrarModalButton {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+    }  
+  
+    .Overlay {
+      background-color: rgba(0, 0, 0, 0.75); /* color del overlay */
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 9998; /* Asegúrate de que esté detrás del modal */
+    }
+    
+  }

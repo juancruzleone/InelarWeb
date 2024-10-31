@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "@/styles/ListaServicios.module.css";
 import ServicioItem from "@/components/panel/ListaServicios/components/ServicioItem.jsx";
 import CategoriaItem from "@/components/panel/ListaServicios/components/CategoriaItem.jsx";
@@ -14,7 +14,9 @@ const ListaServicios = () => {
     setSearchTerm, 
     selectedCategory, 
     handleCategoryClick,
-    handleUpdateServiceStatus // Añadimos esta función
+    handleUpdateServiceStatus,
+    statusFilter,
+    setStatusFilter
   } = useServicios();
 
   const [isMobile, setIsMobile] = useState(false);
@@ -34,8 +36,6 @@ const ListaServicios = () => {
 
   const allCategories = ["Todo", ...categories];
 
-  const displayedServices = selectedCategory === "Todo" ? allServices : filteredServices;
-
   return (
     <>
       <h2 className={styles.tituloPaginasPanel}>Servicios</h2>
@@ -45,8 +45,21 @@ const ListaServicios = () => {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
         className={styles.buscadorPanel} 
-        aria-label="Search requested services"
+        aria-label="Buscar servicios solicitados"
       />
+      <div className={styles.filtroEstado}>
+        <label htmlFor="statusFilter" className={styles.filtroLabel}>Filtrar por estado:</label>
+        <select
+          id="statusFilter"
+          value={statusFilter}
+          onChange={(e) => setStatusFilter(e.target.value)}
+          className={styles.filtroSelect}
+        >
+          <option value="todos">Todos</option>
+          <option value="no realizado">No realizado</option>
+          <option value="realizado">Realizado</option>
+        </select>
+      </div>
       <div className={styles.posicionSeccionProductos}>
         {isMobile ? (
           <select
@@ -76,12 +89,12 @@ const ListaServicios = () => {
         <div className={styles.contenedorServicios}>
           {loading ? (
             <p className={styles.cargandoMensajes}>Cargando servicios...</p>
-          ) : displayedServices && displayedServices.length > 0 ? (
-            displayedServices.map((service, index) => (
+          ) : filteredServices.length > 0 ? (
+            filteredServices.map((service, index) => (
               <ServicioItem 
-                key={index} 
+                key={service._id} 
                 service={service} 
-                onUpdateStatus={handleUpdateServiceStatus} // Pasamos la función aquí
+                onUpdateStatus={handleUpdateServiceStatus}
               />
             ))
           ) : (
@@ -91,6 +104,6 @@ const ListaServicios = () => {
       </div>
     </>
   );
-}
+};
 
 export default ListaServicios;

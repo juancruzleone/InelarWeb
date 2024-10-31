@@ -10,6 +10,7 @@ import ListaMensajes from "@/components/ListaMensajes.jsx";
 import ListaServicios from "@/components/ListaServicios.jsx";
 import ListaInstalaciones from "@/components/ListaInstalaciones.jsx"; 
 import ListaUsuarios from "@/components/ListaUsuarios.jsx"; 
+import ListaOrdenes from "@/components/ListaOrdenes.jsx";
 import styles from "@/styles/PanelAdmin.module.css";
 
 const PanelAdmin = () => {
@@ -67,6 +68,7 @@ const PanelAdmin = () => {
         <div className={styles.contenedorContenidoPanel}>
           <div className={styles.contenidoPanel}>
             {solapaActiva === "productos" && <ListaProductos />}
+            {solapaActiva === "pedidos" && <ListaOrdenes />}
             {solapaActiva === "clientes" && <ListaClientes />}
             {solapaActiva === "servicios" && <ListaServicios />}
             {solapaActiva === "mensajes" && <ListaMensajes />}

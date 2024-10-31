@@ -13,8 +13,8 @@ const PanelNav = ({ onSolapaClick, solapaActiva }) => {
           Productos
         </button>
         <button
-          onClick={() => onSolapaClick("productos")}
-          className={solapaActiva === "productos" ? styles.solapaActiva : styles.seccionesNavPanel}
+          onClick={() => onSolapaClick("pedidos")}
+          className={solapaActiva === "pedidos" ? styles.solapaActiva : styles.seccionesNavPanel}
         >
           Pedidos
         </button>
