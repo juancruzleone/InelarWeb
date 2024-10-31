@@ -2,10 +2,12 @@ import { useState } from 'react';
 import styles from "@/styles/ListaServicios.module.css"
 import { capitalizeFirstLetter } from "@/components/panel/ListaServicios/utils/StringUtils.jsx"
 import ModalConfirmar from './ModalConfirmar';
+import ModalExito from './ModalExito';
 
 export default function ServicioItem({ service, onUpdateStatus }) {
   const [isLoading, setIsLoading] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalConfirmarOpen, setIsModalConfirmarOpen] = useState(false);
+  const [isModalExitoOpen, setIsModalExitoOpen] = useState(false);
   const [estado, setEstado] = useState(service.estado || 'no realizado');
 
   const handleCompletarServicio = async () => {
@@ -14,6 +16,8 @@ export default function ServicioItem({ service, onUpdateStatus }) {
       const success = await onUpdateStatus(service._id);
       if (success) {
         setEstado('realizado');
+        setIsModalConfirmarOpen(false);
+        setIsModalExitoOpen(true);
       } else {
         throw new Error('Error al actualizar el estado del servicio');
       }
@@ -22,7 +26,6 @@ export default function ServicioItem({ service, onUpdateStatus }) {
       alert('Error al actualizar el estado del servicio');
     } finally {
       setIsLoading(false);
-      setIsModalOpen(false);
     }
   };
 
@@ -45,7 +48,7 @@ export default function ServicioItem({ service, onUpdateStatus }) {
       </div>
       {estado !== 'realizado' && (
         <button 
-          onClick={() => setIsModalOpen(true)} 
+          onClick={() => setIsModalConfirmarOpen(true)} 
           disabled={isLoading}
           className={styles.botonCompletar}
         >
@@ -54,11 +57,17 @@ export default function ServicioItem({ service, onUpdateStatus }) {
       )}
       
       <ModalConfirmar
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
+        isOpen={isModalConfirmarOpen}
+        onClose={() => setIsModalConfirmarOpen(false)}
         service={service}
         onConfirm={handleCompletarServicio}
         isLoading={isLoading}
+      />
+
+      <ModalExito
+        isOpen={isModalExitoOpen}
+        onClose={() => setIsModalExitoOpen(false)}
+        message="Servicio realizado exitosamente."
       />
     </div>
   )
