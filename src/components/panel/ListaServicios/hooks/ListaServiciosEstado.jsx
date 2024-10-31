@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fetchServices } from "@/components/panel/ListaServicios/services/FetchListaServicios.jsx";
+import { fetchServices, updateServiceStatus } from "@/components/panel/ListaServicios/services/FetchListaServicios.jsx";
 import { filterServices } from "@/components/panel/ListaServicios/utils/ListasServiciosUtils.jsx";
 
 export default function useServicios() {
@@ -47,6 +47,26 @@ export default function useServicios() {
     setSelectedCategory(category);
   };
 
+  const handleUpdateServiceStatus = async (serviceId) => {
+    try {
+      await updateServiceStatus(serviceId, 'realizado');
+      
+      // Actualizar la lista de servicios
+      const updatedServices = allServices.map(service => 
+        service._id === serviceId 
+          ? { ...service, estado: 'realizado' }
+          : service
+      );
+      
+      setAllServices(updatedServices);
+      
+      return true;
+    } catch (error) {
+      console.error('Error al actualizar el servicio:', error);
+      return false;
+    }
+  };
+
   return { 
     filteredServices, 
     allServices,
@@ -55,6 +75,7 @@ export default function useServicios() {
     searchTerm, 
     setSearchTerm, 
     selectedCategory, 
-    handleCategoryClick 
+    handleCategoryClick,
+    handleUpdateServiceStatus
   };
 }

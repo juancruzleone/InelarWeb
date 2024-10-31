@@ -1,4 +1,78 @@
 /* MOBILE */
+.contenedorBotonesEditar{
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+.ModalConfirmarServicio {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #121212;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  width: 90%;
+  max-width: 500px;
+}
+
+.ModalConfirmarServicio h2{
+  text-align: center;
+}
+
+.ModalConfirmarServicio p {
+  font-family: "montserrat", sans-serif;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 1rem;
+  margin-top: 20px;
+}
+
+.ModalConfirmarServicio button {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.ModalConfirmarServicio .botonConfirmar{
+  background-color: #C75F00;
+  padding: 6px;
+  border-radius: 4px;
+  font-family: "montserrat",sans-serif;
+  border: 0px;
+  cursor: pointer;
+  color: #121212;
+  margin-right: 15px;
+}
+
+.ModalConfirmarServicio .botonCancelarModal{
+  background-color: #2b2b2b;
+  padding: 6px;
+  border-radius: 4px;
+  font-family: "montserrat",sans-serif;
+  border: 0px;
+  cursor: pointer;
+  color: white;
+}
+
+.tickModal {
+  display: block;
+  margin: 0 auto;
+}
+
+.cerrarModalButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}  
+
 .botonCompletar {
   margin-top: 16px;
   width: 100%;
@@ -197,6 +271,12 @@
 
 /* TABLETS */
 @media (min-width: 768px) {
+  .contenedorBotonesEditar{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+  }
+
   .botonCompletar {
     margin-top: 16px;
     width: 100%;
@@ -211,6 +291,74 @@
     cursor: pointer;
     transition: background-color 0.2s;
   }
+
+  .ModalConfirmarServicio {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #121212;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    width: 90%;
+    max-width: 500px;
+  }
+
+  .ModalConfirmarServicio h2{
+    text-align: center;
+  }
+  
+  .ModalConfirmarServicio p {
+    font-family: "montserrat", sans-serif;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 1rem;
+    margin-top: 20px;
+  }
+  
+  .ModalConfirmarServicio button {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+
+  .ModalConfirmarServicio .botonConfirmar{
+    background-color: #C75F00;
+    padding: 6px;
+    border-radius: 4px;
+    font-family: "montserrat",sans-serif;
+    border: 0px;
+    cursor: pointer;
+    color: #121212;
+    margin-right: 15px;
+  }
+
+  .ModalConfirmarServicio .botonCancelarModal{
+    background-color: #2b2b2b;
+    padding: 6px;
+    border-radius: 4px;
+    font-family: "montserrat",sans-serif;
+    border: 0px;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .tickModal {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .cerrarModalButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }  
   
   .botonCompletar:hover {
     background-color: #f9bf79;
@@ -308,14 +456,18 @@
 
 /* PC*/
 @media (min-width: 1024px) {
+  .contenedorBotonesEditar{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+  }
+  
   .tituloPaginasPanel{
     margin-left: 50px;
     margin-top: 50px;
     margin-bottom: 15px;
     color: #f9bf79;
   }
-
-
 
   .buscadorPanel{
     border-radius: 10px;
@@ -545,4 +697,83 @@
     color: #121212;
     font-weight: 600;
   }
+
+  .ModalConfirmarServicio {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #121212;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    width: 90%;
+    max-width: 500px;
+  }
+
+  .ModalConfirmarServicio h2{
+    text-align: center;
+  }
+  
+  .ModalConfirmarServicio p {
+    font-family: "montserrat", sans-serif;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 1rem;
+    margin-top: 20px;
+  }
+  
+  .ModalConfirmarServicio button {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+
+  .ModalConfirmarServicio .botonGuardar{
+    background-color: #C75F00;
+    padding: 6px;
+    border-radius: 4px;
+    font-family: "montserrat",sans-serif;
+    border: 0px;
+    cursor: pointer;
+    color: #121212;
+    margin-right: 15px;
+  }
+
+  .ModalConfirmarServicio .botonCancelarModal{
+    background-color: #2b2b2b;
+    padding: 6px;
+    border-radius: 4px;
+    font-family: "montserrat",sans-serif;
+    border: 0px;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .tickModal {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .cerrarModalButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }  
+
+  .Overlay {
+    background-color: rgba(0, 0, 0, 0.75); /* color del overlay */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9998; /* Asegúrate de que esté detrás del modal */
+  }
+  
 }

@@ -1,35 +1,28 @@
 import { useState } from 'react';
 import styles from "@/styles/ListaServicios.module.css"
 import { capitalizeFirstLetter } from "@/components/panel/ListaServicios/utils/StringUtils.jsx"
+import ModalConfirmar from './ModalConfirmar';
 
-export default function ServicioItem({ service }) {
+export default function ServicioItem({ service, onUpdateStatus }) {
   const [isLoading, setIsLoading] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [estado, setEstado] = useState(service.estado || 'pendiente');
 
   const handleCompletarServicio = async () => {
     setIsLoading(true);
     try {
-      const userData = JSON.parse(localStorage.getItem('userData'));
-      
-      const response = await fetch(`https://inelarweb-back.onrender.com/api/servicios/${service._id}/estado`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${userData.token}`
-        },
-        body: JSON.stringify({ estado: 'realizado' })
-      });
-
-      if (!response.ok) {
+      const success = await onUpdateStatus(service._id);
+      if (success) {
+        setEstado('realizado');
+      } else {
         throw new Error('Error al actualizar el estado del servicio');
       }
-
-      setEstado('realizado');
     } catch (error) {
       console.error('Error:', error);
       alert('Error al actualizar el estado del servicio');
     } finally {
       setIsLoading(false);
+      setIsModalOpen(false);
     }
   };
 
@@ -52,13 +45,21 @@ export default function ServicioItem({ service }) {
       </div>
       {estado !== 'realizado' && (
         <button 
-          onClick={handleCompletarServicio} 
+          onClick={() => setIsModalOpen(true)} 
           disabled={isLoading}
           className={styles.botonCompletar}
         >
-          {isLoading ? 'Actualizando...' : 'Marcar como realizado'}
+          Marcar como realizado
         </button>
       )}
+      
+      <ModalConfirmar
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        service={service}
+        onConfirm={handleCompletarServicio}
+        isLoading={isLoading}
+      />
     </div>
   )
 }

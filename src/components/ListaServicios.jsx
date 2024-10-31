@@ -13,7 +13,8 @@ const ListaServicios = () => {
     searchTerm, 
     setSearchTerm, 
     selectedCategory, 
-    handleCategoryClick 
+    handleCategoryClick,
+    handleUpdateServiceStatus // Añadimos esta función
   } = useServicios();
 
   const [isMobile, setIsMobile] = useState(false);
@@ -77,7 +78,11 @@ const ListaServicios = () => {
             <p className={styles.cargandoMensajes}>Cargando servicios...</p>
           ) : displayedServices && displayedServices.length > 0 ? (
             displayedServices.map((service, index) => (
-              <ServicioItem key={index} service={service} />
+              <ServicioItem 
+                key={index} 
+                service={service} 
+                onUpdateStatus={handleUpdateServiceStatus} // Pasamos la función aquí
+              />
             ))
           ) : (
             <p className={styles.textoBuscadorPanel}>Ninguna solicitud de servicio encontrada</p>
