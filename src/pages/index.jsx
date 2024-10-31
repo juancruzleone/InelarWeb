@@ -68,8 +68,6 @@ const Index = () => {
     });
   }, []);
 
-
-
   return (
     <Layout>
       <Head>
@@ -78,27 +76,39 @@ const Index = () => {
         <link rel="icon" href="/inelar.ico" />
       </Head>
       <div className={styles.tituloHome}>
-        <h1>
-          <Image
-            src="/logo-elegidos.svg"
-            alt="Logo inelar"
-            className={styles.iconoHome}
-            width={300}
-            height={300}
-          />
-        </h1>
-        <h2>solución en prevención y combate de incendios</h2>
-        <div className={styles.contenedorFlecha}>
-          <a href="#nuestraApp">
+        <div className={styles.contenedorPortada}>
+          <div className={styles.titleContainer}>
+            <h1>
+              <Image
+                src="/logo-elegidos.svg"
+                alt="Logo inelar"
+                className={styles.iconoHome}
+                width={300}
+                height={300}
+              />
+            </h1>
+            <h2>solución en prevención y combate de incendios</h2>
+          </div>
+          <div className={styles.imageContainer}>
             <Image
-              src="/flecha-abajo.svg"
-              alt="flecha hacia abajo"
-              className={styles.flechaAbajo}
-              width={70}
-              height={70}
+              src="/cartas.svg"
+              alt="Cartas"
+              width={200}
+              height={200}
             />
-          </a>
+          </div>
         </div>
+        <div className={styles.contenedorFlecha}>
+            <a href="#nuestraApp">
+              <Image
+                src="/flecha-abajo.svg"
+                alt="flecha hacia abajo"
+                className={styles.flechaAbajo}
+                width={70}
+                height={70}
+              />
+            </a>
+          </div>
       </div>
 
       <div className={styles.contenedorNuestraApp} id="nuestraApp">

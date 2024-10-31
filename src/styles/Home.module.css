@@ -10,11 +10,9 @@
   margin-right: auto;
 }
 
-
 .celularImagen{
   padding: 50px;
 }
-
 
 .tituloHome {
   font-family: "montserrat", sans-serif;
@@ -24,7 +22,6 @@
   margin-top: 20px;
 }
 
-
 .tituloHome h2 {
   margin-top: 10px;
   color: #f9bf79;
@@ -32,6 +29,26 @@
   text-align: center;
 }
 
+.contenedorPortada {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titleImageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imageContainer {
+  margin-top: 20px;
+}
+
+.contenedorFlecha {
+  margin-top: 20px;
+  text-align: center;
+}
 
 .nombreProductoDetalle {
   font-family: "montserrat", sans-serif;
@@ -42,7 +59,6 @@
   color: #C75F00;
 }
 
-
 .tituloPaginas {
   font-family: "montserrat", sans-serif;
   font-size: 28px;
@@ -52,7 +68,6 @@
   color: #C75F00;
 }
 
-
 .subtitulos, .subtitulosHome {
   font-family: "montserrat", sans-serif;
   color: #C75F00;
@@ -60,7 +75,6 @@
   text-align: center;
   margin-top: 30px;
 }
-
 
 .contenedorNuestraApp {
   display: flex;
@@ -70,13 +84,11 @@
   margin-bottom: 40px;
 }
 
-
 .contenedorTextoNuestraApp {
   font-family: "montserrat", sans-serif;
   margin: 20px;
   text-align: center;
 }
-
 
 .contenedorTextoNuestraApp h2 {
   font-family: "montserrat", sans-serif;
@@ -85,7 +97,6 @@
   text-align: center;
   padding-bottom: 10px;
 }
-
 
 .contenedorTextoNuestraApp p {
   text-align: center;
@@ -100,7 +111,6 @@
   margin-top: 15px;
 }
 
-
 .circulo {
   width: 200px;
   height: 200px;
@@ -114,12 +124,10 @@
   margin-bottom: 20px;
 }
 
-
 .contenedorServicios {
   margin-top: 40px;
   margin-bottom: 40px;
 }
-
 
 .contenedorServicios h2 {
   font-family: "montserrat", sans-serif;
@@ -129,14 +137,12 @@
   margin-bottom: 20px;
 }
 
-
 .posicionServicios {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 10px;
 }
-
 
 .cajaServicios {
   background-color: #121212;
@@ -151,11 +157,9 @@
   align-items: center;
 }
 
-
 .cajaServicios a img{
   width: 300px;
 }
-
 
 .nombreServicios {
   font-size: 18px;
@@ -163,20 +167,17 @@
   text-align: center;
 }
 
-
 .iconoServicios {
   width: 100px;
   height: 80px;
   margin-top: 15px;
 }
 
-
 .posicionPreguntasFrecuentes {
   width: 90%;
   margin: auto;
   margin-bottom: 40px;
 }
-
 
 .contenedorPreguntaRespuesta {
   width: 100%;
@@ -185,7 +186,6 @@
   border-radius: 10px;
   overflow: hidden;
 }
-
 
 .toggleButton {
   font-size: 16px;
@@ -204,14 +204,12 @@
   margin: 15px;
 }
 
-
 #titulosPreguntas {
   font-family: "montserrat", sans-serif;
   font-size: 10px;
   padding: 15px;
   color: white;
 }
-
 
 #respuestasPreguntas {
   font-family: "montserrat", sans-serif;
@@ -223,7 +221,6 @@
   border-bottom-right-radius: 10px;
 }
 
-
 .contenedorCarrousel {
   width: 100%;
   height: 250px;
@@ -233,13 +230,6 @@
 
 .carrouselSlide{
   border-radius:10px;
-}
-
-.contenedorCarrousel {
-  width: 100%;
-  height: 250px;
-  margin: auto;
-  margin-top: 20px;
 }
 
 .swiper-container {
@@ -343,7 +333,6 @@
   height: 250px;
 }
 
-
 /* TABLETS*/
 @media (min-width: 768px) {
   .iconoHome {
@@ -364,26 +353,32 @@
     font-size: 16px;
   }
 
-
   .tituloHome h2 {
     text-align: center;
   }
 
+  .titleImageContainer {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .imageContainer {
+    margin-top: 0;
+    margin-left: 20px;
+  }
 
   .nombreProductoDetalle {
     font-size: 28px;
   }
 
-
   .tituloPaginas {
     font-size: 36px;
   }
 
-
   .subtitulos, .subtitulosHome {
     font-size: 28px;
   }
-
 
   .contenedorNuestraApp {
     flex-direction: row;
@@ -391,18 +386,15 @@
     margin-top: 80px;
   }
 
-
   .contenedorTextoNuestraApp {
     width: 50%;
     text-align: left;
   }
 
-
   .contenedorTextoNuestraApp h2 {
     text-align: left;
     font-size: 28px;
   }
-
 
   .circulo {
     width: 200px;
@@ -413,66 +405,52 @@
     font-size: 32px;
   }
 
-
   .posicionServicios {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
   }
 
-
   .cajaServicios {
     width: 50%;
     margin: 10px;
   }
 
-
-
-
   #titulosPreguntas {
     font-size: 14px;
   }
-
 
   #respuestasPreguntas {
     font-size: 16px;
   }
 
-
   .contenedorCarrousel {
     height: 280px;
   }
-
 
   .swiper-slide {
     padding: 30px 40px;
   }
 
-
   .swiper-slide .title {
     font-size: 32px;
   }
-
 
   .swiper-slide .subtitle {
     font-size: 18px;
   }
 
-
   .swiper-slide .text {
     font-size: 14px;
   }
-
 
   .tituloObras {
     font-size: 28px;
   }
 
-
   .categoriaObras h4 {
     font-size: 20px;
   }
-
 
   .carrousel {
     padding: 30px;
@@ -480,9 +458,48 @@
   }
 }
 
-
 /* PC */
 @media (min-width: 1024px) {
+  .contenedorPortada {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 50px;
+  }
+
+  .contenedorPortada .imageContainer{
+    margin-right: 200px;
+  }
+
+  .titleImageContainer {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+  }
+
+  .titleContainer {
+    flex: 1;
+  }
+
+  .imageContainer {
+    margin-top: 20px;
+    flex: 0 0 auto;
+    margin-left: 40px;
+  }
+
+  .imageContainer img{
+    width: 500px;
+    height: 300px;
+  }
+
+  .contenedorFlecha {
+    align-self: flex-end;
+    margin-top: 40px;
+    margin-left: 40px;
+  }
+
   .iconoHome{
     border-radius: 10px;
     margin-top: 40px;
@@ -492,24 +509,20 @@
     margin-right: 0;
   }
 
-
   .tituloHome{
     font-family: "montserrat", sans-serif;
     font-size: 16px;
     font-weight: lighter;
-    margin-left: 50px;
     margin-top: 20px;
     text-align: left;
   }
 
-
   .tituloHome h2{
-    margin-top: -40px;
+    margin-top: -60px;
     color: #f9bf79;
     font-weight: 500;
     text-align: left;
   }
-
 
   .nombreProductoDetalle{
     font-family: "montserrat", sans-serif;
@@ -519,7 +532,6 @@
     font-weight: 600;
     color: #C75F00;
   }
-
 
   .tituloPaginas{
     font-family: "montserrat", sans-serif;
@@ -531,7 +543,6 @@
     text-align: left;
   }
 
-
   .subtitulos{
     font-family: "montserrat", sans-serif;
     color: #C75F00;
@@ -540,14 +551,12 @@
     margin-top: 40px;
   }
 
-
   .subtitulosHome{
     font-family: "montserrat", sans-serif;
     color: #C75F00;
     font-size: 32px;
     text-align: center;
   }
-
 
   .contenedorNuestraApp {
     display: flex;
@@ -557,7 +566,6 @@
     margin-bottom: 60px;
   }
 
-
   .contenedorTextoNuestraApp {
     font-family: "montserrat", sans-serif;
     margin: 140px;
@@ -565,7 +573,6 @@
     justify-content: center;
     align-items: center;
   }
-
 
   .contenedorTextoNuestraApp h2{
     font-family: "montserrat", sans-serif;
@@ -575,16 +582,13 @@
     padding-bottom: 20px;
   }
 
-
   .contenedorTextoNuestraApp p{
     text-align: left;
   }
 
-
   #segundoParrafoNuestraApp{
     margin-top: 15px;
   }
-
 
   .circulo {
     width: 200px;
@@ -595,16 +599,15 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    
     padding: 100px;
     margin-left: 300px;
   }
-
 
   .contenedorServicios{
     margin-top: 80px;
     margin-bottom: 80px;
   }
-
 
   .posicionServicios{
     display: flex;
@@ -612,7 +615,6 @@
     text-align: center;
     margin-top: 10px;
   }
-
 
   .cajaServicios{
     background-color: #121212;
@@ -622,11 +624,9 @@
     margin: 20px;
   }
 
-
   .cajaServicios:hover{
     background-color: #C75F00;
   }
-
 
   .cardServicios{
     margin-top: 20px;
@@ -637,18 +637,15 @@
     border-radius: 20px;
   }
 
-
   .cardServicios:hover{
     background-color: #C75F00;
     cursor: pointer;
   }
 
-
   .cardServicios:hover .botonCardServicio{
     background-color: #121212;
     color: white;
   }
-
 
   .nombreServicios{
     font-family: "montserrat", sans-serif;
@@ -661,10 +658,6 @@
     text-align: center;
   }
 
-
- 
-
-
   .iconoServicios{
     width: 140px;
     height: 100px;
@@ -672,7 +665,6 @@
     cursor: pointer;
     margin-top: 20px;
   }
-
 
   .posicionPreguntasFrecuentes {
     display: flex;
@@ -684,7 +676,6 @@
     margin-bottom: 80px;
   }
 
-
   .contenedorPreguntaRespuesta {
     width: 100%;
     height: 60px;
@@ -692,7 +683,6 @@
     margin-top: 20px;
     border-radius: 10px;
   }
-
 
   .toggleButton {
     font-size: 24px;
@@ -706,11 +696,9 @@
     border-radius: 50px;
   }
 
-
   .toggleButton:hover {
     color: gray;
   }
-
 
   #pregunta {
     font-size: 18px;
@@ -719,7 +707,6 @@
     color: white;
     font-family: "montserrat", sans-serif;
   }
-
 
   .respuesta {
     display: none;
@@ -731,11 +718,9 @@
     border-bottom-right-radius:10px;
   }
 
-
   .respuestaVisible {
     display: block;
   }
-
 
   #titulosPreguntas{
     font-family: "montserrat", sans-serif;
@@ -744,14 +729,12 @@
     padding-top: 10px;
   }
 
-
   #respuestasPreguntas{
     font-family: "montserrat", sans-serif;
     font-size: 16px;
     color: black;
     text-align: left;
   }
-
 
   .contenedorCarrousel{
     width: 1000px;
@@ -761,69 +744,57 @@
     border-radius: 6px;
   }
 
-
   .swiper-slide {
     padding: 40px 60px;
   }
-
 
   .swiper-slide .title {
     font-size: 41px;
   }
 
-
   .swiper-slide .subtitle {
     font-size: 21px;
   }
-
 
   .swiper-slide .text {
     font-size: 14px;
     max-width: 400px;
   }
 
-
   .tituloObras {
     font-size: 32px;
     width: 360px;
   }
-
 
   .categoriaObras h4 {
     font-size: 22px;
     width: 200px;
   }
 
-
   .carrousel {
     padding: 40px;
     height: 330px;
   }
 
-
   .contenedorFlecha {
     display: flex;
     justify-content: center;
-    margin-top: 140px;
+    margin-top: 40px;
   }
-
 
   .contenedorDetalleProducto{
     display: flex;
     justify-content: center;
   }
 
-
   .contenedorContenidoServicio select{
     padding: 10px;
   }
-
 
   .contenidoProducto{
     margin-left: 60px;
     font-family: "montserrat", sans-serif;
   }
-
 
   .contenidoProducto a{
     background-color: #C75F00;
@@ -832,11 +803,9 @@
     font-weight: lighter;
   }
 
-
   .contenidoProducto a:hover{
     background-color: #f57600;
   }
-
 
   .contenedorDescripcionProducto{
     display: block;
@@ -845,11 +814,9 @@
     margin-top: 60px;
   }
 
-
   .contenedorDescripcionProducto h4{
     font-family: "montserrat", sans-serif;
   }
-
 
   .contenedorDescripcionProducto p{
     color: white;
@@ -857,7 +824,6 @@
     font-family: "montserrat", sans-serif;
     margin-top: 10px;
   }
-
 
   .contenedorCarrito {
     margin: auto;
@@ -869,18 +835,15 @@
     overflow-y: auto;
   }
 
-
   .contenedorCarritoVacio {
     height: 180px;
     justify-content: center;
     align-items: center;
   }
 
-
   .contenedorCarrito p {
     font-family: "montserrat", sans-serif;
   }
-
 
   .contenedorCarrito h3 {
     font-family: "montserrat", sans-serif;
@@ -890,13 +853,11 @@
     margin-top: 10px;
   }
 
-
   .mensajeCarritoVacio {
     font-family: "montserrat", sans-serif;
     text-align: center;
     margin-top: 40px;
   }
-
 
   .tarjetaProductoCarrito {
     display: flex;
@@ -908,17 +869,14 @@
     margin-left: 30px;
   }
 
-
   .tarjetaProductoCarrito .botonSumar {
     margin-left: 100px;
   }
-
 
   .tarjetaProductoCarrito img {
     width: 80px;
     height: 80px;
   }
-
 
   .tarjetaProductoCarrito {
     display: flex;
@@ -932,7 +890,6 @@
     margin-top: 60px;
   }
 
-
   .tarjetaProductoCarrito .imagenProductoDetalleCarrito {
     width: 80px;
     height: 80px;
@@ -942,17 +899,14 @@
     align-items: center;
   }
 
-
   .tarjetaProductoCarrito .detalleProductoCarrito {
     flex-grow: 1;
   }
-
 
   .nombreProductoCarrito {
     font-weight: bold;
     margin-bottom: 10px;
   }
-
 
   .contenedorDatosPagos {
     background-color: #121212;
@@ -962,7 +916,6 @@
     border-radius: 10px;
     margin-right: 80px;
   }
-
 
   .form{
     display: flex;
@@ -974,24 +927,20 @@
     margin-top: 40px;
   }
 
-
   .formLabel{
     font-family: "montserrat", sans-serif;
     margin-left: 15px;
     margin-bottom: 2px;
   }
 
-
   #primerInput{
     margin-bottom: 15px;
   }
-
 
   .contenedorPanelAdmin{
     margin-top: 80px;
     display: flex;
   }
-
 
   .tarjetaProductoPanelProductos{
     display: flex;
@@ -1005,7 +954,6 @@
     font-family: "montserrat", sans-serif;
   }
 
-
   .tarjetaProductoPanel{
     background-color: #1d1d1d;
     border-radius: 7px;
@@ -1015,11 +963,9 @@
     font-family: "montserrat", sans-serif;
   }
 
-
   .tarjetaProductoPanel h3{
     margin-top: 10px;
   }
-
 
   .tarjetaProductoPanelListado{
     background-color: #1d1d1d;
@@ -1030,26 +976,21 @@
     font-family: "montserrat", sans-serif;
   }
 
-
   .tarjetaProductoPanelListado p{
     margin-top: 5px;
   }
-
 
   #primeroListado{
     margin-top: 20px;
   }
 
-
   .contenedorCategoria{
     margin-top:20px;
   }
 
-
   .contenedorCategoria{
     background-color: #C75F00;
   }
-
 
   .contenedorCategoria p{
     font-family: "montserrat", sans-serif;
@@ -1060,24 +1001,20 @@
     color: #121212;
   }
 
-
   .contenedorCategoria:hover{
     border-radius: 4px;
     cursor: pointer;
     background-color: #f9bf79;
   }
 
-
   .categoriaSeleccionada{
     background-color:  #f9bf79;
   }
-
 
   .contenedorServicios{
     max-height: 600px;
     margin-top: 60px;
   }
-
 
   .contenedorServicios h2{
     font-family: "montserrat", sans-serif;

@@ -11,7 +11,6 @@ const getToken = () => {
   return null;
 };
 
-
 export const fetchInstallations = async () => {
   try {
     const token = getToken();
@@ -28,13 +27,13 @@ export const fetchInstallations = async () => {
       throw new Error('Error al obtener las instalaciones');
     }
     const data = await response.json();
-    return data;
+    // Sort installations by createdAt date in descending order
+    return data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
   } catch (error) {
     console.error(error);
     return { error: error.message };
   }
 };
-
 
 export const createInstallation = async (instalacion) => {
   try {
@@ -62,7 +61,6 @@ export const createInstallation = async (instalacion) => {
   }
 };
 
-
 export const updateInstallation = async (id, instalacion) => {
   try {
     const token = getToken();
@@ -88,7 +86,6 @@ export const updateInstallation = async (id, instalacion) => {
     return { error: error.message };
   }
 };
-
 
 export const deleteInstallation = async (id) => {
   try {

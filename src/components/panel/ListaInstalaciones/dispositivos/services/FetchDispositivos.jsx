@@ -30,7 +30,8 @@ export const fetchDevicesFromInstallation = async (installationId) => {
       throw new Error(data.error?.message || 'Error al obtener los dispositivos de la instalación');
     }
 
-    return data;
+    // Sort devices by createdAt date in descending order
+    return data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
   } catch (error) {
     console.error('Error en fetchDevicesFromInstallation:', error);
     return { error: error.message };
