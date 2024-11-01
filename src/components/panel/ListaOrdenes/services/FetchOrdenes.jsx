@@ -6,7 +6,7 @@ export async function fetchOrders() {
       throw new Error('Token no encontrado en localStorage');
     }
     
-    const response = await fetch("http://localhost:2023/api/orders", {
+    const response = await fetch("https://inelarweb-back.onrender.com/api/orders", {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -33,7 +33,7 @@ export async function updateOrderStatus(orderId, estado) {
       throw new Error('Token no encontrado en localStorage');
     }
 
-    const response = await fetch(`http://localhost:2023/api/orders/${orderId}/estado`, {
+    const response = await fetch(`https://inelarweb-back.onrender.com/api/orders/${orderId}/estado`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
