@@ -1,73 +1,143 @@
-.tituloPaginas{
-    font-family: "montserrat", sans-serif;
-    font-size: 36px;
-    text-align: center;
-    margin-top: 80px;
-    font-weight: 600;
-    color: #C75F00;
-    text-align: left;
-  }
+.tituloPaginas {
+  font-family: "montserrat", sans-serif;
+  font-size: 28px;
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 40px;
+  font-weight: 600;
+  color: #C75F00;
+}
 
+.contenedorSecciones {
+  padding: 0 20px;
+}
+
+.contenedorPortada {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.fotoQuienesSomos {
+  border-radius: 4px;
+  width: 100%;
+  height: auto;
+  max-width: 300px;
+  margin-bottom: 20px;
+}
+
+#contenedoresQuienesSomos,
+.contenedoresQuienesSomos {
+  border-radius: 4px;
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+#contenedoresQuienesSomos{
+  background-color: #121212;
+}
+
+#contenedoresQuienesSomos h2,
+.contenedoresQuienesSomos h2 {
+  border-bottom: #C75F00 6px solid;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  color: #fff;
+}
+
+#contenedoresQuienesSomos p,
+.contenedoresQuienesSomos p {
+  margin-top: 10px;
+  text-align: left;
+  font-weight: 100;
+  color: #fff;
+}
+
+#contenedoresQuienesSomos span,
+.contenedoresQuienesSomos span {
+  font-weight: bold;
+  color: #f9bf79;
+}
+
+/* Tablet styles */
+@media (min-width: 768px) and (max-width: 1023px) {
   .tituloPaginas {
-    text-align: center;
-    margin-top: 80px;
+    font-size: 32px;
   }
 
-  .contenedorQuienesSomos{
-    margin-top: 300px;
-    margin-bottom: 80px;
+  .contenedorPortada {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
   }
-  
-  .contenedorQuienesSomos p{
+
+  .fotoQuienesSomos {
+    margin-right: 20px;
+    margin-bottom: 0;
+  }
+
+  #contenedoresQuienesSomos {
+    width: 50%;
+  }
+
+  .contenedorGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .contenedoresQuienesSomos {
+    margin-bottom: 0;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+  .tituloPaginas {
+    font-size: 36px;
+  }
+
+  .contenedoresQuienesSomos{
+    margin-left: -20px;
+  }
+
+  .contenedorSecciones {
+    padding: 0 80px;
+  }
+
+  .contenedorPortada {
+    flex-direction: row;
+    align-items: flex-start;
+    margin-left: 0;
     margin-top: 100px;
   }
 
-  .contenedorTextoQuienesSomos{
-    padding: 20px 200px;
-    margin-top: 40px;
-    background-color: #121212;
-    border-radius: 40px;
-    margin: 80px;
-    padding: 40px;
-    margin-bottom: 100px;
-  }
-  
-  .contenedorTextoQuienesSomos p{
-    display: block;
-    font-size: 18px;
-    justify-content: center;
-    text-align: left;
-    font-family: "montserrat", sans-serif;
-    color: white;
-  
-  }
-  
-  .contenedorTextoQuienesSomos span{
-    font-weight: bolder;
+  #fotoQuienesSomos{
+    width: 400px;
+    border-radius: 4px;
+    margin-right: 40px;
   }
 
-  #quienesSomos{
-    margin-bottom: 80px;
+  .fotoQuienesSomos {
+    width: 400px;
+    height: 400px;
+    margin-right: 40px;
+    margin-bottom: 0;
   }
-  
-  .contenedoresQuienesSomos{
-    background-color: #121212;
-    border-radius: 10px;
-    width: 90%;
-    height: 100%;
-    padding: 20px;
-    justify-content: center;
-    margin: auto;
-    margin-top: 30px;
+
+  #contenedoresQuienesSomos {
+    width: 70%;
   }
-  
-  .contenedoresQuienesSomos p{
-    margin-top: 10px;
-    text-align: left;
+
+  .contenedorGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
   }
-  
-  .contenedoresQuienesSomos span{
-    font-weight: bold;
-    color: #f9bf79;
+
+  .contenedoresQuienesSomos {
+    margin-bottom: 0;
   }
-  
+}
