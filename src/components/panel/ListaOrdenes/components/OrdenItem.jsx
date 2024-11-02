@@ -2,36 +2,46 @@ import { useState } from 'react';
 import styles from "@/styles/ListaOrdenes.module.css"
 import { formatDate, formatCurrency, getOrderStatus } from "@/components/panel/ListaOrdenes/utils/OrdenesUtils.jsx"
 import ModalConfirmar from './ModalConfirmar';
+import ModalExito from './ModalExito';
 
-export default function OrdenItem({ order, onUpdateStatus }) {
+export default function Component({ order, onUpdateStatus }) {
   const [isLoading, setIsLoading] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [estado, setEstado] = useState(order.estado || 'pendiente');
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+  const [estado, setEstado] = useState(order.estado || 'no enviado');
+  const [error, setError] = useState(null);
 
   const handleActualizarEstado = async () => {
     setIsLoading(true);
+    setError(null);
     try {
-      const nuevoEstado = estado === 'procesando' ? 'enviado' : 'entregado';
-      const success = await onUpdateStatus(order._id, nuevoEstado);
-      if (success) {
-        setEstado(nuevoEstado);
-      } else {
-        throw new Error('Error al actualizar el estado de la orden');
-      }
+      const nuevoEstado = 'enviado';
+      await onUpdateStatus(order._id, nuevoEstado);
+      setEstado(nuevoEstado);
+      setIsSuccessModalOpen(true);
     } catch (error) {
       console.error('Error:', error);
-      alert('Error al actualizar el estado de la orden');
+      setError('No se pudo actualizar el estado del pedido. Por favor, inténtelo de nuevo.');
     } finally {
       setIsLoading(false);
       setIsModalOpen(false);
     }
   };
 
+  const getEstadoClass = () => {
+    if (estado === 'no enviado') {
+      return styles.pendiente;
+    } else if (estado === 'enviado') {
+      return styles.realizado;
+    }
+    return '';
+  };
+
   return (
     <div className={styles.tarjetaOrdenPanel}>
       <div className={styles.tarjetaHeader}>
-        <h3>Orden: #{order._id}</h3>
-        <span className={`${styles.estadoOrden} ${styles[estado]}`} id={styles.estadoOrden}>
+        <h3>Pedido: #{order._id}</h3>
+        <span className={`${styles.estadoOrden} ${getEstadoClass()}`} id={styles.estadoOrden}>
           {getOrderStatus(estado)}
         </span>
       </div>
@@ -45,22 +55,27 @@ export default function OrdenItem({ order, onUpdateStatus }) {
           ))}
         </ul>
       </div>
-      {estado !== 'entregado' && estado !== 'cancelado' && (
+      {estado !== 'enviado' && (
         <button 
           onClick={() => setIsModalOpen(true)} 
           disabled={isLoading}
           className={styles.botonCompletar}
         >
-          {estado === 'procesando' ? 'Marcar como enviado' : 'Marcar como entregado'}
+          Marcar como enviado
         </button>
       )}
-      
+      {error && <p className={styles.errorMessage}>{error}</p>}
       <ModalConfirmar
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         order={order}
         onConfirm={handleActualizarEstado}
         isLoading={isLoading}
+      />
+      <ModalExito
+        isOpen={isSuccessModalOpen}
+        onClose={() => setIsSuccessModalOpen(false)}
+        message="El pedido se marcó como enviado exitosamente."
       />
     </div>
   )

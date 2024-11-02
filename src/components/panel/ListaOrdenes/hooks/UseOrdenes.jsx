@@ -7,6 +7,7 @@ export default function useOrdenes() {
   const [filteredOrders, setFilteredOrders] = useState([]);
   const [loading, setLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const [filterStatus, setFilterStatus] = useState('all');
 
   useEffect(() => {
     const getOrders = async () => {
@@ -28,25 +29,25 @@ export default function useOrdenes() {
   }, []);
 
   useEffect(() => {
-    setFilteredOrders(filterOrders(allOrders, searchTerm));
-  }, [allOrders, searchTerm]);
+    const filtered = filterOrders(allOrders, searchTerm, filterStatus);
+    setFilteredOrders(filtered);
+  }, [allOrders, searchTerm, filterStatus]);
 
   const handleUpdateOrderStatus = async (orderId, nuevoEstado) => {
     try {
-      await updateOrderStatus(orderId, nuevoEstado);
+      const updatedOrder = await updateOrderStatus(orderId, nuevoEstado);
       
       const updatedOrders = allOrders.map(order => 
         order._id === orderId 
-          ? { ...order, estado: nuevoEstado }
+          ? { ...order, estado: updatedOrder.estado }
           : order
       );
       
       setAllOrders(updatedOrders);
-      
-      return true;
+      const filtered = filterOrders(updatedOrders, searchTerm, filterStatus);
+      setFilteredOrders(filtered);
     } catch (error) {
-      console.error('Error al actualizar la orden:', error);
-      return false;
+      console.error('Error al actualizar el pedido:', error);
     }
   };
 
@@ -56,6 +57,8 @@ export default function useOrdenes() {
     loading, 
     searchTerm, 
     setSearchTerm,
-    handleUpdateOrderStatus
+    handleUpdateOrderStatus,
+    filterStatus,
+    setFilterStatus
   };
 }

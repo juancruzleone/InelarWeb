@@ -1,10 +1,11 @@
+// ModalConfirmar.jsx
 import Modal from "react-modal";
 import styles from "@/styles/ListaServicios.module.css";
 
 const ModalConfirmar = ({
   isOpen,
   onClose,
-  service,
+  order,
   onConfirm,
   isLoading
 }) => {
@@ -18,8 +19,8 @@ const ModalConfirmar = ({
       closeTimeoutMS={500}
     >
       <div>
-        <h2>Modal confirmar</h2>
-        <p>¿Estás seguro de que deseas marcar este pedido como realizado?</p>
+        <h2>Confirmar envío</h2>
+        <p>¿Estás seguro de que deseas marcar este pedido como enviado?</p>
         <div className={styles.contenedorBotonesEditar}>
           <button 
             onClick={onConfirm} 

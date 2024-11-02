@@ -513,6 +513,27 @@
       margin: auto;
     }
 
+      
+  .filtroSelect {
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+
+  .filtroEstado{
+    display: flex;
+    margin-top: 20px;
+  }
+
+    
+  .filtroLabel {
+    margin-right: 0.5rem;
+    font-weight: bold;
+    margin-left: 50px;
+    margin-top: 5px;
+  }
+    
+
     .ModalExito {
       position: absolute;
       top: 50%;
