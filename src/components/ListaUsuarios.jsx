@@ -39,9 +39,11 @@ const ListaUsuarios = () => {
         <div className={styles.posicionSeccionProductos}>
           <div className={styles.contenedorProductosPanel}>
             {filteredUsers.length > 0 ? (
-              filteredUsers.map((user) => (
-                <UsuarioItem key={user._id} user={user} />
-              ))
+              <div className={styles.listaUsuariosScrollable}>
+                {filteredUsers.map((user) => (
+                  <UsuarioItem key={user._id} user={user} />
+                ))}
+              </div>
             ) : (
               <p className={styles.textoBuscadorPanelUsuarios}>Ningún usuario encontrado</p>
             )}

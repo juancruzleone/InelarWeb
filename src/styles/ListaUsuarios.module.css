@@ -90,6 +90,15 @@
   padding: 2px 0;
 }
 
+/* Nuevo estilo para el contenedor scrollable */
+.listaUsuariosScrollable {
+  max-height: 400px; /* Altura máxima antes de que aparezca el scroll */
+  overflow-y: auto; /* Habilita el scroll vertical */
+  padding-right: 10px; /* Espacio para la barra de scroll */
+}
+
+
+
 /* TABLETS*/
 @media (min-width: 768px) {
   .tituloPaginasPanel {
@@ -105,6 +114,10 @@
   .tarjetaProductoPanel {
     width: 80%;
     max-width: 500px;
+  }
+
+  .listaUsuariosScrollable {
+    max-height: 500px;
   }
 }
 
@@ -197,5 +210,9 @@
     border-radius: 4px;
     margin-top: 5px;
     font-weight: 500;
+  }
+
+  .listaUsuariosScrollable {
+    max-height: 600px;
   }
 }
