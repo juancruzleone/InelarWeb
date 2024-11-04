@@ -1,3 +1,31 @@
+.contenedorContadores {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem 0;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.contador {
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+}
+
+.contador p {
+  margin-top: 0.5rem;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.plusSign {
+  font-size: 1.2rem;
+  vertical-align: top;
+  margin-right: 2px;
+}
+
 .tituloPaginas {
   font-family: "montserrat", sans-serif;
   font-size: 28px;
@@ -6,6 +34,14 @@
   margin-bottom: 40px;
   font-weight: 600;
   color: var(--title-color);
+}
+
+.subtitulo{
+  color: var(--text-color);
+  border-bottom: var(--border-color) 6px solid;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  width: 220px;
 }
 
 .contenedorSecciones {
@@ -27,7 +63,6 @@
   margin-bottom: 20px;
 }
 
-#contenedoresQuienesSomos,
 .contenedoresQuienesSomos {
   border-radius: 4px;
   width: 100%;
@@ -36,7 +71,27 @@
   background-color: #121212;
 }
 
-#contenedoresQuienesSomos h2,
+#contenedoresQuienesSomos{
+  border-radius: 4px;
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+#contenedoresQuienesSomos h2{
+  color: var(--text-color);
+  border-bottom: var(--border-color) 6px solid;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+}
+
+#contenedoresQuienesSomos p{
+  margin-top: 10px;
+  text-align: left;
+  font-weight: 100;
+  color: var(--text-color);
+}
+
 .contenedoresQuienesSomos h2 {
   border-bottom: var(--border-color) 6px solid;
   margin-bottom: 15px;
@@ -44,7 +99,6 @@
   color: white
 }
 
-#contenedoresQuienesSomos p,
 .contenedoresQuienesSomos p {
   margin-top: 10px;
   text-align: left;
@@ -52,10 +106,14 @@
   color: white
 }
 
-#contenedoresQuienesSomos span,
 .contenedoresQuienesSomos span {
   font-weight: bold;
   color: var(--highlight-color);
+}
+
+#contenedoresQuienesSomos span{
+  font-weight: bold;
+  color: var(--color-span);
 }
 
 /* Tablet styles */
@@ -87,6 +145,22 @@
 
   .contenedoresQuienesSomos {
     margin-bottom: 0;
+  }
+
+  .contenedorContadores {
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 70px;
+    margin-bottom: 70px;
+  }
+
+  .contador {
+    font-size: 1.3rem;
+    margin-bottom: 0;
+  }
+
+  .plusSign {
+    font-size: 1.3rem;
   }
 }
 
@@ -136,5 +210,20 @@
 
   .contenedoresQuienesSomos {
     margin-bottom: 0;
+  }
+
+  .contenedorContadores {
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 90px;
+    margin-bottom: 90px;
+  }
+
+  .contador {
+    font-size: 1.5rem;
+  }
+
+  .plusSign {
+    font-size: 1.5rem;
   }
 }

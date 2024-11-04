@@ -11,7 +11,7 @@
 
 .textoServicios span{
   font-weight: bold;
-  color: #F9BF79;
+  color: var(--color-span);
 }
 
 .contenedorPosicionamientoContenidoServicio {
