@@ -96,7 +96,7 @@ const Index = () => {
           <div className={styles.titleContainer}>
             <h1>
               <Image
-                src={theme === 'light' ? "/logo-negro.svg" : "/logo-elegidos.svg"}
+                src={theme === 'light' ? "/logo-negro.svg" : "/logo-blanco.svg"}
                 alt="Logo inelar"
                 className={styles.iconoHome}
                 width={300}
