@@ -34,10 +34,11 @@ export default function QuienesSomos() {
               <p>
                 <span>Una empresa líder en el rubro de sistemas automatizados de detección y extinción de incendios</span>. Con obras públicas y privadas a lo largo de Argentina. Contamos con una trayectoria de +50 años.
               </p>
+              <p>
+                Las obras realizas abarcan a las compañias e instituciones más importantes en todos los rubros: Comunicación, energía, transporte, entidades financieras, y manufactureras 
+              </p>
             </section>
           </div>
-
-          {/* Nuevo bloque de contadores */}
           <div className={styles.contenedorContadores}>
             <div className={styles.contador}>
               <span className={styles.plusSign}>+</span>
