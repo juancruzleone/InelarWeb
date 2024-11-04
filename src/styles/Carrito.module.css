@@ -1,4 +1,10 @@
 /* MOBILE */
+.Modal .tituloModalSuccess{
+  text-align: center;
+  margin: auto;
+  justify-content: center;
+}
+
 .botonVaciar {
   margin: 20px auto;
   background-color: #121212;
@@ -280,6 +286,12 @@
     font-weight: 600;
   }
 
+  .Modal .tituloModalSuccess{
+    text-align: center;
+    margin: auto;
+    justify-content: center;
+  }
+
   .tituloModalConfirm{
     margin-top: 10px;
     margin-bottom: 15px;
@@ -336,6 +348,12 @@
     border-radius: 4px;
     color: black;
     cursor: pointer;
+  }
+
+  .Modal .tituloModalSuccess{
+    text-align: center;
+    margin: auto;
+    justify-content: center;
   }
   
   .botonVaciar:hover{
