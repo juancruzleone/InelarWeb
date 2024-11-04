@@ -6,8 +6,11 @@ import FormularioProvisiones from "@/components/solicitudServicios/SolicitarProv
 import ModalConfirmacion from "@/components/solicitudServicios/SolicitarProvision/components/ModalConfirmacion.jsx";
 import useFormularioProvisiones from "@/components/solicitudServicios/SolicitarProvision/hooks/SolicitarProvisionesEstado.jsx";
 import styles from "@/styles/SolicitudServicio.module.css";
+import { useTheme } from '@/components/ThemeProvider'
 
 const SolicitarProvisiones = () => {
+  const { theme } = useTheme()
+
   const {
     formData,
     formErrors,
@@ -24,7 +27,7 @@ const SolicitarProvisiones = () => {
   }, [loadProducts]);
 
   return (
-    <Layout>
+    <Layout data-theme={theme}>
       <Head>
         <title>Solicitar provisiones | Inelar</title>
         <meta name="description" content="Descripción de mi aplicación" />

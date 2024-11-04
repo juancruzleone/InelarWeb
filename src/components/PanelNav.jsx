@@ -1,10 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "@/styles/PanelNav.module.css";
+import { useTheme } from '@/components/ThemeProvider'
 
 const PanelNav = ({ onSolapaClick, solapaActiva }) => {
+  const { theme } = useTheme()
+
   return (
-    <main>
+    <main  data-theme={theme}>
       <nav className={styles.navPanel}>
         <button
           onClick={() => onSolapaClick("productos")}

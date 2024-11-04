@@ -15,9 +15,11 @@ import ModalEliminarDispositivo from "@/components/panel/ListaInstalaciones/disp
 import ModalImprimirQR from "@/components/panel/ListaInstalaciones/dispositivos/components/ModalImprimirQR";
 import { fetchDevicesFromInstallation } from "@/components/panel/ListaInstalaciones/dispositivos/services/FetchDispositivos";
 import { deleteInstallation } from "@/components/panel/ListaInstalaciones/services/FetchInstalaciones";
+import { useTheme } from '@/components/ThemeProvider'
 
 const ListaInstalaciones = () => {
   const router = useRouter();
+  const { theme } = useTheme()
   const {
     installations,
     filteredInstallations,
@@ -257,7 +259,7 @@ const ListaInstalaciones = () => {
   };
 
   return (
-    <div className={styles.contenedorPagina}>
+    <div className={styles.contenedorPagina} data-theme={theme}>
       {!viewingDevices ? (
         <>
           <h2 className={styles.tituloPaginasPanel}>Instalaciones</h2>

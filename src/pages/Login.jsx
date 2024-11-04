@@ -5,8 +5,11 @@ import ModalConfirmacion from "@/components/login/components/ModalConfirmacion";
 import FormularioLogin from "@/components/login/components/FormularioLogin";
 import useLogin from "@/components/login/hooks/useLogin";
 import styles from "@/styles/Login.module.css";
+import { useTheme } from '@/components/ThemeProvider'
 
 const Login = () => {
+  const { theme } = useTheme()
+
   const {
     username,
     password,
@@ -27,7 +30,7 @@ const Login = () => {
         <meta name="description" content="Descripción de mi aplicación" />
         <link rel="icon" href="/inelar.ico" />
       </Head>
-      <div className={styles.contenedorPrelogin}>
+      <div className={styles.contenedorPrelogin} data-theme={theme}>
         <div className={styles.formularioPrelogin}>
           <h1 className={styles.tituloPrelogin}>Inicia sesión</h1>
           <FormularioLogin
@@ -43,7 +46,6 @@ const Login = () => {
         </div>
       </div>
       <Footer />
-
       <ModalConfirmacion 
         isOpen={showModal} 
         onRequestClose={closeModal} 

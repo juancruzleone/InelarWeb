@@ -24,7 +24,7 @@
 
 .tituloHome h2 {
   margin-top: 10px;
-  color: #f9bf79;
+  color: var(--color-span);
   font-weight: 500;
   text-align: center;
 }
@@ -100,11 +100,13 @@
 
 .contenedorTextoNuestraApp p {
   text-align: center;
+  color: var(--text-color);
 }
 
 .contenedorTextoNuestraApp span{
-  color: #f9bf79;
+  color: var(--color-span);
   margin-left: 5px;
+  font-weight: 600;
 }
 
 #segundoParrafoNuestraApp {
@@ -155,6 +157,34 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cajaServicios::before {
+  content: '';
+  position: absolute;
+  top: var(--mouse-y);
+  left: var(--mouse-x);
+  width: 0;
+  height: 0;
+  background-color: #C75F00;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: width 1.5s ease-out, height 1.5s ease-out, opacity 1.5s ease-out;
+  pointer-events: none;
+}
+
+.cajaServicios:hover::before {
+  width: 300%;
+  height: 300%;
+  opacity: 1;
+}
+
+.cajaServicios > * {
+  position: relative;
+  z-index: 1;
 }
 
 .cajaServicios a img{
@@ -519,7 +549,7 @@
 
   .tituloHome h2{
     margin-top: -60px;
-    color: #f9bf79;
+    color: var(--color-span);
     font-weight: 500;
     text-align: left;
   }
@@ -616,16 +646,39 @@
     margin-top: 10px;
   }
 
-  .cajaServicios{
+  .cajaServicios {
     background-color: #121212;
     border-radius: 20px;
     width: 300px;
     height: 240px;
     margin: 20px;
+    position: relative;
+    overflow: hidden;
   }
 
-  .cajaServicios:hover{
+  .cajaServicios::before {
+    content: '';
+    position: absolute;
+    top: var(--mouse-y);
+    left: var(--mouse-x);
+    width: 0;
+    height: 0;
     background-color: #C75F00;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: width 1.5s ease-out, height 1.5s ease-out;
+  }
+
+  .cajaServicios:hover::before {
+    width: 300%;
+    height: 300%;
+    opacity: 1;
+  }
+
+  .cajaServicios > * {
+    position: relative;
+    z-index: 1;
   }
 
   .cardServicios{
@@ -1029,3 +1082,4 @@
     height: 700px;
   }
 }
+

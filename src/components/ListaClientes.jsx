@@ -6,11 +6,13 @@ import ModalCrear from "@/components/panel/ListaClientes/components/ModalCrear.j
 import ModalEditar from "@/components/panel/ListaClientes/components/ModalEditar.jsx";
 import ModalEliminar from "@/components/panel/ListaClientes/components/ModalEliminar.jsx";
 import ModalConfirmacion from "@/components/panel/ListaClientes/components/ModalConfirmacion.jsx";
+import { useTheme } from '@/components/ThemeProvider'
 
 const ListaClientes = () => {
   const userData = JSON.parse(localStorage.getItem('userData'));
   const token = userData.token;
   const role = userData.cuenta.role;
+  const { theme } = useTheme()
 
   const [confirmationMessage, setConfirmationMessage] = useState('');
   const [confirmationModal, setConfirmationModal] = useState(false);
@@ -88,7 +90,7 @@ const ListaClientes = () => {
   };
 
   return (
-    <div className={styles.contenedorPagina}>
+    <div className={styles.contenedorPagina} data-theme={theme}>
       <h2 className={styles.tituloPaginasPanel}>Clientes</h2>
       <button onClick={handleCreateClientWithConfirmation} className={styles.botonCrearModal}>
         Crear cliente

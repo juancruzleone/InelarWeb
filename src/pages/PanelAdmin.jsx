@@ -12,11 +12,13 @@ import ListaInstalaciones from "@/components/ListaInstalaciones.jsx";
 import ListaUsuarios from "@/components/ListaUsuarios.jsx"; 
 import ListaOrdenes from "@/components/ListaOrdenes.jsx";
 import styles from "@/styles/PanelAdmin.module.css";
+import { useTheme } from '@/components/ThemeProvider'
 
 const PanelAdmin = () => {
   const [solapaActiva, setSolapaActiva] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
+  const { theme } = useTheme()
 
   useEffect(() => {
     const userData = typeof window !== "undefined"
@@ -51,7 +53,7 @@ const PanelAdmin = () => {
   };
 
   return (
-    <Layout className={styles.app}>
+    <Layout className={styles.app} data-theme={theme}>
       <Head>
         <title>Panel admin | Inelar</title>
         <meta name="description" content="Descripción de mi aplicación" />

@@ -3,8 +3,11 @@ import Image from "next/image"
 import Layout from "@/components/layout/index"
 import Footer from "@/components/Footer"
 import styles from "@/styles/QuienesSomos.module.css"
+import { useTheme } from '@/components/ThemeProvider'
 
 export default function QuienesSomos() {
+  const { theme } = useTheme()
+  
   return (
     <Layout>
       <Head>
@@ -12,7 +15,7 @@ export default function QuienesSomos() {
         <meta name="description" content="Conoce más sobre Inelar, nuestra historia y nuestro compromiso" />
         <link rel="icon" href="/inelar.ico" />
       </Head>
-      <div className={styles.container}>
+      <div className={styles.container} data-theme={theme}>
         <h1 className={styles.tituloPaginas} id={styles.quienesSomos}>Quiénes somos</h1>
         <div className={styles.contenedorSecciones}>
           <div className={styles.contenedorPortada}>

@@ -2,8 +2,11 @@ import { useState, useEffect } from "react";
 import styles from "@/styles/ListaOrdenes.module.css";
 import OrdenItem from "@/components/panel/ListaOrdenes/components/OrdenItem.jsx";
 import useOrdenes from "@/components/panel/ListaOrdenes/hooks/UseOrdenes";
+import { useTheme } from '@/components/ThemeProvider'
 
 export default function Component() {
+  const { theme } = useTheme()
+
   const { 
     filteredOrders, 
     allOrders,
@@ -31,7 +34,7 @@ export default function Component() {
   }, []);
 
   return (
-    <>
+    <div data-theme={theme}>
       <h2 className={styles.tituloPaginasPanel}>Pedidos</h2>
 
         <input
@@ -72,6 +75,6 @@ export default function Component() {
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 }

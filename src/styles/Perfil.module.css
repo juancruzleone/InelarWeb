@@ -15,7 +15,7 @@
 
 .cargandoPerfil {
   font-size: 1.2rem;
-  color: white;
+  color: var(--text-color);
   font-weight: 400;
 }
 
@@ -77,11 +77,12 @@
 }
 
 .contenedorPedidoUsuario h2 {
-  border-bottom: 1px solid white;
+  border-bottom: var(--border-bottom);
   margin-bottom: 1rem;
   font-size: 1.25rem;
   font-weight: bold;
   padding-bottom: 0.5rem;
+  color: var(--text-color);
 }
 
 .contenidoOrdenes {

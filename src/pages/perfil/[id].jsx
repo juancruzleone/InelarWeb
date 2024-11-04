@@ -12,11 +12,13 @@ import usePerfil from "@/components/perfil/hooks/usePerfil"
 import { validateUserName } from "@/components/perfil/utils/ValidacionesPerfil"
 import { updateUserProfile } from "@/components/perfil/services/FetchPerfil"
 import styles from "@/styles/Perfil.module.css"
+import { useTheme } from '@/components/ThemeProvider'
 
 export default function Perfil() {
   const router = useRouter()
   const { id } = router.query
   const { user, orders, loading, error, setUser } = usePerfil(id, router)
+  const { theme } = useTheme()
 
   const [showEditModal, setShowEditModal] = useState(false)
   const [showConfirmationModal, setShowConfirmationModal] = useState(false)
@@ -51,7 +53,7 @@ export default function Perfil() {
   )
 
   return (
-    <>
+    <div data-theme={theme}>
       <Head>
         <title>{user ? `Perfil de ${user.userName}` : 'Perfil de Usuario'}</title>
       </Head>
@@ -64,18 +66,6 @@ export default function Perfil() {
           ) : (
             <>
               <PerfilUsuario user={user} setShowEditModal={setShowEditModal} />
-              <div className={styles.filtroOrdenes}>
-                <select
-                  value={filterStatus}
-                  onChange={handleFilterChange}
-                  className={styles.selectFiltro}
-                >
-                  <option value="todas">Todas</option>
-                  <option value="procesada">Procesada</option>
-                  <option value="denegada">Denegada</option>
-                  <option value="pendiente">Pendiente</option>
-                </select>
-              </div>
               <ListaOrdenes orders={filteredOrders} />
             </>
           )}
@@ -95,6 +85,6 @@ export default function Perfil() {
         />
         <Footer />
       </Layout>
-    </>
+    </div>
   )
 }

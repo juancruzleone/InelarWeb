@@ -3,10 +3,13 @@ import Link from 'next/link';
 import Head from 'next/head'
 import Layout from "@/components/layout/index";
 import Footer from "@/components/Footer";
+import { useTheme } from '@/components/ThemeProvider'
 
 const Custom404 = () => {
+    const { theme } = useTheme()
+
     return(
-        <Layout>
+        <Layout data-theme={theme}>
             <Head>
                 <title>Error 404 | Inelar</title>
                 <meta name="description" content="Descripción de mi aplicación" />

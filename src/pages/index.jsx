@@ -6,9 +6,11 @@ import Layout from "@/components/layout/index";
 import Footer from "@/components/Footer";
 import Carrousel from "@/components/Carrousel";
 import styles from "@/styles/Home.module.css";
+import { useTheme } from '@/components/ThemeProvider'
 
 const Index = () => {
   const [openQuestion, setOpenQuestion] = useState(null);
+  const { theme } = useTheme()
 
   const questionsAnswers = [
     {
@@ -68,8 +70,22 @@ const Index = () => {
     });
   }, []);
 
+  useEffect(() => {
+    const cajaServicios = document.querySelectorAll(`.${styles.cajaServicios}`);
+    
+    cajaServicios.forEach(box => {
+      box.addEventListener('mousemove', e => {
+        const rect = box.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        box.style.setProperty('--mouse-x', `${x}px`);
+        box.style.setProperty('--mouse-y', `${y}px`);
+      });
+    });
+  }, []);
+
   return (
-    <Layout>
+    <Layout data-theme={theme}>
       <Head>
         <title>Inicio | Inelar</title>
         <meta name="description" content="Descripción de mi aplicación" />
@@ -80,7 +96,7 @@ const Index = () => {
           <div className={styles.titleContainer}>
             <h1>
               <Image
-                src="/logo-elegidos.svg"
+                src={theme === 'light' ? "/logo-negro.svg" : "/logo-elegidos.svg"}
                 alt="Logo inelar"
                 className={styles.iconoHome}
                 width={300}
@@ -91,7 +107,7 @@ const Index = () => {
           </div>
           <div className={styles.imageContainer}>
             <Image
-              src="/Cartas2.svg"
+              src={theme === 'light' ? "/Cartas-negras.svg" : "/Cartas2.svg"}
               alt="Cartas"
               width={200}
               height={200}

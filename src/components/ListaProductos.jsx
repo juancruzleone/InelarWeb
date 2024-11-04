@@ -7,8 +7,11 @@ import CrearProductoModal from "@/components/panel/ListaProductos/components/Mod
 import EditarProductoModal from "@/components/panel/ListaProductos/components/ModalEditar.jsx";
 import EliminarProductoModal from "@/components/panel/ListaProductos/components/ModalEliminar.jsx";
 import ConfirmacionModal from "@/components/panel/ListaProductos/components/ModalConfirmacion.jsx";
+import { useTheme } from '@/components/ThemeProvider'
 
 const ListaProductos = () => {
+  const { theme } = useTheme()
+
   const {
     products,
     filteredProducts,
@@ -72,7 +75,7 @@ const ListaProductos = () => {
   }, [selectedCategory, search, products, setFilteredProducts]);
 
   return (
-    <div className={styles.contenedorPagina}>
+    <div className={styles.contenedorPagina} data-theme={theme}>
       <h2 className={styles.tituloPaginasPanel}>Productos</h2>
       <button onClick={handleCreateProduct} className={styles.botonCrearModal}>
         Crear Producto

@@ -5,7 +5,7 @@
   margin-top: 60px;
   margin-bottom: 40px;
   font-weight: 600;
-  color: #C75F00;
+  color: var(--title-color);
 }
 
 .contenedorSecciones {
@@ -33,18 +33,15 @@
   width: 100%;
   padding: 20px;
   margin-bottom: 20px;
-}
-
-#contenedoresQuienesSomos{
   background-color: #121212;
 }
 
 #contenedoresQuienesSomos h2,
 .contenedoresQuienesSomos h2 {
-  border-bottom: #C75F00 6px solid;
+  border-bottom: var(--border-color) 6px solid;
   margin-bottom: 15px;
   padding-bottom: 10px;
-  color: #fff;
+  color: white
 }
 
 #contenedoresQuienesSomos p,
@@ -52,13 +49,13 @@
   margin-top: 10px;
   text-align: left;
   font-weight: 100;
-  color: #fff;
+  color: white
 }
 
 #contenedoresQuienesSomos span,
 .contenedoresQuienesSomos span {
   font-weight: bold;
-  color: #f9bf79;
+  color: var(--highlight-color);
 }
 
 /* Tablet styles */
@@ -99,7 +96,7 @@
     font-size: 36px;
   }
 
-  .contenedoresQuienesSomos{
+  .contenedoresQuienesSomos {
     margin-left: -20px;
   }
 
@@ -114,7 +111,7 @@
     margin-top: 100px;
   }
 
-  #fotoQuienesSomos{
+  #fotoQuienesSomos {
     width: 400px;
     border-radius: 4px;
     margin-right: 40px;

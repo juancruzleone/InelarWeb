@@ -9,9 +9,11 @@ import { validateCart, validateUserData } from '@/components/carrito/utils/Valid
 import styles from '@/styles/Carrito.module.css';
 import { fetchCheckout } from '@/components/carrito/services/FetchCarrito';
 import useCarrito from '@/components/carrito/hooks/useCarrito';
+import { useTheme } from '@/components/ThemeProvider'
 
 const Carrito = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const { theme } = useTheme()
 
   const {
     cart,
@@ -65,6 +67,7 @@ const Carrito = () => {
         <meta name="description" content="Descripción de mi aplicación" />
         <link rel="icon" href="/inelar.ico" />
       </Head>
+      <div className={styles.container} data-theme={theme}>
       <h1 className={styles.tituloPaginas}>Carrito</h1>
       <div className={`${styles.contenedorSeccionCarrito} ${cart.length === 0 ? styles.contenedorSeccionCarritoVacio : ''}`}>
         <div className={`${styles.contenedorCarrito} ${cart.length === 0 ? styles.contenedorCarritoVacio : ''}`}>
@@ -92,6 +95,7 @@ const Carrito = () => {
             onCheckout={handleCheckout} 
           />
         )}
+      </div>
       </div>
       <Footer />
       <ModalCarrito 

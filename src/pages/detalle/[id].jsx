@@ -10,6 +10,7 @@ import useProductoDetalle from '@/components/detalleProducto/hooks/useProductoDe
 import { addToCart } from '@/components/detalleProducto/utils/CarritoUtils.jsx';
 import { fetchProductoData } from '@/components/detalleProducto/utils/FetchProductoData.jsx'; 
 import styles from '@/styles/DetalleProducto.module.css';
+import { useTheme } from '@/components/ThemeProvider'
 
 const DetalleProducto = ({ initialProducto, initialProductosRelacionados }) => {
   const router = useRouter();
@@ -17,6 +18,7 @@ const DetalleProducto = ({ initialProducto, initialProductosRelacionados }) => {
   const { producto, productosRelacionados, loading } = useProductoDetalle(id, initialProducto, initialProductosRelacionados);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
+  const { theme } = useTheme()
 
   useEffect(() => {
     const userData = JSON.parse(localStorage.getItem('userData'));
@@ -49,7 +51,7 @@ const DetalleProducto = ({ initialProducto, initialProductosRelacionados }) => {
   }
 
   return (
-    <Layout className={styles.app}>
+    <Layout className={styles.app}  data-theme={theme}>
       <ProductDetail producto={producto} handleAgregarAlCarrito={handleAgregarAlCarrito} isAdmin={isAdmin} />
       <div className={styles.contenedorDescripcionProducto}>
         <h2>Descripción</h2>

@@ -3,8 +3,11 @@ import Head from "next/head";
 import Layout from "@/components/layout/index";
 import Footer from "@/components/Footer";
 import styles from "@/styles/Certificaciones.module.css";
+import { useTheme } from '@/components/ThemeProvider'
 
 const Certificaciones = () => {
+  const { theme } = useTheme()
+
   return (
     <Layout>
       <Head>
@@ -12,7 +15,7 @@ const Certificaciones = () => {
         <meta name="description" content="Certificaciones y licencias de Inelar" />
         <link rel="icon" href="/inelar.ico" />
       </Head>
-      <div className={styles.container}>
+      <div className={styles.container} data-theme={theme}>
         <h1 className={styles.tituloPaginas}>Certificaciones</h1>
         <h2 className={styles.subtituloCertificaciones}>
           Licencias nacionales e internacionales

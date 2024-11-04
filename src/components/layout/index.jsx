@@ -4,6 +4,7 @@ import Link from "next/link";
 import ModalConfirmacion from "@/components/layout/components/ModalConfirmacion"; 
 import styles from "@/styles/Nav.module.css";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { useTheme } from '@/components/ThemeProvider'
 
 export default function Layout({ children }) {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -11,6 +12,7 @@ export default function Layout({ children }) {
   const [userId, setUserId] = useState(null);
   const [logoutModalIsOpen, setLogoutModalIsOpen] = useState(false);
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const { theme } = useTheme()
 
   useEffect(() => {
     const userData = typeof window !== "undefined" ? JSON.parse(localStorage.getItem("userData")) : null;
@@ -42,7 +44,7 @@ export default function Layout({ children }) {
 
   return (
     <>
-      <main>
+      <main data-theme={theme}>
         <nav className={styles.nav}>
           <button className={styles.hamburger} onClick={toggleNav}>
             <span></span>

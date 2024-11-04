@@ -6,9 +6,11 @@ import FormularioContacto from "@/components/contacto/components/FormularioConta
 import Mapa from "@/components/contacto/components/Mapa";
 import ModalConfirmacion from "@/components/contacto/components/ModalConfirmacion";
 import styles from "@/styles/Contacto.module.css";
+import { useTheme } from '@/components/ThemeProvider'
 
 const Contacto = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const { theme } = useTheme()
 
   const openModal = () => {
     setModalIsOpen(true);
@@ -25,12 +27,14 @@ const Contacto = () => {
         <meta name="description" content="Página de contacto de Inelar" />
         <link rel="icon" href="/inelar.ico" />
       </Head>
-      <h1 className={styles.tituloPaginas}>Contacto</h1>
-      <div className={styles.posicionContacto}>
-        <div className={styles.contenedorFormulario}>
-          <FormularioContacto onSubmit={openModal} />
+      <div data-theme={theme}>
+        <h1 className={styles.tituloPaginas}>Contacto</h1>
+        <div className={styles.posicionContacto}>
+          <div className={styles.contenedorFormulario}>
+            <FormularioContacto onSubmit={openModal} />
+          </div>
+          <Mapa />
         </div>
-        <Mapa />
       </div>
       <Footer />
       <ModalConfirmacion

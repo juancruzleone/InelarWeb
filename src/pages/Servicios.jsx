@@ -1,11 +1,29 @@
+import { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
 import Layout from "@/components/layout/index";
 import Footer from "@/components/Footer";
 import styles from "@/styles/Servicios.module.css";
+import { useTheme } from '@/components/ThemeProvider'
 
 const Servicios = () => {
+  const { theme } = useTheme()
+
+  useEffect(() => {
+    const cardServicios = document.querySelectorAll(`.${styles.cardServicios}`);
+    
+    cardServicios.forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+    });
+  }, []);
+
   return (
     <Layout>
       <Head>
@@ -13,7 +31,7 @@ const Servicios = () => {
         <meta name="description" content="Servicios ofrecidos por Inelar" />
         <link rel="icon" href="/inelar.ico" />
       </Head>
-      <div className={styles.container}>
+      <div className={styles.container} data-theme={theme}>
         <h1 className={styles.tituloPaginas}>Servicios</h1>
         <h2 className={styles.subtituloServicio}>
           Los servicios se brindan en toda la Argentina

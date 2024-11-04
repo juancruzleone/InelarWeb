@@ -149,7 +149,7 @@
 
 .contenedorCarrito {
   margin: 20px auto;
-  background-color: #121212;
+  background-color: var(--background-color);
   width: 90%;
   max-height: 400px;
   border-radius: 10px;
@@ -512,7 +512,7 @@
 
   .contenedorCarrito {
     margin: auto;
-    background-color: #121212;
+    background-color: var(--background-color);
     width: 60%;
     height: 600px;
     margin-top: 80px;
@@ -536,12 +536,14 @@
     padding-top: 30px;
     text-align: center;
     margin-top: 10px;
+    color: var(--text-color);
   }
   
   .mensajeCarritoVacio {
     font-family: "montserrat", sans-serif;
     text-align: center;
     margin-top: 40px;
+    color: var(--text-color);
   }
   
   .tarjetaProductoCarrito {
@@ -642,7 +644,7 @@
   .cargandoCarrito {
     text-align: center;
     font-size: 18px;
-    color:  white;
+    color:  var(--text-color);
     font-weight: 400;
     margin-top: 100px;
   }

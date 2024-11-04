@@ -5,8 +5,11 @@ import FormularioMantenimiento from "@/components/solicitudServicios/SolicitarMa
 import ModalConfirmacion from "@/components/solicitudServicios/SolicitarMantenimiento/components/ModalConfirmacion.jsx";
 import useFormularioMantenimiento from "@/components/solicitudServicios/SolicitarMantenimiento/hooks/SolicitarMantenimientoEstado.jsx";
 import styles from "@/styles/SolicitudServicio.module.css";
+import { useTheme } from '@/components/ThemeProvider'
 
 const SolicitarMantenimiento = () => {
+  const { theme } = useTheme()
+
   const {
     formData,
     formErrors,
@@ -18,7 +21,7 @@ const SolicitarMantenimiento = () => {
   } = useFormularioMantenimiento();
 
   return (
-    <Layout>
+    <Layout data-theme={theme}>
       <Head>
         <title>Solicitar mantenimiento | Inelar</title>
         <meta name="description" content="Descripción de mi aplicación" />

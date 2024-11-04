@@ -5,8 +5,11 @@ import FormularioRegistro from "@/components/register/components/FormularioRegis
 import ModalConfirmacion from "@/components/register/components/ModalConfirmacion"; 
 import useRegister from "@/components/register/hooks/useRegister.jsx";
 import styles from "@/styles/Register.module.css";
+import { useTheme } from '@/components/ThemeProvider'
 
 const Register = () => {
+  const { theme } = useTheme()
+
   const {
     username,
     email,
@@ -29,7 +32,7 @@ const Register = () => {
         <meta name="description" content="Descripción de mi aplicación" />
         <link rel="icon" href="/inelar.ico" />
       </Head>
-      <div className={styles.contenedorPrelogin}>
+      <div className={styles.contenedorPrelogin}  data-theme={theme}>
         <div className={styles.formularioPrelogin}>
           <h1 className={styles.tituloPrelogin}>Regístrate</h1>
           <FormularioRegistro

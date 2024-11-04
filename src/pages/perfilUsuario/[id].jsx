@@ -8,12 +8,14 @@ import ListaOrdenes from "@/components/perfilUsuarios/components/ListaOrdenes";
 import Cargando from "@/components/perfilUsuarios/components/Cargando";
 import usePerfil from "@/components/perfilUsuarios/hooks/usePerfil";
 import styles from "@/styles/Perfil.module.css";
+import { useTheme } from '@/components/ThemeProvider'
 
 export default function PerfilUsuarios() {
   const router = useRouter();
   const { id } = router.query;
   const { user, orders, loading, error } = usePerfil(id);
   const [filterStatus, setFilterStatus] = useState("todas");
+  const { theme } = useTheme()
 
   useEffect(() => {
     if (error) {
@@ -48,7 +50,7 @@ export default function PerfilUsuarios() {
   }
 
   return (
-    <>
+    <div  data-theme={theme}>
       <Head>
         <title>{user ? `Perfil de ${user.userName}` : 'Perfil de Usuario'}</title>
       </Head>
@@ -57,18 +59,6 @@ export default function PerfilUsuarios() {
           {user ? (
             <>
               <PerfilUsuario user={user} />
-              <div className={styles.filtroOrdenes}>
-                <select
-                  value={filterStatus}
-                  onChange={handleFilterChange}
-                  className={styles.selectFiltro}
-                >
-                  <option value="todas">Todas</option>
-                  <option value="procesada">Procesada</option>
-                  <option value="denegada">Denegada</option>
-                  <option value="pendiente">Pendiente</option>
-                </select>
-              </div>
               <ListaOrdenes orders={filteredOrders} />
             </>
           ) : (
@@ -77,6 +67,6 @@ export default function PerfilUsuarios() {
         </div>
         <Footer />
       </Layout>
-    </>
+    </div>
   );
 }

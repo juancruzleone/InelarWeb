@@ -3,8 +3,11 @@ import styles from "@/styles/ListaServicios.module.css";
 import ServicioItem from "@/components/panel/ListaServicios/components/ServicioItem.jsx";
 import CategoriaItem from "@/components/panel/ListaServicios/components/CategoriaItem.jsx";
 import useServicios from "@/components/panel/ListaServicios/hooks/ListaServiciosEstado.jsx";
+import { useTheme } from '@/components/ThemeProvider'
 
 const ListaServicios = () => {
+  const { theme } = useTheme()
+
   const { 
     filteredServices, 
     allServices,
@@ -37,7 +40,7 @@ const ListaServicios = () => {
   const allCategories = ["Todo", ...categories];
 
   return (
-    <>
+    <div  data-theme={theme}>
       <h2 className={styles.tituloPaginasPanel}>Servicios</h2>
       <input
         type="text"
@@ -102,7 +105,7 @@ const ListaServicios = () => {
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

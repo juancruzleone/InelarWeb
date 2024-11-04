@@ -3,10 +3,12 @@ import { useRouter } from "next/router";
 import styles from "@/styles/ListaUsuarios.module.css";
 import UsuarioItem from "@/components/panel/ListaUsuarios/components/usuarioItem";
 import useUsuarios from "@/components/panel/ListaUsuarios/hooks/useUsuarios";
+import { useTheme } from '@/components/ThemeProvider'
 
 const ListaUsuarios = () => {
   const { filteredUsers, loading, error, searchTerm, setSearchTerm } = useUsuarios();
   const router = useRouter();
+  const { theme } = useTheme()
 
   useEffect(() => {
     if (error && (error.includes("No autorizado") || error.includes("No se encontró"))) {
@@ -23,7 +25,7 @@ const ListaUsuarios = () => {
   }
 
   return (
-    <div className={styles.app}>
+    <div className={styles.app} data-theme={theme}>
       <div className={styles.contenedorPagina}>
         <h2 className={styles.tituloPaginasPanel}>Lista de Usuarios</h2>
         <input

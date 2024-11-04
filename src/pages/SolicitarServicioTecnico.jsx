@@ -5,8 +5,11 @@ import FormularioServicioTecnico from "@/components/solicitudServicios/Solicitar
 import ModalConfirmacion from "@/components/solicitudServicios/SolicitarServicioTecnico/components/ModalConfirmacion.jsx";
 import useFormularioServicioTecnico from "@/components/solicitudServicios/SolicitarServicioTecnico/hooks/SolicitarServicioTecnicoEstado.jsx";
 import styles from "@/styles/SolicitudServicio.module.css";
+import { useTheme } from '@/components/ThemeProvider'
 
 const SolicitarServicioTecnico = () => {
+  const { theme } = useTheme()
+
   const {
     formData,
     formErrors,
@@ -18,7 +21,7 @@ const SolicitarServicioTecnico = () => {
   } = useFormularioServicioTecnico();
 
   return (
-    <Layout>
+    <Layout  data-theme={theme}>
       <Head>
         <title>Solicitar servicio técnico | Inelar</title>
         <meta name="description" content="Descripción de mi aplicación" />

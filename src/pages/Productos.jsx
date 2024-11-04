@@ -5,8 +5,11 @@ import Categorias from "@/components/productos/components/Categorias";
 import ListaProductos from "@/components/productos/components/ListaProductos";
 import useProductos from "@/components/productos/hooks/useProductos";
 import styles from "@/styles/Productos.module.css";
+import { useTheme } from '@/components/ThemeProvider'
 
 const Productos = () => {
+  const { theme } = useTheme()
+
   const {
     products,
     loading,
@@ -21,7 +24,7 @@ const Productos = () => {
         <meta name="description" content="Descripción de mi aplicación" />
         <link rel="icon" href="/inelar.ico" />
       </Head>
-      <div className={styles.contenedorPagina}>
+      <div className={styles.contenedorPagina} data-theme={theme}>
         <h1 className={styles.tituloPaginas}>Productos</h1>
         <div className={styles.posicionSeccionProductos}>
           <Categorias 

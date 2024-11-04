@@ -1,12 +1,14 @@
 import styles from "@/styles/ListaMensajes.module.css";
 import MensajeItem from "@/components/panel/ListaMensajes/components/MensajeItem.jsx";
 import useMensajes from "@/components/panel/ListaMensajes/hooks/ListaMensajesEstado.jsx";
+import { useTheme } from '@/components/ThemeProvider'
 
 const ListaMensajes = () => {
   const { filteredMessages, loading, searchTerm, setSearchTerm } = useMensajes();
+  const { theme } = useTheme()
 
   return (
-    <div className={styles.app}>
+    <div className={styles.app}  data-theme={theme}>
       <div className={styles.contenedorPagina}>
         <h2 className={styles.tituloPaginasPanel}>Mensajes de contacto</h2>
         <input
