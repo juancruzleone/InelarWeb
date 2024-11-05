@@ -103,7 +103,7 @@ const Index = () => {
                 height={300}
               />
             </h1>
-            <h2>solución en prevención y combate de incendios</h2>
+            <h2>Solución en prevención y combate de incendios</h2>
           </div>
           <div className={styles.imageContainer}>
             <Image

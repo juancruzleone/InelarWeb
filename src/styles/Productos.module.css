@@ -70,6 +70,32 @@
   text-align: center;
   background-color: #121212;
   font-family: 'montserrat', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.tarjetaProducto::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  filter: blur(5px);
+  z-index: -1;
+  transition: filter 0.3s ease;
+}
+
+[data-theme='dark'] .tarjetaProducto::before {
+  background-color: rgba(18, 18, 18, 0.8);
+}
+
+[data-theme='light'] .tarjetaProducto::before {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.tarjetaProducto:hover::before {
+  filter: blur(0);
 }
 
 .imagenProducto {
@@ -115,11 +141,12 @@
   .contenedorProductos {
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .tarjetaProducto {
     margin: 15px;
+    width: calc(50% - 30px);
   }
 
   .botonVerMas{
@@ -192,9 +219,6 @@
     font-weight: 600;
   }
 
-
-  
-
   .contenedorCategoriasProductos{
     background-color: #121212;
     border-radius: 4px;
@@ -217,7 +241,6 @@
     cursor: pointer; 
   }
   
-  
   .contenedorCategorias a {
     color: #ffffff; 
     text-decoration: none;
@@ -233,6 +256,7 @@
   .contenedorProductos{
     display: flex;
     flex-wrap: wrap;
+    justify-content: flex-start;
     margin: auto;
     margin-top: 70px;
   }
@@ -241,7 +265,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 300px;
+    width: calc(33.33% - 30px);
     height: 350px; 
     margin: 15px;
     border-radius: 7px;
@@ -269,7 +293,6 @@
     height: 120px;
     object-fit: cover; 
   }
-
 
   .botonVerMas {
     font-family: "montserrat", sans-serif;
