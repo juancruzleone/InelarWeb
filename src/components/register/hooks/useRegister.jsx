@@ -10,6 +10,7 @@ const useRegister = () => {
   const [error, setError] = useState({ username: "", email: "", password: "", general: "" });
   const [showModal, setShowModal] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
   const router = useRouter();
 
   const handleUsernameChange = (e) => {
@@ -57,23 +58,9 @@ const useRegister = () => {
         return;
       }
 
-      const loginResponse = await loginUser({ username, password });
-
-      if (!loginResponse.ok) {
-        const loginErrorData = await loginResponse.json();
-        setError((prev) => ({ ...prev, general: `Error en el inicio de sesión: ${loginErrorData.error.message}` }));
-        return;
-      }
-
-      const loginData = await loginResponse.json();
-      localStorage.setItem("userData", JSON.stringify(loginData));
-
+      const data = await response.json();
+      setModalMessage(data.message || "Se ha enviado un correo de verificación. Por favor, verifica tu cuenta para activarla.");
       setShowModal(true);
-
-      setTimeout(() => {
-        setShowModal(false);
-        router.push("/");
-      }, 2000);
 
     } catch (error) {
       setError((prev) => ({ ...prev, general: "Error de red" }));
@@ -86,7 +73,6 @@ const useRegister = () => {
 
   const closeModal = () => {
     setShowModal(false);
-    router.push("/");
   };
 
   return {
@@ -96,6 +82,7 @@ const useRegister = () => {
     error,
     showModal,
     showPassword,
+    modalMessage,
     handleUsernameChange,
     handleEmailChange,
     handlePasswordChange,

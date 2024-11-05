@@ -17,3 +17,9 @@ export const loginUser = async ({ username, password }) => {
     body: JSON.stringify({ userName: username, password }),
   });
 };
+
+export const verifyAccount = async (token) => {
+  return fetch(`https://inelarweb-back.onrender.com/api/auth/verify/${token}`, {
+    method: "GET",
+  });
+};

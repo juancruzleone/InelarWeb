@@ -7,7 +7,7 @@ import useRegister from "@/components/register/hooks/useRegister.jsx";
 import styles from "@/styles/Register.module.css";
 import { useTheme } from '@/components/ThemeProvider'
 
-const Register = () => {
+export default function Register() {
   const { theme } = useTheme()
 
   const {
@@ -17,6 +17,7 @@ const Register = () => {
     error,
     showModal,
     showPassword,
+    modalMessage,
     handleUsernameChange,
     handleEmailChange,
     handlePasswordChange,
@@ -29,10 +30,10 @@ const Register = () => {
     <Layout className={styles.app}>
       <Head>
         <title>Registro | Inelar</title>
-        <meta name="description" content="Descripción de mi aplicación" />
+        <meta name="description" content="Registro de usuario en Inelar" />
         <link rel="icon" href="/inelar.ico" />
       </Head>
-      <div className={styles.contenedorPrelogin}  data-theme={theme}>
+      <div className={styles.contenedorPrelogin} data-theme={theme}>
         <div className={styles.formularioPrelogin}>
           <h1 className={styles.tituloPrelogin}>Regístrate</h1>
           <FormularioRegistro
@@ -53,10 +54,8 @@ const Register = () => {
       <ModalConfirmacion 
         isOpen={showModal} 
         onRequestClose={closeModal} 
-        mensaje="Cuenta registrada exitosamente" 
+        mensaje={modalMessage} 
       />
     </Layout>
   );
-};
-
-export default Register;
+}
