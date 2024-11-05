@@ -1,4 +1,20 @@
 /* MOBILE*/
+.cantidadContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.cantidadInput {
+  width: 100px;
+  margin-left: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+  background-color: #121212;
+}
+
 .contenedorDescripcionProducto {
   text-align: center;
   margin-top: 30px;

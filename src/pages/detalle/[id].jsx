@@ -27,8 +27,8 @@ const DetalleProducto = ({ initialProducto, initialProductosRelacionados }) => {
     }
   }, []);
 
-  const handleAgregarAlCarrito = () => {
-    addToCart(id, producto);
+  const handleAgregarAlCarrito = (cantidad) => {
+    addToCart(id, producto, cantidad);
     setModalIsOpen(true);
     setTimeout(() => {
       setModalIsOpen(false);
@@ -51,7 +51,7 @@ const DetalleProducto = ({ initialProducto, initialProductosRelacionados }) => {
   }
 
   return (
-    <Layout className={styles.app}  data-theme={theme}>
+    <Layout className={styles.app} data-theme={theme}>
       <ProductDetail producto={producto} handleAgregarAlCarrito={handleAgregarAlCarrito} isAdmin={isAdmin} />
       <div className={styles.contenedorDescripcionProducto}>
         <h2>Descripción</h2>

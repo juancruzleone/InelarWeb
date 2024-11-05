@@ -2,15 +2,15 @@ import { useState } from 'react';
 import Image from 'next/image';
 import styles from '@/styles/DetalleProducto.module.css';
 
-const DetalleProducto = ({ producto, handleAgregarAlCarrito, isAdmin }) => {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+export default function DetalleProducto({ producto, handleAgregarAlCarrito, isAdmin }) {
+  const [cantidad, setCantidad] = useState(1);
 
   const handleAgregarProducto = () => {
-    handleAgregarAlCarrito();
-    setModalIsOpen(true);
-    setTimeout(() => {
-      setModalIsOpen(false);
-    }, 3000);
+    handleAgregarAlCarrito(cantidad);
+  };
+
+  const handleCantidadChange = (e) => {
+    setCantidad(parseInt(e.target.value, 10));
   };
 
   return (
@@ -30,12 +30,23 @@ const DetalleProducto = ({ producto, handleAgregarAlCarrito, isAdmin }) => {
           <p className={styles.categoriaDetalle}>{producto.categoria}</p>
           <p className={styles.precioDetalle}>${producto.price}</p>
           {!isAdmin && (
-            <a href="#" onClick={handleAgregarProducto}>Agregar al carrito</a>
+            <>
+              <div className={styles.cantidadContainer}>
+                <label htmlFor="cantidad">Cantidad:</label>
+                <input
+                  type="number"
+                  id="cantidad"
+                  min="1"
+                  value={cantidad}
+                  onChange={handleCantidadChange}
+                  className={styles.cantidadInput}
+                />
+              </div>
+              <a href="#" onClick={handleAgregarProducto}>Agregar al carrito</a>
+            </>
           )}
         </div>
       </div>
     </div>
   );
-};
-
-export default DetalleProducto;
+}
