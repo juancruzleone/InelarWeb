@@ -48,6 +48,8 @@ export default function Component({ order, onUpdateStatus }) {
       <div className={styles.contenidoTarjetaOrdenPanel}>
         <p><span>Fecha:</span> {formatDate(order.createdAt)}</p>
         <p><span>Total:</span> {formatCurrency(order.total)}</p>
+        <p><span>Usuario:</span> {order.userName || 'No disponible'}</p>
+        <p><span>Email del cliente:</span> {order.email || 'No disponible'}</p>
         <p><span>Productos:</span></p>
         <ul>
           {order.items && order.items.map((item, index) => (
