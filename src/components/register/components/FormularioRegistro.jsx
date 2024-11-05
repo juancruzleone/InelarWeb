@@ -7,6 +7,7 @@ const FormularioRegistro = ({
   password,
   error,
   showPassword,
+  isLoading,
   handleUsernameChange,
   handleEmailChange, 
   handlePasswordChange,
@@ -67,7 +68,20 @@ const FormularioRegistro = ({
       </div>
       {error.password && <p className={styles.error}>{error.password}</p>}
 
-      <button type="submit" className={styles.submitButton}>Regístrate</button>
+      <button 
+        type="submit" 
+        className={`${styles.submitButton} ${isLoading ? styles.loading : ''}`}
+        disabled={isLoading}
+      >
+        {isLoading ? (
+          <>
+            <span className={styles.loader}></span>
+            Registrando...
+          </>
+        ) : (
+          "Regístrate"
+        )}
+      </button>
       {error.general && <p className={styles.error}>{error.general}</p>}
     </form>
   );

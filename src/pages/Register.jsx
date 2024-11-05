@@ -1,3 +1,4 @@
+// Register.jsx
 import Head from "next/head";
 import Layout from "@/components/layout/index";
 import Footer from "@/components/Footer";
@@ -18,6 +19,7 @@ export default function Register() {
     showModal,
     showPassword,
     modalMessage,
+    isLoading,
     handleUsernameChange,
     handleEmailChange,
     handlePasswordChange,
@@ -42,6 +44,7 @@ export default function Register() {
             password={password}
             error={error}
             showPassword={showPassword}
+            isLoading={isLoading}
             handleUsernameChange={handleUsernameChange}
             handleEmailChange={handleEmailChange}
             handlePasswordChange={handlePasswordChange}

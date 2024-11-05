@@ -1,7 +1,8 @@
+// useRegister.jsx
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { validateUsername, validateEmail, validatePassword } from "@/components/register/utils/ValidacionesRegistro";
-import { registerUser, loginUser } from "@/components/register/services/FetchRegistro";
+import { registerUser } from "@/components/register/services/FetchRegistro";
 
 const useRegister = () => {
   const [username, setUsername] = useState("");
@@ -10,6 +11,8 @@ const useRegister = () => {
   const [error, setError] = useState({ username: "", email: "", password: "", general: "" });
   const [showModal, setShowModal] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
   const handleUsernameChange = (e) => {
@@ -32,6 +35,7 @@ const useRegister = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
     const usernameError = validateUsername(username);
     const emailError = validateEmail(email);
@@ -39,44 +43,40 @@ const useRegister = () => {
 
     if (usernameError || emailError || passwordError) {
       setError({ username: usernameError, email: emailError, password: passwordError });
+      setIsLoading(false);
       return;
     }
 
     try {
       const response = await registerUser({ username, email, password });
+      const data = await response.json();
 
       if (!response.ok) {
-        const errorData = await response.json();
-        if (errorData.error.message === "cuenta ya existe") {
+        if (data.error.message === "La cuenta ya existe") {
           setError((prev) => ({ ...prev, general: "La cuenta ya existe. Por favor, inicia sesión." }));
-        } else if (errorData.error.details) {
-          setError((prev) => ({ ...prev, general: errorData.error.details.join(', ') }));
+        } else if (data.error.details) {
+          setError((prev) => ({ ...prev, general: data.error.details.join(', ') }));
         } else {
-          setError((prev) => ({ ...prev, general: `Error en la solicitud: ${errorData.error.message}` }));
+          setError((prev) => ({ ...prev, general: `Error en el registro: ${data.error.message}` }));
         }
+        setIsLoading(false);
         return;
       }
 
-      const loginResponse = await loginUser({ username, password });
-
-      if (!loginResponse.ok) {
-        const loginErrorData = await loginResponse.json();
-        setError((prev) => ({ ...prev, general: `Error en el inicio de sesión: ${loginErrorData.error.message}` }));
-        return;
-      }
-
-      const loginData = await loginResponse.json();
-      localStorage.setItem("userData", JSON.stringify(loginData));
-
+      // Registro exitoso
+      setModalMessage("Se ha enviado un correo de verificación. Por favor, verifica tu cuenta para activarla.");
       setShowModal(true);
 
-      setTimeout(() => {
-        setShowModal(false);
-        router.push("/");
-      }, 2000);
+      // Limpiar el formulario
+      setUsername("");
+      setEmail("");
+      setPassword("");
+      setError({ username: "", email: "", password: "", general: "" });
 
     } catch (error) {
       setError((prev) => ({ ...prev, general: "Error de red" }));
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -86,7 +86,7 @@ const useRegister = () => {
 
   const closeModal = () => {
     setShowModal(false);
-    router.push("/");
+    router.push("/login");
   };
 
   return {
@@ -96,6 +96,8 @@ const useRegister = () => {
     error,
     showModal,
     showPassword,
+    modalMessage,
+    isLoading,
     handleUsernameChange,
     handleEmailChange,
     handlePasswordChange,

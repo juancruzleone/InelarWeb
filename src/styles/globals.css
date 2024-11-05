@@ -214,7 +214,7 @@ input[type="date"] {
   font-family: "Montserrat", sans-serif;
   padding: 0.7rem;
   margin-bottom: 1rem;
-  border: 1px solid #ccc;
+  border: 1px solid #fff;
   border-radius: 4px;
   background-color: #121212;
   appearance: none; 
@@ -278,4 +278,30 @@ textarea {
 
 .botonEliminarDispositivo {
   width: 400px;
+}
+
+/* Nuevas reglas para prevenir el cambio de color en inputs autocompletados */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #121212 inset !important;
+    -webkit-text-fill-color: #fff !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+input:-webkit-autofill::first-line {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Asegurarse de que los inputs mantengan su estilo en todos los estados */
+input:not([type="file"]) {
+    background-color: #121212 !important;
+    color: #fff !important;
+    border: 1px solid #fff;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--highlight-color);
 }
