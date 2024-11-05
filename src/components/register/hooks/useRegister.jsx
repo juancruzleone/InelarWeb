@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { validateUsername, validateEmail, validatePassword } from "@/components/register/utils/ValidacionesRegistro";
-import { registerUser, loginUser } from "@/components/register/services/FetchRegistro";
+import { registerUser, loginUser, verifyAccount } from "@/components/register/services/FetchRegistro";
 
 const useRegister = () => {
   const [username, setUsername] = useState("");
@@ -75,6 +75,26 @@ const useRegister = () => {
     setShowModal(false);
   };
 
+  const handleVerification = async (token) => {
+    try {
+      const verificationResponse = await verifyAccount(token);
+      if (verificationResponse.ok) {
+        const loginResponse = await loginUser({ username, password });
+        if (loginResponse.ok) {
+          const loginData = await loginResponse.json();
+          localStorage.setItem('token', loginData.token);
+          router.push('/dashboard');
+        } else {
+          setError((prev) => ({ ...prev, general: "Error al iniciar sesión automáticamente" }));
+        }
+      } else {
+        setError((prev) => ({ ...prev, general: "Error al verificar la cuenta" }));
+      }
+    } catch (error) {
+      setError((prev) => ({ ...prev, general: "Error de red al verificar la cuenta" }));
+    }
+  };
+
   return {
     username,
     email,
@@ -89,6 +109,7 @@ const useRegister = () => {
     handleSubmit,
     togglePasswordVisibility,
     closeModal,
+    handleVerification,
   };
 };
 
