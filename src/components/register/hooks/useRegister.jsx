@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { validateUsername, validateEmail, validatePassword } from "@/components/register/utils/ValidacionesRegistro";
-import { registerUser, loginUser, verifyAccount } from "@/components/register/services/FetchRegistro";
+import { registerUser, loginUser } from "@/components/register/services/FetchRegistro";
 
 const useRegister = () => {
   const [username, setUsername] = useState("");
@@ -10,7 +10,6 @@ const useRegister = () => {
   const [error, setError] = useState({ username: "", email: "", password: "", general: "" });
   const [showModal, setShowModal] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const [modalMessage, setModalMessage] = useState("");
   const router = useRouter();
 
   const handleUsernameChange = (e) => {
@@ -48,7 +47,7 @@ const useRegister = () => {
 
       if (!response.ok) {
         const errorData = await response.json();
-        if (errorData.error.message === "La cuenta ya existe") {
+        if (errorData.error.message === "cuenta ya existe") {
           setError((prev) => ({ ...prev, general: "La cuenta ya existe. Por favor, inicia sesión." }));
         } else if (errorData.error.details) {
           setError((prev) => ({ ...prev, general: errorData.error.details.join(', ') }));
@@ -58,9 +57,23 @@ const useRegister = () => {
         return;
       }
 
-      const data = await response.json();
-      setModalMessage(data.message || "Se ha enviado un correo de verificación. Por favor, verifica tu cuenta para activarla.");
+      const loginResponse = await loginUser({ username, password });
+
+      if (!loginResponse.ok) {
+        const loginErrorData = await loginResponse.json();
+        setError((prev) => ({ ...prev, general: `Error en el inicio de sesión: ${loginErrorData.error.message}` }));
+        return;
+      }
+
+      const loginData = await loginResponse.json();
+      localStorage.setItem("userData", JSON.stringify(loginData));
+
       setShowModal(true);
+
+      setTimeout(() => {
+        setShowModal(false);
+        router.push("/");
+      }, 2000);
 
     } catch (error) {
       setError((prev) => ({ ...prev, general: "Error de red" }));
@@ -73,30 +86,7 @@ const useRegister = () => {
 
   const closeModal = () => {
     setShowModal(false);
-  };
-
-  const handleVerification = async (token) => {
-    try {
-      const verificationResponse = await verifyAccount(token);
-      if (verificationResponse.ok) {
-        const data = await verificationResponse.json();
-        if (data.token) {
-          localStorage.setItem('token', data.token);
-          setModalMessage("Cuenta verificada e iniciada sesión exitosamente. Redirigiendo al dashboard...");
-          setShowModal(true);
-          setTimeout(() => {
-            router.push('/dashboard');
-          }, 3000);
-        } else {
-          setError((prev) => ({ ...prev, general: "Error al iniciar sesión automáticamente" }));
-        }
-      } else {
-        const errorData = await verificationResponse.json();
-        setError((prev) => ({ ...prev, general: errorData.error.message || "Error al verificar la cuenta" }));
-      }
-    } catch (error) {
-      setError((prev) => ({ ...prev, general: "Error de red al verificar la cuenta" }));
-    }
+    router.push("/");
   };
 
   return {
@@ -106,14 +96,12 @@ const useRegister = () => {
     error,
     showModal,
     showPassword,
-    modalMessage,
     handleUsernameChange,
     handleEmailChange,
     handlePasswordChange,
     handleSubmit,
     togglePasswordVisibility,
     closeModal,
-    handleVerification,
   };
 };
 
