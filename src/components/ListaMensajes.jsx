@@ -3,17 +3,17 @@ import MensajeItem from "@/components/panel/ListaMensajes/components/MensajeItem
 import useMensajes from "@/components/panel/ListaMensajes/hooks/ListaMensajesEstado.jsx";
 import { useTheme } from '@/components/ThemeProvider'
 
-const ListaMensajes = () => {
+export default function Component() {
   const { filteredMessages, loading, searchTerm, setSearchTerm } = useMensajes();
   const { theme } = useTheme()
 
   return (
-    <div className={styles.app}  data-theme={theme}>
+    <div className={styles.app} data-theme={theme}>
       <div className={styles.contenedorPagina}>
         <h2 className={styles.tituloPaginasPanel}>Mensajes de contacto</h2>
         <input
           type="text"
-          placeholder="Buca por nombre o email..."
+          placeholder="Busca por nombre o email..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className={styles.buscadorPanel}
@@ -24,17 +24,17 @@ const ListaMensajes = () => {
             {loading ? (
               <p className={styles.cargandoMensajes}>Cargando mensajes...</p>
             ) : filteredMessages.length > 0 ? (
-              filteredMessages.map((message, index) => (
-                <MensajeItem key={index} message={message} />
-              ))
+              <div className={styles.listaConScroll}>
+                {filteredMessages.map((message, index) => (
+                  <MensajeItem key={index} message={message} />
+                ))}
+              </div>
             ) : (
-              <p className={styles.textoBuscadorPanelMensajes}>Ningun mensaje encontrado</p>
+              <p className={styles.textoBuscadorPanelMensajes}>Ningún mensaje encontrado</p>
             )}
           </div>
         </div>
       </div>
     </div>
   );
-};
-
-export default ListaMensajes;
+}
