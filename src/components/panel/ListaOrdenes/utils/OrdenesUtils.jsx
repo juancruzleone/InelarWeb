@@ -4,7 +4,7 @@ export function formatDate(dateString) {
 }
 
 export function formatCurrency(amount) {
-  return new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' }).format(amount);
+  return new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'ARS' }).format(amount);
 }
 
 export function getOrderStatus(status) {
