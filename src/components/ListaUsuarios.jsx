@@ -16,14 +16,6 @@ const ListaUsuarios = () => {
     }
   }, [error, router]);
 
-  if (loading) {
-    return <p className={styles.cargandoUsuarios}>Cargando usuarios...</p>;
-  }
-
-  if (error) {
-    return <p className={styles.error}>Error: {error}</p>;
-  }
-
   return (
     <div className={styles.app} data-theme={theme}>
       <div className={styles.contenedorPagina}>
@@ -38,7 +30,11 @@ const ListaUsuarios = () => {
         />
         <div className={styles.posicionSeccionProductos}>
           <div className={styles.contenedorProductosPanel}>
-            {filteredUsers.length > 0 ? (
+            {loading ? (
+              <p className={styles.cargandoUsuarios}>Cargando usuarios...</p>
+            ) : error ? (
+              <p className={styles.error}>Error: {error}</p>
+            ) : filteredUsers.length > 0 ? (
               <div className={styles.listaUsuariosScrollable}>
                 {filteredUsers.map((user) => (
                   <UsuarioItem key={user._id} user={user} />
