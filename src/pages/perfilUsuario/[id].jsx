@@ -31,35 +31,38 @@ export default function PerfilUsuarios() {
     filterStatus === "todas" || order.status === filterStatus
   );
 
-  if (loading) {
-    return (
-      <Layout>
-        <Cargando />
-      </Layout>
-    );
-  }
-
-  if (error) {
-    return (
-      <Layout>
-        <div className={styles.contenedorPaginaPerfil}>
-          <p className={styles.errorMensaje}>Error: {error}</p>
-        </div>
-      </Layout>
-    );
-  }
-
   return (
-    <div  data-theme={theme}>
+    <div data-theme={theme}>
       <Head>
         <title>{user ? `Perfil de ${user.userName}` : 'Perfil de Usuario'}</title>
       </Head>
       <Layout>
         <div className={styles.contenedorPaginaPerfil}>
-          {user ? (
+          {loading ? (
+            <div className={styles.cargandoContenedor}>
+              <Cargando />
+            </div>
+          ) : error ? (
+            <p className={styles.errorMensaje}>Error: {error}</p>
+          ) : user ? (
             <>
               <PerfilUsuario user={user} />
-              <ListaOrdenes orders={filteredOrders} />
+              <div className={styles.contenedorPedidoUsuario}>
+                <h2>Pedidos realizados</h2>
+                <div className={styles.filtroOrdenes}>
+                  <select
+                    className={styles.selectFiltro}
+                    value={filterStatus}
+                    onChange={handleFilterChange}
+                  >
+                    <option value="todas">Todas las órdenes</option>
+                    <option value="pendiente">Pendientes</option>
+                    <option value="completada">Completadas</option>
+                    <option value="cancelada">Canceladas</option>
+                  </select>
+                </div>
+                <ListaOrdenes orders={filteredOrders} />
+              </div>
             </>
           ) : (
             <p className={styles.errorMensaje}>Usuario no encontrado</p>
