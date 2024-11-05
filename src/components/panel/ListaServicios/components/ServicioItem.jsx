@@ -44,7 +44,7 @@ export default function ServicioItem({ service, onUpdateStatus }) {
         <p><span>Dirección:</span> {service.direccion || 'No disponible'}</p>
         <p><span>Dispositivo:</span> {service.dispositivo || 'No disponible'}</p>
         <p><span>Cantidad:</span> {service.cantidad || 'No disponible'}</p>
-        <p><span>Fecha:</span> {service.fecha || 'No disponible'}</p>
+        <p><span>Fecha deseada:</span> {service.fecha || 'No disponible'}</p>
       </div>
       {estado !== 'realizado' && (
         <button 
