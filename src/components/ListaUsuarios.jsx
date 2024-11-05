@@ -27,7 +27,7 @@ const ListaUsuarios = () => {
   return (
     <div className={styles.app} data-theme={theme}>
       <div className={styles.contenedorPagina}>
-        <h2 className={styles.tituloPaginasPanel}>Lista de Usuarios</h2>
+        <h2 className={styles.tituloPaginasPanel}>Lista de usuarios</h2>
         <input
           type="text"
           placeholder="Busca por nombre o email..."

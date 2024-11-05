@@ -78,6 +78,7 @@
   font-family: "montserrat", sans-serif;
   font-weight: 500;
   width: calc(100% - 30px);
+  font-weight: 600;
 }
 
 .buscadorPanel {
@@ -371,6 +372,7 @@
 @media (min-width: 768px) {
   .botonCrearModal {
     width: 200px;
+    font-weight: 600;
   }
 
   .Modal {
@@ -537,6 +539,10 @@
     color: #f9bf79;
   }
 
+  .TipoInstalacion{
+    text-align: center;
+  }
+
   .contenedorPagina button {
     border: 0px;
     padding: 3px;
@@ -552,8 +558,8 @@
     background-color: #d9d9d9;
     color: black;
     font-family: "montserrat", sans-serif;
-    font-weight: 500;
-    width: 120px;
+    font-weight: 600;
+    width: 150px;
   }
 
   .buscadorPanel {
@@ -663,7 +669,7 @@
 
   .TipoInstalacion {
     position: absolute; 
-    bottom: 0px; 
+    bottom: 20px; 
     left: 20px; 
     background-color: #C75F00;
     width: 200px; 

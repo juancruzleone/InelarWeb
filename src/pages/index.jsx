@@ -140,7 +140,7 @@ const Index = () => {
           </div>
         </div>
         <div className={styles.contenedorTextoNuestraApp}>
-          <h2>Descubre Nuestra App</h2>
+          <h2>Descubre nuestra app</h2>
           <p>
             ¡Bienvenido a la puerta de entrada a la innovación tecnológica! En
             <span>Inelar</span>, hemos creado una aplicación revolucionaria pensando en ti y

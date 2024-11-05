@@ -63,6 +63,7 @@
   cursor: pointer;
   color: #121212;
   margin-right: 15px;
+  font-weight: 600;
 }
 
 .ModalConfirmarServicio .botonCancelarModal{
@@ -73,6 +74,7 @@
   border: 0px;
   cursor: pointer;
   color: white;
+  font-weight: 600;
 }
 
 .tickModal {
