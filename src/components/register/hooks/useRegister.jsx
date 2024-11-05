@@ -48,7 +48,7 @@ const useRegister = () => {
 
       if (!response.ok) {
         const errorData = await response.json();
-        if (errorData.error.message === "cuenta ya existe") {
+        if (errorData.error.message === "La cuenta ya existe") {
           setError((prev) => ({ ...prev, general: "La cuenta ya existe. Por favor, inicia sesión." }));
         } else if (errorData.error.details) {
           setError((prev) => ({ ...prev, general: errorData.error.details.join(', ') }));
@@ -79,16 +79,20 @@ const useRegister = () => {
     try {
       const verificationResponse = await verifyAccount(token);
       if (verificationResponse.ok) {
-        const loginResponse = await loginUser({ username, password });
-        if (loginResponse.ok) {
-          const loginData = await loginResponse.json();
-          localStorage.setItem('token', loginData.token);
-          router.push('/dashboard');
+        const data = await verificationResponse.json();
+        if (data.token) {
+          localStorage.setItem('token', data.token);
+          setModalMessage("Cuenta verificada e iniciada sesión exitosamente. Redirigiendo al dashboard...");
+          setShowModal(true);
+          setTimeout(() => {
+            router.push('/dashboard');
+          }, 3000);
         } else {
           setError((prev) => ({ ...prev, general: "Error al iniciar sesión automáticamente" }));
         }
       } else {
-        setError((prev) => ({ ...prev, general: "Error al verificar la cuenta" }));
+        const errorData = await verificationResponse.json();
+        setError((prev) => ({ ...prev, general: errorData.error.message || "Error al verificar la cuenta" }));
       }
     } catch (error) {
       setError((prev) => ({ ...prev, general: "Error de red al verificar la cuenta" }));
