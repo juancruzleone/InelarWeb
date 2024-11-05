@@ -62,7 +62,6 @@
 .sesion,
 .carrito {
   width: 30px;
-  height: 30px;
 }
 
 .sesion {
@@ -143,6 +142,8 @@
   .nav {
     padding-left: 28px;
   }
+
+
 
   .logoutIcon {
     display: block;
