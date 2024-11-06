@@ -20,7 +20,7 @@ const ListaProductos = ({ productos, loading }) => {
             priority={index === 0}  
           />
           <h2 className={styles.nombreProducto}>{producto.name}</h2>
-          <p>${producto.price}</p>
+          <p className={styles.precioProducto}>${producto.price}</p>
           <Link href={`/detalle/${producto._id}`} className={styles.botonVerMas}>
             Ver más
           </Link>
