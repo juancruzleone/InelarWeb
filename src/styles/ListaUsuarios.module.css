@@ -41,6 +41,7 @@
   width: 90%;
   max-width: 400px;
   font-family: "montserrat", sans-serif;
+  box-shadow: 0 0px 4px white;
 }
 
 .tarjetaProductoPanel h3 {

@@ -392,7 +392,7 @@ const ListaInstalaciones = () => {
             ) : filteredDevices.length > 0 ? (
               filteredDevices.map((device) => (
                 <div key={device._id} className={stylesDevices.tarjetaProductoPanelDispositivos}>
-                  <div    className={stylesDevices.tarjetaContenido}>
+                  <div className={stylesDevices.tarjetaContenido}>
                     <h3 className={stylesDevices.tituloDispositivo}>{device.nombre}</h3>
                     <p className={stylesDevices.ubicacionDispositivo}>Ubicación: {device.ubicacion}</p>
                     <p className={stylesDevices.categoriaDispositivo}>{device.categoria}</p>
@@ -429,7 +429,7 @@ const ListaInstalaciones = () => {
                 </div>
               ))
             ) : (
-              <p>No se encontraron dispositivos para esta instalación.</p>
+              <p id={styles.sinDispositivos}>No se encontraron dispositivos para esta instalación.</p>
             )}
           </div>
         </div>
