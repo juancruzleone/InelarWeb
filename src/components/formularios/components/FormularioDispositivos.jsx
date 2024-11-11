@@ -1,33 +1,16 @@
-import { useState } from 'react'
-import { submitMaintenanceForm } from '@/services/deviceFormService'
 import styles from '@/styles/ListaDispositivos.module.css'
+import { useDeviceForm } from '@/hooks/useDeviceForm'
 
-export default function FormularioDispositivos({ formData, installationId, deviceId }) {
-  const [formState, setFormState] = useState({})
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitError, setSubmitError] = useState(null)
-  const [submitSuccess, setSubmitSuccess] = useState(false)
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target
-    setFormState(prevState => ({ ...prevState, [name]: value }))
-  }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    setSubmitError(null)
-    setSubmitSuccess(false)
-
-    try {
-      await submitMaintenanceForm(installationId, deviceId, formState)
-      setSubmitSuccess(true)
-    } catch (error) {
-      setSubmitError('Error al enviar el formulario')
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
+export default function DeviceForm({ formData, installationId, deviceId }) {
+  const {
+    formData: formState,
+    handleInputChange,
+    errors,
+    isSubmitting,
+    submitError,
+    submitSuccess,
+    handleSubmit
+  } = useDeviceForm(installationId, deviceId)
 
   return (
     <div className={styles.ModalPanelDispositivo}>
@@ -45,10 +28,12 @@ export default function FormularioDispositivos({ formData, installationId, devic
               type={field.type}
               id={field.id}
               name={field.id}
-              required={field.required}
+              value={formState[field.id] || ''}
               onChange={handleInputChange}
+              required={field.required}
               className={styles.buscadorPanel}
             />
+            {errors[field.id] && <span className={styles.error}>{errors[field.id]}</span>}
           </div>
         ))}
         
