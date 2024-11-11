@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
-import { getDeviceForm } from '@/components/formularios/services/FormularioService.jsx'
-import FormularioDispositivo from '@/components/formularios/components/FormularioDispositivos.jsx'
-import LoadingSpinner from '@/components/formularios/components/Cargando.jsx'
-import ErrorMessage from '@/components/formularios/components/Error.jsx'
+import { getDeviceForm } from '@/components/formularios/services/FormularioService'
+import FormularioDispositivo from '@/components/formularios/components/FormularioDispositivos'
+import LoadingSpinner from '@/components/formularios/components/Cargando'
+import ErrorMessage from '@/components/formularios/components/Error'
 import styles from '@/styles/ListaDispositivos.module.css'
 
 export default function PaginaFormularioDispositivo() {
@@ -15,16 +15,15 @@ export default function PaginaFormularioDispositivo() {
 
   useEffect(() => {
     async function fetchFormData() {
-      if (typeof id === 'string') {
-        const ids = id.split('/')
-        if (ids.length !== 2) {
+      if (id) {
+        const [installationId, deviceId] = id.split('/')
+        if (!installationId || !deviceId) {
           setError('URL inválida. Se requiere ID de instalación y dispositivo')
           setIsLoading(false)
           return
         }
 
         try {
-          const [installationId, deviceId] = ids
           const data = await getDeviceForm(installationId, deviceId)
           setFormData(data)
         } catch (err) {
@@ -39,12 +38,6 @@ export default function PaginaFormularioDispositivo() {
       fetchFormData()
     }
   }, [id])
-
-  useEffect(() => {
-    if (typeof id === 'string' && !id.includes('/')) {
-      router.push('/404')
-    }
-  }, [id, router])
 
   if (isLoading) return <LoadingSpinner />
   if (error) return <ErrorMessage message={error} />
