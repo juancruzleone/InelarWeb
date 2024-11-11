@@ -14,32 +14,36 @@ export default function FormularioDispositivo() {
   const [error, setError] = useState(null)
 
   useEffect(() => {
-    if (id) {
-      fetchFormData()
+    async function fetchFormData() {
+      if (id) {
+        try {
+          const [installationId, deviceId] = id.split('/')
+          const data = await getDeviceForm(installationId, deviceId)
+          setFormData(data)
+        } catch (err) {
+          setError('Error al cargar el formulario del dispositivo')
+        } finally {
+          setIsLoading(false)
+        }
+      }
     }
-  }, [id])
 
-  const fetchFormData = async () => {
-    try {
-      const [installationId, deviceId] = id.split('-')
-      const data = await getDeviceForm(installationId, deviceId)
-      setFormData(data)
-    } catch (err) {
-      setError('Error al cargar el formulario del dispositivo')
-    } finally {
-      setIsLoading(false)
-    }
-  }
+    fetchFormData()
+  }, [id])
 
   if (isLoading) return <LoadingSpinner />
   if (error) return <ErrorMessage message={error} />
   if (!formData) return <ErrorMessage message="No se encontró el formulario del dispositivo" />
 
-  const [installationId, deviceId] = id.split('-')
+  const [installationId, deviceId] = id.split('/')
 
   return (
     <div className={styles.formularioPanel}>
-      <DeviceForm formData={formData} installationId={installationId} deviceId={deviceId} />
+      <DeviceForm
+        formData={formData}
+        installationId={installationId}
+        deviceId={deviceId}
+      />
     </div>
   )
 }
