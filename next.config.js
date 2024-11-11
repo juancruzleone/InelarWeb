@@ -81,10 +81,6 @@ const nextConfig = {
         source: '/panel',
         destination: '/PanelAdmin',
       },
-      {
-        source: '/formulario/:id',
-        destination: '/formulario/[id]',
-      },
     ];
   },
   images: {
