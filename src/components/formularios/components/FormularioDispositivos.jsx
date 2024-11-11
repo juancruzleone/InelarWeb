@@ -1,9 +1,9 @@
 import styles from '@/styles/ListaDispositivos.module.css'
 import { useDeviceForm } from '@/components/formularios/hooks/useDeviceForm'
 
-export default function DeviceForm({ formData, installationId, deviceId }) {
+export default function FormularioDispositivo({ formData, installationId, deviceId }) {
   const {
-    formData: formState,
+    formState,
     handleInputChange,
     errors,
     isSubmitting,
@@ -14,26 +14,51 @@ export default function DeviceForm({ formData, installationId, deviceId }) {
 
   return (
     <div className={styles.ModalPanelDispositivo}>
-      <h1 className={styles.tituloPaginasPanel}>{formData.deviceName}</h1>
-      <p className={styles.categoriaDispositivo}>Ubicación: {formData.deviceLocation}</p>
-      <p className={styles.categoriaDispositivo}>Categoría: {formData.deviceCategory}</p>
+      <h1 className={styles.tituloPaginasPanel}>{formData.deviceInfo.nombre}</h1>
+      <p className={styles.categoriaDispositivo}>Ubicación: {formData.deviceInfo.ubicacion}</p>
+      <p className={styles.categoriaDispositivo}>Categoría: {formData.deviceInfo.categoria}</p>
       
       <form onSubmit={handleSubmit}>
-        {formData.maintenanceFields.map(field => (
-          <div key={field.id} className={styles.formularioPanel}>
-            <label htmlFor={field.id}>
+        {formData.formFields.map(field => (
+          <div key={field.name} className={styles.formularioPanel}>
+            <label htmlFor={field.name}>
               {field.label}
             </label>
-            <input
-              type={field.type}
-              id={field.id}
-              name={field.id}
-              value={formState[field.id] || ''}
-              onChange={handleInputChange}
-              required={field.required}
-              className={styles.buscadorPanel}
-            />
-            {errors[field.id] && <span className={styles.error}>{errors[field.id]}</span>}
+            {field.type === 'select' ? (
+              <select
+                id={field.name}
+                name={field.name}
+                value={formState[field.name] || ''}
+                onChange={handleInputChange}
+                required
+                className={styles.buscadorPanel}
+              >
+                <option value="">Seleccione una opción</option>
+                {field.options && field.options.map(option => (
+                  <option key={option} value={option}>{option}</option>
+                ))}
+              </select>
+            ) : field.type === 'textarea' ? (
+              <textarea
+                id={field.name}
+                name={field.name}
+                value={formState[field.name] || ''}
+                onChange={handleInputChange}
+                required
+                className={styles.buscadorPanel}
+              />
+            ) : (
+              <input
+                type={field.type}
+                id={field.name}
+                name={field.name}
+                value={formState[field.name] || ''}
+                onChange={handleInputChange}
+                required
+                className={styles.buscadorPanel}
+              />
+            )}
+            {errors[field.name] && <span className={styles.error}>{errors[field.name]}</span>}
           </div>
         ))}
         

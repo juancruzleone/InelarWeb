@@ -1,12 +1,12 @@
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import { getDeviceForm } from '@/components/formularios/services/FormularioService'
-import DeviceForm from '@/components/formularios/components/FormularioDispositivos'
+import FormularioDispositivo from '@/components/formularios/components/FormularioDispositivo'
 import LoadingSpinner from '@/components/formularios/components/Cargando'
 import ErrorMessage from '@/components/formularios/components/Error'
 import styles from '@/styles/ListaDispositivos.module.css'
 
-export default function FormularioDispositivo() {
+export default function PaginaFormularioDispositivo() {
   const router = useRouter()
   const { id } = router.query
   const [formData, setFormData] = useState(null)
@@ -15,8 +15,7 @@ export default function FormularioDispositivo() {
 
   useEffect(() => {
     async function fetchFormData() {
-      if (id) {
-        // Verificar que la URL contenga tanto el ID de instalación como el ID del dispositivo
+      if (typeof id === 'string') {
         const ids = id.split('/')
         if (ids.length !== 2) {
           setError('URL inválida. Se requiere ID de instalación y dispositivo')
@@ -36,12 +35,13 @@ export default function FormularioDispositivo() {
       }
     }
 
-    fetchFormData()
+    if (id) {
+      fetchFormData()
+    }
   }, [id])
 
-  // Redireccionar si solo se proporciona un ID
   useEffect(() => {
-    if (id && !id.includes('/')) {
+    if (typeof id === 'string' && !id.includes('/')) {
       router.push('/404')
     }
   }, [id, router])
@@ -54,7 +54,7 @@ export default function FormularioDispositivo() {
 
   return (
     <div className={styles.formularioPanel}>
-      <DeviceForm
+      <FormularioDispositivo
         formData={formData}
         installationId={installationId}
         deviceId={deviceId}

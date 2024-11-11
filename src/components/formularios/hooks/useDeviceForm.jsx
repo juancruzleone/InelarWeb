@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { submitMaintenanceForm } from '@/components/formularios/services/FormularioService'
 
 export function useDeviceForm(installationId, deviceId) {
-  const [formData, setFormData] = useState({})
+  const [formState, setFormState] = useState({})
   const [errors, setErrors] = useState({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitError, setSubmitError] = useState(null)
@@ -10,13 +10,13 @@ export function useDeviceForm(installationId, deviceId) {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target
-    setFormData(prevData => ({ ...prevData, [name]: value }))
+    setFormState(prevData => ({ ...prevData, [name]: value }))
   }
 
   const validateForm = () => {
     const newErrors = {}
-    Object.keys(formData).forEach(key => {
-      if (!formData[key]) {
+    Object.keys(formState).forEach(key => {
+      if (!formState[key]) {
         newErrors[key] = 'Este campo es requerido'
       }
     })
@@ -33,7 +33,7 @@ export function useDeviceForm(installationId, deviceId) {
     setSubmitSuccess(false)
 
     try {
-      await submitMaintenanceForm(installationId, deviceId, formData)
+      await submitMaintenanceForm(installationId, deviceId, formState)
       setSubmitSuccess(true)
     } catch (error) {
       setSubmitError('Error al enviar el formulario')
@@ -43,7 +43,7 @@ export function useDeviceForm(installationId, deviceId) {
   }
 
   return {
-    formData,
+    formState,
     handleInputChange,
     errors,
     isSubmitting,
