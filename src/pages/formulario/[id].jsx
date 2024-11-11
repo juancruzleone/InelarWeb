@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import { getDeviceForm } from '@/services/deviceFormService'
-import FormularioDispositivo from '@/components/formularios/components/FormularioDispositivos.jsx'
+import Formulario from '@/components/formularios/components/FormularioDispositivos.jsx'
 import Cargando from '@/components/formularios/components/Cargando.jsx'
 import Error from '@/components/Error'
 import styles from '@/styles/ListaDispositivos.module.css'
@@ -36,7 +36,7 @@ export default function FormularioDispositivo() {
 
   return (
     <div className={styles.formularioPanel}>
-      <FormularioDispositivo formData={formData} installationId={installationId} deviceId={deviceId} />
+      <Formulario formData={formData} installationId={installationId} deviceId={deviceId} />
     </div>
   )
 }
