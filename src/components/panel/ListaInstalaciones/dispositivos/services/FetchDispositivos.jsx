@@ -122,29 +122,3 @@ export const deleteDeviceFromInstallation = async (installationId, deviceId) => 
     return { error: error.message };
   }
 };
-
-export const getDeviceForm = async (installationId, deviceId) => {
-  try {
-    const token = getToken();
-    if (!token) {
-      throw new Error('No se encontró el token de autenticación');
-    }
-
-    const response = await fetch(`${API_URL}/${installationId}/dispositivos/${deviceId}/formulario`, {
-      headers: {
-        'Authorization': `Bearer ${token}`,
-      },
-    });
-
-    const data = await response.json();
-
-    if (!response.ok) {
-      throw new Error(data.error?.message || 'Error al obtener el formulario del dispositivo');
-    }
-
-    return data;
-  } catch (error) {
-    console.error('Error en getDeviceForm:', error);
-    return { error: error.message };
-  }
-};

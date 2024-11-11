@@ -13,7 +13,7 @@ import ModalCrearDispositivo from "@/components/panel/ListaInstalaciones/disposi
 import ModalEditarDispositivo from "@/components/panel/ListaInstalaciones/dispositivos/components/ModalEditar";
 import ModalEliminarDispositivo from "@/components/panel/ListaInstalaciones/dispositivos/components/ModalEliminar";
 import ModalImprimirQR from "@/components/panel/ListaInstalaciones/dispositivos/components/ModalImprimirQR";
-import { fetchDevicesFromInstallation, getDeviceForm } from "@/components/panel/ListaInstalaciones/dispositivos/services/FetchDispositivos";
+import { fetchDevicesFromInstallation } from "@/components/panel/ListaInstalaciones/dispositivos/services/FetchDispositivos";
 import { deleteInstallation } from "@/components/panel/ListaInstalaciones/services/FetchInstalaciones";
 import { useTheme } from '@/components/ThemeProvider'
 
@@ -215,16 +215,6 @@ const ListaInstalaciones = () => {
   const handlePrintQR = (device) => {
     setSelectedDevice(device);
     setPrintQRModalOpen(true);
-  };
-
-  const handleScanQR = async (deviceId, installationId) => {
-    try {
-      const formUrl = `https://inelar.vercel.app/formulario/${installationId}/${deviceId}`;
-      window.open(formUrl, '_blank');
-    } catch (error) {
-      console.error("Error al abrir el formulario del dispositivo:", error);
-      showConfirmation("Error al abrir el formulario del dispositivo");
-    }
   };
 
   const handleDeviceDeleted = (deletedDeviceId) => {
@@ -504,7 +494,6 @@ const ListaInstalaciones = () => {
         isOpen={isPrintQRModalOpen}
         onClose={() => setPrintQRModalOpen(false)}
         codigoQR={selectedDevice?.codigoQR}
-        onScan={() => handleScanQR(selectedDevice?._id, selectedInstallationForDevice?._id)}
       />
     </div>
   );
