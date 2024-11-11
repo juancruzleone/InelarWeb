@@ -27,6 +27,7 @@
   border-radius: 4px;
   margin-top: 30px;
   padding: 20px;
+  box-shadow: 0.02 0.02px 0.02px white;
 }
 
 .contenedorCategoriasProductos a,
