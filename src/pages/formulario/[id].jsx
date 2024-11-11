@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
-import { getDeviceForm } from '@/services/deviceFormService'
+import { getDeviceForm } from '@/components/formularios/services/FormularioService.jsx'
 import Formulario from '@/components/formularios/components/FormularioDispositivos.jsx'
 import Cargando from '@/components/formularios/components/Cargando.jsx'
-import Error from '@/components/Error'
+import Error from '@/components/formularios/components/Error.jsx'
 import styles from '@/styles/ListaDispositivos.module.css'
 
 export default function FormularioDispositivo() {

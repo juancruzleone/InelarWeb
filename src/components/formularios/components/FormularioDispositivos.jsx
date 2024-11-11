@@ -1,5 +1,5 @@
 import styles from '@/styles/ListaDispositivos.module.css'
-import { useDeviceForm } from '@/hooks/useDeviceForm'
+import { useDeviceForm } from '@/components/formularios/hooks/useDeviceForm.jsx'
 
 export default function DeviceForm({ formData, installationId, deviceId }) {
   const {
