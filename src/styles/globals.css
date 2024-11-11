@@ -170,6 +170,7 @@ main {
   font-family: "montserrat", sans-serif;
   justify-content: center;
   text-align: center;
+  color: var(--text-color);
 }
 
 .contenedor404 p {
@@ -178,6 +179,7 @@ main {
   justify-content: center;
   text-align: center;
   margin-bottom: 15px;
+  color: var(--text-color);
 }
 
 .contenedor404 a {
@@ -187,7 +189,12 @@ main {
   font-family: "montserrat", sans-serif;
   border-radius: 4px;
   color: #121212;
-  font-weight: 500;
+  font-weight: 600;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+  display: flex;
+  width: 120px;
 }
 
 .contenedor404 a:hover {
