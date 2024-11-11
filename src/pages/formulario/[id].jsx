@@ -1,26 +1,27 @@
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import { getDeviceForm } from '@/components/formularios/services/FormularioService.jsx'
-import Formulario from '@/components/formularios/components/FormularioDispositivos.jsx'
-import Cargando from '@/components/formularios/components/Cargando.jsx'
-import Error from '@/components/formularios/components/Error.jsx'
+import DeviceForm from '@/components/formularios/components/FormularioDispositivos.jsx'
+import LoadingSpinner from '@/components/formularios/components/Cargando.jsx'
+import ErrorMessage from '@/components/formularios/components/Error.jsx'
 import styles from '@/styles/ListaDispositivos.module.css'
 
 export default function FormularioDispositivo() {
   const router = useRouter()
-  const { installationId, deviceId } = router.query
+  const { id } = router.query
   const [formData, setFormData] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(null)
 
   useEffect(() => {
-    if (installationId && deviceId) {
+    if (id) {
       fetchFormData()
     }
-  }, [installationId, deviceId])
+  }, [id])
 
   const fetchFormData = async () => {
     try {
+      const [installationId, deviceId] = id.split('-')
       const data = await getDeviceForm(installationId, deviceId)
       setFormData(data)
     } catch (err) {
@@ -30,13 +31,15 @@ export default function FormularioDispositivo() {
     }
   }
 
-  if (isLoading) return <Cargando />
-  if (error) return <Error message={error} />
-  if (!formData) return <Error message="No se encontró el formulario del dispositivo" />
+  if (isLoading) return <LoadingSpinner />
+  if (error) return <ErrorMessage message={error} />
+  if (!formData) return <ErrorMessage message="No se encontró el formulario del dispositivo" />
+
+  const [installationId, deviceId] = id.split('-')
 
   return (
     <div className={styles.formularioPanel}>
-      <Formulario formData={formData} installationId={installationId} deviceId={deviceId} />
+      <DeviceForm formData={formData} installationId={installationId} deviceId={deviceId} />
     </div>
   )
 }
