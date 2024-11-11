@@ -84,7 +84,7 @@ const nextConfig = {
       {
         source: '/formulario/:installationId/:deviceId',
         destination: '/formulario/[...id]',
-      },
+      }
     ];
   },
   images: {

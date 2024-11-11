@@ -15,32 +15,38 @@ export default function PaginaFormularioDispositivo() {
 
   useEffect(() => {
     async function fetchFormData() {
-      if (id && Array.isArray(id) && id.length === 2) {
-        const [installationId, deviceId] = id
-        try {
-          const data = await getDeviceForm(installationId, deviceId)
-          setFormData(data)
-        } catch (err) {
-          setError('Error al cargar el formulario del dispositivo')
-        } finally {
-          setIsLoading(false)
-        }
-      } else if (id) {
+      if (!id) return
+
+      // Asegurarse de que id es un array y tiene los dos segmentos necesarios
+      const segments = Array.isArray(id) ? id : id.split('/')
+      
+      if (segments.length !== 2) {
         setError('URL inválida. Se requiere ID de instalación y dispositivo')
+        setIsLoading(false)
+        return
+      }
+
+      const [installationId, deviceId] = segments
+
+      try {
+        const data = await getDeviceForm(installationId, deviceId)
+        setFormData(data)
+      } catch (err) {
+        console.error('Error fetching form:', err)
+        setError('Error al cargar el formulario del dispositivo')
+      } finally {
         setIsLoading(false)
       }
     }
 
-    if (id) {
-      fetchFormData()
-    }
+    fetchFormData()
   }, [id])
 
   if (isLoading) return <LoadingSpinner />
   if (error) return <ErrorMessage message={error} />
   if (!formData) return <ErrorMessage message="No se encontró el formulario del dispositivo" />
 
-  const [installationId, deviceId] = id
+  const [installationId, deviceId] = Array.isArray(id) ? id : id.split('/')
 
   return (
     <div className={styles.formularioPanel}>
