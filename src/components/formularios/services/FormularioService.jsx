@@ -1,4 +1,4 @@
-const API_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://inelarweb-back.onrender.com'
+const API_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://inelarweb-back.onrender.com/api'
 
 export async function getDeviceForm(installationId, deviceId) {
   const response = await fetch(`${BACKEND_URL}/instalaciones/${installationId}/dispositivos/${deviceId}/formulario`)
