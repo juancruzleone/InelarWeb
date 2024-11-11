@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
-import { getDeviceForm } from '@/components/formularios/services/FormularioService.jsx'
-import DeviceForm from '@/components/formularios/components/FormularioDispositivos.jsx'
-import LoadingSpinner from '@/components/formularios/components/Cargando.jsx'
-import ErrorMessage from '@/components/formularios/components/Error.jsx'
+import { getDeviceForm } from '@/components/formularios/services/FormularioService'
+import DeviceForm from '@/components/formularios/components/FormularioDispositivos'
+import LoadingSpinner from '@/components/formularios/components/Cargando'
+import ErrorMessage from '@/components/formularios/components/Error'
 import styles from '@/styles/ListaDispositivos.module.css'
 
 export default function FormularioDispositivo() {

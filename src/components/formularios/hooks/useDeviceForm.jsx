@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { submitMaintenanceForm } from '@/components/formularios/services/FormularioService.jsx'
+import { submitMaintenanceForm } from '@/components/formularios/services/FormularioService'
 
 export function useDeviceForm(installationId, deviceId) {
   const [formData, setFormData] = useState({})
