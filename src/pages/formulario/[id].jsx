@@ -16,8 +16,16 @@ export default function FormularioDispositivo() {
   useEffect(() => {
     async function fetchFormData() {
       if (id) {
+        // Verificar que la URL contenga tanto el ID de instalación como el ID del dispositivo
+        const ids = id.split('/')
+        if (ids.length !== 2) {
+          setError('URL inválida. Se requiere ID de instalación y dispositivo')
+          setIsLoading(false)
+          return
+        }
+
         try {
-          const [installationId, deviceId] = id.split('/')
+          const [installationId, deviceId] = ids
           const data = await getDeviceForm(installationId, deviceId)
           setFormData(data)
         } catch (err) {
@@ -30,6 +38,13 @@ export default function FormularioDispositivo() {
 
     fetchFormData()
   }, [id])
+
+  // Redireccionar si solo se proporciona un ID
+  useEffect(() => {
+    if (id && !id.includes('/')) {
+      router.push('/404')
+    }
+  }, [id, router])
 
   if (isLoading) return <LoadingSpinner />
   if (error) return <ErrorMessage message={error} />
