@@ -14,19 +14,16 @@ export default function PaginaFormularioDispositivo() {
 
   useEffect(() => {
     async function fetchFormData() {
-      // Esperar a que router.query esté disponible
       if (!router.isReady) return
-
-      const { ids } = router.query
       
-      // Verificar que tenemos los dos IDs necesarios
-      if (!ids || !Array.isArray(ids) || ids.length !== 2) {
+      const pathSegments = router.query.ids
+      if (!pathSegments || pathSegments.length !== 2) {
         setError('URL inválida')
         setIsLoading(false)
         return
       }
 
-      const [installationId, deviceId] = ids
+      const [installationId, deviceId] = pathSegments
 
       try {
         const data = await getDeviceForm(installationId, deviceId)
@@ -46,7 +43,7 @@ export default function PaginaFormularioDispositivo() {
   if (error) return <ErrorMessage message={error} />
   if (!formData) return <ErrorMessage message="No se encontró el formulario del dispositivo" />
 
-  const [installationId, deviceId] = router.query.ids
+  const [installationId, deviceId] = router.query.ids || []
 
   return (
     <div className={styles.formularioPanel}>
