@@ -1,6 +1,6 @@
-import { useState } from 'react'
-import styles from '@/styles/ListaDispositivos.module.css'
-import { useDeviceForm } from '@/components/formularios/hooks/useDeviceForm'
+import { useState } from 'react';
+import styles from '@/styles/ListaDispositivos.module.css';
+import { useDeviceForm } from '@/components/formularios/hooks/useDeviceForm';
 
 export default function FormularioDispositivo({ formData, installationId, deviceId }) {
   const {
@@ -11,7 +11,7 @@ export default function FormularioDispositivo({ formData, installationId, device
     submitError,
     submitSuccess,
     handleSubmit
-  } = useDeviceForm(installationId, deviceId)
+  } = useDeviceForm(installationId, deviceId);
 
   return (
     <div className={styles.ModalPanelDispositivo}>
@@ -77,5 +77,5 @@ export default function FormularioDispositivo({ formData, installationId, device
       {submitError && <p className={styles.error}>{submitError}</p>}
       {submitSuccess && <p className={styles.ModalExito}>Formulario enviado con éxito</p>}
     </div>
-  )
+  );
 }
