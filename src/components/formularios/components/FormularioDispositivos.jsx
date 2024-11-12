@@ -1,3 +1,4 @@
+// FormularioDispositivos.jsx
 import { useState } from 'react';
 import styles from '@/styles/ListaDispositivos.module.css';
 import { useDeviceForm } from '@/components/formularios/hooks/useDeviceForm';
@@ -7,11 +8,12 @@ export default function FormularioDispositivo({ formData, installationId, device
     formState,
     handleInputChange,
     errors,
+    isFormTouched,
     isSubmitting,
     submitError,
     submitSuccess,
     handleSubmit
-  } = useDeviceForm(installationId, deviceId);
+  } = useDeviceForm(installationId, deviceId, formData.formFields);
 
   return (
     <div>
@@ -21,7 +23,6 @@ export default function FormularioDispositivo({ formData, installationId, device
         <p className={styles.categoriaDispositivoFormulario}>{formData.deviceInfo.categoria}</p>
       </div>
 
-      
       <form onSubmit={handleSubmit}>
         {formData.formFields.map(field => (
           <div key={field.name} className={styles.formularioPanel}>
@@ -62,14 +63,16 @@ export default function FormularioDispositivo({ formData, installationId, device
                 className={styles.buscadorPanel}
               />
             )}
-            {errors[field.name] && <span className={styles.error}>{errors[field.name]}</span>}
+            {isFormTouched && errors[field.name] && (
+              <span className={styles.error}>{errors[field.name]}</span>
+            )}
           </div>
         ))}
         
         <div className={styles.contenedorBotonesFormulario}>
           <button
             type="submit"
-            disabled={isSubmitting}
+            disabled={isSubmitting || (isFormTouched && Object.keys(errors).some(key => errors[key] !== ''))}
             className={styles.botonGuardar}
           >
             {isSubmitting ? 'Enviando...' : 'Enviar formulario'}

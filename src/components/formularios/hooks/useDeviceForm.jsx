@@ -1,25 +1,33 @@
-import { useState } from 'react';
+// useDeviceForm.jsx
+import { useState, useEffect } from 'react';
 import { submitMaintenanceForm } from '@/components/formularios/services/FormularioService';
+import { validarCampo, validarFormulario } from '@//components/formularios/utils/Validaciones.jsx';
 
-export function useDeviceForm(installationId, deviceId) {
+export function useDeviceForm(installationId, deviceId, formFields) {
   const [formState, setFormState] = useState({});
   const [errors, setErrors] = useState({});
+  const [isFormTouched, setIsFormTouched] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState(null);
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
+  useEffect(() => {
+    if (isFormTouched) {
+      const newErrors = validarFormulario(formState, formFields);
+      setErrors(newErrors);
+    }
+  }, [formState, formFields, isFormTouched]);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormState(prevData => ({ ...prevData, [name]: value }));
+    if (!isFormTouched) {
+      setIsFormTouched(true);
+    }
   };
 
   const validateForm = () => {
-    const newErrors = {};
-    Object.keys(formState).forEach(key => {
-      if (!formState[key]) {
-        newErrors[key] = 'Este campo es requerido';
-      }
-    });
+    const newErrors = validarFormulario(formState, formFields);
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -46,6 +54,7 @@ export function useDeviceForm(installationId, deviceId) {
     formState,
     handleInputChange,
     errors,
+    isFormTouched,
     isSubmitting,
     submitError,
     submitSuccess,

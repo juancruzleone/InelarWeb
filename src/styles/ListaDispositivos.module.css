@@ -10,21 +10,24 @@
 
 
 .posicionamientoLabel{
-  margin-left: 50px;
+  margin-left: 20px;
 }
 
 .contenedorBotonesFormulario .botonGuardar{
   background-color:  #c75f00;
   border: 0px;
-  margin-left: 50px;
+  margin-left: 20px;
   margin-top: 30px;
   width: 4000px;
   padding: 10px;
 }
 
+.formularioPanel .error{
+  margin-left: 10px;
+}
 
 .contenidoDispositivo{
-  margin-left: 50px;
+  margin-left: 15px;
   margin-top: 0px;
 }
 
@@ -287,6 +290,14 @@
   margin-left: 15px;
 }
 
+.selectFormulario {
+  border-radius: 10px;
+  width: calc(100% - 30px);
+  padding: 15px;
+  margin-top: 20px;
+  margin-left: 15px;
+}
+
 .formularioPanel button {
   cursor: pointer;
   width: 100%;
@@ -520,6 +531,10 @@
     margin-top: 50px;
   }
 
+  .formularioPanel .error{
+    margin-left: 15px;
+  }
+
   .contenedorBotonesImprimir .botonCancelarModal {
     background-color: #2b2b2b;
     width: 100px;
@@ -650,6 +665,12 @@
     margin-left: 30px;
   }
 
+  
+  .selectFormulario {
+    margin-left: 20px;
+    width: calc(100% - 60px);
+  }
+
   .buscadorPanel {
     margin-left: 30px;
     width: calc(100% - 60px);
@@ -680,6 +701,40 @@
     display: flex;
     flex-direction: column;
     margin-top: 15px;
+  }
+
+  .botonMantenimiento {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+    transition: color 0.2s;
+  }
+  
+  
+  
+  .posicionamientoLabel{
+    margin-left: 50px;
+  }
+  
+  .contenedorBotonesFormulario .botonGuardar{
+    background-color:  #c75f00;
+    border: 0px;
+    margin-left: 50px;
+    margin-top: 30px;
+    width: 4000px;
+    padding: 10px;
+  }
+  
+  
+  .contenidoDispositivo{
+    margin-left: 50px;
+    margin-top: 0px;
+  }
+  
+  .contenidoDispositivo .ubicacionDispositivo{
+    width:300px;
+    font-size: 20px;
   }
 
 
@@ -854,6 +909,16 @@
   .buscadorPanel {
     margin-left: 50px;
     width: calc(100% - 100px);
+  }
+
+  
+  .selectFormulario {
+    margin-left: 50px;
+    width: calc(100% - 100px);
+  }
+
+  .formularioPanel .error{
+    margin-left: 50px;
   }
 
   .tarjetaProductoPanelDispositivos {
