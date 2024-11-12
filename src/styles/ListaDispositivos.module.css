@@ -1,8 +1,17 @@
 /* MOBILE */
+.botonMantenimiento {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+  transition: color 0.2s;
+}
+
+
+
 .posicionamientoLabel{
   margin-left: 50px;
 }
-
 
 .contenedorBotonesFormulario .botonGuardar{
   background-color:  #c75f00;

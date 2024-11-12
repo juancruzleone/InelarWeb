@@ -13,9 +13,10 @@ import ModalCrearDispositivo from "@/components/panel/ListaInstalaciones/disposi
 import ModalEditarDispositivo from "@/components/panel/ListaInstalaciones/dispositivos/components/ModalEditar";
 import ModalEliminarDispositivo from "@/components/panel/ListaInstalaciones/dispositivos/components/ModalEliminar";
 import ModalImprimirQR from "@/components/panel/ListaInstalaciones/dispositivos/components/ModalImprimirQR";
-import { fetchDevicesFromInstallation } from "@/components/panel/ListaInstalaciones/dispositivos/services/FetchDispositivos";
+import { fetchDevicesFromInstallation, getLastMaintenance } from "@/components/panel/ListaInstalaciones/dispositivos/services/FetchDispositivos";
 import { deleteInstallation } from "@/components/panel/ListaInstalaciones/services/FetchInstalaciones";
-import { useTheme } from '@/components/ThemeProvider'
+import { useTheme } from '@/components/ThemeProvider';
+import { WrenchIcon } from 'lucide-react';
 
 const ListaInstalaciones = () => {
   const router = useRouter();
@@ -258,6 +259,23 @@ const ListaInstalaciones = () => {
     }
   };
 
+  const handleViewLastMaintenance = async (deviceId) => {
+    try {
+      const result = await getLastMaintenance(selectedInstallationForDevice._id, deviceId);
+      if (result.error) {
+        throw new Error(result.error);
+      }
+      if (result.pdfUrl) {
+        window.open(result.pdfUrl, '_blank');
+      } else {
+        showConfirmation('No se encontró un PDF de mantenimiento para este dispositivo.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      showConfirmation('Error al obtener el último mantenimiento');
+    }
+  };
+
   return (
     <div className={styles.contenedorPagina} data-theme={theme}>
       {!viewingDevices ? (
@@ -398,6 +416,13 @@ const ListaInstalaciones = () => {
                     <p className={stylesDevices.categoriaDispositivo}>{device.categoria}</p>
                   </div>
                   <div className={stylesDevices.botonesEdicionEliminacion}>
+                    <button 
+                      onClick={() => handleViewLastMaintenance(device._id)} 
+                      className={stylesDevices.botonMantenimiento}
+                      title="Ver último mantenimiento"
+                    >
+                      <WrenchIcon size={20} />
+                    </button>
                     <button onClick={() => handlePrintQR(device)} className={stylesDevices.botonImprimir} id={stylesDevices.botonImprimir}>
                       <Image
                         src="/imprimir.svg"
