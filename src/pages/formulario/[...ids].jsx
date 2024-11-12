@@ -14,26 +14,23 @@ export default function PaginaFormularioDispositivo() {
 
   useEffect(() => {
     async function fetchFormData() {
+      if (!router.isReady) return;
+
+      const pathSegments = router.asPath.split('/');
+      const installationId = pathSegments[2];
+      const deviceId = pathSegments[3];
+
+      if (!installationId || !deviceId) {
+        setIsLoading(false);
+        return;
+      }
+
       try {
-        // Esperar a que el router esté listo y tenga los parámetros
-        if (!router.isReady) return;
-
-        // Obtener el segmento de la URL después de /formulario/
-        const pathSegments = router.asPath.split('/');
-        const installationId = pathSegments[2];
-        const deviceId = pathSegments[3];
-
-        console.log('IDs extraídos:', { installationId, deviceId });
-
-        if (!installationId || !deviceId) {
-          throw new Error('URL inválida. Se requieren IDs de instalación y dispositivo.');
-        }
-
         const data = await getDeviceForm(installationId, deviceId);
         setFormData(data);
       } catch (err) {
         console.error('Error al obtener el formulario:', err);
-        setError(err.message || 'Error al cargar el formulario del dispositivo');
+        setError('Error al cargar el formulario del dispositivo');
       } finally {
         setIsLoading(false);
       }
@@ -44,9 +41,8 @@ export default function PaginaFormularioDispositivo() {
 
   if (isLoading) return <LoadingSpinner />;
   if (error) return <ErrorMessage message={error} />;
-  if (!formData) return <ErrorMessage message="No se encontró el formulario del dispositivo" />;
+  if (!formData) return null;
 
-  // Obtener los IDs de la URL para pasarlos al formulario
   const pathSegments = router.asPath.split('/');
   const installationId = pathSegments[2];
   const deviceId = pathSegments[3];
