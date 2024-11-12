@@ -1,10 +1,12 @@
+const API_BASE_URL = 'https://inelarweb-back.onrender.com/api';
+
 export async function getDeviceForm(installationId, deviceId) {
   if (!installationId || !deviceId) {
     throw new Error('IDs de instalación y dispositivo son requeridos');
   }
 
   try {
-    const url = `https://inelarweb-back.onrender.com/api/instalaciones/${installationId}/dispositivos/${deviceId}/formulario`;
+    const url = `${API_BASE_URL}/instalaciones/${installationId}/dispositivos/${deviceId}/formulario`;
     console.log('Obteniendo formulario desde:', url);
 
     const response = await fetch(url);
@@ -28,7 +30,7 @@ export async function submitMaintenanceForm(installationId, deviceId, formData) 
   }
 
   try {
-    const url = `https://inelarweb-back.onrender.com/api/instalaciones/${installationId}/dispositivos/${deviceId}/mantenimiento`;
+    const url = `${API_BASE_URL}/instalaciones/${installationId}/dispositivos/${deviceId}/mantenimiento`;
     
     const response = await fetch(url, {
       method: 'POST',

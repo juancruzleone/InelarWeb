@@ -31,7 +31,7 @@ export default function FormularioDispositivo({ formData, installationId, device
                 name={field.name}
                 value={formState[field.name] || ''}
                 onChange={handleInputChange}
-                required
+                required={field.required}
                 className={styles.buscadorPanel}
               >
                 <option value="">Seleccione una opción</option>
@@ -45,7 +45,7 @@ export default function FormularioDispositivo({ formData, installationId, device
                 name={field.name}
                 value={formState[field.name] || ''}
                 onChange={handleInputChange}
-                required
+                required={field.required}
                 className={styles.buscadorPanel}
               />
             ) : (
@@ -55,7 +55,7 @@ export default function FormularioDispositivo({ formData, installationId, device
                 name={field.name}
                 value={formState[field.name] || ''}
                 onChange={handleInputChange}
-                required
+                required={field.required}
                 className={styles.buscadorPanel}
               />
             )}
