@@ -9,7 +9,12 @@ export async function getDeviceForm(installationId, deviceId) {
     const url = `${API_BASE_URL}/instalaciones/${installationId}/dispositivos/${deviceId}/formulario`;
     console.log('Obteniendo formulario desde:', url);
 
-    const response = await fetch(url);
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
     
     if (!response.ok) {
       const errorData = await response.json();
@@ -17,7 +22,9 @@ export async function getDeviceForm(installationId, deviceId) {
       throw new Error(errorData.error?.message || 'Error al obtener el formulario del dispositivo');
     }
     
-    return await response.json();
+    const data = await response.json();
+    console.log('Datos del formulario recibidos:', data);
+    return data;
   } catch (error) {
     console.error('Error en getDeviceForm:', error);
     throw error;
@@ -31,6 +38,7 @@ export async function submitMaintenanceForm(installationId, deviceId, formData) 
 
   try {
     const url = `${API_BASE_URL}/instalaciones/${installationId}/dispositivos/${deviceId}/mantenimiento`;
+    console.log('Enviando formulario a:', url);
     
     const response = await fetch(url, {
       method: 'POST',
@@ -45,7 +53,9 @@ export async function submitMaintenanceForm(installationId, deviceId, formData) 
       throw new Error(errorData.error?.message || 'Error al enviar el formulario de mantenimiento');
     }
 
-    return await response.json();
+    const data = await response.json();
+    console.log('Respuesta del servidor:', data);
+    return data;
   } catch (error) {
     console.error('Error en submitMaintenanceForm:', error);
     throw error;
