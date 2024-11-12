@@ -1,4 +1,4 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:2023/api/instalaciones';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://inelarweb-back.onrender.com/api/instalaciones';
 
 const getToken = () => {
   if (typeof window !== 'undefined') {
