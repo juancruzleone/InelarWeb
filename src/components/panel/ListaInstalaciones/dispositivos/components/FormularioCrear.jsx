@@ -19,7 +19,7 @@ const FormularioCrear = ({
         onChange={handleInputChange}
         placeholder="Escribe el nombre del dispositivo"
       />
-      {errors.nombre && <p className={styles.error}>{errors.nombre}</p>}
+      {errors.nombre && <p className={styles.error3}>{errors.nombre}</p>}
       <label htmlFor="ubicacion">Ubicación:</label>
       <input
         type="text"
@@ -29,7 +29,7 @@ const FormularioCrear = ({
         onChange={handleInputChange}
         placeholder="Escribe la ubicación del dispositivo"
       />
-      {errors.ubicacion && <p className={styles.error}>{errors.ubicacion}</p>}
+      {errors.ubicacion && <p className={styles.error3}>{errors.ubicacion}</p>}
       <label htmlFor="categoria">Categoria:</label>
       <select
         id="categoria"
@@ -43,7 +43,7 @@ const FormularioCrear = ({
         <option value="manguera">manguera</option>
         <option value="central">central</option>
       </select>
-      {errors.categoria && <p className={styles.error}>{errors.categoria}</p>}
+      {errors.categoria && <p className={styles.error3}>{errors.categoria}</p>}
       <div className={styles.contenedorBotonesEditar}>
         <button type="submit" className={styles.botonGuardar}>
           Crear
