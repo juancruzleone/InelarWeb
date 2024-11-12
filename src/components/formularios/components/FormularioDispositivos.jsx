@@ -14,15 +14,18 @@ export default function FormularioDispositivo({ formData, installationId, device
   } = useDeviceForm(installationId, deviceId);
 
   return (
-    <div className={styles.ModalPanelDispositivo}>
+    <div>
       <h1 className={styles.tituloPaginasPanel}>{formData.deviceInfo.nombre}</h1>
-      <p className={styles.categoriaDispositivo}>Ubicación: {formData.deviceInfo.ubicacion}</p>
-      <p className={styles.categoriaDispositivo}>Categoría: {formData.deviceInfo.categoria}</p>
+      <div className={styles.contenidoDispositivo}>
+        <p className={styles.ubicacionDispositivo}>Ubicación: {formData.deviceInfo.ubicacion}</p>
+        <p className={styles.categoriaDispositivoFormulario}>{formData.deviceInfo.categoria}</p>
+      </div>
+
       
       <form onSubmit={handleSubmit}>
         {formData.formFields.map(field => (
           <div key={field.name} className={styles.formularioPanel}>
-            <label htmlFor={field.name}>
+            <label htmlFor={field.name} className={styles.posicionamientoLabel}>
               {field.label}
             </label>
             {field.type === 'select' ? (
@@ -63,7 +66,7 @@ export default function FormularioDispositivo({ formData, installationId, device
           </div>
         ))}
         
-        <div className={styles.contenedorBotonesEditar}>
+        <div className={styles.contenedorBotonesFormulario}>
           <button
             type="submit"
             disabled={isSubmitting}
