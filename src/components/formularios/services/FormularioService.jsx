@@ -5,13 +5,13 @@ export async function getDeviceForm(installationId, deviceId) {
 
   try {
     const url = `https://inelarweb-back.onrender.com/api/instalaciones/${installationId}/dispositivos/${deviceId}/formulario`;
-    console.log('Fetching URL:', url); // Para debugging
+    console.log('Obteniendo formulario desde:', url);
 
     const response = await fetch(url);
     
     if (!response.ok) {
       const errorData = await response.json();
-      console.error('API Error:', errorData);
+      console.error('Error de API:', errorData);
       throw new Error(errorData.error?.message || 'Error al obtener el formulario del dispositivo');
     }
     

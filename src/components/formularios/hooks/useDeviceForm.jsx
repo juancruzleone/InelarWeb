@@ -36,7 +36,7 @@ export function useDeviceForm(installationId, deviceId) {
       await submitMaintenanceForm(installationId, deviceId, formState);
       setSubmitSuccess(true);
     } catch (error) {
-      setSubmitError('Error al enviar el formulario');
+      setSubmitError('Error al enviar el formulario: ' + error.message);
     } finally {
       setIsSubmitting(false);
     }

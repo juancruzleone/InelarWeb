@@ -18,7 +18,7 @@ export default function PaginaFormularioDispositivo() {
 
       const { ids } = router.query;
       if (!ids || ids.length !== 2) {
-        setError('URL inválida');
+        setError('URL inválida. Se esperan dos IDs en la ruta.');
         setIsLoading(false);
         return;
       }
@@ -29,8 +29,8 @@ export default function PaginaFormularioDispositivo() {
         const data = await getDeviceForm(installationId, deviceId);
         setFormData(data);
       } catch (err) {
-        console.error('Error fetching form:', err);
-        setError('Error al cargar el formulario del dispositivo');
+        console.error('Error al obtener el formulario:', err);
+        setError(err.message || 'Error al cargar el formulario del dispositivo');
       } finally {
         setIsLoading(false);
       }
