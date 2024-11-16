@@ -130,6 +130,15 @@
   font-size: 20px;
 }
 
+.cantidadContainer{
+  display: flex;
+  justify-content: center;
+}
+
+.cantidadContainer label{
+  color: var(--text-color);
+}
+
 .contenedorProductosRelacionados {
   padding: 20px;
 }
@@ -139,6 +148,7 @@
   font-size: 24px;
   margin-bottom: 20px;
   text-align: center;
+  color: var(--text-color);
 }
 
 .productosRelacionados {
@@ -195,6 +205,16 @@
 
 /* TABLETS */
 @media (min-width: 768px) {
+  .cantidadContainer label{
+    color: var(--text-color);
+  }
+
+  .cantidadContainer{
+    display: flex;
+    justify-content: left;
+    text-align: left;
+  }
+
   .contenedorDetalleProducto {
     flex-direction: row;
     align-items: flex-start;
@@ -233,6 +253,10 @@
 
 /* PC*/
 @media (min-width: 1024px) {
+  .cantidadContainer label{
+    color: var(--text-color);
+  }
+
   .contenedorDescripcionProducto{
     display: block;
     justify-content: center;
