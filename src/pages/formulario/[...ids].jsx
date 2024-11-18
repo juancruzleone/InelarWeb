@@ -11,6 +11,7 @@ export default function PaginaFormularioDispositivo() {
   const [formData, setFormData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
     async function fetchFormData() {
@@ -22,15 +23,29 @@ export default function PaginaFormularioDispositivo() {
 
       if (!installationId || !deviceId) {
         setIsLoading(false);
+        setError('IDs de instalación y dispositivo son requeridos');
         return;
       }
 
       try {
-        const data = await getDeviceForm(installationId, deviceId);
-        setFormData(data);
+        const { data, userRole } = await getDeviceForm(installationId, deviceId);
+        console.log('User role:', userRole);
+        setIsAdmin(userRole === 'admin');
+
+        if (userRole !== 'admin' || data.lastMaintenance) {
+          if (data.lastMaintenance?.pdfUrl) {
+            // Redirigir al usuario al PDF
+            window.location.href = data.lastMaintenance.pdfUrl;
+            return;
+          } else {
+            setError('No se encontró el PDF del último mantenimiento');
+          }
+        } else if (userRole === 'admin') {
+          setFormData(data);
+        }
       } catch (err) {
         console.error('Error al obtener el formulario:', err);
-        setError('Error al cargar el formulario del dispositivo');
+        setError('Error al cargar el formulario del dispositivo: ' + err.message);
       } finally {
         setIsLoading(false);
       }
@@ -41,18 +56,15 @@ export default function PaginaFormularioDispositivo() {
 
   if (isLoading) return <LoadingSpinner />;
   if (error) return <ErrorMessage message={error} />;
-  if (!formData) return null;
-
-  const pathSegments = router.asPath.split('/');
-  const installationId = pathSegments[2];
-  const deviceId = pathSegments[3];
+  if (!isAdmin) return <ErrorMessage message="No tienes permisos para ver este formulario" />;
+  if (!formData) return <ErrorMessage message="No se pudo cargar el formulario" />;
 
   return (
     <div className={styles.formularioPanel}>
       <FormularioDispositivo
         formData={formData}
-        installationId={installationId}
-        deviceId={deviceId}
+        installationId={router.query.ids[0]}
+        deviceId={router.query.ids[1]}
       />
     </div>
   );

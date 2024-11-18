@@ -4,11 +4,31 @@ const getUserData = () => {
   if (typeof window !== 'undefined') {
     const userData = localStorage.getItem('userData');
     if (userData) {
-      return JSON.parse(userData);
+      const parsedUserData = JSON.parse(userData);
+      return {
+        token: parsedUserData.token,
+        role: parsedUserData.cuenta?.role
+      };
     }
   }
   return null;
 };
+
+export async function getLastMaintenance(installationId, deviceId) {
+  try {
+    const url = `${API_BASE_URL}/instalaciones/${installationId}/dispositivos/${deviceId}/ultimo-mantenimiento`;
+    const response = await fetch(url);
+    
+    if (!response.ok) {
+      throw new Error('Error al obtener el último mantenimiento');
+    }
+    
+    return await response.json();
+  } catch (error) {
+    console.error('Error en getLastMaintenance:', error);
+    throw error;
+  }
+}
 
 export async function getDeviceForm(installationId, deviceId) {
   if (!installationId || !deviceId) {
@@ -17,14 +37,18 @@ export async function getDeviceForm(installationId, deviceId) {
 
   try {
     const userData = getUserData();
-    if (!userData || !userData.token) {
-      throw new Error('No se encontró el token de autenticación');
+    
+    // Si no hay userData, el usuario no está logueado, o no es admin, obtener directamente el último mantenimiento
+    if (!userData || !userData.role || userData.role !== 'admin') {
+      const maintenanceData = await getLastMaintenance(installationId, deviceId);
+      return {
+        data: { lastMaintenance: maintenanceData },
+        userRole: userData?.role || 'user'
+      };
     }
 
-    const url = `${API_BASE_URL}/instalaciones/${installationId}/dispositivos/${deviceId}/formulario`;
-    console.log('Obteniendo formulario desde:', url);
-
-    const response = await fetch(url, {
+    // Si es admin, intentar obtener el formulario
+    const response = await fetch(`${API_BASE_URL}/instalaciones/${installationId}/dispositivos/${deviceId}/formulario`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -34,35 +58,19 @@ export async function getDeviceForm(installationId, deviceId) {
     
     if (!response.ok) {
       const errorData = await response.json();
-      console.error('Error de API:', errorData);
       throw new Error(errorData.error?.message || 'Error al obtener el formulario del dispositivo');
     }
     
-    // Si el usuario no es admin, obtener el último mantenimiento
-    if (userData.role !== 'admin') {
-      const lastMaintenanceUrl = `${API_BASE_URL}/instalaciones/${installationId}/dispositivos/${deviceId}/ultimo-mantenimiento`;
-      const maintenanceResponse = await fetch(lastMaintenanceUrl, {
-        headers: {
-          'Authorization': `Bearer ${userData.token}`,
-        },
-      });
-      
-      if (maintenanceResponse.ok) {
-        const maintenanceData = await maintenanceResponse.json();
-        const formData = await response.json();
-        return {
-          ...formData,
-          lastMaintenance: maintenanceData
-        };
-      }
-    }
-    
-    const data = await response.json();
-    console.log('Datos del formulario recibidos:', data);
-    return data;
+    const formData = await response.json();
+    return { data: formData, userRole: userData.role };
   } catch (error) {
     console.error('Error en getDeviceForm:', error);
-    throw error;
+    // Si hay un error de autorización, intentar obtener el último mantenimiento
+    const maintenanceData = await getLastMaintenance(installationId, deviceId);
+    return {
+      data: { lastMaintenance: maintenanceData },
+      userRole: 'user'
+    };
   }
 }
 
@@ -71,16 +79,13 @@ export async function submitMaintenanceForm(installationId, deviceId, formData) 
     throw new Error('IDs de instalación y dispositivo son requeridos');
   }
 
-  try {
-    const userData = getUserData();
-    if (!userData || !userData.token) {
-      throw new Error('No se encontró el token de autenticación');
-    }
+  const userData = getUserData();
+  if (!userData || !userData.token || userData.role !== 'admin') {
+    throw new Error('No tienes permisos para enviar el formulario');
+  }
 
-    const url = `${API_BASE_URL}/instalaciones/${installationId}/dispositivos/${deviceId}/mantenimiento`;
-    console.log('Enviando formulario a:', url);
-    
-    const response = await fetch(url, {
+  try {
+    const response = await fetch(`${API_BASE_URL}/instalaciones/${installationId}/dispositivos/${deviceId}/mantenimiento`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -88,7 +93,7 @@ export async function submitMaintenanceForm(installationId, deviceId, formData) 
       },
       body: JSON.stringify({
         ...formData,
-        userRole: userData.role // Incluir el rol del usuario en los datos del formulario
+        userRole: userData.role
       }),
     });
 
@@ -97,9 +102,7 @@ export async function submitMaintenanceForm(installationId, deviceId, formData) 
       throw new Error(errorData.error?.message || 'Error al enviar el formulario de mantenimiento');
     }
 
-    const data = await response.json();
-    console.log('Respuesta del servidor:', data);
-    return data;
+    return await response.json();
   } catch (error) {
     console.error('Error en submitMaintenanceForm:', error);
     throw error;

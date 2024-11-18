@@ -1,14 +1,11 @@
-// FormularioDispositivo.jsx
 import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Modal from 'react-modal';
 import styles from '@/styles/ListaDispositivos.module.css';
 import modalStyles from '@/styles/DetalleProducto.module.css';
-import { getDeviceForm, submitMaintenanceForm } from '@/components/formularios/services/FormularioService';
+import { submitMaintenanceForm } from '@/components/formularios/services/FormularioService';
 import { validarFormulario } from '@/components/formularios/utils/Validaciones';
 
-// Asegurarse de que Modal sea accesible
 Modal.setAppElement('#__next');
 
 const ModalConfirmacion = ({ isOpen, onRequestClose, mensaje }) => (
@@ -28,44 +25,14 @@ const ModalConfirmacion = ({ isOpen, onRequestClose, mensaje }) => (
   </Modal>
 );
 
-export default function FormularioDispositivo() {
-  const router = useRouter();
-  const [formData, setFormData] = useState(null);
+export default function FormularioDispositivo({ formData, installationId, deviceId }) {
   const [formState, setFormState] = useState({});
   const [errors, setErrors] = useState({});
   const [isFormTouched, setIsFormTouched] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalMessage, setModalMessage] = useState('');
-
-  useEffect(() => {
-    async function fetchFormData() {
-      if (!router.isReady) return;
-
-      const pathSegments = router.asPath.split('/');
-      const installationId = pathSegments[2];
-      const deviceId = pathSegments[3];
-
-      if (!installationId || !deviceId) {
-        setIsLoading(false);
-        return;
-      }
-
-      try {
-        const data = await getDeviceForm(installationId, deviceId);
-        setFormData(data);
-      } catch (err) {
-        console.error('Error al obtener el formulario:', err);
-        setSubmitError('Error al cargar el formulario del dispositivo');
-      } finally {
-        setIsLoading(false);
-      }
-    }
-
-    fetchFormData();
-  }, [router.isReady, router.asPath]);
 
   useEffect(() => {
     if (isFormTouched && formData) {
@@ -96,10 +63,6 @@ export default function FormularioDispositivo() {
     setIsSubmitting(true);
     setSubmitError(null);
 
-    const pathSegments = router.asPath.split('/');
-    const installationId = pathSegments[2];
-    const deviceId = pathSegments[3];
-
     try {
       await submitMaintenanceForm(installationId, deviceId, formState);
       setModalMessage('Formulario enviado con éxito');
@@ -111,9 +74,8 @@ export default function FormularioDispositivo() {
     }
   };
 
-  if (isLoading) return <div>Cargando...</div>;
   if (submitError) return <div>{submitError}</div>;
-  if (!formData) return null;
+  if (!formData) return <div>No hay datos del formulario disponibles</div>;
 
   return (
     <div>
