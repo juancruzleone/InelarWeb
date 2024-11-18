@@ -136,7 +136,7 @@ const ListaClientes = () => {
 
         <div className={styles.contenedorClientes}>
           {loading ? (
-            <p>Cargando clientes...</p>
+            <p id={styles.cargandoClientes}>Cargando clientes...</p>
           ) : filteredClients.length > 0 ? (
             filteredClients.map((client, index) => (
               <div key={index} className={styles.tarjetaProductoPanelClientes}>

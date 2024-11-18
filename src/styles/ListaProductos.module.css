@@ -37,8 +37,10 @@
   padding: 10px;
   font-size: 16px;
   border: none;
-  width: calc(100% - 30px);
-  margin: 20px 15px;
+  width: calc(100% - 0px);
+  margin-top: 10px;
+  margin-bottom: 20px;
+  /*margin: 20px 15px;*/
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
