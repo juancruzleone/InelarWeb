@@ -118,7 +118,7 @@ const ListaProductos = () => {
         )}
         <div className={styles.contenedorClientes}>
           {loading ? (
-            <p>Cargando productos...</p>
+            <p className={styles.loaderProductos}>Cargando productos...</p>
           ) : Array.isArray(filteredProducts) && filteredProducts.length > 0 ? (
             filteredProducts.map((product) => (
               <div key={product._id} className={styles.tarjetaProductoPanelClientes}>

@@ -26,7 +26,7 @@ const ModalEliminarDispositivo = ({ isOpen, onClose, installation, selectedDevic
         isOpen={isOpen}
         onRequestClose={onClose}
         contentLabel="Eliminar Dispositivo"
-        className={`${styles.ModalPanelEditar} ${styles.Modal}`}
+        className={`${styles.ModalPanelEditar} ${styles.ModalPanelEditar}`}
         closeTimeoutMS={1000}
       >
         <h2>Eliminar dispositivo</h2>

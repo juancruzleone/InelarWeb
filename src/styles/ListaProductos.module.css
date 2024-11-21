@@ -1,4 +1,61 @@
 /* MOBILE */
+.loaderProductos{
+  margin-bottom:10px;
+}
+
+.ModalEliminarProducto{
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #121212;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  width: 350px;
+}
+
+.ModalEliminarProducto h2{
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.ModalEliminarProducto .botonEliminarProducto {
+  background-color: red;
+  padding: 6px;
+  border-radius: 4px;
+  margin-right: 10px;
+  font-family: "montserrat", sans-serif;
+  border: 0px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.ModalEliminarProducto .botonCancelarModal {
+  background-color: #2b2b2b;
+  padding: 6px;
+  border-radius: 4px;
+  font-family: "montserrat",sans-serif;
+  border: 0px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+}
+
+.ModalEliminarProducto p{
+  text-align: center;
+  justify-content: center;
+}
+
+.ModalEliminarProducto .contenedorBotonesEditar{
+  display: flex;
+  margin-top: 20px;
+}
+
 .contenedorPagina button{
   border: 0px;
   padding: 3px;
@@ -375,6 +432,10 @@
     padding: 20px;
   }
 
+  .loaderProductos{
+    margin-top: 30px;
+  }
+
   .contenedorPagina button{
     border: 0px;
     padding: 3px;
@@ -501,6 +562,10 @@
     margin-top: 50px;
     margin-bottom: 15px;
     color: #f9bf79;
+  }
+
+  .loaderProductos{
+    margin-top: 10px;
   }
 
   .contenedorCategoria {

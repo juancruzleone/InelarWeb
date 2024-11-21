@@ -1,4 +1,60 @@
 /* MOBILE */
+.loaderDispositivos{
+  margin-left: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.ModalPanelEditar {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #121212;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.ModalPanelEditar h2{
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
+.ModalPanelEditar .contenedorBotonesEditar{
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.ModalPanelEditar .botonEliminarProducto {
+  background-color: red;
+  padding: 6px;
+  border-radius: 4px;
+  margin-right: 10px;
+  font-family: "montserrat", sans-serif;
+  border: 0px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.ModalPanelEditar .botonCancelarModal {
+  background-color: #2b2b2b;
+  padding: 6px;
+  border-radius: 4px;
+  font-family: "montserrat",sans-serif;
+  border: 0px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+}
+
 .botonMantenimiento {
   background: none;
   border: none;
@@ -7,7 +63,10 @@
   transition: color 0.2s;
 }
 
-
+.tarjetaContenido .categoriaDispositivo{
+  text-align: center;
+  justify-content: center;
+}
 
 .posicionamientoLabel{
   margin-left: 20px;
@@ -252,7 +311,7 @@
   background-color: #d9d9d9;
   color: black;
   font-family: "montserrat", sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   width: calc(100% - 30px);
   max-width: 200px;
 }
@@ -829,7 +888,7 @@
     background-color: #d9d9d9;
     color: black;
     font-family: "montserrat", sans-serif;
-    font-weight: 500;
+    font-weight: 600;
     width: 200px;
   }
   
@@ -959,7 +1018,7 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     z-index: 9999;
     width: 400px;
-    height: 410px; 
+    height: 460px;
     max-height: 80vh; 
     overflow: auto; 
   }
@@ -1104,7 +1163,7 @@
 
   .loaderDispositivos {
     text-align: left;
-    margin-top: 12px;
+    margin-top: 20px;
     margin-left: 50px;
   }
 
