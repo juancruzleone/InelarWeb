@@ -1,4 +1,3 @@
-// Register.jsx
 import Head from "next/head";
 import Layout from "@/components/layout/index";
 import Footer from "@/components/Footer";

@@ -15,7 +15,6 @@ export default function VerifyEmail() {
         .then(data => {
           if (data.message) {
             setMessage(data.message);
-            // Intenta iniciar sesión automáticamente
             return fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/cuenta/login`, {
               method: 'POST',
               headers: {
