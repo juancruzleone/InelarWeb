@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Modal from 'react-modal';
 import styles from '@/styles/ListaDispositivos.module.css';
@@ -17,7 +18,13 @@ const ModalConfirmacion = ({ isOpen, onRequestClose, mensaje }) => (
     shouldCloseOnOverlayClick={false}
     closeTimeoutMS={500}
   >
-    <Image src="/tick.svg" alt="Operación realizada correctamente" width={40} height={40} className={modalStyles.tickModal} />
+    <Image
+      src="/tick.svg"
+      alt="Operación realizada correctamente"
+      width={40}
+      height={40}
+      className={modalStyles.tickModal}
+    />
     <p>{mensaje}</p>
     <button onClick={onRequestClose} className={modalStyles.cerrarModalButton}>
       ❌
@@ -33,6 +40,7 @@ export default function FormularioDispositivo({ formData, installationId, device
   const [submitError, setSubmitError] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalMessage, setModalMessage] = useState('');
+  const router = useRouter();
 
   useEffect(() => {
     if (isFormTouched && formData) {
@@ -64,7 +72,13 @@ export default function FormularioDispositivo({ formData, installationId, device
     setSubmitError(null);
 
     try {
-      await submitMaintenanceForm(installationId, deviceId, formState);
+      // Obtener los IDs de la URL
+      const pathSegments = router.asPath.split('/');
+      const urlInstallationId = pathSegments[2];
+      const urlDeviceId = pathSegments[3];
+
+      // Usar los IDs de la URL para el envío
+      await submitMaintenanceForm(urlInstallationId, urlDeviceId, formState);
       setModalMessage('Formulario enviado con éxito');
       setIsModalOpen(true);
     } catch (error) {
@@ -84,7 +98,6 @@ export default function FormularioDispositivo({ formData, installationId, device
         <p className={styles.ubicacionDispositivo}>Ubicación: {formData.deviceInfo.ubicacion}</p>
         <p className={styles.categoriaDispositivoFormulario}>{formData.deviceInfo.categoria}</p>
       </div>
-
       <form onSubmit={handleSubmit}>
         {formData.formFields.map(field => (
           <div key={field.name} className={styles.formularioPanel}>
@@ -130,7 +143,6 @@ export default function FormularioDispositivo({ formData, installationId, device
             )}
           </div>
         ))}
-        
         <div className={styles.contenedorBotonesFormulario}>
           <button
             type="submit"
@@ -141,9 +153,7 @@ export default function FormularioDispositivo({ formData, installationId, device
           </button>
         </div>
       </form>
-
       {submitError && <p className={styles.error}>{submitError}</p>}
-      
       <ModalConfirmacion
         isOpen={isModalOpen}
         onRequestClose={() => setIsModalOpen(false)}
@@ -152,3 +162,4 @@ export default function FormularioDispositivo({ formData, installationId, device
     </div>
   );
 }
+
