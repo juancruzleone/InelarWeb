@@ -28,9 +28,9 @@ const Contacto = () => {
         <link rel="icon" href="/inelar.ico" />
       </Head>
       <div data-theme={theme}>
-        <h1 className={styles.tituloPaginas}>Contacto</h1>
         <div className={styles.posicionContacto}>
           <div className={styles.contenedorFormulario}>
+            <h1 className={styles.tituloPaginas}>Contacto</h1>
             <FormularioContacto onSubmit={openModal} />
           </div>
           <Mapa />

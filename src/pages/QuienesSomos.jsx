@@ -17,7 +17,6 @@ export default function QuienesSomos() {
         <link rel="icon" href="/inelar.ico" />
       </Head>
       <div className={styles.container} data-theme={theme}>
-        <h1 className={styles.tituloPaginas} id={styles.quienesSomos}>Quiénes somos</h1>
         <div className={styles.contenedorSecciones}>
           <div className={styles.contenedorPortada}>
             <div className={styles.imagenQuienesSomos}>
@@ -30,6 +29,7 @@ export default function QuienesSomos() {
               />
             </div>
             <section id={styles.contenedoresQuienesSomos}>
+              <h1 className={styles.tituloPaginas} id={styles.quienesSomos}>Quiénes somos</h1>
               <h2>Nuestra empresa</h2>
               <p>
                 <span>Una empresa líder en el rubro de sistemas automatizados de detección y extinción de incendios</span>. Con obras públicas y privadas a lo largo de Argentina. Contamos con una trayectoria de +50 años.
@@ -82,6 +82,36 @@ export default function QuienesSomos() {
               <p><span>Protegemos lo más importante</span> utilizando los recursos más modernos de la ingeniería y la informática.</p>
             </section>
           </div>
+          <h2 className={styles.subtitulo} id={styles.tituloCertificacion}>Certificaciones</h2> 
+          <div className={styles.posicionContenedorCertificaciones}>
+          <div className={styles.contenedorCertificaciones}>
+            <Image
+              src="/logo-iram2.svg"
+              alt="Logo certificación IRAM"
+              width={120}
+              height={100}
+              layout="responsive"
+            />
+          </div>
+          <div className={styles.contenedorCertificaciones}>
+            <Image
+              src="/logo-nfpa2.svg"
+              alt="Logo certificación NFPA"
+              width={120}
+              height={100}
+              layout="responsive"
+            />
+          </div>
+          <div className={styles.contenedorCertificaciones}>
+            <Image
+              src="/logo-cemera.svg"
+              alt="Logo certificación CEMERA"
+              width={120}
+              height={100}
+              layout="responsive"
+            />
+          </div>
+        </div>
         </div>
       </div>
       <Footer />

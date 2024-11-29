@@ -330,6 +330,7 @@
   cursor: pointer;
 }
 
+
 .tituloPaginasPanel {
   margin: 20px 15px;
   color: #f9bf79;
@@ -503,6 +504,7 @@
   margin: 15px;
   width: calc(100% - 30px);
   font-family: "montserrat", sans-serif;
+  box-shadow: 0 0px 10px white;
 }
 
 .tarjetaProductoPanelDispositivos p {
@@ -1137,8 +1139,20 @@
   
   #botonImprimir {
     background-color: #121212;
-    width: 40px;
+    border: 0px;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
   }
+
+  #botonEditar {
+    background-color: rgb(43, 43, 43);
+    border: 0px;
+    padding: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
 
   .botonesEdicionEliminacion .botonImprimir {
     width: 40px;

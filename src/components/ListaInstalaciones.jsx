@@ -432,7 +432,7 @@ const ListaInstalaciones = () => {
                         height={20}
                       />
                     </button>
-                    <button onClick={() => handleEditDevice(device)} className={stylesDevices.botonEditar}>
+                    <button onClick={() => handleEditDevice(device)} className={stylesDevices.botonEditar}  id={stylesDevices.botonEditar}>
                       <Image
                         src="/editar.svg"
                         alt="Editar"

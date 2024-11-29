@@ -162,6 +162,7 @@
   padding: 15px;
   margin: 15px;
   font-family: "montserrat", sans-serif;
+  box-shadow: 0 0px 10px white;
 }
 
 .contenedorBotonesClientes {

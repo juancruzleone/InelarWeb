@@ -45,6 +45,15 @@ export default function Layout({ children }) {
   return (
     <main data-theme={theme}>
       <nav className={styles.nav}>
+        <Link href="/" className={`${styles.logoContainer} ${styles.hiddenMobileTablet}`}>
+          <Image
+            src="/logo3.svg"
+            alt="Logo Inelar"
+            width={100}
+            height={40}
+            className={styles.logo}
+          />
+        </Link>
         <button className={styles.hamburger} onClick={toggleNav} aria-label="Abrir menú">
           <span></span>
           <span></span>
@@ -62,9 +71,6 @@ export default function Layout({ children }) {
           </Link>
           <Link href="/productos" className={styles.seccionesNav}>
             Productos
-          </Link>
-          <Link href="/certificaciones" className={styles.seccionesNav}>
-            Certificaciones
           </Link>
           <Link href="/contacto" className={styles.seccionesNav}>
             Contacto

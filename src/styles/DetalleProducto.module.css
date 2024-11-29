@@ -19,6 +19,8 @@
   text-align: center;
   margin-top: 30px;
   padding: 0 20px;
+  width: 800px;
+  margin: auto;
 }
 
 .contenedorDescripcionProducto h2 {
@@ -26,6 +28,7 @@
   font-size: 24px;
   margin-bottom: 10px;
   color: var(--text-color);
+  border-bottom: var(--border-color) 6px solid;
 }
 
 .contenedorDescripcionProducto p {
@@ -33,6 +36,7 @@
   font-size: 14px;
   line-height: 1.5;
   color: var(--text-color);
+  text-align: left;
 }
 
 .contenedorDetalleProducto {
@@ -47,7 +51,7 @@
   border-radius: 10px;
   padding: 20px;
   margin-bottom: 20px;
-  box-shadow: 0 0px 4px white;
+  box-shadow: 0 0px 10px white;
 }
 
 .imagenProductoDetalle {
@@ -141,20 +145,23 @@
 
 .contenedorProductosRelacionados {
   padding: 20px;
+  width: 800px;
+  margin: auto;
 }
 
 .contenedorProductosRelacionados h2 {
   font-family: "montserrat", sans-serif;
   font-size: 24px;
   margin-bottom: 20px;
-  text-align: center;
+  text-align: left;
   color: var(--text-color);
+  border-bottom: var(--border-color) 6px solid;
 }
 
 .productosRelacionados {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: left;
   gap: 20px;
 }
 
@@ -165,6 +172,7 @@
   width: 100%;
   max-width: 250px;
   text-align: center;
+  box-shadow: 0 0px 10px white;
 }
 
 .imagenProductoRelacionado {
@@ -291,7 +299,6 @@
     background-color: #121212;
     width: 250px;
     height: 250px;
-    margin-left: 60px;
     border-radius: 20px;
     padding:70px;
     margin-right: 40px;
