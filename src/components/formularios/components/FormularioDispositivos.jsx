@@ -64,6 +64,18 @@ export default function FormularioDispositivo({ formData, installationId, device
     return Object.keys(newErrors).length === 0;
   };
 
+  const closePage = () => {
+    // Intenta cerrar la ventana
+    window.close();
+    
+    // Si la ventana no se cierra (por ejemplo, en Chrome), redirige a una página en blanco
+    setTimeout(() => {
+      if (!window.closed) {
+        window.location.href = 'about:blank';
+      }
+    }, 100);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
@@ -72,15 +84,18 @@ export default function FormularioDispositivo({ formData, installationId, device
     setSubmitError(null);
 
     try {
-      // Obtener los IDs de la URL
       const pathSegments = router.asPath.split('/');
       const urlInstallationId = pathSegments[2];
       const urlDeviceId = pathSegments[3];
 
-      // Usar los IDs de la URL para el envío
       await submitMaintenanceForm(urlInstallationId, urlDeviceId, formState);
-      setModalMessage('Formulario enviado con éxito');
+      setModalMessage('Formulario enviado con éxito. La página se cerrará en breve.');
       setIsModalOpen(true);
+      
+      // Cerrar la página después de 2 segundos
+      setTimeout(() => {
+        closePage();
+      }, 3000);
     } catch (error) {
       setSubmitError('Error al enviar el formulario: ' + error.message);
     } finally {
