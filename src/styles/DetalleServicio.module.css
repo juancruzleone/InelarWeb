@@ -162,6 +162,7 @@
     font-family: "montserrat", sans-serif;
     margin-bottom: 5px;
     margin-top: 40px;
-    color: #C75F00;
+    color: #743800;
+    border-bottom: 1px solid var(--color-border-bottom);
   }
 }

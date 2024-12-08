@@ -46,6 +46,7 @@
   --background-nav: #121212;
   --border-bottom: 1px solid white;
   --color-span: #f9bf79;
+  --color-border-bottom: #fff
 }
 
 [data-theme='light'] {
@@ -88,6 +89,7 @@
   --background-nav: #121212 ;
   --border-bottom: 1px solid #C75F00;
   --color-span: #bb5b01;
+  --color-border-bottom: #121212
 }
 
 @media (prefers-color-scheme: dark) {
