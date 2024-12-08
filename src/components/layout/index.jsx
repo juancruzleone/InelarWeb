@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from 'next/navigation';
 import ModalConfirmacion from "@/components/layout/components/ModalConfirmacion";
 import styles from "@/styles/Nav.module.css";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -13,6 +14,7 @@ export default function Layout({ children }) {
   const [logoutModalIsOpen, setLogoutModalIsOpen] = useState(false);
   const [isNavOpen, setIsNavOpen] = useState(false);
   const { theme } = useTheme();
+  const pathname = usePathname();
 
   useEffect(() => {
     const userData = typeof window !== "undefined" ? JSON.parse(localStorage.getItem("userData")) : null;
@@ -42,6 +44,8 @@ export default function Layout({ children }) {
     setIsNavOpen(!isNavOpen);
   };
 
+  const isActive = (path) => pathname === path;
+
   return (
     <main data-theme={theme}>
       <nav className={styles.nav}>
@@ -60,19 +64,19 @@ export default function Layout({ children }) {
           <span></span>
         </button>
         <div className={`${styles.navLinks} ${isNavOpen ? styles.open : ''}`}>
-          <Link href="/" className={styles.seccionesNav}>
+          <Link href="/" className={`${styles.seccionesNav} ${isActive('/') ? styles.active : ''}`}>
             Inicio
           </Link>
-          <Link href="/quienes-somos" className={styles.seccionesNav}>
+          <Link href="/quienes-somos" className={`${styles.seccionesNav} ${isActive('/quienes-somos') ? styles.active : ''}`}>
             Quiénes somos
           </Link>
-          <Link href="/servicios" className={styles.seccionesNav}>
+          <Link href="/servicios" className={`${styles.seccionesNav} ${isActive('/servicios') ? styles.active : ''}`}>
             Servicios
           </Link>
-          <Link href="/productos" className={styles.seccionesNav}>
+          <Link href="/productos" className={`${styles.seccionesNav} ${isActive('/productos') ? styles.active : ''}`}>
             Productos
           </Link>
-          <Link href="/contacto" className={styles.seccionesNav}>
+          <Link href="/contacto" className={`${styles.seccionesNav} ${isActive('/contacto') ? styles.active : ''}`}>
             Contacto
           </Link>
         </div>
@@ -168,3 +172,4 @@ export default function Layout({ children }) {
     </main>
   );
 }
+
