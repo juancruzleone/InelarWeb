@@ -70,7 +70,6 @@
   .formulario textarea,
   .formulario select {
     padding: 0.9rem;
-    margin-bottom: 1.2rem;
     border: 1px solid #ccc;
     border-radius: 10px;
     background-color: #121212;
@@ -150,7 +149,6 @@
   
     .contenedorContenidoServicio select{
       padding: 10px;
-      /*margin-bottom: 10px;*/
     }
   
     .textoSolicitudServicios{
