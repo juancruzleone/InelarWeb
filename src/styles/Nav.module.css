@@ -147,6 +147,10 @@
 
 /* LARGE TABLETS AND DESKTOPS */
 @media (min-width: 1100px) {
+  .logo{
+    margin-left: -20px;
+  }
+
   .nav {
     padding-left: 28px;
   }

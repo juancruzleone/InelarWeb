@@ -641,19 +641,20 @@
     margin-bottom: 80px;
   }
 
-  .posicionServicios{
+  .posicionServicios {
     display: flex;
-    justify-content: center;
-    text-align: center;
-    margin-top: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 20px;
   }
 
   .cajaServicios {
+    flex: 0 0 calc(25% - 15px);
+    max-width: calc(25% - 15px);
+    margin: 0;
     background-color: #121212;
     border-radius: 20px;
-    width: 300px;
     height: 240px;
-    margin: 20px;
     position: relative;
     overflow: hidden;
   }
@@ -1082,6 +1083,25 @@
     padding: 0px;
     width: 600px;
     height: 700px;
+  }
+
+  .posicionServicios{
+    width: 80%;
+    margin: auto;
+  }
+}
+
+@media (max-width: 1200px) {
+  .cajaServicios {
+    flex: 0 0 calc(33.333% - 13.333px);
+    max-width: calc(33.333% - 13.333px);
+  }
+}
+
+@media (max-width: 900px) {
+  .cajaServicios {
+    flex: 0 0 calc(50% - 10px);
+    max-width: calc(50% - 10px);
   }
 }
 
