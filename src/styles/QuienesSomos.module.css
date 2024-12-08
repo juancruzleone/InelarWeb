@@ -128,10 +128,9 @@
 }
 
 .posicionContenedorCertificaciones {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   margin-top: 50px;
 }
 
@@ -142,7 +141,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  aspect-ratio: 1 / 1;
+  width: 120px;
+  height: 120px;
+  margin-bottom: 20px;
 }
 
 .contenedorCertificaciones img {
@@ -158,9 +159,14 @@
   }
 
   .posicionContenedorCertificaciones {
-    grid-template-columns: repeat(3, 1fr);
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 30px;
     margin-top: 30px;
+  }
+
+  .contenedorCertificaciones {
+    margin-bottom: 0;
   }
 
   .tituloPaginas {
@@ -217,16 +223,14 @@
   }
 
   .posicionContenedorCertificaciones {
-    display: flex;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: flex-start;
     margin-top: 40px;
   }
 
   .contenedorCertificaciones {
-    margin: 10px;
-    width: 120px;
-    height: 120px;
-    aspect-ratio: auto;
+    margin-right: 20px;
+    margin-bottom: 0;
   }
 
   .tituloPaginas {
@@ -291,3 +295,4 @@
     font-size: 1.5rem;
   }
 }
+

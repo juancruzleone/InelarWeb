@@ -29,6 +29,7 @@
   margin-bottom: 10px;
   color: var(--text-color);
   border-bottom: var(--border-color) 6px solid;
+  text-align: left;
 }
 
 .contenedorDescripcionProducto p {
