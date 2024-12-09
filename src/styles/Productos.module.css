@@ -122,6 +122,10 @@
   font-weight: 600;
 }
 
+.botonVerMas:hover{
+  background-color: #f57600;
+}
+
 /* TABLETS */
 @media (min-width: 768px) {
   .tituloPaginas {
