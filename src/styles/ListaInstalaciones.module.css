@@ -1,4 +1,62 @@
 /* MOBILE */
+.ModalPanelEditar {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #121212;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  height: 210px;
+  width: 90%;
+}
+
+.ModalPanelEditar .contenedorBotonesEditar{
+  margin: auto;
+}
+
+.ModalPanelEditar .botonEliminarProducto {
+  background-color: #C75F00;
+  padding: 6px;
+  border-radius: 4px;
+  margin-right: 10px;
+  font-family: "montserrat", sans-serif;
+  border: 0px;
+  cursor: pointer;
+  color: #121212;
+  font-weight: 600;
+}
+
+.ModalPanelEditar .botonCancelarModal {
+  background-color: #2b2b2b;
+  padding: 6px;
+  border-radius: 4px;
+  font-family: "montserrat",sans-serif;
+  border: 0px;
+  cursor: pointer;
+  color: white;
+}
+
+.ModalPanelEditar h2{
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.ModalPanelEditar .textoEliminarCliente{
+  margin-top: 20px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.confirmationMessage{
+  margin-bottom: 20px;
+}
+
 .tituloPaginasPanel {
   margin: 20px 15px;
   color: #f9bf79;
@@ -310,6 +368,7 @@
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   z-index: 9999;
   height: 180px;
+  width: 80%;
 }
 
 .Modal p {
@@ -335,6 +394,10 @@
 
 .Modal .botonGuardar{
   background-color: #C75F00;
+}
+
+.Modal .confirmationMessage{
+  text-align: center;
 }
 
 .Modal h2 {
@@ -371,6 +434,48 @@
 
 /* TABLETS */
 @media (min-width: 768px) {
+  .ModalPanelEditar {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #121212;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    height: 200px;
+    width: 50%;
+  }
+  
+  .ModalPanelEditar .botonEliminarProducto {
+    background-color: #C75F00;
+    padding: 6px;
+    border-radius: 4px;
+    margin-right: 10px;
+    font-family: "montserrat", sans-serif;
+    border: 0px;
+    cursor: pointer;
+    color: #121212;
+    font-weight: 600;
+  }
+  
+  .ModalPanelEditar .botonCancelarModal {
+    background-color: #2b2b2b;
+    padding: 6px;
+    border-radius: 4px;
+    font-family: "montserrat",sans-serif;
+    border: 0px;
+    cursor: pointer;
+    color: white;
+  }
+
+  .Modal{
+    width: 40%;
+  }
+
   .botonCrearModal {
     width: 200px;
     font-weight: 600;
@@ -533,6 +638,10 @@
 
 /* PC */
 @media (min-width: 1024px) {
+  .Modal{
+    width: 20%;
+  }
+
   .tituloPaginasPanel {
     margin-left: 50px;
     margin-top: 50px;
@@ -1031,7 +1140,8 @@
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     z-index: 9999;
-    height: 180px
+    height: 220px;
+    width: 30%;
   }
   
   .ModalPanelEditar .botonEliminarProducto {

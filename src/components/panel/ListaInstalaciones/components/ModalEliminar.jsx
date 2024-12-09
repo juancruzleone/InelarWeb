@@ -8,7 +8,7 @@ const ModalEliminarInstalacion = ({ isOpen, onRequestClose, onConfirm, isDeletin
       isOpen={isOpen}
       onRequestClose={onRequestClose}
       contentLabel="Eliminar Instalación"
-      className={`${styles.ModalPanelEditar} ${styles.Modal}`}
+      className={`${styles.ModalPanelEditar}`}
       shouldCloseOnOverlayClick={false}
       closeTimeoutMS={500}
     >
