@@ -11,7 +11,7 @@ const ModalConfirmacion = ({ isOpen, onRequestClose, mensaje }) => (
     closeTimeoutMS={500}
   >
     <Image src="/tick.svg" alt="Operación realizada correctamente" width={40} height={40} className={styles.tickModal} />
-    <p>{mensaje}</p>
+    <p className={styles.mensaje}>{mensaje}</p>
     <button onClick={onRequestClose} className={styles.cerrarModalButton}>
       ❌
     </button>

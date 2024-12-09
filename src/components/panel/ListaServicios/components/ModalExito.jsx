@@ -1,6 +1,6 @@
 import Modal from "react-modal";
 import Image from "next/image";
-import styles from "@/styles/ListaOrdenes.module.css";
+import styles from "@/styles/ListaServicios.module.css";
 
 const ModalExito = ({ isOpen, onClose, message }) => {
   return (

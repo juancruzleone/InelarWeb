@@ -25,7 +25,7 @@
 }
 
 .ModalEliminarProducto .botonEliminarProducto {
-  background-color: red;
+  background-color: #C75F00;
   padding: 6px;
   border-radius: 4px;
   margin-right: 10px;
@@ -33,6 +33,7 @@
   border: 0px;
   cursor: pointer;
   font-weight: 600;
+  color: #121212;
 }
 
 .ModalEliminarProducto .botonCancelarModal {
@@ -280,7 +281,7 @@
 }
 
 .Modal .botonEliminarProducto{
-  background-color: red;
+  background-color: #C75F00;
   padding: 6px;
   border-radius: 4px;
   font-family: "montserrat",sans-serif;
@@ -288,7 +289,7 @@
   cursor: pointer;
   width: 100px;
   height: 30px;
-  color: white;
+  color: #121212;
   margin-right: 15px;
   font-weight: 600;
  }
@@ -343,7 +344,7 @@
 }
 
 .ModalExito .botonEliminarProducto{
-  background-color: red;
+  background-color: #C75F00;
   padding: 6px;
   border-radius: 4px;
   font-family: "montserrat",sans-serif;
@@ -351,7 +352,7 @@
   cursor: pointer;
   width: 100px;
   height: 30px;
-  color: white;
+  color: #121212;
   margin-right: 15px;
  }
 
@@ -452,7 +453,7 @@
   }
   
   .Modal .botonEliminarProducto{
-    background-color: red;
+    background-color: #C75F00;
     padding: 6px;
     border-radius: 4px;
     font-family: "montserrat",sans-serif;
@@ -460,7 +461,7 @@
     cursor: pointer;
     width: 100px;
     height: 30px;
-    color: white;
+    color: #121212;
     margin-right: 15px;
    }
 
@@ -926,7 +927,7 @@
   }
   
   .ModalPanelEditar .botonEliminarProducto{
-    background-color: red;
+    background-color: #C75F00;
     padding:  6px;
     border-radius: 4px;
     margin-right: 10px;
@@ -950,7 +951,7 @@
   }
   
   .ModalPanelEditar .botonEliminarProducto{
-    background-color: red;
+    background-color: #C75F00;
     padding: 6px;
     border-radius: 4px;
     font-family: "montserrat",sans-serif;
@@ -1032,7 +1033,7 @@
    }
 
    .Modal .botonEliminarProducto{
-    background-color: red;
+    background-color: #C75F00;
     padding: 6px;
     border-radius: 4px;
     font-family: "montserrat",sans-serif;
@@ -1040,7 +1041,7 @@
     cursor: pointer;
     width: 100px;
     height: 30px;
-    color: white;
+    color: #121212;
     margin-right: 15px;
    }
 }

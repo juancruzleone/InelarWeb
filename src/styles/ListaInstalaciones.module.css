@@ -286,8 +286,8 @@
 }
 
 .ModalPanelCrear .contenedorBotonesEditar button{
-  width: 120px;
-  height: 35px;
+  width: 100px;
+  height: 30px;
   color: #121212;
 }
 
@@ -978,10 +978,11 @@
   .ModalPanelCrear button {
     background-color: #C75F00;
     border: 0px;
-    padding: 8px;
+    padding: 6px;
     border-radius: 4px;
     width: 100px;
     margin-right: 15px;
+    font-weight: 600;
   }
 
   #botonCancelar {
@@ -1026,13 +1027,15 @@
   }
   
   .ModalPanelEditar .botonEliminarProducto {
-    background-color: red;
+    background-color: #C75F00;
     padding: 6px;
     border-radius: 4px;
     margin-right: 10px;
     font-family: "montserrat", sans-serif;
     border: 0px;
     cursor: pointer;
+    color: #121212;
+    font-weight: 600;
   }
   
   .ModalPanelEditar .botonCancelarModal {
@@ -1051,7 +1054,7 @@
   }
 
   .Modal .botonEliminarProducto {
-    background-color: red;
+    background-color: #C75F00;
     padding: 6px;
     border-radius: 4px;
     margin-right: 10px;

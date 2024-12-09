@@ -1,9 +1,50 @@
 /* MOBILE */
+.ModalExito {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #121212;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  width: 90%;
+  max-width: 400px;
+}
+
+.ModalExito p {
+  font-family: "montserrat", sans-serif;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.ModalExito button {
+  background-color: transparent;
+  border: 0px;
+  cursor: pointer;
+  align-self: center;
+}
+
+.ModalExito .cerrarModalButton {
+  margin-top: 20px;
+}
+
+.tickModal {
+  display: block;
+  margin: 0 auto;
+}
+
+
 .filtroSelect {
   padding: 0.5rem;
   border-radius: 4px;
   border: 1px solid #ccc;
   background-color: #121212;
+  color: white;
 }
 
 
