@@ -64,6 +64,30 @@
   display: flex;
 }
 
+.ModalVaciar, .Modal {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #121212;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  width: 90%;
+  max-width: 300px;
+}
+
+.ModalVaciar {
+  height: 220px;
+}
+
+.ModalVaciar .contenedorBotonesModalVaciar{
+  display: flex;
+}
+
 .Modal {
   height: 180px;
 }
@@ -92,12 +116,14 @@
 .contenedorBotonesModalVaciar .botonConfirmar {
   background-color: red;
   color: white;
+  font-weight: 600;
 }
 
 .contenedorBotonesModalVaciar .botonCancelar,
 .contenedorBotonesModalVaciar .botonCancelarModal {
   background-color: #2B2B2B;
   color: white;
+  font-weight: 600;
 }
 
 .Modal p {
@@ -301,6 +327,10 @@
     max-width: 400px;
   }
 
+  .ModalVaciar, .Modal {
+    max-width: 400px;
+  }
+
   .tituloPaginas {
     font-size: 36px;
     margin-top: 60px;
@@ -397,6 +427,21 @@
     height: 220px;
   }
 
+  .ModalVaciar {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #121212;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    height: 190px;
+  }
+
   .Modal .tituloModalConfirm{
     margin-top: 25px;
   }
@@ -412,25 +457,27 @@
   }
   
   .contenedorBotonesModalVaciar .botonConfirmarModal{
-    background-color: red;
+    background-color: #C75F00;
     padding: 6px;
     border-radius: 4px;
     margin-right: 10px;
     font-family: "montserrat", sans-serif;
     border: 0px;
     cursor: pointer;
-    color: white;
+    color: #121212;
+    font-weight: 600;
   }
   
   .contenedorBotonesModalVaciar .botonConfirmar{
-    background-color: red;
+    background-color: #C75F00;
     padding: 6px;
     border-radius: 4px;
     margin-right: 10px;
     font-family: "montserrat", sans-serif;
     border: 0px;
     cursor: pointer;
-    color: white;
+    color: #121212;
+    font-weight: 600;
   }
   
   .Modal .tituloModalConfirm{

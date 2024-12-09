@@ -20,8 +20,7 @@
   flex-direction: column;
 }
 
-.contenedorCategoriasProductos,
-.contenedorCategorias {
+.contenedorCategoriasProductos {
   background-color: #121212;
   border-radius: 4px;
   margin-top: 30px;
@@ -194,10 +193,10 @@
   }
   
   .contenedorCategorias{
-    background-color: #121212;
     border-radius: 4px;
     height: 300px;
     margin-right: 60px;
+    margin-left: -15px;
   }
   
   .contenedorCategorias button{
@@ -343,6 +342,6 @@
 
   .tituloPaginas {
     margin-top: 80px;
-    margin-left: 50px;
+    margin-left: 32px;
   }
 }

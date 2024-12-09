@@ -745,15 +745,16 @@
     float: right;
     cursor: pointer;
     background-color: black;
-    color: white;
+    color: #f9bf79;
     border: none;
     outline: none;
     width: 30px;
+    height: 30px;
     border-radius: 50px;
   }
 
   .toggleButton:hover {
-    color: gray;
+    color: #C75F00;
   }
 
   #pregunta {

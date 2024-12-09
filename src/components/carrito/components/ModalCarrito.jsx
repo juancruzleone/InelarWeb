@@ -19,7 +19,7 @@ const CarritoModal = ({ modalState, setModalState, action, handleConfirmAction, 
       </Modal>
       <Modal
         isOpen={modalState.confirmOpen}
-        className={styles.ModalCheckout}
+        className={styles.ModalVaciar}
         onRequestClose={() => closeModal('confirmOpen')}
         contentLabel="Confirmar acción"
       >
@@ -37,7 +37,7 @@ const CarritoModal = ({ modalState, setModalState, action, handleConfirmAction, 
       >
         <h2 className={styles.tituloModalConfirm}>¿Estás seguro de que quieres eliminar este producto del carrito?</h2>
         <div className={styles.contenedorBotonesModalVaciar}>
-          <button className={styles.botonConfirmarModal} onClick={confirmRemoveProduct}>Confirmar</button>
+          <button className={styles.botonConfirmarModal} id={styles.botonConfirmarModal} onClick={confirmRemoveProduct}>Confirmar</button>
           <button className={styles.botonCancelarModal} onClick={() => closeModal('deleteOpen')}>Cancelar</button>
         </div>
       </Modal>
