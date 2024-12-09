@@ -966,7 +966,15 @@
   }
   
   .ModalPanelCrear h2 {
-    margin-top: 20px;
+    margin-top: -5px;
+  }
+
+  #primerLabel{
+    margin-top: 40px;
+  }
+
+  .selectEditarInstalacion{
+    margin-bottom: 5px;
   }
 
   .ModalPanelCrear input {

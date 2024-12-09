@@ -56,7 +56,7 @@ const ModalEditar = ({
         isOpen={isOpen}
         onRequestClose={onClose}
         contentLabel="Editar Dispositivo"
-        className={`${styles.ModalPanelDispositivo} ${styles.Modal}`}
+        className={`${styles.ModalPanelDispositivo}`}
         closeTimeoutMS={500}
         shouldCloseOnOverlayClick={false}
       >

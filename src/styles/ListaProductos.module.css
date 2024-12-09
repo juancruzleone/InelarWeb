@@ -15,7 +15,7 @@
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   z-index: 9999;
-  width: 350px;
+  width: 90%;
 }
 
 .ModalEliminarProducto h2{
@@ -24,27 +24,30 @@
   margin-bottom: 20px;
 }
 
-.ModalEliminarProducto .botonEliminarProducto {
-  background-color: #C75F00;
+.ModalEliminarProducto .botonEliminarProducto,
+.ModalEliminarProducto .botonCancelarModal {
+  width: 100px;
+  height: 30px;
   padding: 6px;
   border-radius: 4px;
-  margin-right: 10px;
   font-family: "montserrat", sans-serif;
-  border: 0px;
+  border: 0;
   cursor: pointer;
   font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ModalEliminarProducto .botonEliminarProducto {
+  background-color: #C75F00;
   color: #121212;
+  margin-right: 15px;
 }
 
 .ModalEliminarProducto .botonCancelarModal {
   background-color: #2b2b2b;
-  padding: 6px;
-  border-radius: 4px;
-  font-family: "montserrat",sans-serif;
-  border: 0px;
-  cursor: pointer;
   color: white;
-  font-weight: 600;
 }
 
 .ModalEliminarProducto p{
@@ -54,6 +57,7 @@
 
 .ModalEliminarProducto .contenedorBotonesEditar{
   display: flex;
+  justify-content: center;
   margin-top: 20px;
 }
 
@@ -63,7 +67,6 @@
   font-family: "montserrat", sans-serif;
   border-radius: 4px;
   margin-right: 10px;
-
 }
 
 .contenedorPagina .botonCrearModal{
@@ -85,7 +88,6 @@
 .ModalPanelCrear h2{
   text-align: center;
   margin-top: 10px;
-  margin-bottom: 10px;
 }
 
 .selectCategoria {
@@ -118,7 +120,6 @@
   background-color: #ffffff;
   color: #000000;
 }
-
 
 .botonCrearModal {
   width: 100%;
@@ -180,6 +181,9 @@
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 0px 10px white;
+  margin-top: 20px;
+  margin: auto;
+  margin-bottom: 30px;
 }
 
 .tarjetaProductoPanelClientes h3 {
@@ -220,7 +224,6 @@
 .formularioPanel select,
 .formularioPanel textarea {
   padding: 8px;
-  margin-bottom: 10px;
   border-radius: 4px;
   border: 1px solid #ccc;
 }
@@ -429,6 +432,22 @@
 
 /* TABLETS */
 @media (min-width: 768px) {
+  .ModalEliminarProducto{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #121212;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    width: 70%;
+  }
+  
+
   .contenedorPagina {
     padding: 20px;
   }
@@ -744,9 +763,6 @@
     border-radius: 4px;
   }
   
-  .formularioPanel label{
-    margin-top: 15px;
-  }
   
   .formularioPanel .categoria{
     margin-top: 15px;
@@ -999,7 +1015,7 @@
   }
   
   #labelNombre{
-    margin-top: 0px;
+    margin-margin-top: 0px;
   }
   
   .contenedorBotonesModal {
@@ -1044,4 +1060,55 @@
     color: #121212;
     margin-right: 15px;
    }
+
+
+   .ModalEliminarProducto{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #121212;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    width: 50%;
+  }
+  
+
+.ModalEliminarProducto .botonEliminarProducto,
+.ModalEliminarProducto .botonCancelarModal {
+  width: 100px;
+  height: 30px;
+  padding: 6px;
+  border-radius: 4px;
+  font-family: "montserrat", sans-serif;
+  border: 0;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.ModalEliminarProducto .botonEliminarProducto {
+  background-color: #C75F00;
+  color: #121212;
+  margin-right: 15px;
+}
+
+.ModalEliminarProducto .botonCancelarModal {
+  background-color: #2b2b2b;
+  color: white;
+}
+
+.ModalEliminarProducto .contenedorBotonesEditar {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+}
+

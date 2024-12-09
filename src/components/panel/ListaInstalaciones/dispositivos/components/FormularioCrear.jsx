@@ -9,7 +9,7 @@ const FormularioCrear = ({
   handleInputChange
 }) => {
   return (
-    <form onSubmit={handleSubmit} className={styles.formularioPanel}>
+    <form onSubmit={handleSubmit} className={styles.formularioPanel} id={styles.formularioCrearDispositivo}>
       <label htmlFor="nombre">Nombre:</label>
       <input
         type="text"
@@ -36,6 +36,7 @@ const FormularioCrear = ({
         name="categoria"
         value={newDevice.categoria}
         onChange={handleInputChange}
+        className={styles.selectCrearDispositivo}
       >
         <option value="">Seleccione una categoria</option>
         <option value="detector">detector</option>

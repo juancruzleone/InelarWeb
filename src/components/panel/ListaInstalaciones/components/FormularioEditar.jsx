@@ -30,7 +30,7 @@ const FormularioEditar = ({
   return (
     <form onSubmit={handleSubmit} className={styles.formularioPanel}>
       <h2>Editar Instalación</h2>
-      <label htmlFor="company">Empresa</label>
+      <label htmlFor="company" id={styles.primerLabel}>Empresa</label>
       <input
         type="text"
         id="company"
@@ -97,6 +97,7 @@ const FormularioEditar = ({
         value={selectedInstallation.installationType || ''}
         onChange={handleChange}
         placeholder="Seleccion un tipo de instalación"
+        className={styles.selectEditarInstalacion}
       >
         <option value="">Seleccione un tipo</option>
         {Array.isArray(categories) && categories.map((category, index) => (

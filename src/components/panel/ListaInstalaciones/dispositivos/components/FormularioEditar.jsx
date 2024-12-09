@@ -38,6 +38,7 @@ const FormularioEditar = ({
         name="categoria"
         value={selectedDevice.categoria || ''}
         onChange={handleEditInputChange}
+        className={styles.selectEditarDispositivo}
       >
         <option value="">Seleccione un categoria</option>
         <option value="detector">detector</option>
