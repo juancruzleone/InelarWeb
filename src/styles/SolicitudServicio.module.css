@@ -1,27 +1,184 @@
 /* MOBILE */
 .contenedorContenidoServicio {
-    margin-top: 40px;
-    padding: 20px;
+  margin-top: 40px;
+  padding: 20px;
+}
+
+.textoSolicitudServicios {
+  font-family: "montserrat", sans-serif;
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--text-color);
+}
+
+.tituloSolicitudServicio {
+  font-family: "montserrat", sans-serif;
+  font-size: 28px;
+  text-align: center;
+  margin-top: 40px;
+  font-weight: 600;
+  color: #C75F00;
+}
+
+.Modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #121212;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  width: 90%;
+  max-width: 300px;
+}
+
+.Modal p {
+  font-family: "montserrat", sans-serif;
+  font-weight: 300;
+  text-align: center;
+}
+
+.Modal button {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  display: block;
+  margin: 20px auto 0;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 300px;
+  margin: auto;
+  margin-bottom: 60px;
+}
+
+.formulario label {
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  font-weight: bold;
+  font-family: "montserrat", sans-serif;
+  color: var(--text-color);
+}
+
+.formulario input,
+.formulario textarea,
+.formulario select {
+  padding: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #121212;
+  color: white;
+  font-family: "montserrat", sans-serif;
+  width: 100%;
+}
+
+.formulario input:focus,
+.formulario textarea:focus,
+.formulario select:focus {
+  outline: none;
+  border-color: #f9bf79; /* Nuevo color naranja */
+  box-shadow: 0 0 0 2px rgba(249, 191, 121, 0.2); /* Sombreado ajustado al nuevo color */
+}
+
+.formulario select {
+  height: 47px;
+}
+
+.botonSolicitudServicio {
+  font-family: "montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 0.6rem 1rem;
+  background-color: #f57600;
+  color: #121212;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.errorServicios {
+  color: #e74c3c;
+  font-size: 0.9rem;
+  padding-left: 4px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.tickModal {
+  display: block;
+  margin: 20px auto;
+}
+
+/* TABLETS */
+@media (min-width: 768px) {
+  .contenedorContenidoServicio {
+    margin-top: 60px;
+    padding: 40px;
   }
-  
+
   .textoSolicitudServicios {
-    font-family: "montserrat", sans-serif;
-    font-size: 16px;
-    text-align: center;
-    margin-bottom: 30px;
-    color: var(--text-color);
+    font-size: 17px;
   }
-  
+
   .tituloSolicitudServicio {
+    font-size: 36px;
+    margin-top: 60px;
+  }
+
+  .formulario {
+    max-width: 400px;
+  }
+}
+
+/* PC */
+@media (min-width: 1024px) {
+  .contenedorContenidoServicio{
+    margin-top: 100px;
+    padding: 60px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+
+  .contenedorContenidoServicio{
+    margin-bottom: -50px;
+  }
+
+  .contenedorContenidoServicio select{
+    padding: 10px;
+  }
+
+  .textoSolicitudServicios{
     font-family: "montserrat", sans-serif;
-    font-size: 28px;
+    font-size: 18px;
     text-align: center;
-    margin-top: 40px;
+    margin-top: -50px;
+    margin-bottom: 40px;
+  }
+
+  .tituloSolicitudServicio{
+    font-family: "montserrat", sans-serif;
+    font-size: 42px;
+    text-align: center;
+    margin-top: 80px;
     font-weight: 600;
     color: #C75F00;
   }
-  
+
   .Modal {
+    display: flex;
+    flex-direction: column;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -31,31 +188,60 @@
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     z-index: 9999;
-    width: 90%;
-    max-width: 300px;
+    height: 180px;
   }
   
-  .Modal p {
+  .Modal p{
     font-family: "montserrat", sans-serif;
     font-weight: 300;
+  }
+  
+  .Modal a{
+    font-family: "montserrat", sans-serif;
+    margin-left: 70px;
+    margin-top:20px;
+    text-decoration: underline;
+  }
+  
+  .Modal button{
+    background-color: transparent;
+    margin-top:20px;
+    border: 0px
+  }
+  
+  .Modal h2 {
+    font-family: "montserrat", sans-serif;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .Modal .modalContent{
+    margin-top: 10px;
+  }
+
+  .Modal .modalContent img{
+    margin-bottom: 20px;
+  }
+  
+
+  .Modal .cerrarModalButton{
+    cursor: pointer;
+    display: flex;
+    margin: auto;
+    justify-content: center;
     text-align: center;
   }
-  
-  .Modal button {
-    background-color: transparent;
-    border: 0;
-    cursor: pointer;
-    display: block;
-    margin: 20px auto 0;
-  }
-  
+
   .formulario {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    max-width: 300px;
+    width: 3000px;
+    max-width: 400px;
     margin: auto;
-    margin-bottom: 60px;
+    margin-bottom: 140px;
   }
   
   .formulario label {
@@ -63,28 +249,45 @@
     margin-top: 1rem;
     font-weight: bold;
     font-family: "montserrat", sans-serif;
-    color: var(--text-color);
   }
   
   .formulario input,
-  .formulario textarea,
-  .formulario select {
+  .formulario textarea {
     padding: 0.9rem;
+    margin-bottom: 1.2rem;
+    margin-bottom: 0px;
     border: 1px solid #ccc;
     border-radius: 10px;
     background-color: #121212;
     color: white;
     font-family: "montserrat", sans-serif;
-    width: 100%;
   }
   
-  .formulario select {
+  .formulario select{
+    font-family: "montserrat", sans-serif;
+    border-radius: 10px;
     height: 47px;
   }
   
-  .botonSolicitudServicio {
+  .formulario .botonSolicitudServicio {
     font-family: "montserrat", sans-serif;
     font-weight: 600;
+    font-size: 16px;
+    padding: 0.6rem 1rem;
+    background-color: #f57600;
+    color: #121212 ;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .formulario .botonSolicitudServicio:hover {
+    background-color: #C75F00;
+  }
+
+  .botonSolicitudServicio{
+    font-family: "montserrat", sans-serif;
+    font-weight: 500;
     font-size: 16px;
     padding: 0.6rem 1rem;
     background-color: #f57600;
@@ -92,228 +295,34 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    width: 100%;
+  }
+
+  .formulario .botonSolicitudServicio{
     margin-top: 15px;
   }
   
-  .errorServicios {
-    color: #e74c3c;
-    font-size: 0.9rem;
-    padding-left: 4px;
+  .botonSolicitudServicio{
+    color: #121212;
     font-weight: 500;
-    white-space: nowrap;
-    overflow: hidden;
+  }
+
+  .errorServicios {
+    color: #e74c3c; 
+    font-size: 0.9rem; 
+    padding-left: 4px; 
+    font-weight: 500; 
+    white-space: nowrap;      
+    overflow: hidden;         
     text-overflow: ellipsis;
     margin-top: 10px;
     text-align: left;
   }
-  
-  .tickModal {
-    display: block;
-    margin: 20px auto;
+
+  .tickModal{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
   }
-  
-  /* TABLETS */
-  @media (min-width: 768px) {
-    .contenedorContenidoServicio {
-      margin-top: 60px;
-      padding: 40px;
-    }
-  
-    .textoSolicitudServicios {
-      font-size: 17px;
-    }
-  
-    .tituloSolicitudServicio {
-      font-size: 36px;
-      margin-top: 60px;
-    }
-  
-    .formulario {
-      max-width: 400px;
-    }
-  }
-  
-  /* PC */
-  @media (min-width: 1024px) {
-    .contenedorContenidoServicio{
-      margin-top: 100px;
-      padding: 60px;
-      padding-top: 0px;
-      padding-bottom: 0px;
-    }
-  
-    .contenedorContenidoServicio{
-      margin-bottom: -50px;
-    }
-  
-    .contenedorContenidoServicio select{
-      padding: 10px;
-    }
-  
-    .textoSolicitudServicios{
-      font-family: "montserrat", sans-serif;
-      font-size: 18px;
-      text-align: center;
-      margin-top: -50px;
-      margin-bottom: 40px;
-    }
-  
-    .tituloSolicitudServicio{
-      font-family: "montserrat", sans-serif;
-      font-size: 42px;
-      text-align: center;
-      margin-top: 80px;
-      font-weight: 600;
-      color: #C75F00;
-    }
-  
-    .Modal {
-      display: flex;
-      flex-direction: column;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #121212;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-      z-index: 9999;
-      height: 180px;
-    }
-    
-    .Modal p{
-      font-family: "montserrat", sans-serif;
-      font-weight: 300;
-    }
-    
-    .Modal a{
-      font-family: "montserrat", sans-serif;
-      margin-left: 70px;
-      margin-top:20px;
-      text-decoration: underline;
-    }
-    
-    .Modal button{
-      background-color: transparent;
-      margin-top:20px;
-      border: 0px
-    }
-    
-    .Modal h2 {
-      font-family: "montserrat", sans-serif;
-      margin-top: 10px;
-      margin-bottom: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    
-    .Modal .modalContent{
-      margin-top: 10px;
-    }
-  
-    .Modal .modalContent img{
-      margin-bottom: 20px;
-    }
-    
-  
-    .Modal .cerrarModalButton{
-      cursor: pointer;
-      display: flex;
-      margin: auto;
-      justify-content: center;
-      text-align: center;
-    }
-  
-    .formulario {
-      display: flex;
-      flex-direction: column;
-      width: 3000px;
-      max-width: 400px;
-      margin: auto;
-      margin-bottom: 140px;
-    }
-    
-    .formulario label {
-      margin-bottom: 0.5rem;
-      margin-top: 1rem;
-      font-weight: bold;
-      font-family: "montserrat", sans-serif;
-    }
-    
-    .formulario input,
-    .formulario textarea {
-      padding: 0.9rem;
-      margin-bottom: 1.2rem;
-      margin-bottom: 0px;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      background-color: #121212;
-      color: white;
-      font-family: "montserrat", sans-serif;
-    }
-    
-    .formulario select{
-      font-family: "montserrat", sans-serif;
-      border-radius: 10px;
-      height: 47px;
-    }
-    
-    .formulario .botonSolicitudServicio {
-      font-family: "montserrat", sans-serif;
-      font-weight: 600;
-      font-size: 16px;
-      padding: 0.6rem 1rem;
-      background-color: #f57600;
-      color: #121212 ;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    
-    .formulario .botonSolicitudServicio:hover {
-      background-color: #C75F00;
-    }
-  
-    .botonSolicitudServicio{
-      font-family: "montserrat", sans-serif;
-      font-weight: 500;
-      font-size: 16px;
-      padding: 0.6rem 1rem;
-      background-color: #f57600;
-      color: #121212;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-  
-    .formulario .botonSolicitudServicio{
-      margin-top: 15px;
-    }
-    
-    .botonSolicitudServicio{
-      color: #121212;
-      font-weight: 500;
-    }
-  
-    .errorServicios {
-      color: #e74c3c; 
-      font-size: 0.9rem; 
-      padding-left: 4px; 
-      font-weight: 500; 
-      white-space: nowrap;      
-      overflow: hidden;         
-      text-overflow: ellipsis;
-      margin-top: 10px;
-      text-align: left;
-    }
-  
-    .tickModal{
-      display: flex;
-      justify-content: center;
-      text-align: center;
-      margin: auto;
-    }
-  }
+}
+
