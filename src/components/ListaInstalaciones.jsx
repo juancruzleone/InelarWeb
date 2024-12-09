@@ -454,7 +454,7 @@ const ListaInstalaciones = () => {
                 </div>
               ))
             ) : (
-              <p id={styles.sinDispositivos}>No se encontraron dispositivos para esta instalación.</p>
+              <p id={stylesDevices.sinDispositivos}>No se encontraron dispositivos para esta instalación.</p>
             )}
           </div>
         </div>

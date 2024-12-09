@@ -1,8 +1,14 @@
 /* MOBILE */
+#sinDispositivos{
+  margin-left: 16px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
 .loaderDispositivos{
   margin-left: 15px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .ModalPanelEditar {
@@ -1177,7 +1183,7 @@
 
   .loaderDispositivos {
     text-align: left;
-    margin-top: 20px;
+    margin-top: 30px;
     margin-left: 50px;
   }
 
@@ -1276,5 +1282,11 @@
   .tarjetaContenido .categoriaDispositivo{
     text-align: center;
     justify-content: center;
+  }
+
+  #sinDispositivos{
+    margin-left: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
 }
