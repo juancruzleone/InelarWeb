@@ -38,7 +38,7 @@
   background-color: #1d1d1d;
   border-radius: 7px;
   padding: 15px;
-  margin: 15px auto;
+  margin: 15px;
   width: 90%;
   max-width: 400px;
   font-family: "montserrat", sans-serif;
@@ -103,13 +103,17 @@
 
 /* TABLETS*/
 @media (min-width: 768px) {
+  .tarjetaProductoPanel{
+    margin-left: 35px;
+  }
+
   .tituloPaginasPanel {
     font-size: 28px;
     margin-left: 40px;
   }
 
   .buscadorPanel {
-    width: 80%;
+    width: 92%;
     margin-left: 40px;
   }
 
