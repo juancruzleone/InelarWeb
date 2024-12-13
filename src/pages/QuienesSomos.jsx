@@ -47,7 +47,7 @@ export default function QuienesSomos() {
             </div>
             <div className={styles.contador}>
               <span className={styles.plusSign}>+</span>
-              <CountUp start={0} end={200} duration={3} />
+              <CountUp start={0} end={1000} duration={3} />
               <p>Obras realizadas</p>
             </div>
             <div className={styles.contador}>
